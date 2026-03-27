@@ -158,6 +158,28 @@ This result formalizes a precise claim: the welfare state and repressive apparat
 
 This connects to the class compromise tradition. Przeworski and Wallerstein (1982) modeled the bargain sustaining democratic capitalism: workers consent to private profit in exchange for social protection (see also Moene and Wallerstein 2001 on the demand for social insurance under inequality). Our P7-P8 formalize a specific implication: when this compromise is institutionalized as a standing welfare state, it insures the regime itself --- not just individual workers --- against technological disruption. The authoritarian alternative, welfare spending as a substitute for (or complement to) repression to prevent insurrection (Desai, Olofsgard, and Yousef 2009), achieves stabilization but at the cost of leaving citizens uncompensated.
 
+## Why democracies cannot recover in $t=2$: endogenous fiscal fragility
+
+A natural objection: under threshold automation, the crisis *is* observable in $t=2$ ($\ell_2 = L$). Why can't the democracy build emergency compensation then? Assumption A5 rules this out by fiat. We now relax A5 and show that the result survives under an endogenous fiscal constraint.
+
+**A5' (Emergency fiscal constraint).** In $t=2$, the democracy can attempt to build emergency compensatory capacity $\varphi_2^{em}$ at cost $p \cdot c(\varphi_2^{em})$, where $p \geq 1$ is the *crisis premium* (reflecting fiscal stress, political polarization, and borrowing costs under duress) and $c(\cdot)$ is the normal cost of building capacity. Emergency spending is subject to a fiscal constraint: $p \cdot c(\varphi_2^{em}) \leq F$, where $F > 0$ is available fiscal capacity.
+
+**Proposition 9 (Endogenous fiscal fragility).** *Under A5' replacing A5, define $p^* \equiv F / c(\bar{\varphi})$. Democracy is unstable under threshold automation whenever $p \geq p^*$.*
+
+*Proof.* Under threshold, $t=2$: $\ell_2 = L$, $\varphi_1 = 0$ (by A3). Survival requires $\varphi_2^{em} \geq \bar{\varphi}$, costing $p \cdot c(\bar{\varphi})$. This is affordable iff $p \cdot c(\bar{\varphi}) \leq F$, i.e., $p \leq p^*$. For $p \geq p^*$: emergency compensation is unaffordable. P1(b) holds. $\blacksquare$
+
+Three forces push $p$ above $p^*$ during a threshold crisis:
+
+1. *Fiscal erosion.* The automation shock shrinks the tax base: workers who lose income pay less tax. The fiscal capacity $F$ itself declines with $\ell_2$.
+2. *Political paralysis.* Workers moving toward $R$ makes legislative bargaining over emergency spending harder. The non-exposed majority (who must approve taxation, per Appendix A) faces a more polarized environment.
+3. *Credibility collapse.* Emergency programs announced during crisis are less credible than established institutions: implementation lags, administrative capacity is absent, and beneficiaries cannot verify promises.
+
+The asymmetry with autocracy is structural: $\kappa_0$ is a pre-built stock, not a crisis-mobilized flow. The repressive apparatus does not require emergency fiscal authorization --- its cost was paid *ex ante* through continuous maintenance. Compensation, by contrast, must be fiscally mobilized *during* the crisis, precisely when mobilization is hardest.
+
+**Corollary 3 (Vicious cycle of democratic fragility).** *Under threshold automation with endogenous fiscal constraint, weak democracies ($\varphi_0 < \bar{\varphi}$) face a vicious cycle: (i) no preventive investment in $t=1$ (A3); (ii) crisis in $t=2$ erodes fiscal capacity ($F \downarrow$) and raises political costs ($p \uparrow$); (iii) emergency response becomes unaffordable ($p > p^*$); (iv) instability. Preventive investment ($\varphi_0 \geq \bar{\varphi}$, P7) breaks this cycle by building capacity before fiscal conditions deteriorate.*
+
+This result strengthens the normative case for the welfare state. The choice is not merely between compensating workers (humane) and repressing them (effective). It is between investing *before* the crisis, when fiscal conditions permit, and attempting to invest *during* the crisis, when they may not. A5 is the limiting case ($p \to \infty$); the endogenous version preserves the result whenever crisis conditions are severe enough to make emergency response prohibitively expensive.
+
 **Corollary 2 (Complete regime typology).**
 
 | Type | Condition | Rapid | Threshold |
