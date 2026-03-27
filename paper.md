@@ -106,7 +106,7 @@ Since $\eta_R < 1$: the autocracy needs $\kappa_0 \geq \bar{\kappa}/\eta_R$ to s
 
 *Proof.* The interval is nonempty since $\eta_R < 1$. (a) Democracy stable by P1(a); autocracy: $\kappa_0 < \bar{\kappa}/\eta_R$, unstable by P2(a). (b) Democracy unstable by P1(b); autocracy: $\kappa_0 \geq \bar{\kappa}$, stable by P2(b). $\blacksquare$
 
-Proposition 3 is the paper's central result. Each regime has *comparative institutional advantage* for one type of shock: democracies process observable shocks better (coordination channels into compensation); autocracies process delayed shocks better (repression contains disoriented opposition).
+Proposition 3 is the paper's central result. Each regime has *differential institutional resilience* for one type of shock: democracies process observable shocks better (coordination channels into compensation); autocracies process delayed shocks better (repression contains disoriented opposition).
 
 **Proposition 4 (Welfare cost of autocratic stability).** *Conditional on regime survival, $E$'s welfare is strictly higher under democracy:*
 $$u_E(M \mid D, \text{stable}) - u_E(M \mid A, \text{stable}) = \bar{\kappa} > 0$$

@@ -18,7 +18,7 @@ We show that comprehensive social insurance achieves the same institutional resi
 
 Recent advances in artificial intelligence have renewed concerns about large-scale labor market disruption. A growing economic literature emphasizes that the impact of automation depends on the structure of tasks within jobs and the response of demand (Autor, Levy, and Murnane 2003; Acemoglu and Restrepo 2020). Gans and Goldfarb (2026) formalize a key distinction: when production relies on complementary tasks (O-Ring structure), partial automation may initially increase worker productivity, and only after certain thresholds are crossed does automation become strongly substitutive. This implies that automation may follow qualitatively different trajectories --- rapid displacement in some sectors and delayed, nonlinear substitution in others.
 
-The political implications of this distinction have not been explored. The regime stability literature models economic shocks as uniform: a given magnitude of disruption either threatens the regime or does not. Acemoglu and Robinson (2006) show that *transitory* shocks can trigger regime transitions by opening windows of opportunity, but treat transitoriness as binary. Przeworski (2005, 2006) models democracy as a self-enforcing equilibrium where both factions prefer continued elections to rebellion, but the model is comparative-static in income --- it does not address what happens when income is suddenly disrupted, let alone how the *shape* of that disruption matters. The empirical record suggests an asymmetry: democracies are fragile under economic crises while autocracies prove resilient (Przeworski et al. 2000), but no formal model explains *why* or specifies the conditions under which this pattern reverses.
+The political implications of this distinction have not been explored. The regime stability literature models economic shocks as uniform: a given magnitude of disruption either threatens the regime or does not. Acemoglu and Robinson (2006; see also Boix 2003) show that *transitory* shocks can trigger regime transitions by opening windows of opportunity, but treat transitoriness as binary. On the authoritarian side, Svolik (2012) identifies power-sharing and mass control as the two fundamental problems of authoritarian politics --- our model addresses the latter. Przeworski (2005, 2006) models democracy as a self-enforcing equilibrium where both factions prefer continued elections to rebellion, but the model is comparative-static in income --- it does not address what happens when income is suddenly disrupted, let alone how the *shape* of that disruption matters. The empirical record suggests an asymmetry: democracies are fragile under economic crises while autocracies prove resilient (Przeworski et al. 2000), but no formal model explains *why* or specifies the conditions under which this pattern reverses.
 
 This paper fills that gap. We build a two-period model in the Open Economy Politics tradition (Lake 2009): the economics of automation is taken as given (from Gans and Goldfarb 2026), and we derive the political-institutional implications. The model produces three main results.
 
@@ -156,7 +156,7 @@ $$u_E(M \mid D\text{-strong}) - u_E(M \mid A\text{-strong}) \geq \bar{\kappa} > 
 
 This result formalizes a precise claim: the welfare state and repressive apparatus are functionally equivalent as *stabilization* mechanisms but not as *welfare* mechanisms. A strong democracy stabilizes *and* compensates. A strong autocracy stabilizes but leaves workers to bear the full cost of automation. The normative argument for comprehensive social insurance is that it purchases the same institutional resilience as repression --- without the human cost.
 
-This connects to the class compromise tradition. Przeworski and Wallerstein (1982) modeled the bargain sustaining democratic capitalism: workers consent to private profit in exchange for social protection. Our P7-P8 formalize a specific implication: when this compromise is institutionalized as a standing welfare state, it insures the regime itself --- not just individual workers --- against technological disruption. The authoritarian alternative, welfare spending as a substitute for (or complement to) repression to prevent insurrection (Desai, Olofsgard, and Yousef 2009), achieves stabilization but at the cost of leaving citizens uncompensated.
+This connects to the class compromise tradition. Przeworski and Wallerstein (1982) modeled the bargain sustaining democratic capitalism: workers consent to private profit in exchange for social protection (see also Moene and Wallerstein 2001 on the demand for social insurance under inequality). Our P7-P8 formalize a specific implication: when this compromise is institutionalized as a standing welfare state, it insures the regime itself --- not just individual workers --- against technological disruption. The authoritarian alternative, welfare spending as a substitute for (or complement to) repression to prevent insurrection (Desai, Olofsgard, and Yousef 2009), achieves stabilization but at the cost of leaving citizens uncompensated.
 
 **Corollary 2 (Complete regime typology).**
 
@@ -168,7 +168,9 @@ This connects to the class compromise tradition. Przeworski and Wallerstein (198
 | Moderate autocracy | $\bar{\kappa} \leq \kappa_0 < \bar{\kappa}/\eta_R$ | Unstable | Stable |
 | Strong autocracy | $\kappa_0 \geq \bar{\kappa}/\eta_R$ | Stable | Stable |
 
-The crossed fragility pattern (Proposition 3) applies to the comparison between *weak democracies* and *moderate autocracies*.
+The crossed fragility pattern (Proposition 3) applies to the comparison between *weak democracies* and *moderate autocracies*. Figure 1 illustrates the parametric regions.
+
+![Stability regions by regime type. Panel A: autocracy stability as a function of standing repressive capacity $\kappa_0$. Panel B: democracy stability as a function of standing compensatory capacity $\varphi_0$. Parameters: $L=1$, $|\Delta|=0.4$, $\eta_R=0.5$.](figures/fig_parametric_space.pdf){width=100%}
 
 **Empirical mapping.**
 
@@ -239,6 +241,8 @@ Edmond, C. 2013. "Information Manipulation, Coordination, and Regime Change." *R
 
 Gans, J. S., and A. Goldfarb. 2026. "O-Ring Automation." Working paper.
 
+Knutsen, C. H., and M. Rasmussen. 2018. "The Autocratic Welfare State: Old-Age Pensions, Credible Commitments, and Regime Survival." *Comparative Political Studies* 51(5): 659-695.
+
 Kuran, T. 1991. "Now Out of Never: The Element of Surprise in the East European Revolution of 1989." *World Politics* 44(1): 7-48.
 
 Lake, D. A. 2009. "Open Economy Politics: A Critical Review." *Review of International Organizations* 4(3): 219-244.
@@ -252,6 +256,8 @@ Przeworski, A. 2005. "Democracy as an Equilibrium." *Public Choice* 123: 253-273
 Przeworski, A. 2006. "Self-Enforcing Democracy." In *Oxford Handbook of Political Economy*, edited by B. R. Weingast and D. A. Wittman. Oxford University Press.
 
 Przeworski, A., M. E. Alvarez, J. A. Cheibub, and F. Limongi. 2000. *Democracy and Development: Political Institutions and Well-Being in the World, 1950-1990*. Cambridge University Press.
+
+Przeworski, A., and F. Limongi. 1997. "Modernization: Theories and Facts." *World Politics* 49(2): 155-183.
 
 Przeworski, A., and M. Wallerstein. 1982. "The Structure of Class Conflict in Democratic Capitalist Societies." *American Political Science Review* 76(2): 215-238.
 
