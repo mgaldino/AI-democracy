@@ -47,3 +47,8 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Build artifacts
+paper.pdf
+paper.tex
+figures/Rplots.pdf
