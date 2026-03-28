@@ -130,6 +130,7 @@ Democracia e autocracia devem ser UM modelo com tipo de regime como parâmetro, 
 9. ~~**Formatar como paper**~~ — FEITO (paper.md). Intro lidera com P8. Estrutura: §1 Intro, §2 Model, §3 Results (P1-P6), §4 Extension (P7-P8 + tipologia completa), §5 Discussion, §6 Conclusion, Appendices A-B. 16 referências (15 + Przeworski & Limongi 1997 em nota).
 10. **(Futuro)** Extensão com instrumentos mistos — especialização endógena.
 11. **(Futuro)** Operacionalizar mapeamento empírico: φ₀ como gasto social/PIB, κ₀ como gasto segurança/PIB.
+12. **(Futuro)** Extensão com incerteza sobre trajetória — P10 (under-insurance racional) + Corolário 4 (zona de fragilidade racional). Endereça crítica do Edmans sobre distância premissas→conclusões. Plano detalhado em: `~/.claude/plans/compressed-noodling-penguin.md`.
 
 ## Diretrizes de apresentação do paper
 
