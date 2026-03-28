@@ -132,6 +132,23 @@ Democracia e autocracia devem ser UM modelo com tipo de regime como parâmetro, 
 11. **(Futuro)** Operacionalizar mapeamento empírico: φ₀ como gasto social/PIB, κ₀ como gasto segurança/PIB.
 12. **(Futuro)** Extensão com incerteza sobre trajetória — P10 (under-insurance racional) + Corolário 4 (zona de fragilidade racional). Endereça crítica do Edmans sobre distância premissas→conclusões. Plano detalhado em: `~/.claude/plans/compressed-noodling-penguin.md`.
 
+## Agenda de pesquisa (papers futuros)
+
+**Paper 2: AI Surveillance and Repressive Capacity**
+- Canal: IA → vigilância → η_R ↑ → crossed fragility shrinks
+- Pergunta: como AI surveillance altera a resiliência relativa de regimes? Existe σ* acima do qual crossed fragility desaparece?
+- Mecanismo: surveillance permite identificação preventiva de dissidentes → repressão eficaz mesmo contra oposição coordenada → η_R → 1
+- Assimetria: autocracias deployam sem restrição; democracias limitadas por privacy laws (σ_D < σ_A)
+- Resultado esperado: para σ ≥ σ*, autocracias estáveis sob AMBAS as trajetórias. Vantagem democrática sob rapid eliminada pela tecnologia.
+- Refs: Beraja, Yang & Yuchtman (2023); Feldstein (2019); Guriev & Treisman (2019, 2022); Dragu & Lupu (2021)
+- Status: ideação feita, formalização pendente
+
+**Paper 3: Interação automação × surveillance — qual domina?**
+- Combina paper 1 (automação desestabiliza) e paper 2 (surveillance estabiliza)
+- Pergunta: quando ambos os canais operam simultaneamente, qual efeito domina?
+- Depende de papers 1 e 2 publicados/circulando
+- Status: conceitual apenas
+
 ## Diretrizes de apresentação do paper
 
 - **Liderar a introdução com P8**: "We show that comprehensive social insurance achieves the same institutional resilience as repressive capacity — without the human cost."
