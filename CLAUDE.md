@@ -149,6 +149,15 @@ Democracia e autocracia devem ser UM modelo com tipo de regime como parâmetro, 
 - Depende de papers 1 e 2 publicados/circulando
 - Status: conceitual apenas
 
+**Extensão do paper 1 (não paper separado): Sistema eleitoral e resiliência democrática**
+- Interpretar φ₀ como determinado pelo sistema eleitoral: PR → φ₀ alto (welfare universal) = democracia forte; majoritário → φ₀ baixo = democracia fraca
+- Opção A (agora/R&R): parágrafo na Discussion conectando tipologia a Iversen & Soskice (2006), Hall & Soskice (2001), Rogowski (1987). ~5 frases.
+- Opção B (se reviewer pedir): extensão formal com dois sub-tipos de democracia parametrizados por (φ₀, velocidade de A3). ~1-1.5 páginas.
+- Resultado previsível como standalone ("PR → welfare → resiliência") — não justifica paper separado. Valioso como interpretação empírica dentro do paper 1.
+- Ideia para futuro: se velocidade de resposta (rápida/localizada vs lenta/universal) gerar resultado cruzado *dentro de democracia*, aí vira paper. Requer endogeneizar A3 ao sistema eleitoral.
+- Refs: Iversen & Soskice (2006), Cusack/Iversen/Soskice (2007), Rogowski (1987), Hiscox (2002), Rickard (2018), Hall & Soskice (2001), Rodden (2019)
+- Variação paralela entre autocracias (Geddes 1999/2003) — simétrica mas projeto separado
+
 ## Diretrizes de apresentação do paper
 
 - **Liderar a introdução com P8**: "We show that comprehensive social insurance achieves the same institutional resilience as repressive capacity — without the human cost."
