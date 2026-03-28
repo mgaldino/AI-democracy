@@ -52,3 +52,5 @@ rsconnect/
 paper.pdf
 paper.tex
 figures/Rplots.pdf
+.DS_Store
+*.html
