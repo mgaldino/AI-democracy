@@ -131,6 +131,7 @@ Democracia e autocracia devem ser UM modelo com tipo de regime como parâmetro, 
 10. **(Futuro)** Extensão com instrumentos mistos — especialização endógena.
 11. **(Futuro)** Operacionalizar mapeamento empírico: φ₀ como gasto social/PIB, κ₀ como gasto segurança/PIB.
 12. **(Futuro)** Extensão com incerteza sobre trajetória — P10 (under-insurance racional) + Corolário 4 (zona de fragilidade racional). Endereça crítica do Edmans sobre distância premissas→conclusões. Plano detalhado em: `~/.claude/plans/compressed-noodling-penguin.md`.
+13. **(Em progresso)** Microfundamentação via populismo: heterogeneidade de E (da complementaridade) + coordenação de elites políticas. Dois equilíbrios sob threshold (compromisso vs. populista), φ₀ como seletor. Sketch numérico confirmou mecanismo (06_populism_numerical_sketch.R). Design avaliado 7.5/10 (quality_reports/2026-03-31_formal-model-design-populism-extension-v2.md). Síntese em: `model/05_populism_microfoundation_synthesis.md`. Próximo: formalizar modelo geral.
 
 ## Agenda de pesquisa (papers futuros)
 

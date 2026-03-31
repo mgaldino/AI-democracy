@@ -46,9 +46,9 @@ $$u_E(R \mid D, t) = \theta W - k$$
 
 Under autocracy:
 $$u_E(M \mid A, t) = w_E - \ell_t$$
-$$u_E(R \mid A, t) = \theta W - k - \kappa_0 \cdot \eta_t$$
+$$u_E(R \mid A, t) = \theta W - k - \kappa_0 \cdot \eta_j$$
 
-where $\varphi_t \in [0,1]$ is the compensatory capacity of the democracy, $\kappa_0 > 0$ is the autocracy's standing repressive capacity, $\eta_t \in (0,1]$ is repressive effectiveness, $\theta \in (0,1)$ is the share of total output captured by $E$ under regime change, and $k > 0$ is the cost of transition (violence, uncertainty, capital destruction).
+where $\varphi_t \in [0,1]$ is the compensatory capacity of the democracy, $\kappa_0 > 0$ is the autocracy's standing repressive capacity, $\eta_j \in (0,1]$ is repressive effectiveness (indexed by trajectory $j$, not by period), $\theta \in (0,1)$ is the share of total output captured by $E$ under regime change, and $k > 0$ is the cost of transition (violence, uncertainty, capital destruction).
 
 The key structural asymmetry: democracy stabilizes by making $M$ more attractive (compensation reduces losses), while autocracy stabilizes by making $R$ more costly (repression raises the price of revolt).
 
@@ -67,8 +67,8 @@ where $\bar{\varphi} \equiv 1 - |\Delta|/L \in (0,1)$.
 Democratic compensation requires political legitimacy — legislative authorization and fiscal mobilization — that emerges only under observable crisis. This pattern is historically robust: major social insurance programs are created after crises (the New Deal after the Great Depression, the welfare state after World War II), not before. Appendix A provides a formal microfoundation: in a voting game, the non-exposed majority vetoes taxation when no crisis is observed (the threat of regime change is not credible) and approves it when losses are visible (the threat becomes credible).^[The result holds for any investment rule $\varphi(\ell)$ satisfying $\varphi(0) = 0$ and $\varphi(L) \geq \bar{\varphi}$. The specific functional form of A3 is not required.]
 
 **A4 (Repressive effectiveness depends on shock type).**
-$$\eta(r) = \eta_R \in (0,1) \quad \text{(rapid: degraded repression)}$$
-$$\eta(\tau) = 1 \quad \text{(threshold: full repression)}$$
+$$\eta_r = \eta_R \in (0,1) \quad \text{(rapid: degraded repression)}$$
+$$\eta_\tau = 1 \quad \text{(threshold: full repression)}$$
 
 Rapid shocks are visible and shared, creating near-common knowledge of grievance among affected workers. This facilitates coordination: organized opposition degrades repressive effectiveness through security force defection, international pressure, and the moral legitimacy of the cause. Threshold shocks are sudden and disorienting, producing strategic uncertainty that impedes coordination: dispersed dissent is easily contained by standing repressive apparatus. Appendix B provides a formal microfoundation via global games (Morris and Shin 2003): under rapid shocks, high signal precision yields an equilibrium with high participation in collective action; under threshold shocks, noisy private signals destroy coordination.^[The mechanism is informational, not preferential: $E$ desires revolt equally under both shock types ($u_E(R)$ is the same). What differs is the capacity to coordinate, determined by the information structure of the shock.]
 
@@ -86,7 +86,7 @@ Rapid shocks are visible and shared, creating near-common knowledge of grievance
 
 The *compensatory threshold* is $\bar{\varphi} = 1 - |\Delta|/L$.
 
-**Autocracy.** When $\ell_t = 0$: stable. When $\ell_t = L$: stable iff $\kappa_0 \cdot \eta_t \geq \Delta + L \equiv \bar{\kappa}$.
+**Autocracy.** When $\ell_t = 0$: stable. When $\ell_t = L$: stable iff $\kappa_0 \cdot \eta_j \geq \Delta + L \equiv \bar{\kappa}$.
 
 The *repressive threshold* is $\bar{\kappa} = L - |\Delta|$.
 
@@ -107,6 +107,15 @@ Since $\eta_R < 1$: the autocracy needs $\kappa_0 \geq \bar{\kappa}/\eta_R$ to s
 *Proof.* The interval is nonempty since $\eta_R < 1$. (a) Democracy stable by P1(a); autocracy: $\kappa_0 < \bar{\kappa}/\eta_R$, unstable by P2(a). (b) Democracy unstable by P1(b); autocracy: $\kappa_0 \geq \bar{\kappa}$, stable by P2(b). $\blacksquare$
 
 Proposition 3 is the paper's central result. Each regime has *differential institutional resilience* for one type of shock: democracies process observable shocks better (coordination channels into compensation); autocracies process delayed shocks better (repression contains disoriented opposition).
+
+**Illustrative example.** Let $w_E = 1$, $W = 2$, $L = 1$ (full displacement of exposed workers' income), $\theta = 0.5$, $k = 0.4$, $\kappa_0 = 0.8$, and $\eta_R = 0.5$. Then $\Delta = -0.4$, $\bar{\varphi} = 0.6$, $\bar{\kappa} = 0.6$, and $\kappa_0 = 0.8 \in [0.6,\; 1.2) = [\bar{\kappa},\; \bar{\kappa}/\eta_R)$, so the crossed pattern obtains:
+
+- *Rapid + democracy*: crisis at $t=1$ triggers $\varphi_1 = 0.6$. Workers earn $u_E(M) = 1 - 1(1 - 0.6) = 0.6$, equal to $u_E(R) = 0.5 \times 2 - 0.4 = 0.6$. *Stable.*
+- *Rapid + autocracy*: organized opposition degrades repression to $\kappa_0 \eta_R = 0.4 < 0.6 = \bar{\kappa}$. Workers prefer revolt: $u_E(R) = 0.6 - 0.4 = 0.2 > 0 = u_E(M)$. *Unstable.*
+- *Threshold + democracy*: no crisis at $t=1$, so $\varphi_1 = 0$. At $t=2$, $\varphi_2 = 0$ (A5) and $u_E(R) = 0.6 > 0 = u_E(M)$. *Unstable.*
+- *Threshold + autocracy*: sudden shock, no coordination. $\kappa_0 \eta_\tau = 0.8 > 0.6 = \bar{\kappa}$. Workers prefer moderation: $u_E(R) = 0.6 - 0.8 = -0.2 < 0 = u_E(M)$. *Stable.*
+
+Note the welfare asymmetry: when democracy survives (rapid), workers earn $0.6$; when autocracy survives (threshold), workers earn $0$. The regime survives but citizens absorb the full shock.
 
 **Proposition 4 (Welfare cost of autocratic stability).** *Conditional on regime survival, $E$'s welfare is strictly higher under democracy:*
 $$u_E(M \mid D, \text{stable}) - u_E(M \mid A, \text{stable}) = \bar{\kappa} > 0$$
@@ -306,6 +315,6 @@ Net benefit of successful revolt: $B = \theta W - k - (w_E - L) = \bar{\kappa} >
 
 ### Mapping to $\eta$
 
-Define $\eta(j) = h(\pi^*_j)$ where $h$ is decreasing, $h(0) = 1$. Under rapid: $\pi^*$ high $\Rightarrow$ $\eta_R < 1$ (organized opposition degrades repression). Under threshold: $\pi^*$ low $\Rightarrow$ $\eta_T = 1$ (repression fully effective). This recovers A4 as an equilibrium outcome.
+Define $\eta(j) = h(\pi^*_j)$ where $h$ is decreasing, $h(0) = 1$. Under rapid: $\pi^*$ high $\Rightarrow$ $\eta_R < 1$ (organized opposition degrades repression). Under threshold: $\pi^*$ low $\Rightarrow$ $\eta_\tau = 1$ (repression fully effective). This recovers A4 as an equilibrium outcome.
 
 The mechanism is informational: $E$ desires revolt equally under both shocks, but can only coordinate under rapid. Common knowledge enables collective action (Chwe 2001); strategic uncertainty prevents it (Kuran 1991).^[Przeworski and Limongi (1997) established the empirical precursor: economic development does not cause transitions to democracy, but existing democracies at higher income levels survive longer. Our model provides a mechanism for why economic disruptions differentially affect regime survival depending on both the trajectory of the disruption and the type of regime.]
