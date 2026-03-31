@@ -188,13 +188,48 @@ O resultado de exatamente 50-50 e artefato da uniforme simetrica. Em versao mais
 - Distribuicao com mais massa acima de w_E: menos de 50% pro-R -> equilibrio compromisso mais robusto
 - O que importa para o resultado qualitativo: fracao pro-R > 0 (P-party tem base) E fracao pro-R < 1 (M-party tambem tem base)
 
+## Gap principal identificado (2026-03-31, pos-leitura Bonomi et al.)
+
+O modelo atual pre-atribui papeis: M-party oferece compensacao, P-party oferece populismo. Mas para o mecanismo de saliencia ser endogeno, um empreendedor politico deveria ESCOLHER entre oferecer C (compensacao) ou R (populismo), e a heterogeneidade de E deveria tornar R mais rentavel eleitoralmente.
+
+A propriedade formal que sustenta isso JA EXISTE nos payoffs:
+- u_i(M|phi_bar) = x_i - L(1-phi_bar) -> TIPO-DEPENDENTE (payoff varia com x_i)
+- u_i(R) = theta*W - k -> TIPO-INDEPENDENTE (payoff igual para todos)
+
+Compensacao preserva a estrutura de tipos (cada E_i recebe payoff diferente). Regime change destroi a estrutura de tipos (todos recebem o mesmo). Essa e a assimetria formal entre as duas propostas.
+
+Sob homogeneidade (rapid): todos tem x_i = w_E -> tipo-dependencia irrelevante -> C funciona para todos -> C domina
+Sob heterogeneidade (threshold): tipo-dependencia importa -> C satisfaz metade de E -> R captura a outra metade -> R e viavel
+
+A PREMISSA que falta formalizar: compensacao democratica e politica uniforme (um phi para todos). Isso ja esta implicito no modelo base (A3 define um unico phi_bar). Quando E e heterogeneo, politica uniforme nao satisfaz todos os tipos -> abertura para R.
+
+NOTA: "thin vs thick ideology" e "demanda espessa vs fina" sao LABELS verbais, nao propriedades formais. O que esta no modelo e: C e tipo-dependente, R e tipo-independente. A formalizacao deve trabalhar com essa propriedade, nao com as metaforas.
+
+DESAFIO: para endogeneizar completamente, modelar um empreendedor politico que escolhe oferecer C ou R, onde:
+- Oferecer C: ganha votos de E_i com x_i > w_E (tipo alto) + N
+- Oferecer R: ganha votos de E_i com x_i < w_E (tipo baixo)
+- Sob sigma_E = 0: C domina (unanimidade + N)
+- Sob sigma_E > 0: R captura fracao positiva de E -> viavel se fracao suficiente
+
+Conexao com Bonomi et al. (2021): eles endogeneizam qual CLIVAGEM e saliente via intensidade de conflito em cada dimensao. Nos precisariamos endogeneizar qual PLATAFORMA e viavel via heterogeneidade de E. O mecanismo formal e diferente (nao temos dimensao cultural), mas o principio e analogo.
+
 ## Desafios de formalizacao remanescentes
 
-1. **Formalizar o jogo de elites**: como modelar M-party e P-party? Competicao eleitoral Downsiana com entrada? Jogo de coordenacao entre elites?
-2. **Parametrizar heterogeneidade**: como medir heterogeneidade de E criada pela complementaridade? Variancia de ganhos em t=1?
-3. **Derivar condicao para dois equilibrios**: para quais valores de heterogeneidade ambos os equilibrios existem?
-4. **phi_0 como seletor formal**: derivar formalmente por que phi_0 >= phi_bar elimina o equilibrio populista
-5. **Decidir escopo**: Appendix A revisado, Appendix C novo, ou secao do paper?
+1. **Endogeneizar entrada e escolha de plataforma (PRINCIPAL DESAFIO)**:
+   Unifica duas observacoes convergentes:
+   - Parecer v2 (sugestao 2): "modelar como jogo de entrada — P-party entra sse sigma_E > sigma_bar"
+   - Leitura de Bonomi et al.: entrada nao pode ser mecanica (sigma_E > limiar) — deve ser SUBSTANTIVA, mostrando POR QUE R e mais rentavel que C sob heterogeneidade
+   
+   A resposta formal ja esta nos payoffs: C e tipo-dependente (u_i depende de x_i), R e tipo-independente (u_i igual para todos). Sob homogeneidade, C satisfaz todos -> R nao e rentavel. Sob heterogeneidade, C satisfaz apenas parte -> R captura o resto -> R e rentavel.
+   
+   Formalizacao proposta: empreendedor politico observa sigma_E e escolhe oferecer C ou R. Voto share de R entre E = P(x_i < w_E | sigma_E). Entrada de R e rentavel quando esse vote share, combinado com a dinamica autorreforçante (campanha populista fragmenta E adicionalmente), gera maioria.
+   
+   Refs formais: Buisseret & Van Weelden (2020) AJPS (outsider exploits within-party cleavages); Bonomi et al. (2021) QJE (principio de saliencia endogena, nao a maquinaria especifica).
+
+2. **Parametrizar heterogeneidade**: como medir heterogeneidade de E criada pela complementaridade? Variancia de ganhos em t=1? Justificar via Gans & Goldfarb (O-Ring: tarefas complementares geram ganhos diferenciais).
+3. **Derivar condicao para dois equilibrios**: para quais valores de sigma_E ambos os equilibrios existem? (O sketch sugere qualquer sigma_E > 0, mas pode ser artefato da uniforme simetrica.)
+4. **phi_0 como seletor formal**: derivar por que phi_0 >= phi_bar elimina o equilibrio populista (compensacao automatica -> plataforma R nao rentavel).
+5. **Decidir escopo**: Appendix A revisado, Appendix C novo, ou secao do paper com P9?
 
 ## Proximos passos
 
