@@ -1,59 +1,54 @@
-# Editorial notes: AI Automation, Regime Type, and Crossed Fragility
+# Notas editoriais: AI Automation, Regime Type, and Crossed Fragility
 
-**Original file**: paper.Rmd
-**Date**: 2026-03-27
+**Arquivo original**: /Users/manoelgaldino/Documents/DCP/Papers/IA-dem/paper.md
+**Data**: 2026-04-01
 
-## Diagnosis of the original version
+## Diagnóstico da versão original
 
-The original introduction is structurally sound (follows Little's Template 1: fact/puzzle, gap, contribution) and substantively clear. Three problems reduce its impact. First, excessive em dashes (6+) create a cadence that feels programmatic. Second, the three-result preview (**First**, **Second**, **Third** in bold) reads as a list rather than an argument, and the mechanism paragraph (Second) is better folded into the crossed fragility result. Third, some phrasing leans on vague upgrade words ("remarkably little") and rhetorical contrast constructions that the style guide flags as LLM tics.
+A introdução atual tem conteúdo forte mas três problemas estruturais. Primeiro, abre com P8 (resultado sobre welfare state) sem antes estabelecer o puzzle que motiva o paper, forçando o leitor a aceitar um resultado antes de entender por que ele importa. Segundo, o mecanismo (coordenação) é explicado duas vezes: uma no parágrafo do cenário concreto (par. 2) e outra no bloco "Second" dos resultados (par. 6), gerando redundância. Terceiro, o bloco de resultados usa bold (**First**, **Second**, **Third**) que o style guide proíbe, e o parágrafo sobre Przeworski & Wallerstein (par. 8, já removido) repetia material da Seção 4.
 
-## Main changes
+## Principais mudanças
 
-1. **Opening restructured.** Moved from "We show that comprehensive social insurance achieves..." (result as opener, now lost since the user wanted fact/puzzle) to "The United States and China lead the world in generative AI." Fact first, puzzle second, contribution later. The Boix/AR (2006) historical reference is folded into the first paragraph as grounding for why political implications should be expected.
+1. **Abertura com puzzle, P8 na 3ª frase.** O par. 1 agora abre com o puzzle empírico (Przeworski et al. 2000: democracias frágeis, autocracias resilientes), imediatamente entrega P8 como punchline ("comprehensive social insurance achieves the same institutional resilience as repressive capacity"), e então explica o crossed fragility em linguagem concreta. Isso preserva a instrução de liderar com P8 (CLAUDE.md) sem abrir com um resultado sem contexto.
 
-2. **Em dashes eliminated.** Went from 6+ em dashes to zero. Replaced with commas, periods, semicolons, or colons depending on syntactic need.
+2. **Mecanismo explicado uma única vez (par. 2).** O cenário concreto (assembly line vs. radiologists) permanece intacto. A explicação do mecanismo (coordenação como sinal para democracias, oposição organizada contra autocracias) é dada aqui, sem repetição no bloco de resultados.
 
-3. **Three results compressed to two.** The original had (First) crossed fragility, (Second) mechanism, (Third) welfare state. The mechanism is part of the crossed fragility result, not a separate finding. Merged into: (First) crossed fragility with mechanism, (Second) welfare state as insurance. This is tighter and avoids the list-of-three pattern the style guide warns against.
+3. **Literatura comprimida em 1 parágrafo funcional (par. 3).** Cada referência cumpre uma função: Acemoglu & Robinson (transitoriedade binária), Boix (desigualdade sem trajetória), Przeworski (estático em renda), Svolik (agência autocrata-elite vs. nosso foco em contenção de massa). Sem lista; cada frase identifica o que o autor específico não faz.
 
-4. **Bold removed from First/Second/Third.** Used "First," and "Second," as normal sentence openers. Preserves structure without typographic emphasis.
+4. **Três resultados sem bold, sem repetição do mecanismo (par. 4).** Os resultados são enumerados (First, Second, Third) sem formatação bold. O "Second" agora é o welfare cost (P4), não o mecanismo (que já foi explicado no par. 2). O "Third" é P7-P8 com uma frase de posicionamento citando Przeworski & Wallerstein, Moene & Wallerstein, e Desai et al.
 
-5. **Literature paragraph tightened.** Removed "remarkably little formal attention." Each citation now does specific work defining the gap. The paragraph reads as argument, not coverage. Kept all 5 citations per user's request not to cut the lit review.
+5. **Roadmap comprimido a 3 frases (par. 5).** Elimina listagem mecânica de seções.
 
-6. **Intuition paragraph cleaned.** Removed the "Consider two countries" framing (hypothetical) and replaced with direct description of the mechanism in concrete terms. The concluding sentence ("The same technology produces opposite political outcomes depending on its trajectory") is a concrete claim, not a performative ending.
+6. **Remoção do parágrafo autônomo sobre Przeworski & Wallerstein.** Substituído por frase de posicionamento dentro do bloco de resultados.
 
-7. **Roadmap shortened.** Removed parenthetical details from roadmap. Readers find Section 3 themselves.
+## O que foi preservado
 
-8. **Przeworski & Wallerstein paragraph preserved** but tightened. Removed "not just for individuals against income loss, but for the regime itself" construction (contrastive formula flagged by style guide) and stated directly: "it insures the regime itself against technological disruption."
+- Cenário concreto assembly line vs. radiologists (intacto)
+- Todas as 15+ citações relevantes
+- Os três resultados (crossed fragility, welfare cost, welfare state as insurance)
+- Posicionamento OEP (Lake 2009) e premissa econômica (Gans & Goldfarb 2026)
+- Referência ao Appendix C no roadmap
+- Contagem de proposições atualizada (1-4 + comparative statics)
 
-## What was preserved
+## Pontos para verificação do autor
 
-- The US/China opening (user's explicit request)
-- All literature citations (Boix 2003, AR 2006, Svolik 2012, Przeworski 2005/2006, Przeworski et al. 2000, Chwe 2001, Kuran 1991, Edmond 2013, Moene & Wallerstein 2001, Desai et al. 2009, Lake 2009, Gans & Goldfarb 2026, Autor et al. 2003, Acemoglu & Restrepo 2020)
-- The intuitive scenario of opposite outcomes under different trajectories
-- The connection to Przeworski & Wallerstein's class compromise
-- The three-part structural logic: fact → gap → contribution
-- All formal claims (Proposition numbers, $\bar{\kappa}$, threshold references)
+1. **Abertura com puzzle vs. P8.** O CLAUDE.md diz "Liderar a introdução com P8." A reescrita abre com o puzzle (Przeworski et al.) e entrega P8 na 3ª frase. Os pareceres (FM Exposition, Edmans Exposition) recomendam puzzle primeiro. A versão proposta tenta conciliar ambos. O autor deve decidir se prefere (a) a versão proposta (puzzle, depois P8 na 3ª frase), (b) a versão original (P8 na 1ª frase), ou (c) outra sequência.
 
-## Points for author verification
+2. **Welfare cost como "Second" result.** Na versão original, o "Second" result era o mecanismo (coordenação). Na reescrita, o mecanismo é explicado no par. 2 e o "Second" result passa a ser P4 (welfare cost). O autor deve verificar se P4 merece destaque como segundo resultado ou se prefere manter o mecanismo como "Second" (aceitando alguma redundância com par. 2).
 
-1. **Boix (2003) moved to first paragraph** alongside AR (2006) as historical grounding. In the original, Boix appeared in the literature paragraph. The new placement connects Boix to the broader claim about technological transformation and regime type. Verify this fits your intended use of Boix.
+3. **Frase de posicionamento com Przeworski & Wallerstein.** A reescrita menciona P&W em uma frase breve dentro do bloco de resultados. O autor deve verificar se essa menção é suficiente ou se prefere restaurar um parágrafo dedicado.
 
-2. **"There is no reason to expect AI will be different."** This sentence is added as a bridge from the historical fact to the current question. It is a claim the paper supports formally, but verify you are comfortable stating it this directly in the opening paragraph.
+4. **Boix e Svolik na literatura.** As caracterizações ("links inequality to democratization without considering how the path to inequality matters" para Boix; "agency problem between autocrat and elite" para Svolik) devem ser verificadas pelo autor como fiéis às obras.
 
-3. **Mechanism folded into First result.** The original presented the coordination mechanism as a separate (Second) result. The rewrite presents it as the explanation of the crossed fragility pattern. Verify this reflects your view of the model's contribution structure. If you consider the coordination mechanism a standalone contribution (independent of crossed fragility), restore the three-part structure.
+## Verificação anti-LLM
 
-4. **$\bar{\kappa}$ in the Second result paragraph.** Added the formal notation for the welfare gap ("equals exactly the repressive threshold, $\bar{\kappa}$"). Verify this level of formality is appropriate for the introduction.
-
-## Anti-LLM verification
-
-| Check | Status |
-|-------|--------|
-| Em dashes | 0 (limit: 1) |
-| Pivot words (however, indeed, crucially...) | 0 (limit: 2) |
-| Contrastive formulas ("It is not X, but Y") | 0 |
-| Bold for emphasis | 0 |
-| Generic smart phrases ("sheds light on", etc.) | 0 |
-| Performative paragraph endings | 0 |
-| Artificial symmetry/triads | 0 |
-| Vague upgrade words | 0 |
-| Sentences that could appear in any paper | 0 |
+| Teste | Resultado |
+|-------|-----------|
+| Frases genéricas reutilizáveis | 0 |
+| Em dashes (—) | 0 (limite: 1) |
+| Pivôs enfáticos (however, indeed, crucially...) | 0 (limite: 2) |
+| Fórmulas contrastivas proibidas | 0 |
+| Parágrafos com final performático | 0 |
+| Bold para ênfase | 0 |
+| Simetria artificial | 0 |
+| Fraseologia genérica ("at the heart of", "speaks to"...) | 0 |
