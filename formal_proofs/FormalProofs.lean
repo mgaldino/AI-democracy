@@ -1,2 +1,10 @@
 import FormalProofs.Basic
 import FormalProofs.Remarks
+import FormalProofs.Prop1
+import FormalProofs.Prop2
+import FormalProofs.Prop3
+import FormalProofs.Prop4
+import FormalProofs.Prop5
+import FormalProofs.Prop6
+import FormalProofs.Prop7
+import FormalProofs.CoordinationConditions
