@@ -1,56 +1,43 @@
 # Introduction
 
-The United States and China lead the world in generative artificial
-intelligence. One is a democracy; the other is an autocracy. The
-economic debate over AI has focused on employment, wages, and
-productivity. The political question has received less attention: how
-does AI-driven automation affect regime stability, and does the answer
-depend on regime type? Historically, major technological transformations
-reshaped the class structures that produced both democratization and
-authoritarianism (Boix 2003; Acemoglu and Robinson 2006). AI-driven
-automation is likely to be no exception, and the stakes are amplified by
-the geopolitical competition between democratic and autocratic adopters.
+We show that the same AI technology can stabilize one regime type while
+destabilizing the other, depending entirely on the automation
+trajectory. When automation displaces workers immediately, democracies
+compensate and survive; autocracies face organized opposition and fall.
+When automation complements workers first and replaces them later, the
+pattern reverses: democracies see no crisis until it is too late, while
+autocracies contain the disoriented workers without difficulty. This
+*crossed fragility* is not assumed — it emerges from a single
+coordination equilibrium processed through distinct institutional
+response mechanisms.
 
-The task-based framework for analyzing technological change (Autor,
-Levy, and Murnane 2003; Acemoglu and Restrepo 2020) has established that
-automation affects different types of workers differently. Recent
-theoretical work shows that the *trajectory* of automation can also
-differ qualitatively: when tasks within a job are complementary, partial
-automation initially raises productivity, and substitution occurs only
-after a threshold is crossed (Gans and Goldfarb 2026). In some sectors,
-automation displaces workers immediately. In others, it complements them
-first and replaces them later. The political implications of this
-distinction have not been explored.
+Consider two countries adopting the same AI. In one, factory automation
+displaces workers visibly over months: protests build, unions organize,
+and the government responds with retraining programs. In the other, AI
+first augments professional services — lawyers draft faster, accountants
+process more — until a threshold is crossed and entire job categories
+vanish overnight. The first shock is legible; the second is a surprise.
+The political consequences depend on whether the regime can act without
+a visible crisis (autocracies can; democracies cannot) and whether
+organized opposition degrades the regime’s coercive capacity (it does in
+autocracies; it triggers compensation in democracies).
 
-The regime stability literature treats economic shocks as uniform events
-defined by magnitude, not trajectory. Acemoglu and Robinson (2006) show
-that transitory shocks open windows for regime transitions, but treat
-transitoriness as a binary property. Svolik (2012) identifies two
-problems of authoritarian rule, power-sharing and mass control; our
-model formalizes the second. Przeworski (2005, 2006) models democracy as
-a self-enforcing equilibrium that is static in income: it does not
-address what happens when income is disrupted, or how the shape of
-disruption matters. Przeworski et al. (2000) show that democracies at
-low income levels are more likely to break down under poor economic
-performance, but no formal model specifies how the *shape* of the
-economic disruption interacts with regime type to determine which
-regimes survive.
+No formal model specifies how the *shape* of economic disruption
+interacts with regime type to determine which regimes survive. The
+regime stability literature treats shocks as uniform events defined by
+magnitude (Acemoglu and Robinson 2006; Przeworski 2005). The automation
+literature distinguishes trajectories — rapid displacement versus
+threshold substitution (Gans and Goldfarb 2026; Autor, Levy, and Murnane
+2003) — but has not explored their political implications.
 
-The intuition is direct. If automation displaces workers immediately,
-democratic governments face visible protests and respond with
-compensation; autocratic governments face organized opposition that
-strains their security forces. If automation initially augments workers
-but replaces them after a threshold, democratic governments see no
-crisis and build no protection. When the shock arrives, it is too late.
-Autocratic governments, whose standing security apparatus does not
-require a crisis to exist, contain the disoriented workers without
-difficulty. The same technology produces opposite political outcomes
-depending on its trajectory.
-
-This paper formalizes that logic. We build a two-period model in the
-Open Economy Politics tradition (Lake 2009), taking the economics of
-automation as given (from Gans and Goldfarb 2026) and deriving the
-political-institutional implications.
+This paper fills that gap. We build a two-period model in the Open
+Economy Politics tradition (Lake 2009), taking the economics of
+automation as given and deriving the political-institutional
+implications. The key mechanism operates through worker coordination:
+trajectory-dependent signal noise (*σ*) determines whether affected
+workers can organize collectively, which in turn activates
+regime-specific institutional responses — compensation in democracies,
+degraded repression in autocracies.
 
 First, we establish a crossed fragility pattern (Proposition 3). For
 autocracies with moderate repressive capacity, democracies are stable
@@ -101,7 +88,7 @@ workers *E* exposed to AI-driven automation. The remainder of the
 economy is captured by the parameter *W*, representing total per capita
 output, with *W* &gt; *w*<sub>*E*</sub> (exposed workers earn less than
 the economy-wide average). The polity operates under one of two regime
-types *i* ∈ {*D*, *A*}: democracy or autocracy.
+types *x* ∈ {*D*, *A*}: democracy or autocracy.
 
 **Automation trajectories.** Following Gans and Goldfarb (2026), we
 distinguish two stylized trajectories of automation. Displacement is an
@@ -256,9 +243,10 @@ unstable.</figcaption>
 shock is observed (*ℓ*<sub>*t*</sub> = *L*) and (2) a visible coalition
 makes the threat from *E* politically credible
 (*g*(*π*<sub>*t*</sub>) = 1). Under the majority-cost condition
-*γ* ≥ *c**φ̄* (where *γ* &gt; 0 is the cost *N* bears under regime change
-and *c* &gt; 0 is the per-unit cost of taxation; see Appendix A for the
-full voting derivation), the democratic continuation map is:
+*γ* ≥ *c*<sub>*s*</sub>*φ̄* (where *γ* &gt; 0 is the cost *N* bears under
+regime change and *c*<sub>*s*</sub> &gt; 0 is the per-unit cost of
+taxation; see Appendix A for the full voting derivation), the democratic
+continuation map is:
 *φ*<sub>*t*</sub>(*ℓ*<sub>*t*</sub>, *π*<sub>*t*</sub>) = *φ̄* ⋅ **1**\[*ℓ*<sub>*t*</sub> = *L*\] ⋅ *g*(*π*<sub>*t*</sub>)
 where *φ̄* ≡ 1 − |*Δ*|/*L* ∈ (0, 1) is the *compensatory threshold*.
 Democratic compensation is historically common after crises (the New
@@ -292,8 +280,8 @@ discounting.
 
 ## Assumptions
 
-**Definition.** Regime *i* is *stable under trajectory *j** if
-*u*<sub>*E*</sub>(*M* ∣ *i*, *t*) ≥ *u*<sub>*E*</sub>(*P* ∣ *i*, *t*)
+**Definition.** Regime *x* is *stable under trajectory *j** if
+*u*<sub>*E*</sub>(*M* ∣ *x*, *t*) ≥ *u*<sub>*E*</sub>(*P* ∣ *x*, *t*)
 for all *t*.
 
 Define the auxiliary variable *Δ* ≡ *θ**W* − *k* − *w*<sub>*E*</sub>,
@@ -318,11 +306,11 @@ the coordination game admits a unique monotone equilibrium in each
 regime (Lemma 1, Section 3).[2]
 
 **A4 (Parameter restrictions).** The majority-cost condition
-*γ* ≥ *c**φ̄* holds (so that *N* compensates when the threat is
-credible). For each regime *x*, the visibility threshold satisfies
-*π̄* &lt; *b*<sub>*x*</sub>/(*b*<sub>*x*</sub> + *m*) (the coalition club
-good strictly exceeds the failed-mobilization cost at the visibility
-margin).[3] Signal noise satisfies
+*γ* ≥ *c*<sub>*s*</sub>*φ̄* holds (so that *N* compensates when the
+threat is credible). For each regime *x*, the visibility threshold
+satisfies *π̄* &lt; *b*<sub>*x*</sub>/(*b*<sub>*x*</sub> + *m*) (the
+coalition club good strictly exceeds the failed-mobilization cost at the
+visibility margin).[3] Signal noise satisfies
 *σ*<sub>*r*</sub> &lt; min {*σ̂*<sub>*D*</sub>, *σ̂*<sub>*A*</sub>} and
 *σ*<sub>*τ*</sub> &gt; max {*σ̂*<sub>*D*</sub>, *σ̂*<sub>*A*</sub>}, where
 *σ̂*<sub>*x*</sub> are the endogenous noise thresholds derived in Lemma 2
@@ -922,25 +910,25 @@ attempt to build emergency compensatory capacity
 borrowing costs under duress) and *c*(⋅) is the normal cost of building
 capacity, assumed continuous and strictly increasing with *c*(0) = 0.
 Emergency spending is subject to a fiscal constraint:
-*p* ⋅ *c*(*φ*<sub>2</sub><sup>*e**m*</sup>) ≤ *F*, where *F* &gt; 0 is
+*p* ⋅ *c*(*φ*<sub>2</sub><sup>*e**m*</sup>) ≤ *F*, where ℱ &gt; 0 is
 available fiscal capacity.
 
 **Proposition 7 (Endogenous fiscal fragility).** *Under A5’ replacing
-A5, define *p*<sup>\*</sup> ≡ *F*/*c*(*φ̄*). Democracy is unstable under
+A5, define *p*<sup>\*</sup> ≡ ℱ/*c*(*φ̄*). Democracy is unstable under
 threshold automation whenever *p* ≥ *p*<sup>\*</sup>.*
 
 *Proof.* Under threshold, *t* = 2: *ℓ*<sub>2</sub> = *L*,
 *φ*<sub>1</sub> = 0 (by A3). Survival requires
 *φ*<sub>2</sub><sup>*e**m*</sup> ≥ *φ̄*, costing *p* ⋅ *c*(*φ̄*). This is
-affordable iff *p* ⋅ *c*(*φ̄*) ≤ *F*, i.e., *p* ≤ *p*<sup>\*</sup>. For
+affordable iff *p* ⋅ *c*(*φ̄*) ≤ ℱ, i.e., *p* ≤ *p*<sup>\*</sup>. For
 *p* ≥ *p*<sup>\*</sup>: emergency compensation is unaffordable. P1(b)
 holds. ◼
 
 Three forces push *p* above *p*<sup>\*</sup> during a threshold crisis:
 
 1.  *Fiscal erosion.* The automation shock shrinks the tax base: workers
-    who lose income pay less tax. The fiscal capacity *F* itself
-    declines with *ℓ*<sub>2</sub>.
+    who lose income pay less tax. The fiscal capacity ℱ itself declines
+    with *ℓ*<sub>2</sub>.
 2.  *Political paralysis.* Workers moving toward *P* makes legislative
     bargaining over emergency spending harder. The non-exposed majority
     (who must approve taxation, per Appendix A) faces a more polarized
@@ -961,7 +949,7 @@ hardest.
 threshold automation with endogenous fiscal constraint, weak democracies
 (*φ*<sub>0</sub> &lt; *φ̄*) face a vicious cycle: (i) no preventive
 investment in *t* = 1 (A3); (ii) crisis in *t* = 2 erodes fiscal
-capacity (*F*↓) and raises political costs (*p*↑); (iii) emergency
+capacity (ℱ↓) and raises political costs (*p*↑); (iii) emergency
 response becomes unaffordable (*p* &gt; *p*<sup>\*</sup>); (iv)
 instability. Preventive investment (*φ*<sub>0</sub> ≥ *φ̄*, P5) breaks
 this cycle by building capacity before fiscal conditions deteriorate.*
@@ -1251,12 +1239,12 @@ Two groups within the democracy: *E* (exposed, mass *μ*<sub>*E*</sub>)
 and *N* (non-exposed, mass *μ*<sub>*N*</sub> &gt; *μ*<sub>*E*</sub>).
 Within each period, after *ℓ*<sub>*t*</sub> is revealed and aggregate
 participation *π*<sub>*t*</sub> is observed: (1) *E* announces political
-stance (*M* or *P*); (2) *N* votes on a subsidy rate *s*<sub>*t*</sub>
+stance (*M* or *P*); (2) *N* votes on a tax rate *τ*<sub>*t*</sub>
 financing compensation *φ*<sub>*t*</sub>; (3) *E* takes final action.
 
 *N*’s payoff:
-*U*<sub>*N*</sub> = *w*<sub>*N*</sub> − *s*<sub>*t*</sub>*c*<sub>*s*</sub> − *γ* ⋅ *g*(*π*<sub>*t*</sub>) ⋅ **1**\[*ℓ*<sub>*t*</sub> = *L*\],
-where *c*<sub>*s*</sub> &gt; 0 is the per-unit cost of the subsidy,
+*U*<sub>*N*</sub> = *w*<sub>*N*</sub> − *τ*<sub>*t*</sub>*c*<sub>*s*</sub> − *γ* ⋅ *g*(*π*<sub>*t*</sub>) ⋅ **1**\[*ℓ*<sub>*t*</sub> = *L*\],
+where *c*<sub>*s*</sub> &gt; 0 is the per-unit cost of taxation,
 *α* ∈ (0, 1) is the fraction of *N*’s income preserved under regime
 change, and *γ* ≡ (1 − *α*)*w*<sub>*N*</sub> &gt; 0 is the cost *N*
 bears under regime change. The visibility function
@@ -1267,16 +1255,16 @@ coalition is publicly visible.
 ## Equilibrium
 
 **When *ℓ*<sub>*t*</sub> = 0:** By A1, *E* cannot credibly threaten *P*.
-*N*’s optimal tax is *s*<sup>\*</sup> = 0.
+*N*’s optimal tax is *τ*<sup>\*</sup> = 0.
 
 **When *ℓ*<sub>*t*</sub> = *L* and *g*(*π*<sub>*t*</sub>) = 0:** No
 visible coalition. The threat from *E* is not politically credible.
-*N*’s optimal tax is *s*<sup>\*</sup> = 0.
+*N*’s optimal tax is *τ*<sup>\*</sup> = 0.
 
 **When *ℓ*<sub>*t*</sub> = *L* and *g*(*π*<sub>*t*</sub>) = 1:** *E*’s
 threat is credible (visible coalition + material loss). *N* compares
-pacification (*s* = *φ̄*, payoff
-*w*<sub>*N*</sub> − *φ̄**c*<sub>*s*</sub>) versus instability (*s* = 0,
+pacification (*τ* = *φ̄*, payoff
+*w*<sub>*N*</sub> − *φ̄**c*<sub>*s*</sub>) versus instability (*τ* = 0,
 payoff *w*<sub>*N*</sub> − *γ*). *N* pacifies iff
 *γ* ≥ *φ̄**c*<sub>*s*</sub>.
 
