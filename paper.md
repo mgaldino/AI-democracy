@@ -134,7 +134,7 @@ $$u_E(M \mid D, \text{stable}) - u_E(M \mid A, \text{stable}) = \bar{\kappa} > 0
 
 *Proof.* Compare welfare in each regime's survival scenario — the trajectory under which it is stable. When democracy survives (rapid, $t=1$), compensation offsets part of the shock: $u_E = w_E - L(1-\bar{\varphi}) = w_E + \Delta$. When autocracy survives (threshold, $t=2$), workers receive no compensation and absorb the full shock: $u_E = w_E - L$. The difference is $\Delta + L = \bar{\kappa} > 0$ by A2. $\blacksquare$
 
-Autocratic stability is "stability without welfare." The regime survives but affected workers absorb the full automation shock. The welfare gap is exactly the repressive threshold $\bar{\kappa}$.
+Autocratic stability is "stability without welfare." Note that Proposition 4 compares welfare across different scenarios: democracy surviving rapid displacement versus autocracy surviving threshold automation. This is the relevant comparison because, under the crossed fragility pattern, each regime survives under its favorable trajectory. The welfare gap is exactly the repressive threshold $\bar{\kappa}$: the cost that autocratic citizens pay for their regime's stability.
 
 **Remark 1 (Threshold of thresholds).** *Define $L^* \equiv \kappa_0 + |\Delta|$. For $L > L^*$, autocracy is unstable under threshold automation.*
 

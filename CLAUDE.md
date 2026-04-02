@@ -117,6 +117,22 @@ Isso produz VANTAGEM COMPARATIVA por tipo de choque: democracias processam melho
 
 Democracia e autocracia devem ser UM modelo com tipo de regime como parâmetro, não dois modelos separados (Seções 4 e 6 do sketch antigo).
 
+### D7. σ como previsibilidade pré-choque (decisão 2026-04-02)
+
+σ_j captura a PREVISIBILIDADE do choque antes de ele chegar, não a observabilidade depois. Sob rápida, automação é visível enquanto se aproxima (σ_r baixo). Sob threshold, complementaridade mascara o risco — deslocamento é genuinamente inesperado, transição de fase (σ_τ alto). Preserva workers idênticos no baseline. Não requer g_i heterogêneo. Ancoragem: mecânica O-Ring + Kuran (1991) preference falsification.
+
+### D8. g como premissa OEP importada (decisão 2026-04-02)
+
+g ≥ 0 (ganho de complementaridade sob threshold em t=1) permanece na definição de renda como premissa importada de Gans & Goldfarb. NÃO entra em condições de estabilidade (utilidade de nível). Faz trabalho em: welfare total, interpretação (desmobilização ativa), conexão com populismo. Análogo a elasticidades em modelos OEP de comércio.
+
+### D9. Estado absorvente + L ≤ w_E (decisão 2026-04-02)
+
+Deslocamento é permanente: y_t = w_E - L para todo t ≥ deslocamento. Rápida: y_1 = y_2 = w_E - L. Threshold: y_1 = w_E + g, y_2 = w_E - L. Restrição L ≤ w_E evita utilidade negativa. Todos os resultados P1-P4 preservados. A5 ganha força: capacidade permanente para perda permanente.
+
+### D10. Heterogeneidade de g_i permanece na extensão (decisão 2026-04-02)
+
+Workers idênticos no baseline. g_i heterogêneo entra apenas na extensão populista. Modularidade baseline simples → extensões ricas preservada.
+
 ## Plano de trabalho (ordem de execução)
 
 1. ~~**Exemplo numérico v1**~~ — FEITO. Sem η → resultado fraco.
@@ -128,7 +144,8 @@ Democracia e autocracia devem ser UM modelo com tipo de regime como parâmetro, 
 7. ~~**Desenvolver extensão φ₀ formalmente**~~ — FEITO. Proposição 7 (welfare state como seguro) + Proposição 8 (equivalência funcional φ₀ ≈ κ₀ com gap de welfare) + Corolário 2 (tipologia completa 5 tipos). N eliminado da formalização (W como parâmetro). Microfundações referenciadas como apêndices.
 8. ~~**Posicionar na literatura formal**~~ — FEITO. 15 refs essenciais + 3 em nota de rodapé. Przeworski (2005, 2000, 1982) incorporado como predecessores formais centrais. Novidade confirmada: ninguém formalizou trajetória × regime.
 9. ~~**Formatar como paper**~~ — FEITO (paper.md). Intro lidera com P8. Estrutura: §1 Intro, §2 Model, §3 Results (P1-P6), §4 Extension (P7-P8 + tipologia completa), §5 Discussion, §6 Conclusion, Appendices A-B. 16 referências (15 + Przeworski & Limongi 1997 em nota).
-10. **(Futuro)** Extensão com instrumentos mistos — especialização endógena.
+10. **(PRIORITÁRIO)** Introduzir desconto temporal δ ∈ (0,1] no modelo. Modelo tem 2 períodos mas compara payoffs em t=1 vs t=2 sem desconto (P4 e P6). Sem δ, a comparação cross-período é inconsistente. Adicionar δ como primitivo (default δ=1 se quiser manter resultados atuais, mas explicitar). Verificar se P4 e P6 mudam com δ<1.
+11. **(Futuro)** Extensão com instrumentos mistos — especialização endógena.
 11. **(Futuro)** Operacionalizar mapeamento empírico: φ₀ como gasto social/PIB, κ₀ como gasto segurança/PIB.
 12. **(Futuro)** Extensão com incerteza sobre trajetória — P10 (under-insurance racional) + Corolário 4 (zona de fragilidade racional). Endereça crítica do Edmans sobre distância premissas→conclusões. Plano detalhado em: `~/.claude/plans/compressed-noodling-penguin.md`.
 13. **(Em progresso)** Microfundamentação via populismo: heterogeneidade de E (da complementaridade) + escolha endógena de plataforma (agenda-setter dentro de E escolhe C ou R). Opção A: agenda-setting dentro de E (mais parcimonioso, preserva foco do paper). Dois equilíbrios sob threshold quando σ_E > σ̄ (compromisso vs. populista), φ₀ como seletor. Sketch numérico com entrada endógena confirmado (06_populism_numerical_sketch.R). σ̄ = 0.24 com calibração v2; coexistência a partir de σ_E = 0.30. Design avaliado 8.5/10 (quality_reports/2026-03-31_formal-model-design-populism-platform-choice-v1.md). Nota formal com P9 candidata em: `model/07_populism_platform_choice_sketch.md`. Changelog: `model/08_populism_platform_choice_changes_2026-03-31.md`. Síntese original: `model/05_populism_microfoundation_synthesis.md`. Questões abertas (review em `quality_reports/2026-03-31_review-codex-populism-formalization.md`): (a) ψ (campaign amplification) é reduced-form — motor dos dois equilíbrios mas assumido, não derivado; (b) agenda-setter auto-interessado é crucial mas subenfatizado; (c) coordenação de elites (insight original) virou otimização de agente único. Próximo: decidir se P9 vai no texto principal (requer microfundar ψ) ou appendix (ψ reduced-form aceitável).
@@ -212,10 +229,24 @@ Democracia e autocracia devem ser UM modelo com tipo de regime como parâmetro, 
 - Svolik (2012): estabilidade autocrática como problema de agência (autocrata vs elite). Nosso: problema de contenção (autocrata vs massa). Complementares.
 - Kuran (1991) + Edmond (2013) + Chwe (2001): coordenação como mediadora. Nós aplicamos ao contexto de automação com trajetórias diferenciadas.
 
+## Verificação Formal (Lean 4)
+
+Provas formais dos resultados estão em `formal_proofs/`.
+
+- **Verificar**: `cd formal_proofs && lake build`
+- **Adicionar módulo**: criar arquivo em `formal_proofs/FormalProofs/` e importar em `FormalProofs.lean`
+- **Atualizar Mathlib**: `cd formal_proofs && lake update && lake exe cache get`
+
+Resultados a formalizar (prioridade):
+1. P1-P4 (baseline) — condições de estabilidade e crossed fragility
+2. Remarks 1-2 — comparative statics
+3. P5-P6 (welfare state extension)
+4. Lemmas 1-2 (coordenação) — requer Mathlib de global games
+
 ## Regras para este projeto
 
 - A economia é INPUT, não contribuição. Não tentar melhorar o modelo de automação.
-- Trajetórias de perda são exógenas: ℓ(1)=L, ℓ(2)=0 (rápida) ou ℓ(1)=0, ℓ(2)=L (threshold). Não modelar A, λ, ε.
+- Trajetórias de renda são exógenas (estado absorvente, D9): rápida y_1=y_2=w_E-L; threshold y_1=w_E+β, y_2=w_E-L. Não modelar A, λ, ε.
 - φ reativo (construído em resposta a choque observado). κ permanente com efetividade η variável por tipo de choque.
 - Não expandir além do MVP sem resolver D1–D6.
 - Exemplo numérico ANTES de modelo geral (Varian).

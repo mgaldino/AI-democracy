@@ -16,9 +16,9 @@ abstract: |
 
 The United States and China lead the world in generative artificial intelligence. One is a democracy; the other is an autocracy. The economic debate over AI has focused on employment, wages, and productivity. The political question has received less attention: how does AI-driven automation affect regime stability, and does the answer depend on regime type? Historically, major technological transformations reshaped the class structures that produced both democratization and authoritarianism (Boix 2003; Acemoglu and Robinson 2006). AI-driven automation is likely to be no exception, and the stakes are amplified by the geopolitical competition between democratic and autocratic adopters.
 
-Recent economic research shows that automation can follow qualitatively different trajectories depending on the structure of production (Autor, Levy, and Murnane 2003; Acemoglu and Restrepo 2020). When tasks within a job are complementary, partial automation initially raises productivity; substitution occurs only after a threshold is crossed (Gans and Goldfarb 2026). In some sectors, automation displaces workers immediately. In others, it complements them first and replaces them later. The political implications of this distinction have not been explored.
+The task-based framework for analyzing technological change (Autor, Levy, and Murnane 2003; Acemoglu and Restrepo 2020) has established that automation affects different types of workers differently. Recent theoretical work shows that the *trajectory* of automation can also differ qualitatively: when tasks within a job are complementary, partial automation initially raises productivity, and substitution occurs only after a threshold is crossed (Gans and Goldfarb 2026). In some sectors, automation displaces workers immediately. In others, it complements them first and replaces them later. The political implications of this distinction have not been explored.
 
-The regime stability literature treats economic shocks as uniform events defined by magnitude, not trajectory. Acemoglu and Robinson (2006) show that transitory shocks open windows for regime transitions, but treat transitoriness as a binary property. Svolik (2012) identifies two problems of authoritarian rule, power-sharing and mass control; our model formalizes the second. Przeworski (2005, 2006) models democracy as a self-enforcing equilibrium that is static in income: it does not address what happens when income is disrupted, or how the shape of disruption matters. The empirical record suggests that democracies are fragile under economic crises while autocracies prove resilient (Przeworski et al. 2000), but no formal model explains this pattern or identifies the conditions under which it reverses.
+The regime stability literature treats economic shocks as uniform events defined by magnitude, not trajectory. Acemoglu and Robinson (2006) show that transitory shocks open windows for regime transitions, but treat transitoriness as a binary property. Svolik (2012) identifies two problems of authoritarian rule, power-sharing and mass control; our model formalizes the second. Przeworski (2005, 2006) models democracy as a self-enforcing equilibrium that is static in income: it does not address what happens when income is disrupted, or how the shape of disruption matters. Przeworski et al. (2000) show that democracies at low income levels are more likely to break down under poor economic performance, but no formal model specifies how the *shape* of the economic disruption interacts with regime type to determine which regimes survive.
 
 The intuition is direct. If automation displaces workers immediately, democratic governments face visible protests and respond with compensation; autocratic governments face organized opposition that strains their security forces. If automation initially augments workers but replaces them after a threshold, democratic governments see no crisis and build no protection. When the shock arrives, it is too late. Autocratic governments, whose standing security apparatus does not require a crisis to exist, contain the disoriented workers without difficulty. The same technology produces opposite political outcomes depending on its trajectory.
 
@@ -26,123 +26,165 @@ This paper formalizes that logic. We build a two-period model in the Open Econom
 
 First, we establish a crossed fragility pattern (Proposition 3). For autocracies with moderate repressive capacity, democracies are stable under rapid displacement but unstable under threshold automation; autocracies exhibit the reverse. The mechanism is the coordination capacity of affected workers. Rapid shocks generate common knowledge of grievance (Chwe 2001), enabling collective action that democracies channel into compensation but that degrades autocratic repression (Kuran 1991; Edmond 2013). Threshold shocks produce strategic uncertainty that prevents coordination, paralyzing democratic response while preserving repressive effectiveness.
 
-Second, we show that the welfare state functions as institutional insurance against delayed shocks (Propositions 7-8). Democracies with comprehensive social protection survive threshold automation through the same logic as autocracies with standing repressive capacity: both represent permanent institutional capacity that does not require crisis-triggered activation. The welfare state achieves this resilience while compensating workers; repression achieves it while leaving them to bear the full cost. The welfare gap between a surviving democracy and a surviving autocracy equals exactly the repressive threshold, $\bar{\kappa}$.
+Second, autocratic stability comes at a welfare cost equal to the repressive threshold: when autocracies survive threshold shocks, their citizens absorb the full automation loss, while democratic survival under rapid shocks comes with compensation (Proposition 4).
 
-Przeworski and Wallerstein (1982) modeled the class compromise sustaining democratic capitalism: workers accept private profit in exchange for social protection (see also Moene and Wallerstein 2001). Our model formalizes a specific implication. When this compromise is institutionalized as a welfare state, it insures the regime itself against technological disruption. The authoritarian substitute, repression as regime insurance (Desai, Olofsgard, and Yousef 2009), achieves equivalent stabilization at the cost of leaving citizens uncompensated.
+Third, we show that the welfare state functions as institutional insurance against delayed shocks (Propositions 5-6). Democracies with comprehensive social protection survive threshold automation through the same logic as autocracies with standing repressive capacity: both represent permanent institutional capacity that does not require crisis-triggered activation. The welfare state achieves this resilience while compensating workers; repression achieves it while leaving them to bear the full cost. The welfare gap between a surviving democracy and a surviving autocracy equals exactly the repressive threshold, $\bar{\kappa}$.
 
-The paper proceeds as follows. Section 2 presents the model. Section 3 derives the main results. Section 4 develops the welfare state extension and the complete regime typology. Section 5 discusses implications and limitations. Appendices A and B provide game-theoretic microfoundations for the two behavioral assumptions.
+This result connects to the class compromise tradition (Przeworski and Wallerstein 1982; Moene and Wallerstein 2001): the welfare state, as institutional insurance, formalizes a specific implication of that bargain. The authoritarian substitute, repression as regime insurance (Desai, Olofsgard, and Yousef 2009), achieves equivalent stabilization at the cost of leaving citizens uncompensated.
+
+Section 2 develops a unified coordination model in which trajectory-dependent signal noise generates both democratic compensation and autocratic repressive effectiveness as equilibrium outcomes. Section 3 derives Propositions 1-4 and comparative statics. Section 4 develops the welfare state extension (Propositions 5-7) and a five-type regime typology with empirical proxies. Section 5 discusses limitations. Two appendices provide fuller derivations of the democratic voting game and the coordination equilibrium.
 
 # The Model
 
 ## Environment
 
-We consider a polity over two periods $t \in \{1, 2\}$ with a group of workers $E$ exposed to AI-driven automation. The remainder of the economy is captured by the parameter $W > w_E$, representing total per capita output. The polity operates under one of two regime types $i \in \{D, A\}$: democracy or autocracy.
+We consider a polity over two periods $t \in \{1, 2\}$ with a group of workers $E$ exposed to AI-driven automation. The remainder of the economy is captured by the parameter $W$, representing total per capita output, with $W > w_E$ (exposed workers earn less than the economy-wide average). The polity operates under one of two regime types $i \in \{D, A\}$: democracy or autocracy.
 
-**Automation trajectories.** Following Gans and Goldfarb (2026), we distinguish two stylized trajectories of automation. Under *rapid displacement* ($j = r$), automation causes immediate job loss: $\ell_1 = L$, $\ell_2 = 0$, where $L > 0$ is the magnitude of the shock. Under *threshold automation* ($j = \tau$), automation initially complements labor and only later becomes substitutive: $\ell_1 = 0$, $\ell_2 = L$. These trajectories are exogenous to the political model --- they represent the economic premise imported from the automation literature.
+**Automation trajectories.** Following Gans and Goldfarb (2026), we distinguish two stylized trajectories of automation. Displacement is an absorbing state: once AI substitutes a worker's tasks, the income loss persists. Under *rapid displacement* ($j = r$), automation causes immediate and permanent job loss: $y_1^r = y_2^r = w_E - L$, where $L \in (0, w_E]$ is the magnitude of the shock. Under *threshold automation* ($j = \tau$), automation initially complements labor (raising income to $y_1^\tau = w_E + \beta$, with $\beta \geq 0$) and only later becomes substitutive ($y_2^\tau = w_E - L$). These income paths are exogenous to the political model --- they represent the economic premise imported from the automation literature. The parameter $\beta$ captures the productivity gain from the complementary phase; it does not affect stability conditions (which depend on per-period income levels) but enriches the economic premise and connects to the populism extension.
 
-**Preferences.** In each period, each member of $E$ chooses between $M$ (moderate --- accept the status quo) and $P$ (protest --- pursue regime change). Payoffs depend on the regime type.
+**Preferences.** In each period, each member of $E$ chooses between $M$ (moderate --- accept the status quo) and $P$ (protest --- pursue regime change). Payoffs depend on the regime type. All members of $E$ are identical in the baseline; the representative worker notation $u_E$ applies to each individual.
 
 Under democracy:
-$$u_E(M \mid D, t) = w_E - \ell_t(1 - \varphi_t)$$
+$$u_E(M \mid D, t) = y_t^j + \varphi_t \cdot \max(0, \; w_E - y_t^j)$$
 $$u_E(P \mid D, t) = \theta W - k$$
 
-Under autocracy:
-$$u_E(M \mid A, t) = w_E - \ell_t$$
-$$u_E(P \mid A, t) = \theta W - k - \kappa_0 \cdot \eta_j$$
+When displaced ($y_t = w_E - L$), this simplifies to $u_E(M) = w_E - L(1-\varphi_t)$. When in complementarity ($y_t = w_E + \beta$), $u_E(M) = w_E + \beta$ (no loss, no compensation needed).
 
-where $\varphi_t \in [0,1]$ is the compensatory capacity of the democracy, $\kappa_0 > 0$ is the autocracy's standing repressive capacity, $\eta_j \in (0,1]$ is repressive effectiveness (indexed by trajectory $j$), $\theta \in (0,1)$ is the share of total output captured by $E$ under regime change, and $k > 0$ is the cost of transition (violence, uncertainty, capital destruction).
+Under autocracy:
+$$u_E(M \mid A, t) = y_t^j$$
+$$u_E(P \mid A, t) = \theta W - k - \kappa_0 \cdot \eta(\pi_t)$$
+
+where $\varphi_t \in [0,1]$ is the compensatory capacity of the democracy, $\kappa_0 > 0$ is the autocracy's standing repressive capacity, $\eta(\pi_t) \in (0,1]$ is repressive effectiveness (determined by the coordination game), $\theta \in (0,1)$ is the share of total output captured by $E$ under regime change, and $k > 0$ is the cost of transition (violence, uncertainty, capital destruction).
 
 The key structural asymmetry: democracy stabilizes by making $M$ more attractive (compensation reduces losses), while autocracy stabilizes by making $P$ more costly (repression raises the price of revolt).
 
+## Information and Collective Action
+
+The trajectory of automation determines not only when losses occur but how legible those losses are. We model this through a common informational and coordination framework that feeds into regime-specific institutional responses.
+
+**Signals.** In each period, worker $i \in E$ observes a private signal about the common state of the shock:
+$$s_{it} = \omega_t + \sigma_j \varepsilon_{it}, \qquad \varepsilon_{it} \sim F$$
+where $\omega_t = \ell_t \in \{0, L\}$ and $F$ is continuous, symmetric, with full support and monotone likelihood ratio. Signal noise $\sigma_j$ captures the *predictability* of the automation shock before it arrives, not its observability after the fact. Under rapid displacement, the approaching automation is visible (factory closures, gradual adoption) and workers organize as the shock approaches: $\sigma_r$ is low. Under threshold automation, the complementary phase masks the coming substitution --- workers perceive AI as beneficial until the threshold is crossed. The displacement is a genuine surprise, and each worker must rapidly assess whether enough others were equally caught off guard to mount a collective response: $\sigma_\tau$ is high. This is the single reduced-form informational bridge from the economic to the political model.
+
+**Participation.** After observing $s_{it}$, each member of $E$ chooses $a_{it} \in \{0,1\}$ (join public collective action or abstain). Aggregate participation is $\pi_t = \int_0^1 a_{it} \, di$.
+
+**Visibility.** Let $g(\pi_t)$ denote how publicly legible the grievance of $E$ becomes at participation level $\pi_t$. In the baseline, use the step version:
+$$g(\pi_t) = \mathbf{1}[\pi_t \geq \bar{\pi}]$$
+where $\bar{\pi} \in (0,1)$ is a common visibility threshold. Smooth versions generate the same qualitative results (see Appendix B).
+
+**Participation payoffs.** When visibility is achieved ($\pi_t \geq \bar{\pi}$), participants receive a coalition-specific benefit $b_x > 0$ (access to targeted transfers, legal support, or mutual protection that only organized coalition members obtain). When visibility is not achieved, participants bear a cost $m > 0$ (exposure without collective cover). The net gain from participation is $q_i b_x - (1-q_i) m$, where $q_i = \Pr[\pi_t \geq \bar{\pi} \mid s_{it}]$. Worker $i$ participates iff $q_i \geq m/(b_x + m)$. This is a standard Olson-style selective incentive: the public outcome (compensation or degraded repression) benefits all of $E$, but what sustains participation is the member-only club good. See Appendix B for the formal equilibrium derivation.
+
+The same informational friction and participation technology feed two regime-specific continuation maps. In democracy, coordination matters by determining whether an observed $t=1$ shock becomes a credible threat before the compensatory window closes. In autocracy, coordination matters more directly by determining whether repression is degraded by visible opposition.
+
+## Regime-Specific Continuation Maps
+
+**Democracy.** The non-exposed majority $N$ authorizes compensation $\varphi_t = \bar{\varphi}$ only when two conditions hold: (1) a material shock is observed ($\ell_t = L$) and (2) a visible coalition makes the threat from $E$ politically credible ($g(\pi_t) = 1$). Under the majority-cost condition $\gamma \geq c\bar{\varphi}$ (where $\gamma > 0$ is the cost $N$ bears under regime change and $c > 0$ is the per-unit cost of taxation; see Appendix A for the full voting derivation), the democratic continuation map is:
+$$\varphi_t(\ell_t, \pi_t) = \bar{\varphi} \cdot \mathbf{1}[\ell_t = L] \cdot g(\pi_t)$$
+where $\bar{\varphi} \equiv 1 - |\Delta|/L \in (0,1)$ is the *compensatory threshold*. Democratic compensation is historically common after crises (the New Deal after the Great Depression, the welfare state after World War II), not before. The coordination requirement adds that an observed shock must also generate a visible coalition to become politically actionable.
+
+**Autocracy.** Effective repression depends on the visibility of opposition. Visible mass action causes defections, leakage, and external scrutiny, degrading repressive effectiveness:
+$$\eta(\pi_t) = 1 - (1-\eta_r) \cdot g(\pi_t)$$
+where $\eta_r \in (0,1)$. If participation crosses the visibility threshold ($g(\pi_t) = 1$), repression degrades to $\eta_r$. If it does not, repression remains fully effective ($\eta = 1$).
+
+**Timing.** Within each period: (1) nature reveals $\omega_t = \ell_t$; (2) each member of $E$ observes $s_{it}$ and chooses $a_{it}$; (3) aggregate participation $\pi_t$ becomes public; (4) the regime responds --- in democracy, $N$ decides whether to authorize $\bar{\varphi}$; in autocracy, effective repression updates to $\kappa_0 \cdot \eta(\pi_t)$; (5) each member of $E$ chooses $M$ or $P$. The coordination stage uses Bayesian Nash equilibrium in monotone threshold strategies; the final $M/P$ choice is by dominance given the realized continuation payoffs. The two periods should be read as two politically distinct moments, not as fixed calendar intervals. The intertemporal linkage is institutional (A5), not temporal discounting.
+
 ## Assumptions
 
-Define the auxiliary variable $\Delta \equiv \theta W - k - w_E$. We say a regime is *stable* when $E$ prefers $M$ to $P$; the formal definition appears in Section 3.
+**Definition.** Regime $i$ is *stable under trajectory $j$* if $u_E(M \mid i, t) \geq u_E(P \mid i, t)$ for all $t$.
+
+Define the auxiliary variable $\Delta \equiv \theta W - k - w_E$, which represents the net attractiveness of revolt absent automation: how much $E$ would gain (if $\Delta > 0$) or lose (if $\Delta < 0$) from regime change when fully employed.
 
 **A1 (Stability without automation).** $\Delta < 0$. Without automation, $E$ prefers $M$ under both regimes. The regime is inherently stable.
 
 **A2 (Automation can destabilize).** $\Delta + L > 0$, equivalently $L > |\Delta|$. The automation shock is large enough to potentially trigger regime change.
 
-**A3 (Democratic compensation is reactive).**
-$$\varphi_t = \begin{cases} \bar{\varphi} & \text{if } \ell_t > 0 \\ 0 & \text{if } \ell_t = 0 \end{cases}$$
-where $\bar{\varphi} \equiv 1 - |\Delta|/L \in (0,1)$ is the *compensatory threshold*.
+**A3 (Coordination structure).** The signal family satisfies monotone likelihood ratio, higher $\sigma$ Blackwell-degrades private signals, and, conditional on others using a cutoff strategy, the visibility event $\{\pi_t \geq \bar{\pi}\}$ is increasing in the fundamental $\omega$. Under these regularity conditions, the coordination game admits a unique monotone equilibrium in each regime (Lemma 1, Section 3).^[The mechanism is informational, not preferential: $E$ desires revolt equally under both shock types ($u_E(P)$ is the same). What differs is the capacity to coordinate, determined by the information structure of the shock.]
 
-Democratic compensation requires political legitimacy --- legislative authorization and fiscal mobilization --- that emerges only under observable crisis. This pattern is historically robust: major social insurance programs are created after crises (the New Deal after the Great Depression, the welfare state after World War II), not before. Appendix A provides a formal microfoundation: in a voting game, the non-exposed majority vetoes taxation when no crisis is observed (the threat of regime change is not credible) and approves it when losses are visible (the threat becomes credible).^[The result holds for any investment rule $\varphi(\ell)$ satisfying $\varphi(0) = 0$ and $\varphi(L) \geq \bar{\varphi}$. The specific functional form of A3 is not required.]
+**A4 (Parameter restrictions).** The majority-cost condition $\gamma \geq c\bar{\varphi}$ holds (so that $N$ compensates when the threat is credible). Signal noise satisfies $\sigma_r < \min\{\hat{\sigma}_D, \hat{\sigma}_A\}$ and $\sigma_\tau > \max\{\hat{\sigma}_D, \hat{\sigma}_A\}$, where $\hat{\sigma}_x$ are the endogenous noise thresholds derived in Lemma 2 (Section 3).
 
-**A4 (Repressive effectiveness depends on shock type).**
-$$\eta_R \in (0,1) \quad \text{(rapid: degraded repression)}$$
-$$\eta_T = 1 \quad \text{(threshold: full repression)}$$
+**A5 (Institutional capacity requires lead time).** Compensatory capacity built in $t=1$ persists to $t=2$. No new compensatory capacity can be built in $t=2$.
 
-Rapid shocks are visible and shared, creating near-common knowledge of grievance among affected workers. This facilitates coordination: organized opposition degrades repressive effectiveness through security force defection, international pressure, and the moral legitimacy of the cause. Threshold shocks are sudden and disorienting, producing strategic uncertainty that impedes coordination: dispersed dissent is easily contained by standing repressive apparatus. Appendix B provides a formal microfoundation via global games (Morris and Shin 2003): under rapid shocks, high signal precision yields an equilibrium with high participation in collective action; under threshold shocks, noisy private signals destroy coordination.^[The mechanism is informational, not preferential: $E$ desires revolt equally under both shock types ($u_E(P)$ is the same). What differs is the capacity to coordinate, determined by the information structure of the shock.]
+Building social insurance infrastructure --- legislative frameworks, administrative agencies, fiscal instruments --- requires institutional investment that cannot be improvised under crisis. Welfare states are built during periods of relative stability (the post-war settlement in Western Europe, the Great Society programs in the United States), not during the crises they are designed to address. Even the New Deal, an apparent counterexample, required years of legislative design and was enabled by prior Progressive-era institutional groundwork. In our two-period framework, A5 is the minimal expression of this lag: the window for building capacity closes before the delayed shock arrives.
 
-**A5 (Capacity is a stock).** Capacity built in $t=1$ persists to $t=2$. No new capacity can be built in $t=2$.
+Note that A5 binds only under threshold automation. Under rapid displacement, the shock arrives in $t=1$ and A3 activates compensation immediately --- A5 is irrelevant. A5 matters precisely when the shock is delayed: the polity cannot build capacity in response to a shock it has not yet observed. Combined with A3, this produces the democratic tragedy: reactive institutions require a signal to mobilize, but delayed shocks provide no signal until it is too late to act.
 
-**Example.** Let $\Delta = -0.4$, $L = 1$, $\eta_R = 0.5$, $\kappa_0 = 0.8$. Then $\bar{\varphi} = 0.6$, $\bar{\kappa} = 0.6$, $\bar{\kappa}/\eta_R = 1.2$. Since $\kappa_0 = 0.8 \in [0.6, 1.2)$, this autocracy is in the *crossed fragility* range. Consider the four scenarios:
+**Example.** Let $w_E = 1$, $W = 2$, $L = 1$, $\theta = 0.5$, $k = 0.4$, $\kappa_0 = 0.8$, $\eta_r = 0.5$, $\beta = 0.3$. Then $\Delta = -0.4$, $\bar{\varphi} = 0.6$, $\bar{\kappa} = 0.6$, $\bar{\kappa}/\eta_r = 1.2$. Since $\kappa_0 = 0.8 \in [0.6, 1.2)$, this autocracy is in the *crossed fragility* range. Income paths: rapid $y_1 = y_2 = 0$; threshold $y_1 = 1.3$, $y_2 = 0$. Consider the four scenarios:
 
-- *Democracy, rapid ($\ell_1 = 1$)*: Crisis is visible. Compensation activates: $\varphi_1 = 0.6$. Workers' payoff under $M$: $w_E - 1 \cdot (1 - 0.6) = w_E - 0.4$. Under $P$: $w_E + \Delta = w_E - 0.4$. Workers are indifferent --- marginally **stable**.
-- *Democracy, threshold ($\ell_1 = 0, \ell_2 = 1$)*: No crisis in $t=1$, no compensation built. In $t=2$: $\varphi_2 = 0$. Workers' payoff under $M$: $w_E - 1$. Under $P$: $w_E - 0.4$. Workers prefer $P$ --- **unstable**.
-- *Autocracy, rapid ($\ell_1 = 1$)*: Workers are organized (visible crisis). Effective repression: $\kappa_0 \cdot \eta_R = 0.8 \times 0.5 = 0.4 < \bar{\kappa} = 0.6$. Repression insufficient --- **unstable**.
-- *Autocracy, threshold ($\ell_2 = 1$)*: Workers are disoriented (sudden shock). Effective repression: $\kappa_0 \cdot \eta_T = 0.8 \times 1.0 = 0.8 \geq 0.6$. Repression sufficient --- **stable**.
+- *Democracy, rapid*: $t=1$: $y_1 = 0$. Crisis visible, predictable. Compensation activates: $\varphi_1 = 0.6$. $u_E(M) = 0 + 0.6 \times 1 = 0.6 = u_E(P)$. Marginally **stable**. $t=2$: displacement persists ($y_2 = 0$), but compensation persists by A5 ($\varphi_2 = 0.6$). Still **stable**.
+- *Democracy, threshold*: $t=1$: $y_1 = 1.3$. Workers gaining from AI complementarity. $u_E(M) = 1.3 > 0.6 = u_E(P)$. **Stable** --- no crisis, no compensation built. $t=2$: threshold crossed, $y_2 = 0$. $\varphi_2 = 0$ by A5. $u_E(M) = 0 < 0.6 = u_E(P)$. **Unstable**.
+- *Autocracy, rapid*: $t=1$: $y_1 = 0$. Workers organized (shock predictable). $\kappa_0 \eta_r = 0.4 < 0.6 = \bar{\kappa}$. Repression insufficient --- **unstable**. $t=2$: displacement persists, opposition remains organized. Same condition. **Unstable**.
+- *Autocracy, threshold*: $t=1$: $y_1 = 1.3$. **Stable** trivially. $t=2$: $y_2 = 0$. Workers surprised (shock unpredictable). $\kappa_0 \eta_\tau = 0.8 \geq 0.6$. Repression sufficient --- **stable**.
 
-Same shock magnitude, opposite outcomes by regime and trajectory. These parameters are used throughout Figures 1 and the corollaries.
+Same displacement magnitude, opposite outcomes by regime and trajectory. Under rapid, A5 is benign: compensation built in $t=1$ protects against the absorbing state. Under threshold, A5 is the mechanism of fragility: no window to build capacity before the surprise. These parameters are used throughout the figures and corollaries.
 
 # Results
 
+## Equilibrium coordination
+
+Before deriving stability, we establish that the coordination game generates the regime-specific institutional responses endogenously. The proofs appear in Appendix B.
+
+**Lemma 1 (Unique cutoff equilibrium).** *Under A3, for each regime $x \in \{D, A\}$ and trajectory noise $\sigma_j$, the coordination game admits a unique monotone equilibrium: worker $i$ participates iff $s_{it} \geq s_x^*(\sigma_j)$, with equilibrium participation $\pi_x^*(\sigma_j)$.*
+
+**Lemma 2 (Noise comparative statics).** *Equilibrium participation $\pi_x^*(\sigma_j)$ is weakly decreasing in $\sigma_j$. For each regime $x$, there exists a noise threshold $\hat{\sigma}_x$ such that $\pi_x^*(\sigma) \geq \bar{\pi}$ for $\sigma \leq \hat{\sigma}_x$ and $\pi_x^*(\sigma) < \bar{\pi}$ for $\sigma > \hat{\sigma}_x$.*
+
+These lemmas establish that $\sigma$ is the single trajectory-varying primitive from which the institutional responses in both regimes are derived. Under rapid displacement ($\sigma_r$ low), equilibrium participation crosses the visibility threshold: compensation activates in democracy and repression degrades in autocracy. Under threshold automation ($\sigma_\tau$ high), participation falls below the threshold: no credible threat in democracy and fully effective repression in autocracy.
+
 ## Stability conditions
 
-**Definition.** Regime $i$ is *stable under trajectory $j$* if $u_E(M \mid i, t) \geq u_E(P \mid i, t)$ for all $t$.
+The *compensatory threshold* is $\bar{\varphi} = 1 - |\Delta|/L$. The *repressive threshold* is $\bar{\kappa} = L - |\Delta|$.
 
-**Democracy.** When $\ell_t = 0$: stable by A1. When $\ell_t = L$ and $\varphi_t = \bar{\varphi}$: $u_E(M) = w_E + \Delta = u_E(P)$, stable. When $\ell_t = L$ and $\varphi_t = 0$: stability requires $\Delta + L \leq 0$, contradicting A2. *Unstable.*
+**Democracy.** When $y_t \geq w_E$ (no loss): stable by A1 (since $u_E(M) = y_t \geq w_E > \theta W - k$). When $y_t = w_E - L$ and $\pi_t \geq \bar{\pi}$: $\varphi_t = \bar{\varphi}$ and $u_E(M) = w_E + \Delta = u_E(P)$, stable. When $y_t = w_E - L$ and $\pi_t < \bar{\pi}$: $\varphi_t = 0$ and stability requires $\Delta + L \leq 0$, contradicting A2. *Unstable.*
 
-The *compensatory threshold* is $\bar{\varphi} = 1 - |\Delta|/L$.
+**Autocracy.** When $y_t \geq w_E$: stable by A1. When $y_t = w_E - L$ and $\pi_t \geq \bar{\pi}$: $\eta = \eta_r$ and stability requires $\kappa_0 \eta_r \geq \bar{\kappa}$, i.e., $\kappa_0 \geq \bar{\kappa}/\eta_r$. When $y_t = w_E - L$ and $\pi_t < \bar{\pi}$: $\eta = 1$ and stability requires $\kappa_0 \geq \bar{\kappa}$.
 
-**Autocracy.** When $\ell_t = 0$: stable. When $\ell_t = L$: stable iff $\kappa_0 \cdot \eta_j \geq \Delta + L \equiv \bar{\kappa}$.
-
-The *repressive threshold* is $\bar{\kappa} = L - |\Delta|$.
-
-Since $\eta_R < 1$: the autocracy needs $\kappa_0 \geq \bar{\kappa}/\eta_R$ to survive rapid shocks but only $\kappa_0 \geq \bar{\kappa}$ to survive threshold shocks. Rapid displacement is *harder* for autocracies to contain.
+Since $\eta_r < 1$: the autocracy needs $\kappa_0 \geq \bar{\kappa}/\eta_r$ to survive when opposition is visible but only $\kappa_0 \geq \bar{\kappa}$ when opposition is dispersed.
 
 ## Main propositions
 
-**Proposition 1 (Democratic fragility pattern).** *Under A1-A3 and A5: (a) democracy is stable under rapid displacement; (b) democracy is unstable under threshold automation.*
+**Proposition 1 (Democratic fragility pattern).** *Under A1-A5: (a) democracy is stable under rapid displacement; (b) democracy is unstable under threshold automation.*
 
-*Proof.* The proof has two parts, one for each trajectory.
+*Proof.* (a) *Rapid displacement.* Workers are displaced in $t=1$: $y_1 = w_E - L$. The shock was predictable ($\sigma_r$ low), so by Lemma 2, $\pi_1^* \geq \bar{\pi}$: visible coalition makes the threat credible. $N$ authorizes compensation: $\varphi_1 = \bar{\varphi}$. By construction of $\bar{\varphi}$, workers are indifferent between $M$ and $P$. Stable. In $t=2$, displacement persists (absorbing state: $y_2 = w_E - L$), but compensatory capacity also persists by A5: $\varphi_2 = \bar{\varphi}$. Still stable.
 
-(a) *Rapid displacement.* The shock hits in period 1: $\ell_1 = L > 0$. Because the crisis is observable, democratic compensation activates (A3): $\varphi_1 = \bar{\varphi}$. By construction of $\bar{\varphi}$, this exactly offsets the destabilizing effect of the shock --- workers are indifferent between $M$ and $P$, so the regime is (marginally) stable. In period 2, there is no shock ($\ell_2 = 0$), so stability holds trivially by A1.
+(b) *Threshold automation.* In $t=1$, workers earn $w_E + \beta$ from AI complementarity: $u_E(M) = w_E + \beta > w_E > \theta W - k$ (by A1). Stable, with no crisis and no compensation built ($\varphi_1 = 0$). The complementary phase actively desmobilizes: workers are gaining, not merely unaffected. In $t=2$, the threshold is crossed: $y_2 = w_E - L$. By A5, no new capacity can be built. The high-noise result ($\sigma_\tau > \hat{\sigma}_D$ implies $\pi_2^* < \bar{\pi}$) reinforces: even ex post mobilization fails because the displacement was unpredictable. With $\varphi_2 = 0$, stability requires $\Delta + L \leq 0$, contradicting A2. Unstable. $\blacksquare$
 
-(b) *Threshold automation.* Period 1 is calm ($\ell_1 = 0$), so no compensation is triggered: $\varphi_1 = 0$ (A3). The shock arrives in period 2 ($\ell_2 = L$), but by A5 no new capacity can be built. With $\varphi_2 = 0$, stability would require $\Delta + L \leq 0$, which contradicts A2. The democracy is unstable: workers prefer $P$ to an uncompensated shock. $\blacksquare$
+Note that the democratic failure under threshold automation is primarily a timing mechanism: the shock arrives after the compensatory window has closed (A5). The coordination result in $t=2$ is confirmatory, showing that even if the window were reopened, the high-noise environment would prevent credible mobilization.
 
-**Proposition 2 (Autocratic fragility pattern).** *Under A1, A2, A4: (a) autocracy is stable under rapid displacement iff $\kappa_0 \geq \bar{\kappa}/\eta_R$; (b) autocracy is stable under threshold automation iff $\kappa_0 \geq \bar{\kappa}$.*
+**Proposition 2 (Autocratic fragility pattern).** *Under A1-A4: (a) autocracy is stable under rapid displacement iff $\kappa_0 \geq \bar{\kappa}/\eta_r$; (b) autocracy is stable under threshold automation iff $\kappa_0 \geq \bar{\kappa}$.*
 
-*Proof.* (a) *Rapid.* The shock hits in period 1: $\ell_1 = L$. Workers coordinate (the crisis is visible and shared), so repressive effectiveness is $\eta_R < 1$. The effective repressive capacity is $\kappa_0 \cdot \eta_R$. Stability requires $\kappa_0 \cdot \eta_R \geq \bar{\kappa}$, i.e., $\kappa_0 \geq \bar{\kappa}/\eta_R$. Period 2 is calm. (b) *Threshold.* Period 1 is calm. The shock arrives in period 2: $\ell_2 = L$. Workers are disoriented (the shock is sudden), so $\eta_T = 1$ --- repression operates at full capacity. Stability requires $\kappa_0 \geq \bar{\kappa}$. $\blacksquare$
+*Proof.* (a) *Rapid.* Workers displaced in $t=1$: $y_1 = w_E - L$. The shock was predictable, so by Lemma 2, $\pi_1^* \geq \bar{\pi}$: visible opposition degrades repression to $\eta_r$. Stability requires $\kappa_0 \eta_r \geq \bar{\kappa}$, i.e., $\kappa_0 \geq \bar{\kappa}/\eta_r$. In $t=2$, displacement persists and opposition remains organized (same condition). Stable iff $\kappa_0 \geq \bar{\kappa}/\eta_r$ in both periods.
 
-**Proposition 3 (Crossed fragility).** *Under A1-A5, if $\kappa_0 \in [\bar{\kappa}, \bar{\kappa}/\eta_R)$: (a) under rapid displacement, democracy is stable and autocracy is unstable; (b) under threshold automation, democracy is unstable and autocracy is stable.*
+(b) *Threshold.* In $t=1$, workers earn $w_E + \beta$: stable trivially. In $t=2$, the threshold is crossed: $y_2 = w_E - L$. The shock was unpredictable ($\sigma_\tau$ high), so by Lemma 2, $\pi_2^* < \bar{\pi}$: opposition fails to cross the visibility threshold. Repression at full capacity ($\eta = 1$). Stability requires $\kappa_0 \geq \bar{\kappa}$. $\blacksquare$
 
-*Proof.* First, note that the interval $[\bar{\kappa}, \bar{\kappa}/\eta_R)$ is nonempty because $\eta_R < 1$ implies $\bar{\kappa}/\eta_R > \bar{\kappa}$.
+**Definition.** The model exhibits *crossed fragility* when democracy is stable under one trajectory and unstable under the other, while autocracy exhibits the reverse pattern.
 
-(a) *Rapid displacement.* Democracy is stable by P1(a) --- the observable crisis triggers compensation. The autocracy, however, faces organized opposition: $\kappa_0 < \bar{\kappa}/\eta_R$ (by the upper bound of the interval), so repression is insufficient by P2(a). Democracy survives; autocracy does not.
+**Proposition 3 (Crossed fragility).** *Under A1-A5, if $\kappa_0 \in [\bar{\kappa}, \bar{\kappa}/\eta_r)$: (a) under rapid displacement, democracy is stable and autocracy is unstable; (b) under threshold automation, democracy is unstable and autocracy is stable.*
 
-(b) *Threshold automation.* Democracy is unstable by P1(b) --- no crisis was observed, no compensation was built. The autocracy's standing repression, however, operates at full effectiveness against disoriented workers: $\kappa_0 \geq \bar{\kappa}$ (by the lower bound of the interval), so stability holds by P2(b). Autocracy survives; democracy does not. $\blacksquare$
+*Proof.* The crossed pattern emerges because the same low-noise coordination equilibrium activates compensation in democracy but degrades repression in autocracy, while the same high-noise equilibrium suppresses compensation in democracy but preserves repression in autocracy.
 
-Proposition 3 is the paper's central result. Each regime has *differential institutional resilience* for one type of shock: democracies process observable shocks better (coordination channels into compensation); autocracies process delayed shocks better (repression contains disoriented opposition).
+The interval $[\bar{\kappa}, \bar{\kappa}/\eta_r)$ is nonempty since $\eta_r < 1$. (a) Under rapid displacement ($\sigma_r$ low), Lemma 2 implies $\pi^* \geq \bar{\pi}$ in both regimes. In democracy, the visible coalition activates $\varphi_1 = \bar{\varphi}$: stable by P1(a). In autocracy, visible opposition degrades repression to $\eta_r$, and $\kappa_0 < \bar{\kappa}/\eta_r$ implies repression is insufficient: unstable by P2(a). (b) Under threshold automation ($\sigma_\tau$ high), Lemma 2 implies $\pi^* < \bar{\pi}$. In democracy, no visible coalition forms in $t=1$ and A5 prevents recovery: unstable by P1(b). In autocracy, dispersed opposition preserves full repression and $\kappa_0 \geq \bar{\kappa}$: stable by P2(b). $\blacksquare$
+
+In the unified model, Proposition 3 is not obtained by imposing separate regime-specific assumptions. It follows from one equilibrium object, $\pi^*$, generated by the trajectory-dependent information structure. The crossed pattern is a property of one common informational-coordination framework interacting with distinct institutional continuation maps.
+
+![Regime stability under two automation trajectories. The crossed fragility pattern (Proposition 3) applies to the comparison between weak democracies and moderate autocracies: green cells are stable, red cells are unstable.](figures/fig_crossed_fragility.pdf){width=85%}
 
 **Proposition 4 (Welfare cost of autocratic stability).** *Conditional on regime survival, $E$'s welfare is strictly higher under democracy:*
 $$u_E(M \mid D, \text{stable}) - u_E(M \mid A, \text{stable}) = \bar{\kappa} > 0$$
 
 *Proof.* Democracy stable (rapid, $t=1$): $u_E = w_E + \Delta$. Autocracy stable (threshold, $t=2$): $u_E = w_E - L$. Difference: $\Delta + L = \bar{\kappa} > 0$. $\blacksquare$
 
-Autocratic stability is "stability without welfare." The regime survives but affected workers absorb the full automation shock. The welfare gap is exactly the repressive threshold $\bar{\kappa}$.
+Autocratic stability is "stability without welfare." Note that Proposition 4 compares welfare across different scenarios: democracy surviving rapid displacement versus autocracy surviving threshold automation. This is the relevant comparison because, under the crossed fragility pattern, each regime survives under its favorable trajectory. The welfare gap is exactly the repressive threshold $\bar{\kappa}$: the cost that autocratic citizens pay for their regime's stability.
 
-**Proposition 5 (Threshold of thresholds).** *Define $L^* \equiv \kappa_0 + |\Delta|$. For $L > L^*$, autocracy is unstable under threshold automation.*
+**Remark 1 (Threshold of thresholds).** *Define $L^* \equiv \kappa_0 + |\Delta|$. For $L > L^*$, autocracy is unstable under threshold automation.*
 
 *Proof.* Stability requires $\kappa_0 \geq \bar{\kappa} = L - |\Delta|$. $L > \kappa_0 + |\Delta| \Rightarrow \bar{\kappa} > \kappa_0$. $\blacksquare$
 
 Sufficiently large shocks overwhelm even standing repressive capacity. The "threshold of thresholds" is the point where automation exceeds repression.
 
-**Proposition 6 (Width of the crossed interval).** *The set of $\kappa_0$ values generating the crossed pattern has width $\bar{\kappa}(1-\eta_R)/\eta_R$, which is increasing in $\bar{\kappa}$, decreasing in $\eta_R$, and zero when $\eta_R = 1$.*
+**Remark 2 (Width of the crossed interval).** *The set of $\kappa_0$ values generating the crossed pattern has width $\bar{\kappa}(1-\eta_r)/\eta_r$, which is increasing in $\bar{\kappa}$, decreasing in $\eta_r$, and zero when $\eta_r = 1$.*
 
-*Proof.* $|\bar{\kappa}/\eta_R - \bar{\kappa}| = \bar{\kappa}(1-\eta_R)/\eta_R$. Derivatives are immediate. $\blacksquare$
+*Proof.* $|\bar{\kappa}/\eta_r - \bar{\kappa}| = \bar{\kappa}(1-\eta_r)/\eta_r$. Derivatives are immediate. $\blacksquare$
 
-The parameter $\eta_R$ governs everything. It captures how vulnerable autocratic repression is to organized opposition. When $\eta_R = 1$ (repression is equally effective regardless of coordination), the crossed pattern vanishes; the model collapses to one where trajectory does not matter for autocracies. The crossed fragility result is a consequence of $\eta_R < 1$ --- the empirically grounded assumption that repression degrades against organized, visible, legitimate opposition.
+The parameter $\eta_r$ governs everything. It captures how vulnerable autocratic repression is to organized opposition. When $\eta_r = 1$ (repression is equally effective regardless of coordination), the crossed pattern vanishes; the model collapses to one where trajectory does not matter for autocracies. The crossed fragility result is a consequence of $\eta_r < 1$ --- the empirically grounded assumption that repression degrades against organized, visible, legitimate opposition.
 
 **Corollary 1 (Autocratic typology).**
 
@@ -150,38 +192,72 @@ The parameter $\eta_R$ governs everything. It captures how vulnerable autocratic
 |------|-----------|:-----:|:---------:|
 | Democracy | (by A3) | Stable | Unstable |
 | Weak autocracy | $\kappa_0 < \bar{\kappa}$ | Unstable | Unstable |
-| Moderate autocracy | $\bar{\kappa} \leq \kappa_0 < \bar{\kappa}/\eta_R$ | Unstable | Stable |
-| Strong autocracy | $\kappa_0 \geq \bar{\kappa}/\eta_R$ | Stable | Stable |
+| Moderate autocracy | $\bar{\kappa} \leq \kappa_0 < \bar{\kappa}/\eta_r$ | Unstable | Stable |
+| Strong autocracy | $\kappa_0 \geq \bar{\kappa}/\eta_r$ | Stable | Stable |
 
 # Extension: The Welfare State as Institutional Insurance
 
-The baseline model (Propositions 1-6) assumes that democracies have no standing compensatory capacity ($\varphi_0 = 0$). But some democracies maintain comprehensive social insurance that does not require crisis activation. We now ask: does standing compensatory capacity protect democracies against threshold automation, in the same way that standing repressive capacity protects autocracies?
+The baseline model (Propositions 1-4) assumes that democracies have no standing compensatory capacity ($\varphi_0 = 0$). But some democracies maintain comprehensive social insurance that does not require crisis activation. We now ask: does standing compensatory capacity protect democracies against threshold automation, in the same way that standing repressive capacity protects autocracies? Standing compensatory capacity $\varphi_0$ bypasses the coordination bottleneck for threshold shocks: it insures democracy against the low-participation equilibrium induced by high-noise signals.
 
-**Generalized A3.** Allow standing compensatory capacity $\varphi_0 \geq 0$:
-$$\varphi_t = \max\left(\varphi_0, \; \bar{\varphi} \cdot \mathbf{1}[\ell_t > 0]\right)$$
+**Generalized continuation map.** Allow standing compensatory capacity $\varphi_0 \geq 0$:
+$$\varphi_t = \max\left(\varphi_0, \; \bar{\varphi} \cdot \mathbf{1}[\ell_t = L] \cdot g(\pi_t)\right)$$
 
-**Proposition 7 (Welfare state as insurance against delayed shocks).** *(a) Democracy is stable under threshold automation iff $\varphi_0 \geq \bar{\varphi}$. (b) For $\varphi_0 < \bar{\varphi}$, Proposition 1 holds unchanged. (c) For $\varphi_0 \geq \bar{\varphi}$, democracy is stable under both trajectories.*
+**Proposition 5 (Welfare state as insurance against delayed shocks).** *(a) Democracy is stable under threshold automation iff $\varphi_0 \geq \bar{\varphi}$. (b) For $\varphi_0 < \bar{\varphi}$, Proposition 1 holds unchanged. (c) For $\varphi_0 \geq \bar{\varphi}$, democracy is stable under both trajectories.*
 
 *Proof.* (a) Threshold, $t=2$: $\ell_2 = L$, $\varphi_2 = \varphi_0$. Stable iff $\varphi_0 \geq \bar{\varphi}$. (b) $\varphi_0 < \bar{\varphi}$: threshold $t=2$ has $\varphi_2 = \varphi_0 < \bar{\varphi}$, unstable; rapid $t=1$ has $\varphi_1 = \bar{\varphi}$, stable. Identical to P1. (c) $\varphi_0 \geq \bar{\varphi}$: in any period with $\ell_t = L$, $\varphi_t \geq \varphi_0 \geq \bar{\varphi}$, stable. $\blacksquare$
 
-The parameter $\varphi_0$ is the democratic analogue of $\kappa_0$. Both represent *permanent institutional capacity* functioning as insurance against delayed shocks: $\kappa_0$ through repression, $\varphi_0$ through social protection. Democracies with comprehensive welfare states ($\varphi_0 \geq \bar{\varphi}$) are functionally equivalent to strong autocracies ($\kappa_0 \geq \bar{\kappa}/\eta_R$) in terms of resilience --- but with strictly superior welfare outcomes.
+The parameter $\varphi_0$ is the democratic analogue of $\kappa_0$. Both represent *permanent institutional capacity* functioning as insurance against delayed shocks: $\kappa_0$ through repression, $\varphi_0$ through social protection. Democracies with comprehensive welfare states ($\varphi_0 \geq \bar{\varphi}$) are functionally equivalent to strong autocracies ($\kappa_0 \geq \bar{\kappa}/\eta_r$) in terms of resilience --- but with strictly superior welfare outcomes.
 
-**Proposition 8 (Functional equivalence with welfare gap).** *Both strong democracies ($\varphi_0 \geq \bar{\varphi}$) and strong autocracies ($\kappa_0 \geq \bar{\kappa}/\eta_R$) are stable under both trajectories. But under threshold automation, $E$'s welfare differs:*
+**Proposition 6 (Functional equivalence with welfare gap).**
+
+*(a) Both strong democracies ($\varphi_0 \geq \bar{\varphi}$) and strong autocracies ($\kappa_0 \geq \bar{\kappa}/\eta_r$) are stable under both trajectories.*
+
+*(b) Under threshold automation, $E$'s welfare differs:*
 $$u_E(M \mid D\text{-strong}) - u_E(M \mid A\text{-strong}) \geq \bar{\kappa} > 0$$
 
-*Proof.* Strong democracy, threshold $t=2$: $u_E = w_E - L(1-\varphi_0) \geq w_E - L(1-\bar{\varphi}) = w_E + \Delta$. Strong autocracy, threshold $t=2$: $u_E = w_E - L$. Difference $\geq \bar{\kappa} > 0$ by A2. $\blacksquare$
+*Proof.* Part (a): strong democracy is stable under both trajectories by P5(c). Strong autocracy: under rapid, $\kappa_0 \geq \bar{\kappa}/\eta_r$ implies stability by P2(a); under threshold, $\kappa_0 \geq \bar{\kappa}/\eta_r > \bar{\kappa}$ implies stability by P2(b). Part (b): strong democracy, threshold $t=2$: $u_E = w_E - L(1-\varphi_0) \geq w_E - L(1-\bar{\varphi}) = w_E + \Delta$. Strong autocracy, threshold $t=2$: $u_E = w_E - L$. Difference $\geq \Delta + L = \bar{\kappa} > 0$ by A2. $\blacksquare$
 
-This result formalizes a precise claim: the welfare state and repressive apparatus are functionally equivalent as *stabilization* mechanisms but not as *welfare* mechanisms. A strong democracy stabilizes *and* compensates. A strong autocracy stabilizes but leaves workers to bear the full cost of automation. The normative argument for comprehensive social insurance is that it purchases the same institutional resilience as repression --- without the human cost.
+Part (a) establishes that comprehensive social insurance and standing repressive capacity are functionally equivalent as *stabilization* mechanisms. Part (b) shows they are not equivalent as *welfare* mechanisms: the welfare gap is at least $\bar{\kappa}$, exactly the repressive threshold. A strong democracy stabilizes *and* compensates. A strong autocracy stabilizes but leaves workers to bear the full cost of automation. The normative argument for comprehensive social insurance is that it purchases the same institutional resilience as repression --- without the human cost.
 
-This connects to the class compromise tradition. Przeworski and Wallerstein (1982) modeled the bargain sustaining democratic capitalism: workers consent to private profit in exchange for social protection (see also Moene and Wallerstein 2001 on the demand for social insurance under inequality). Our P7-P8 formalize a specific implication: when this compromise is institutionalized as a standing welfare state, it insures the regime itself --- not just individual workers --- against technological disruption. The authoritarian alternative, welfare spending as a substitute for (or complement to) repression to prevent insurrection (Desai, Olofsgard, and Yousef 2009), achieves stabilization but at the cost of leaving citizens uncompensated.
+**Illustrative example (continued).** Using the same parameters ($\Delta = -0.4$, $L = 1$, $\bar{\varphi} = 0.6$, $\kappa_0 = 0.8$, $\eta_r = 0.5$), suppose a strong democracy with $\varphi_0 = 0.6 \geq \bar{\varphi}$. Under threshold automation at $t=2$: $u_E(M) = w_E - 1(1 - 0.6) = w_E - 0.4$, while $u_E(P) = w_E - 0.4$. Marginally stable --- the welfare state absorbs the shock. Compare with the strong autocracy ($\kappa_0 = 0.8$), also stable under threshold: $u_E(M) = w_E - 1 = w_E - 1.0$. The welfare gap is $(-0.4) - (-1.0) = 0.6 = \bar{\kappa}$. Both regimes survive, but democratic citizens earn $0.6$ more than autocratic citizens --- exactly the repressive threshold.
+
+This connects to the class compromise tradition. Przeworski and Wallerstein (1982) modeled the bargain sustaining democratic capitalism: workers consent to private profit in exchange for social protection (see also Moene and Wallerstein 2001 on the demand for social insurance under inequality). Our P5-P6 formalize a specific implication: when this compromise is institutionalized as a standing welfare state, it insures the regime itself against technological disruption. The authoritarian alternative, welfare spending as a substitute for (or complement to) repression to prevent insurrection (Desai, Olofsgard, and Yousef 2009), achieves stabilization but at the cost of leaving citizens uncompensated.
+
+**Corollary 2 (Complete regime typology).**
+
+| Type | Condition | Rapid | Threshold |
+|------|-----------|:-----:|:---------:|
+| Strong democracy | $\varphi_0 \geq \bar{\varphi}$ | Stable | Stable |
+| Weak democracy | $\varphi_0 < \bar{\varphi}$ | Stable | Unstable |
+| Weak autocracy | $\kappa_0 < \bar{\kappa}$ | Unstable | Unstable |
+| Moderate autocracy | $\bar{\kappa} \leq \kappa_0 < \bar{\kappa}/\eta_r$ | Unstable | Stable |
+| Strong autocracy | $\kappa_0 \geq \bar{\kappa}/\eta_r$ | Stable | Stable |
+
+The crossed fragility pattern (Proposition 3) applies to the comparison between *weak democracies* and *moderate autocracies*. Figure 1 illustrates the parametric regions.
+
+![Stability regions by regime type. Panel A: autocracy stability as a function of standing repressive capacity $\kappa_0$. Panel B: democracy stability as a function of standing compensatory capacity $\varphi_0$. Parameters: $L=1$, $|\Delta|=0.4$, $\eta_r=0.5$.](figures/fig_parametric_space.pdf){width=100%}
+
+**Empirical mapping.**
+
+| Theoretical type | Candidate examples |
+|-----------------|-------------------|
+| Strong democracy ($\varphi_0 \geq \bar{\varphi}$) | Scandinavia, Germany (comprehensive welfare state) |
+| Weak democracy ($\varphi_0 < \bar{\varphi}$) | United States, United Kingdom (residual welfare state) |
+| Moderate autocracy ($\bar{\kappa} \leq \kappa_0 < \bar{\kappa}/\eta_r$) | China, Russia, Iran |
+| Strong autocracy ($\kappa_0 \geq \bar{\kappa}/\eta_r$) | North Korea, Saudi Arabia |
+| Weak autocracy ($\kappa_0 < \bar{\kappa}$) | Competitive autocracies pre-Arab Spring |
+
+**Empirical proxies and rough calibration.** The model's parameters can be approximated with available data. For democratic resilience, $\varphi_0$ maps to public social spending as a share of GDP (OECD SOCX database): Scandinavian countries spend 26-30% of GDP (Denmark 28%, Sweden 26%), Germany 26%, while the United States spends 19% and the United Kingdom 21%. For repressive capacity, $\kappa_0$ maps to combined military and internal security spending as a share of GDP, supplemented by indices of state coercive capacity (e.g., V-Dem's Physical Violence Index): Saudi Arabia allocates 6-7% of GDP to defense, Russia approximately 4%, China roughly 2% on defense alone (internal security spending is not reported). For repressive effectiveness, $\eta_r$ is harder to observe directly but should correlate with security force professionalization, ethnic cohesion of the military, degree of international isolation, and --- increasingly --- surveillance technology deployment.
+
+A back-of-the-envelope exercise illustrates that the crossed fragility interval is empirically relevant. If $\eta_r = 0.5$ (repression loses half its effectiveness against organized opposition), the crossed interval $[\bar{\kappa}, \bar{\kappa}/\eta_r)$ spans a factor of 2 in $\kappa_0$: any autocracy whose repressive capacity is sufficient to contain disoriented dissent but insufficient to contain organized opposition at full force falls in the crossed range. By Remark 2, the interval width is $\bar{\kappa}/\eta_r$, which for $\eta_r = 0.5$ equals $\bar{\kappa}$ itself. This suggests that a substantial fraction of real-world autocracies --- those with moderate but not overwhelming coercive capacity --- should exhibit the crossed pattern. Systematic measurement of $\varphi_0$, $\kappa_0$, and $\eta_r$ remains a task for empirical work, but the theoretical prediction is that the crossed fragility region is wide, not a knife-edge.
 
 ## Why democracies cannot recover in $t=2$: endogenous fiscal fragility
 
 A natural objection: under threshold automation, the crisis *is* observable in $t=2$ ($\ell_2 = L$). Why can't the democracy build emergency compensation then? Assumption A5 rules this out by fiat. We now relax A5 and show that the result survives under an endogenous fiscal constraint.
 
-**A5' (Emergency fiscal constraint).** In $t=2$, the democracy can attempt to build emergency compensatory capacity $\varphi_2^{em}$ at cost $p \cdot c(\varphi_2^{em})$, where $p \geq 1$ is the *crisis premium* (reflecting fiscal stress, political polarization, and borrowing costs under duress) and $c(\cdot)$ is the normal cost of building capacity. Emergency spending is subject to a fiscal constraint: $p \cdot c(\varphi_2^{em}) \leq F$, where $F > 0$ is available fiscal capacity.
+**A5' (Emergency fiscal constraint).** In $t=2$, the democracy can attempt to build emergency compensatory capacity $\varphi_2^{em}$ at cost $p \cdot c(\varphi_2^{em})$, where $p \geq 1$ is the *crisis premium* (reflecting fiscal stress, political polarization, and borrowing costs under duress) and $c(\cdot)$ is the normal cost of building capacity, assumed continuous and strictly increasing with $c(0) = 0$. Emergency spending is subject to a fiscal constraint: $p \cdot c(\varphi_2^{em}) \leq F$, where $F > 0$ is available fiscal capacity.
 
-**Proposition 9 (Endogenous fiscal fragility).** *Under A5' replacing A5, define $p^* \equiv F / c(\bar{\varphi})$. Democracy is unstable under threshold automation whenever $p \geq p^*$.*
+**Proposition 7 (Endogenous fiscal fragility).** *Under A5' replacing A5, define $p^* \equiv F / c(\bar{\varphi})$. Democracy is unstable under threshold automation whenever $p \geq p^*$.*
 
 *Proof.* Under threshold, $t=2$: $\ell_2 = L$, $\varphi_1 = 0$ (by A3). Survival requires $\varphi_2^{em} \geq \bar{\varphi}$, costing $p \cdot c(\bar{\varphi})$. This is affordable iff $p \cdot c(\bar{\varphi}) \leq F$, i.e., $p \leq p^*$. For $p \geq p^*$: emergency compensation is unaffordable. P1(b) holds. $\blacksquare$
 
@@ -193,39 +269,15 @@ Three forces push $p$ above $p^*$ during a threshold crisis:
 
 The asymmetry with autocracy is structural: $\kappa_0$ is a pre-built stock, not a crisis-mobilized flow. The repressive apparatus does not require emergency fiscal authorization --- its cost was paid *ex ante* through continuous maintenance. Compensation, by contrast, must be fiscally mobilized *during* the crisis, precisely when mobilization is hardest.
 
-**Corollary 3 (Vicious cycle of democratic fragility).** *Under threshold automation with endogenous fiscal constraint, weak democracies ($\varphi_0 < \bar{\varphi}$) face a vicious cycle: (i) no preventive investment in $t=1$ (A3); (ii) crisis in $t=2$ erodes fiscal capacity ($F \downarrow$) and raises political costs ($p \uparrow$); (iii) emergency response becomes unaffordable ($p > p^*$); (iv) instability. Preventive investment ($\varphi_0 \geq \bar{\varphi}$, P7) breaks this cycle by building capacity before fiscal conditions deteriorate.*
+**Corollary 3 (Vicious cycle of democratic fragility).** *Under threshold automation with endogenous fiscal constraint, weak democracies ($\varphi_0 < \bar{\varphi}$) face a vicious cycle: (i) no preventive investment in $t=1$ (A3); (ii) crisis in $t=2$ erodes fiscal capacity ($F \downarrow$) and raises political costs ($p \uparrow$); (iii) emergency response becomes unaffordable ($p > p^*$); (iv) instability. Preventive investment ($\varphi_0 \geq \bar{\varphi}$, P5) breaks this cycle by building capacity before fiscal conditions deteriorate.*
 
 This result strengthens the normative case for the welfare state. The choice is not merely between compensating workers (humane) and repressing them (effective). It is between investing *before* the crisis, when fiscal conditions permit, and attempting to invest *during* the crisis, when they may not. A5 is the limiting case ($p \to \infty$); the endogenous version preserves the result whenever crisis conditions are severe enough to make emergency response prohibitively expensive.
-
-**Corollary 2 (Complete regime typology).**
-
-| Type | Condition | Rapid | Threshold |
-|------|-----------|:-----:|:---------:|
-| Strong democracy | $\varphi_0 \geq \bar{\varphi}$ | Stable | Stable |
-| Weak democracy | $\varphi_0 < \bar{\varphi}$ | Stable | Unstable |
-| Weak autocracy | $\kappa_0 < \bar{\kappa}$ | Unstable | Unstable |
-| Moderate autocracy | $\bar{\kappa} \leq \kappa_0 < \bar{\kappa}/\eta_R$ | Unstable | Stable |
-| Strong autocracy | $\kappa_0 \geq \bar{\kappa}/\eta_R$ | Stable | Stable |
-
-The crossed fragility pattern (Proposition 3) applies to the comparison between *weak democracies* and *moderate autocracies*. Figure 1 illustrates the parametric regions.
-
-![Stability regions by regime type. Panel A: autocracy stability as a function of standing repressive capacity $\kappa_0$. Panel B: democracy stability as a function of standing compensatory capacity $\varphi_0$. Parameters: $L=1$, $|\Delta|=0.4$, $\eta_R=0.5$.](figures/fig_parametric_space.pdf){width=100%}
-
-**Empirical mapping.**
-
-| Theoretical type | Candidate examples |
-|-----------------|-------------------|
-| Strong democracy ($\varphi_0 \geq \bar{\varphi}$) | Scandinavia, Germany (comprehensive welfare state) |
-| Weak democracy ($\varphi_0 < \bar{\varphi}$) | United States, United Kingdom (residual welfare state) |
-| Moderate autocracy ($\bar{\kappa} \leq \kappa_0 < \bar{\kappa}/\eta_R$) | China, Russia, Iran |
-| Strong autocracy ($\kappa_0 \geq \bar{\kappa}/\eta_R$) | North Korea, Saudi Arabia |
-| Weak autocracy ($\kappa_0 < \bar{\kappa}$) | Competitive autocracies pre-Arab Spring |
 
 # Discussion
 
 ## Two symmetric tragedies
 
-The model reveals a structural irony at the heart of each regime type.
+The model reveals a structural irony in each regime type.
 
 *The tragedy of democratic responsiveness.* The same property that makes democracies good for citizens --- responsiveness to political demands, leading to compensatory policy --- makes them fragile to delayed shocks. Without observable distress, there is no political demand; without demand, there is no action. Responsiveness is both the source of democratic strength and the mechanism of democratic fragility.
 
@@ -236,31 +288,39 @@ The model reveals a structural irony at the heart of each regime type.
 | Parameter | Effect on stability | Interpretation |
 |-----------|-------------------|---------------|
 | $L \uparrow$ | $\bar{\varphi} \uparrow$, $\bar{\kappa} \uparrow$ | Larger shocks destabilize both |
-| $\eta_R \downarrow$ | Crossed interval widens | More autocracies exhibit the crossed pattern |
+| $\eta_r \downarrow$ | Crossed interval widens | More autocracies exhibit the crossed pattern |
 | $\theta \uparrow$ | $\Delta \uparrow$, both thresholds rise | Regime change more attractive |
 | $k \uparrow$ | $\Delta \downarrow$, both thresholds fall | Regime change costlier, more stability |
 | $\kappa_0 \uparrow$ | Autocracy more stable | Moves from weak to moderate to strong |
 | $\varphi_0 \uparrow$ | Democracy more stable under threshold | Welfare state as insurance |
 
-## Transferability
+## On the distance between assumptions and results
 
-The crossed fragility result generalizes beyond AI automation. For any economic shock with two possible trajectories --- observable versus delayed --- the model predicts that responsive institutions process observable shocks better and permanent-capacity institutions process delayed shocks better. The coordination of affected populations is the mediating variable: observable shocks facilitate it (benefiting institutions that channel coordination); delayed shocks impede it (benefiting institutions that operate independently of coordination). Applications include climate change (gradual warming versus sudden extreme events), financial crises (slow-building versus sudden crashes), and demographic transitions (gradual aging versus sudden labor force contraction).
+In the unified model, the crossed fragility result (Proposition 3) is not obtained by imposing separate regime-specific behavioral assumptions. The inferential chain runs: trajectory $\to$ signal noise $\sigma$ $\to$ equilibrium participation $\pi^*$ $\to$ regime-specific continuation map $\to$ stability. The only trajectory-varying primitive is signal noise. Democratic compensation and autocratic repressive effectiveness are both consequences of one equilibrium object, $\pi^*$, processed through distinct institutional continuation maps. This architecture produces a materially longer distance from premises to conclusions than a setup where compensation and repression patterns are postulated directly.
+
+The coordination mechanism has asymmetric causal weight across regimes, and the model is explicit about this. On the democratic side, the primary driver of fragility under threshold automation remains institutional timing: $\ell_1 = 0$ means no shock is observed while the compensatory window (A5) is still open. The coordination result in $t=2$ is confirmatory, showing that even ex post mobilization would fail under high noise. On the autocratic side, coordination plays a more directly constitutive role: visible opposition degrades repression, and the absence of visibility preserves it.
+
+One reduced-form step remains: the mapping from automation trajectory to signal noise ($\sigma_r$ low, $\sigma_\tau$ high). This is a narrower and more transparent residual assumption than the previous architecture, where two separate behavioral patterns (reactive compensation and coordination-dependent repression) had to be postulated independently.
 
 ## Limitations
 
-The model assumes regime-specific instruments: democracies compensate, autocracies repress. In practice, regimes use mixed strategies --- autocracies also redistribute (Knutsen and Rasmussen 2018) and democracies also coerce. An extension showing that instrument specialization emerges endogenously from cost advantages would strengthen the argument.
+The underlying coordination mechanism is unified, but the institutional continuation maps remain regime-specific: democracies compensate, autocracies repress. In practice, regimes use mixed strategies --- autocracies also redistribute (Knutsen and Rasmussen 2018) and democracies also coerce. An extension showing that instrument specialization emerges endogenously from cost advantages would strengthen the argument.
 
-The parameter $\eta_R$ is assumed, not estimated. Empirically, $\eta_R$ should correlate with security force professionalization, ethnic cohesion of the military, international isolation, and surveillance technology. Systematic measurement remains a task for future research.
+The model treats $\varphi_0$ as costless to maintain. In practice, comprehensive social insurance imposes efficiency costs: tax distortions, moral hazard, and reduced labor market flexibility. If sustaining $\varphi_0 \geq \bar{\varphi}$ reduces output $W$, the welfare state that insures the regime against threshold automation may simultaneously weaken growth, potentially generating instability through a different channel. The optimal level of $\varphi_0$ involves a trade-off between institutional resilience and economic efficiency that the model does not capture. The prescriptive implication --- invest in social insurance before the crisis --- remains valid, but its full cost-benefit analysis requires accounting for these distortions.
 
-The two-period structure captures timing but not richer dynamics. A multi-period extension with learning and adjustment would allow for intermediate scenarios (partially gradual shocks) and adaptive institutional responses.
+The parameter $\eta_r$ is assumed, not estimated. Empirically, $\eta_r$ should correlate with security force professionalization, ethnic cohesion of the military, international isolation, and surveillance technology. Systematic measurement remains a task for future research.
+
+The two-period structure captures timing but not richer dynamics. A multi-period extension with learning and adjustment would allow for adaptive institutional responses. The binary distinction between rapid and threshold can be relaxed within the current framework by parameterizing trajectory as $\ell_1 = pL$, $\ell_2 = (1-p)L$ for $p \in [0,1]$, where $p = 1$ is rapid and $p = 0$ is threshold. For intermediate values, partial compensation is triggered in $t=1$ (proportional to $pL$) and the residual shock $(1-p)L$ arrives in $t=2$ without protection. The crossed fragility pattern emerges most sharply for extreme values of $p$ and weakens as $p$ approaches interior values, confirming that the result does not depend on the binary assumption but is strongest when trajectories are maximally distinct.
 
 # Conclusion
 
 We have shown that the trajectory of AI automation --- rapid displacement versus threshold substitution --- produces systematically different fragility patterns across regime types. The key mechanism is the coordination capacity of affected workers, which has opposite effects on democracies (enables compensation) and autocracies (degrades repression).
 
-Three results stand out. First, the crossed fragility pattern: each regime has comparative advantage in processing one type of shock (Proposition 3). Second, the welfare cost of autocratic resilience: when autocracies survive, their citizens bear the full cost of disruption (Proposition 4). Third, the functional equivalence of social insurance and repressive capacity as institutional insurance, with the former strictly dominating in welfare (Propositions 7-8).
+Three results stand out. First, the crossed fragility pattern: each regime has comparative advantage in processing one type of shock (Proposition 3). Second, the welfare cost of autocratic resilience: when autocracies survive, their citizens bear the full cost of disruption (Proposition 4). Third, the functional equivalence of social insurance and repressive capacity as institutional insurance, with the former strictly dominating in welfare (Propositions 5-6).
 
-The policy implication is direct. Democracies facing AI automation with potential threshold dynamics --- sectors where automation initially complements and later substitutes --- should invest in standing social insurance *before* the crisis materializes. This is not merely a humanitarian argument. It is a regime-stability argument: the welfare state is the democratic substitute for the repressive apparatus that autocracies maintain as a matter of course. The difference is that social insurance protects both the regime and its citizens, while repression protects only the regime.
+The crossed fragility logic is not specific to AI: it applies whenever economic shocks differ in observability, including financial crises (slow-building versus sudden crashes), climate change (gradual warming versus extreme events), and demographic transitions.
+
+The policy implication is direct. Democracies facing AI automation with potential threshold dynamics --- sectors where automation initially complements and later substitutes --- should invest in standing social insurance *before* the crisis materializes. The welfare state is the democratic substitute for the repressive apparatus that autocracies maintain as a matter of course. Social insurance protects both the regime and its citizens; repression protects only the regime.
 
 # References {-}
 
@@ -304,43 +364,40 @@ Svolik, M. W. 2012. *The Politics of Authoritarian Rule*. Cambridge University P
 
 \appendix
 
-# Microfoundation of A3 --- A Voting Model of Reactive Compensation
+# Democratic Continuation Map --- Voting Derivation
+
+This appendix provides a richer derivation of the democratic continuation map $\varphi_t(\ell_t, \pi_t)$ introduced in Section 2.
 
 ## Setup
 
-Two groups within the democracy: $E$ (exposed, mass $\mu_E$) and $N$ (non-exposed, mass $\mu_N > \mu_E$). Within each period, after $\ell_t$ is revealed: (1) $E$ announces political stance ($M$ or $P$); (2) $N$ votes on a subsidy rate $s_t$ financing compensation $\varphi_t$; (3) $E$ takes final action.
+Two groups within the democracy: $E$ (exposed, mass $\mu_E$) and $N$ (non-exposed, mass $\mu_N > \mu_E$). Within each period, after $\ell_t$ is revealed and aggregate participation $\pi_t$ is observed: (1) $E$ announces political stance ($M$ or $P$); (2) $N$ votes on a subsidy rate $s_t$ financing compensation $\varphi_t$; (3) $E$ takes final action.
 
-$N$'s payoff: $U_N = w_N - s_t c_s - \gamma \cdot \mathbf{1}[P \text{ occurs}]$, where $c_s > 0$ is the per-unit cost of the subsidy and $\gamma \equiv (1-\alpha)w_N > 0$ is the cost $N$ bears under regime change.
+$N$'s payoff: $U_N = w_N - s_t c_s - \gamma \cdot g(\pi_t) \cdot \mathbf{1}[\ell_t = L]$, where $c_s > 0$ is the per-unit cost of the subsidy, $\alpha \in (0,1)$ is the fraction of $N$'s income preserved under regime change, and $\gamma \equiv (1-\alpha)w_N > 0$ is the cost $N$ bears under regime change. The visibility function $g(\pi_t)$ enters because $N$ perceives the instability threat as credible only when both a material shock exists and the coalition is publicly visible.
 
 ## Equilibrium
 
-**When $\ell_t = 0$:** By A1, $E$ cannot credibly threaten $P$ (revolt is dominated even without compensation). $N$'s optimal tax is $s^* = 0$.
+**When $\ell_t = 0$:** By A1, $E$ cannot credibly threaten $P$. $N$'s optimal tax is $s^* = 0$.
 
-**When $\ell_t = L$:** $E$'s threat is credible (by A2). $N$ compares pacification ($s = \bar{\varphi}$, payoff $w_N - \bar{\varphi} c_s$) versus instability ($s = 0$, payoff $w_N - \gamma$). $N$ pacifies iff $\gamma \geq \bar{\varphi} c_s$.
+**When $\ell_t = L$ and $g(\pi_t) = 0$:** No visible coalition. The threat from $E$ is not politically credible. $N$'s optimal tax is $s^* = 0$.
 
-**Parameter restriction (P-R):** $\gamma / c_s \geq \bar{\varphi}$. Under (P-R), the unique subgame-perfect equilibrium yields $\varphi^*(0) = 0$ and $\varphi^*(L) = \bar{\varphi}$, recovering A3 as an equilibrium result.
+**When $\ell_t = L$ and $g(\pi_t) = 1$:** $E$'s threat is credible (visible coalition + material loss). $N$ compares pacification ($s = \bar{\varphi}$, payoff $w_N - \bar{\varphi} c_s$) versus instability ($s = 0$, payoff $w_N - \gamma$). $N$ pacifies iff $\gamma \geq \bar{\varphi} c_s$.
 
-The microfoundation rests on three primitives: majority rule ($\mu_N > \mu_E$), shock-contingent outside option (automation activates $E$'s threat), and $N$'s fear of instability ($\gamma > 0$). The non-exposed majority is the bottleneck: it funds social insurance only under duress.
+**Parameter restriction (P-R):** $\gamma / c_s \geq \bar{\varphi}$. Under (P-R), the unique subgame-perfect equilibrium yields $\varphi^*(\ell_t, \pi_t) = \bar{\varphi} \cdot \mathbf{1}[\ell_t = L] \cdot g(\pi_t)$, recovering the democratic continuation map stated in Section 2.
 
-# Microfoundation of A4 --- Coordination as Global Game
+# Coordination Equilibrium --- Proofs
+
+This appendix provides the formal derivations for Lemmas 1 and 2 stated in Section 3, and establishes the existence of endogenous noise thresholds $\hat{\sigma}_x$.
 
 ## Setup
 
-A continuum of $E$-members indexed by $i$, each choosing $a_i \in \{0,1\}$ (participate in revolt or abstain). Revolt succeeds iff participation $\pi \equiv \int a_i \, di \geq \bar{\pi} \equiv \kappa_0/\kappa_{\max}$. Each agent observes a private signal $x_i = \omega + \sigma \varepsilon_i$ about shock severity, where signal noise $\sigma$ depends on the trajectory:
+The coordination game is as described in Section 2. Worker $i$ in regime $x$ observes $s_{it} = \omega_t + \sigma_j \varepsilon_{it}$ and chooses $a_{it} \in \{0,1\}$. Participation generates a club good for coalition members when visibility is achieved: if $\pi_t \geq \bar{\pi}$, each participant receives $b_x > 0$ (access to coalition-specific benefits) and each member of $E$ benefits from the regime-specific continuation outcome $Y_x > 0$. If visibility is not achieved, participants bear cost $m > 0$.
 
-- Rapid ($\sigma_r \approx 0$): visible, shared experience. Near-common knowledge.
-- Threshold ($\sigma_\tau \gg 0$): sudden, disorienting. Noisy private signals.
+## Proof of Lemma 1
 
-Net benefit of successful revolt: $B = \theta W - k - (w_E - L) = \bar{\kappa} > 0$ (by A2). Cost of failed participation: $c > 0$.
+Fix a conjectured cutoff $s_x^*$ for all other agents. Because aggregate participation is increasing in the common fundamental $\omega$ (by A3), there exists a visibility cutoff $\tilde{\omega}_x$ such that $g(\pi_t) = 1$ iff $\omega \geq \tilde{\omega}_x$. Worker $i$'s posterior probability of visibility is $q_i(s_{it}) = \Pr[\omega \geq \tilde{\omega}_x \mid s_{it}]$, which is increasing in $s_{it}$ by the monotone likelihood ratio property. The incremental payoff from participation is $q_i b_x - (1 - q_i) m$, which is increasing in $s_{it}$. Hence best responses are threshold strategies. The best-response mapping from conjectured cutoff $s_x^*$ to optimal cutoff is a contraction under A3 (strategic complementarities in participation with single crossing; see Morris and Shin 2003, Theorem 2.2), yielding a unique monotone equilibrium. $\square$
 
-## Equilibrium
+## Proof of Lemma 2
 
-**Rapid shock ($\sigma \to 0$):** The game approaches complete information. The risk-dominant equilibrium features high participation when $B/(B+c) > \bar{\pi}$, which holds for moderately repressive autocracies. Organized opposition.
+Higher $\sigma_j$ Blackwell-degrades private signals. For a fixed cutoff, this weakly lowers $q_i(s_{it})$ at every signal realization. By monotone comparative statics (Milgrom and Shannon 1994), the equilibrium cutoff $s_x^*(\sigma_j)$ is weakly increasing in $\sigma_j$, and equilibrium participation $\pi_x^*(\sigma_j)$ is weakly decreasing. By continuity of $\pi_x^*$ in $\sigma$ and the boundary conditions ($\pi_x^*$ high for $\sigma \to 0$, low for $\sigma \to \infty$), the Intermediate Value Theorem yields at least one crossing $\hat{\sigma}_x$ where $\pi_x^*(\hat{\sigma}_x) = \bar{\pi}$. $\square$
 
-**Threshold shock ($\sigma$ large):** Strategic uncertainty dominates. Each agent's posterior about others' participation is diffuse. The unique Bayesian Nash equilibrium features low participation: $\pi^*_\tau < \bar{\pi}$. Revolt fails. Disorganized dissent.
-
-## Mapping to $\eta$
-
-Define $\eta(j) = h(\pi^*_j)$ where $h$ is decreasing, $h(0) = 1$. Under rapid: $\pi^*$ high $\Rightarrow$ $\eta_R < 1$ (organized opposition degrades repression). Under threshold: $\pi^*$ low $\Rightarrow$ $\eta_T = 1$ (repression fully effective). This recovers A4 as an equilibrium outcome.
-
-The mechanism is informational: $E$ desires revolt equally under both shocks, but can only coordinate under rapid. Common knowledge enables collective action (Chwe 2001); strategic uncertainty prevents it (Kuran 1991).^[Przeworski and Limongi (1997) established the empirical precursor: economic development does not cause transitions to democracy, but existing democracies at higher income levels survive longer. Our model provides a mechanism for why economic disruptions differentially affect regime survival depending on both the trajectory of the disruption and the type of regime.]
+The mechanism is informational: $E$ desires revolt equally under both shock types ($u_E(P)$ is the same). What differs is the capacity to coordinate, determined by the information structure of the shock (Chwe 2001; Kuran 1991; Morris and Shin 2003).^[Przeworski and Limongi (1997) established the empirical precursor: economic development does not cause transitions to democracy, but existing democracies at higher income levels survive longer. Our model provides a mechanism for why economic disruptions differentially affect regime survival depending on both the trajectory of the disruption and the type of regime.]

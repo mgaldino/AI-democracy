@@ -48,6 +48,12 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+# Lean 4
+formal_proofs/.lake/
+formal_proofs/build/
+formal_proofs/lake-packages/
+*.olean
+
 # Build artifacts
 paper.pdf
 paper.tex
