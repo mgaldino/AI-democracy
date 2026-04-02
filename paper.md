@@ -78,12 +78,10 @@ while compensating workers; repression achieves it while leaving them to
 bear the full cost. The welfare gap between a surviving democracy and a
 surviving autocracy equals exactly the repressive threshold, *κ̄*.
 
-This result connects to the class compromise tradition (Przeworski and
-Wallerstein 1982; Moene and Wallerstein 2001): the welfare state, as
-institutional insurance, formalizes a specific implication of that
-bargain. The authoritarian substitute, repression as regime insurance
-(Desai, Olofsgard, and Yousef 2009), achieves equivalent stabilization
-at the cost of leaving citizens uncompensated.
+This connects to the class compromise tradition (Przeworski and
+Wallerstein 1982; Moene and Wallerstein 2001): the welfare state as
+institutional insurance formalizes a specific implication of that
+bargain (Section 4).
 
 Section 2 develops a unified coordination model in which
 trajectory-dependent signal noise generates both democratic compensation
@@ -123,6 +121,22 @@ captures the productivity gain from the complementary phase; it does not
 affect stability conditions (which depend on per-period income levels)
 but enriches the economic premise and connects to the populism
 extension.
+
+<figure>
+<embed src="figures/fig_income_paths.pdf" style="width:85.0%" />
+<figcaption aria-hidden="true">Income paths under two automation
+trajectories. Left: rapid displacement (<span
+class="math inline"><em>y</em><sub>1</sub> = <em>y</em><sub>2</sub> = <em>w</em><sub><em>E</em></sub> − <em>L</em></span>).
+Right: threshold automation (<span
+class="math inline"><em>y</em><sub>1</sub> = <em>w</em><sub><em>E</em></sub> + <em>β</em></span>,
+<span
+class="math inline"><em>y</em><sub>2</sub> = <em>w</em><sub><em>E</em></sub> − <em>L</em></span>).
+Same total displacement, different timing. Parameters from the numerical
+example (<span
+class="math inline"><em>w</em><sub><em>E</em></sub> = 1</span>, <span
+class="math inline"><em>L</em> = 1</span>, <span
+class="math inline"><em>β</em> = 0.3</span>).</figcaption>
+</figure>
 
 **Preferences.** In each period, each member of *E* chooses between *M*
 (moderate — accept the status quo) and *P* (protest — pursue regime
@@ -223,6 +237,17 @@ determining whether an observed *t* = 1 shock becomes a credible threat
 before the compensatory window closes. In autocracy, coordination
 matters more directly by determining whether repression is degraded by
 visible opposition.
+
+<figure>
+<embed src="figures/fig_mechanism_flow.pdf" style="width:95.0%" />
+<figcaption aria-hidden="true">Mechanism flow: how automation trajectory
+maps to regime stability. The only trajectory-varying primitive is
+signal noise <span class="math inline"><em>σ</em></span>, which
+determines coordination <span
+class="math inline"><em>π</em><sup>*</sup></span>, which feeds
+regime-specific institutional responses. Green = stable, red =
+unstable.</figcaption>
+</figure>
 
 ## Regime-Specific Continuation Maps
 
@@ -395,6 +420,25 @@ in democracy and repression degrades in autocracy. Under threshold
 automation (*σ*<sub>*τ*</sub> high), participation falls below the
 threshold: no credible threat in democracy and fully effective
 repression in autocracy.
+
+<figure>
+<embed src="figures/fig_threshold_plot.pdf" style="width:75.0%" />
+<figcaption aria-hidden="true">Equilibrium participation <span
+class="math inline"><em>π</em><sup>*</sup>(<em>σ</em>)</span> as a
+function of signal noise (Lemma 2). The curve is strictly decreasing,
+crossing the visibility threshold <span
+class="math inline"><em>π̄</em></span> at exactly <span
+class="math inline"><em>σ̂</em></span>. Rapid displacement (<span
+class="math inline"><em>σ</em><sub><em>r</em></sub></span> low) produces
+coordination above <span class="math inline"><em>π̄</em></span>;
+threshold automation (<span
+class="math inline"><em>σ</em><sub><em>τ</em></sub></span> high)
+produces coordination below <span class="math inline"><em>π̄</em></span>.
+Illustrative parameters: <span
+class="math inline"><em>ω</em><sub>0</sub> = 1</span>, <span
+class="math inline"><em>ω</em><sup>*</sup> = 0.4</span>, <span
+class="math inline"><em>π̄</em> = 0.6</span>.</figcaption>
+</figure>
 
 ## Stability conditions
 

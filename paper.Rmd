@@ -30,7 +30,7 @@ Second, autocratic stability comes at a welfare cost equal to the repressive thr
 
 Third, we show that the welfare state functions as institutional insurance against delayed shocks (Propositions 5-6). Democracies with comprehensive social protection survive threshold automation through the same logic as autocracies with standing repressive capacity: both represent permanent institutional capacity that does not require crisis-triggered activation. The welfare state achieves this resilience while compensating workers; repression achieves it while leaving them to bear the full cost. The welfare gap between a surviving democracy and a surviving autocracy equals exactly the repressive threshold, $\bar{\kappa}$.
 
-This result connects to the class compromise tradition (Przeworski and Wallerstein 1982; Moene and Wallerstein 2001): the welfare state, as institutional insurance, formalizes a specific implication of that bargain. The authoritarian substitute, repression as regime insurance (Desai, Olofsgard, and Yousef 2009), achieves equivalent stabilization at the cost of leaving citizens uncompensated.
+This connects to the class compromise tradition (Przeworski and Wallerstein 1982; Moene and Wallerstein 2001): the welfare state as institutional insurance formalizes a specific implication of that bargain (Section 4).
 
 Section 2 develops a unified coordination model in which trajectory-dependent signal noise generates both democratic compensation and autocratic repressive effectiveness as equilibrium outcomes. Section 3 derives Propositions 1-4 and comparative statics. Section 4 develops the welfare state extension (Propositions 5-7) and a five-type regime typology with empirical proxies. Section 5 discusses limitations. Two appendices provide fuller derivations of the democratic voting game and the coordination equilibrium.
 
@@ -41,6 +41,8 @@ Section 2 develops a unified coordination model in which trajectory-dependent si
 We consider a polity over two periods $t \in \{1, 2\}$ with a group of workers $E$ exposed to AI-driven automation. The remainder of the economy is captured by the parameter $W$, representing total per capita output, with $W > w_E$ (exposed workers earn less than the economy-wide average). The polity operates under one of two regime types $i \in \{D, A\}$: democracy or autocracy.
 
 **Automation trajectories.** Following Gans and Goldfarb (2026), we distinguish two stylized trajectories of automation. Displacement is an absorbing state: once AI substitutes a worker's tasks, the income loss persists. Under *rapid displacement* ($j = r$), automation causes immediate and permanent job loss: $y_1^r = y_2^r = w_E - L$, where $L \in (0, w_E]$ is the magnitude of the shock. Under *threshold automation* ($j = \tau$), automation initially complements labor (raising income to $y_1^\tau = w_E + \beta$, with $\beta \geq 0$) and only later becomes substitutive ($y_2^\tau = w_E - L$). These income paths are exogenous to the political model --- they represent the economic premise imported from the automation literature. The parameter $\beta$ captures the productivity gain from the complementary phase; it does not affect stability conditions (which depend on per-period income levels) but enriches the economic premise and connects to the populism extension.
+
+![Income paths under two automation trajectories. Left: rapid displacement ($y_1 = y_2 = w_E - L$). Right: threshold automation ($y_1 = w_E + \beta$, $y_2 = w_E - L$). Same total displacement, different timing. Parameters from the numerical example ($w_E = 1$, $L = 1$, $\beta = 0.3$).](figures/fig_income_paths.pdf){width=85%}
 
 **Preferences.** In each period, each member of $E$ chooses between $M$ (moderate --- accept the status quo) and $P$ (protest --- pursue regime change). Payoffs depend on the regime type. All members of $E$ are identical in the baseline; the representative worker notation $u_E$ applies to each individual.
 
@@ -77,6 +79,8 @@ where $\bar{\pi} \in (0,1)$ is a common visibility threshold. Smooth versions ge
 **Participation payoffs.** When visibility is achieved ($\pi_t \geq \bar{\pi}$), participants receive a coalition-specific benefit $b_x > 0$ (access to targeted transfers, legal support, or mutual protection that only organized coalition members obtain). When visibility is not achieved, participants bear a cost $m > 0$ (exposure without collective cover). The net gain from participation is $q_i b_x - (1-q_i) m$, where $q_i = \Pr[\pi_t \geq \bar{\pi} \mid s_{it}]$. Worker $i$ participates iff $q_i \geq m/(b_x + m)$. This is a standard Olson-style selective incentive: the public outcome (compensation or degraded repression) benefits all of $E$, but what sustains participation is the member-only club good. See Appendix B for the formal equilibrium derivation.
 
 The same informational friction and participation technology feed two regime-specific continuation maps. In democracy, coordination matters by determining whether an observed $t=1$ shock becomes a credible threat before the compensatory window closes. In autocracy, coordination matters more directly by determining whether repression is degraded by visible opposition.
+
+![Mechanism flow: how automation trajectory maps to regime stability. The only trajectory-varying primitive is signal noise $\sigma$, which determines coordination $\pi^*$, which feeds regime-specific institutional responses. Green = stable, red = unstable.](figures/fig_mechanism_flow.pdf){width=95%}
 
 ## Regime-Specific Continuation Maps
 
@@ -130,6 +134,8 @@ Before deriving stability, we establish that the coordination game generates the
 **Lemma 2 (Noise comparative statics).** *Equilibrium participation $\pi_x^*(\sigma_j)$ is weakly decreasing in $\sigma_j$. For each regime $x$, there exists a noise threshold $\hat{\sigma}_x$ such that $\pi_x^*(\sigma) \geq \bar{\pi}$ for $\sigma \leq \hat{\sigma}_x$ and $\pi_x^*(\sigma) < \bar{\pi}$ for $\sigma > \hat{\sigma}_x$.*
 
 These lemmas establish that $\sigma$ is the single trajectory-varying primitive from which the institutional responses in both regimes are derived. Under rapid displacement ($\sigma_r$ low), equilibrium participation crosses the visibility threshold: compensation activates in democracy and repression degrades in autocracy. Under threshold automation ($\sigma_\tau$ high), participation falls below the threshold: no credible threat in democracy and fully effective repression in autocracy.
+
+![Equilibrium participation $\pi^*(\sigma)$ as a function of signal noise (Lemma 2). The curve is strictly decreasing, crossing the visibility threshold $\bar{\pi}$ at exactly $\hat{\sigma}$. Rapid displacement ($\sigma_r$ low) produces coordination above $\bar{\pi}$; threshold automation ($\sigma_\tau$ high) produces coordination below $\bar{\pi}$. Illustrative parameters: $\omega_0 = 1$, $\omega^* = 0.4$, $\bar{\pi} = 0.6$.](figures/fig_threshold_plot.pdf){width=75%}
 
 ## Stability conditions
 
