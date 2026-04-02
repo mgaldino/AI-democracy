@@ -1,0 +1,138 @@
+{
+  "paper_file": "paper.Rmd",
+  "last_dashboard_run": "2026-04-02T13:00:00",
+  "results": [
+    {
+      "id": "remark1",
+      "name": "Remark 1 (Threshold of thresholds)",
+      "paper_line": 177,
+      "paper_statement_hash": "d4e26b2400e6fe2fa61aac06c3fbd22dfe1fc3d33f582889bc7b91e90eb3e660",
+      "lean_file": "FormalProofs/Remarks.lean",
+      "lean_theorem": "remark1_threshold_of_thresholds",
+      "lean_file_hash": "81efcc7e5907a537ba37cf0226b3d91ee65c7d9307995669c5db87f5c07b785e",
+      "status": "VERIFIED",
+      "verified_at": "2026-04-02T12:31:00",
+      "notes": ""
+    },
+    {
+      "id": "remark2",
+      "name": "Remark 2 (Width of the crossed interval)",
+      "paper_line": 183,
+      "paper_statement_hash": "a2c030e6d3564eed7636e5ee0cc0a741e642c48a79a12f7087d777929b12d9de",
+      "lean_file": "FormalProofs/Remarks.lean",
+      "lean_theorem": "remark2_width_of_crossed_interval",
+      "lean_file_hash": "81efcc7e5907a537ba37cf0226b3d91ee65c7d9307995669c5db87f5c07b785e",
+      "status": "VERIFIED",
+      "verified_at": "2026-04-02T12:31:00",
+      "notes": "Includes 4 sub-theorems: width formula, increasing in kb, decreasing in eta, zero at eta=1"
+    },
+    {
+      "id": "lemma_1",
+      "name": "Lemma 1 (Unique cutoff equilibrium)",
+      "paper_line": 126,
+      "paper_statement_hash": "ae373b4d53400b3ca9dcd603faa004956d5bda3a1478cfed1b829269e70edd4c",
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": "Requires global games"
+    },
+    {
+      "id": "lemma_2",
+      "name": "Lemma 2 (Noise comparative statics)",
+      "paper_line": 128,
+      "paper_statement_hash": "06ded10c41d4ea587a97a78b56181423827a8fbd2ed0a7cc218f324350f97d6d",
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": "Requires global games"
+    },
+    {
+      "id": "proposition_1",
+      "name": "Proposition 1 (Democratic fragility)",
+      "paper_line": 144,
+      "paper_statement_hash": null,
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": "Depends on Lemma 2"
+    },
+    {
+      "id": "proposition_2",
+      "name": "Proposition 2 (Autocratic fragility)",
+      "paper_line": 152,
+      "paper_statement_hash": null,
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": "Depends on Lemma 2"
+    },
+    {
+      "id": "proposition_3",
+      "name": "Proposition 3 (Crossed fragility)",
+      "paper_line": 160,
+      "paper_statement_hash": "e3548b3b13a69aa18886966b1ef41711cad07269efd43163a2e8c047d9a2eedb",
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": "Depends on P1+P2"
+    },
+    {
+      "id": "proposition_4",
+      "name": "Proposition 4 (Welfare cost)",
+      "paper_line": 170,
+      "paper_statement_hash": null,
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": "Algebra, independent"
+    },
+    {
+      "id": "proposition_5",
+      "name": "Proposition 5 (Welfare state insurance)",
+      "paper_line": 205,
+      "paper_statement_hash": null,
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": ""
+    },
+    {
+      "id": "proposition_6",
+      "name": "Proposition 6 (Functional equivalence)",
+      "paper_line": 211,
+      "paper_statement_hash": null,
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": ""
+    },
+    {
+      "id": "proposition_7",
+      "name": "Proposition 7 (Fiscal fragility)",
+      "paper_line": 260,
+      "paper_statement_hash": null,
+      "lean_file": null,
+      "lean_theorem": null,
+      "lean_file_hash": null,
+      "status": "NOT_FORMALIZED",
+      "verified_at": null,
+      "notes": "Uses c(phi)"
+    }
+  ]
+}
