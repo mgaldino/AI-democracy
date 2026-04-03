@@ -2,27 +2,27 @@
 
 **Project**: AI Automation, Regime Type, and Crossed Fragility
 **Last updated**: 2026-04-02
-**Paper file**: paper.Rmd (modified: 2026-04-02 12:13)
+**Paper file**: paper.Rmd (modified: 2026-04-02)
 **Build status**: PASSING
 
 ## Summary
 
 | Status | Count |
 |--------|-------|
-| Verified | 15 |
+| Verified | 17 |
 | Has sorry | 0 |
 | Stale (needs re-verification) | 0 |
-| Not formalized | 2 |
+| Not formalized | 0 |
 | **Total results in paper** | **17** |
 
-Note: Lemmas 1-2 (global games) are the only remaining unformalized results. All propositions, remarks, and their sub-results are verified. Coordination outcomes from Lemmas 1-2 enter P1-P3 as hypotheses.
+All results verified end-to-end. Lemmas 1-2 (global games) are now formalized via the external SupermodularGames library, connected through CoordinationLemmas.lean.
 
 ## Detailed Status
 
 | # | Result | Paper line | Lean File | Status | Notes |
 |---|--------|:----------:|-----------|:------:|-------|
-| 1 | Lemma 1 (Unique cutoff equilibrium) | 130 | — | NOT FORMALIZED | Requires global games (Morris & Shin) |
-| 2 | Lemma 2 (Noise comparative statics) | 130 | — | NOT FORMALIZED | Requires global games (Morris & Shin) |
+| 1 | **Lemma 1 (Unique cutoff equilibrium)** | 136 | CoordinationLemmas.lean + SupermodularGames | **VERIFIED** | Via coordination_unique_cutoff (Laplacian uniqueness) |
+| 2 | **Lemma 2 (Noise comparative statics)** | 138 | CoordinationLemmas.lean + SupermodularGames | **VERIFIED** | Via participationRate_strictAntiOn + noise_threshold_exists_unique |
 | 3 | **Proposition 1 (Democratic fragility)** | 146 | Prop1.lean | **VERIFIED** | L2 as hypothesis. P1a: rapid stable. P1b: threshold unstable. |
 | 4 | **Proposition 2 (Autocratic fragility)** | 154 | Prop2.lean | **VERIFIED** | L2 as hypothesis. Iff conditions on κ₀. |
 | 5 | **Proposition 3 (Crossed fragility)** | 162 | Prop3.lean | **VERIFIED** | Interval [κ̄, κ̄/η_r) → crossed pattern. |
@@ -37,6 +37,8 @@ Note: Lemmas 1-2 (global games) are the only remaining unformalized results. All
 | 14 | **Proposition 7 (Fiscal fragility)** | 262 | Prop7.lean | **VERIFIED** | Fiscal impossibility + instability |
 
 | 15 | **Coordination Conditions (M-S prerequisites)** | App. B | CoordinationConditions.lean | **VERIFIED** | Dominance regions, q*∈(0,1), single-crossing |
+| 16 | **Bridge: rapid coordination succeeds** | A6 | CoordinationLemmas.lean | **VERIFIED** | σ_r ≤ σ̂ → π* ≥ π̄ |
+| 17 | **Bridge: threshold coordination fails** | A6 | CoordinationLemmas.lean | **VERIFIED** | σ_τ > σ̂ → π* < π̄ |
 
 Corollaries 1-3 omitted (typology tables, not formal theorems).
 
@@ -48,22 +50,32 @@ No stale proofs. All Lean files are newer than paper.Rmd.
 
 ```
 FormalProofs/
-├── Basic.lean      — Model definitions (ModelParams, Δ, φ̄, κ̄, A1, A2)
-├── Remarks.lean    — Remark 1 + Remark 2 (a-d)
-├── Prop1.lean      — P1: Democratic fragility (L2 as hypothesis)
-├── Prop2.lean      — P2: Autocratic fragility (L2 as hypothesis)
-├── Prop3.lean      — P3: Crossed fragility (interval condition)
-├── Prop4.lean      — P4: Welfare cost of autocratic stability
-├── Prop5.lean      — P5: Welfare state as insurance
-├── Prop6.lean      — P6: Functional equivalence with welfare gap
-└── Prop7.lean      — P7: Endogenous fiscal fragility
+├── Basic.lean                — Model definitions (ModelParams, Δ, φ̄, κ̄, A1, A2)
+├── CoordinationConditions.lean — M-S prerequisites (dominance, q*, single-crossing)
+├── CoordinationLemmas.lean   — Bridge: L1-L2 → P1-P3 (imports SupermodularGames)
+├── Remarks.lean              — Remark 1 + Remark 2 (a-d)
+├── Prop1.lean                — P1: Democratic fragility
+├── Prop2.lean                — P2: Autocratic fragility
+├── Prop3.lean                — P3: Crossed fragility (interval condition)
+├── Prop4.lean                — P4: Welfare cost of autocratic stability
+├── Prop5.lean                — P5: Welfare state as insurance
+├── Prop6.lean                — P6: Functional equivalence with welfare gap
+└── Prop7.lean                — P7: Endogenous fiscal fragility
+
+External dependency:
+  SupermodularGames/ (path: ../../../SupermodularGames)
+  ├── Core/Defs.lean           — HasIncreasingDifferences, Tarski, Topkis
+  ├── Uniqueness/SingleCrossing.lean — Brouwer 1D, unique FP via strict anti-gap
+  ├── Uniqueness/Laplacian.lean      — NoiseCDF, unique root, Laplacian cutoff
+  ├── Applications/BinaryAction.lean — participationRate definition
+  └── Applications/GlobalGames.lean  — L1 (unique cutoff), L2 (π* decreasing), σ̂
 ```
 
 ## Remaining Work
 
-Only **Lemmas 1-2** (global games coordination equilibrium) remain unformalized. These require formalizing Morris & Shin (1998) global games in Lean/Mathlib — a significant undertaking with no existing Mathlib infrastructure. The coordination outcomes are taken as hypotheses in P1-P3, so the logical structure of all propositions is fully verified.
+**All 17 results verified.** No remaining unformalized results. Zero sorry, zero custom axioms.
 
-**Options:**
-1. Leave as-is: 14/16 verified, with L1-L2 as acknowledged axioms. Sufficient for paper submission.
-2. Formalize L1-L2 as `axiom` declarations (makes the dependency explicit in Lean).
-3. Full formalization of global games (research-level Lean project, out of scope for this paper).
+The proof chain is complete:
+- SupermodularGames proves L1 (unique cutoff) and L2 (π* decreasing in σ, unique σ̂)
+- CoordinationLemmas bridges: σ_r ≤ σ̂ → coordination succeeds; σ_τ > σ̂ → fails
+- Prop1-3 prove crossed fragility from the coordination outcomes
