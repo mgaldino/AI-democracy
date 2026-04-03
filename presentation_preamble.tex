@@ -1,0 +1,92 @@
+% ============================================================
+% Custom Beamer Theme — IA-dem Presentation
+% Minimalist, professional, teal/navy accent palette
+% ============================================================
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+% --- Color definitions ---
+\definecolor{myNavy}{HTML}{1B2A4A}
+\definecolor{myTeal}{HTML}{009988}
+\definecolor{myRed}{HTML}{CC3311}
+\definecolor{myAmber}{HTML}{EE7733}
+\definecolor{myLight}{HTML}{F5F7FA}
+\definecolor{myHighlight}{HTML}{FFF3E0}
+
+% --- Beamer structure colors ---
+\setbeamercolor{structure}{fg=myNavy}
+\setbeamercolor{frametitle}{fg=myNavy, bg=white}
+\setbeamercolor{subtitle}{fg=myTeal}
+\setbeamercolor{author}{fg=myNavy}
+\setbeamercolor{date}{fg=myNavy!60}
+\setbeamercolor{normal text}{fg=myNavy!90}
+\setbeamercolor{block title}{fg=white, bg=myTeal}
+\setbeamercolor{block body}{bg=myLight}
+\setbeamercolor{alerted text}{fg=myRed}
+\setbeamercolor{example text}{fg=myTeal}
+\setbeamercolor{item}{fg=myTeal}
+
+% --- Section pages (colored background) ---
+\AtBeginSection{%
+  {%
+  \setbeamercolor{background canvas}{bg=myNavy}%
+  \begin{frame}[plain,c]
+    \centering
+    \textcolor{white}{\Large\bfseries\insertsection}
+  \end{frame}
+  }%
+}
+
+% --- Frame title with underline ---
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \vspace{0.25cm}%
+  \hbox to\hsize{\insertframetitle\hfil}%
+  \vspace{-0.08cm}%
+  \hbox to\hsize{{\color{myTeal}\leaders\hrule height 0.5pt\hfil}\hfil}%
+  \vspace{0.05cm}%
+}
+
+% --- Title page ---
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize}
+\setbeamertemplate{title page}{%
+  \vfill
+  \begin{center}
+    {\usebeamerfont{title}\textcolor{myNavy}{\inserttitle}}\\[8pt]
+    {\usebeamerfont{subtitle}\textcolor{myTeal}{\insertsubtitle}}\\[16pt]
+    {\usebeamerfont{author}\textcolor{myNavy}{\insertauthor}}\\[4pt]
+    {\small\textcolor{myNavy!60}{\insertdate}}
+  \end{center}
+  \vfill
+}
+
+% --- No navigation, minimal footline ---
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+  \hfill%
+  \raisebox{4pt}[0pt][0pt]{%
+    \footnotesize\textcolor{myNavy!35}{\insertframenumber}%
+  }%
+  \hspace{10pt}\vspace{4pt}%
+}
+
+% --- Itemize styling ---
+\setbeamertemplate{itemize item}{\textcolor{myTeal}{\small$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\textcolor{myTeal!60}{\scriptsize$\triangleright$}}
+\setbeamertemplate{enumerate items}[default]
+\setbeamerfont{itemize/enumerate body}{size=\small}
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
+
+% --- Tight spacing ---
+\setlength{\parskip}{2pt}
+
+% --- Shrink-to-fit for dense slides ---
+\newcommand{\shrmark}{\vspace{0pt plus 1filll}}

@@ -1,0 +1,881 @@
+---
+title: "AI Automation, Regime Type, and Crossed Fragility"
+subtitle: "From Sketch to Global Games: Revising a Formal Model"
+author: "Manoel Galdino"
+date: "April 2026"
+output:
+  beamer_presentation:
+    theme: "default"
+    keep_tex: true
+    latex_engine: xelatex
+    slide_level: 2
+    includes:
+      in_header: "presentation_preamble.tex"
+classoption: "aspectratio=169"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE,
+  fig.align = "center", cache = FALSE,
+  dev = "pdf", fig.width = 5.5, fig.height = 3.2
+)
+library(ggplot2)
+library(patchwork)
+
+# --- Consistent palette ---
+col_teal   <- "#009988"
+col_red    <- "#CC3311"
+col_amber  <- "#EE7733"
+col_navy   <- "#1B2A4A"
+col_grey   <- "grey55"
+col_light  <- "grey92"
+
+# --- Shared ggplot theme for slides ---
+theme_deck <- theme_minimal(base_size = 11) +
+  theme(
+    plot.title       = element_text(face = "bold", size = 12, colour = col_navy),
+    plot.subtitle    = element_text(size = 9, colour = col_grey),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(colour = "grey90", linewidth = 0.3),
+    axis.title       = element_text(size = 10),
+    axis.text        = element_text(size = 9),
+    legend.position  = "bottom",
+    legend.text      = element_text(size = 9),
+    plot.margin      = margin(4, 8, 4, 8)
+  )
+
+# --- Model parameters (numerical example) ---
+w_E <- 1; L <- 1; beta <- 0.3
+theta <- 0.5; k <- 0.4; W <- 2
+Delta <- theta * W - k - w_E  # -0.4
+kappa_0 <- 0.8; eta_r <- 0.5
+phi_bar <- 1 - abs(Delta) / L  # 0.6
+kappa_bar <- L - abs(Delta)     # 0.6
+kappa_upper <- kappa_bar / eta_r # 1.2
+```
+
+# Motivation
+
+## The Question
+
+\begin{center}
+\Large How does AI automation affect regime stability?
+\end{center}
+
+\vspace{0.6cm}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{The economic premise}\\[4pt]
+Automation can follow different \emph{trajectories} (Gans \& Goldfarb 2026):
+\begin{itemize}
+  \item \textbf{Rapid}: immediate displacement
+  \item \textbf{Threshold}: complement first, substitute later
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textbf{The political gap}\\[4pt]
+Regime stability literature treats shocks by \emph{magnitude}, not \emph{shape}.\\[6pt]
+No model asks: \emph{which trajectory is more dangerous for which regime?}
+\end{column}
+\end{columns}
+
+## The Core Idea
+
+\begin{center}
+\Large The same AI technology can \textcolor{myTeal}{\textbf{stabilize}} one regime\\
+while \textcolor{myRed}{\textbf{destabilizing}} the other.
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\centering\textbf{Rapid displacement}\\[4pt]
+\textcolor{myTeal}{Democracies compensate}\\
+\textcolor{myRed}{Autocracies face organized revolt}
+\end{column}
+\begin{column}{0.48\textwidth}
+\centering\textbf{Threshold automation}\\[4pt]
+\textcolor{myRed}{Democracies see no crisis until too late}\\
+\textcolor{myTeal}{Autocracies contain disoriented workers}
+\end{column}
+\end{columns}
+
+\vspace{0.4cm}
+
+\begin{center}
+\small This is the \textbf{crossed fragility} pattern.
+\end{center}
+
+## Roadmap
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{Part I --- The Original Paper}
+\begin{enumerate}
+  \item Model overview (v1)
+  \item What worked
+  \item What didn't
+\end{enumerate}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textbf{Part II --- The Revision}
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item Strategy: what we changed
+  \item Key solutions
+  \item Before/after comparison
+  \item Lessons learned
+\end{enumerate}
+\end{column}
+\end{columns}
+
+# Part I: The Original Paper
+
+## v1: Model Architecture
+
+\begin{center}
+\resizebox{0.92\textwidth}{!}{%
+\begin{tikzpicture}[
+  box/.style={draw=myNavy, thick, rounded corners=3pt,
+              minimum width=2.4cm, minimum height=0.7cm,
+              font=\footnotesize, text=myNavy, align=center},
+  arr/.style={->, thick, myNavy!70}
+]
+\node[box] (traj) at (0,0) {Trajectory $j \in \{r, \tau\}$};
+\node[box] (a3)   at (3.8,0.7)  {A3: $\varphi_t$ reactive};
+\node[box] (a4)   at (3.8,-0.7) {A4: $\eta_j$ by type};
+\node[box] (stab) at (7.4,0)    {Stability conditions};
+\node[box] (cross) at (10.8,0)  {Crossed fragility};
+
+\draw[arr] (traj) -- (a3);
+\draw[arr] (traj) -- (a4);
+\draw[arr] (a3) -- (stab);
+\draw[arr] (a4) -- (stab);
+\draw[arr] (stab) -- (cross);
+\end{tikzpicture}%
+}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{itemize}
+  \item Two periods, two trajectories, two regimes
+  \item Five behavioral/structural assumptions (A1--A5)
+  \item Binary displacement: $\ell_t \in \{0, L\}$
+  \item Short, direct proofs
+\end{itemize}
+
+## v1: The Assumptions
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\small
+\begin{tabular}{p{1.5cm} p{4.8cm} p{5.5cm}}
+\toprule
+\textbf{Label} & \textbf{Content} & \textbf{Nature} \\
+\midrule
+A1 & $\Delta < 0$ (stable without shock) & Parametric \\
+A2 & $L > |\Delta|$ (shock can destabilize) & Parametric \\
+\rowcolor{myHighlight} A3 & $\varphi_t = \bar{\varphi}$ if $\ell_t > 0$, else 0 & \textbf{Behavioral (imposed)} \\
+\rowcolor{myHighlight} A4 & $\eta_R < 1$, $\eta_T = 1$ & \textbf{Behavioral (imposed)} \\
+A5 & Capacity is a stock & Structural \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+A3 and A4 are the \textbf{load-bearing} assumptions --- and both are \emph{directly imposed}, not derived.
+\end{center}
+
+## v1: Results at a Glance
+
+```{r v1-results-table, results='asis'}
+library(kableExtra)
+df <- data.frame(
+  Result = c("P1", "P2", "P3", "P4", "P5--P6", "P7--P8", "P9"),
+  Content = c(
+    "Democratic fragility pattern",
+    "Autocratic fragility pattern",
+    "Crossed fragility",
+    "Welfare cost of autocratic stability",
+    "Threshold of thresholds, interval width",
+    "Welfare state as insurance",
+    "Endogenous fiscal fragility"
+  ),
+  Status = c(rep("Core", 4), rep("Secondary", 2), "Extension")
+)
+kbl(df, booktabs = TRUE, linesep = "", escape = FALSE,
+    col.names = c("", "Content", "Role")) |>
+  kable_styling(font_size = 9, latex_options = "hold_position") |>
+  row_spec(0, bold = TRUE, color = "#1B2A4A") |>
+  row_spec(3, bold = TRUE, background = "#E8F5F0")
+```
+
+## v1: What Worked
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textcolor{myTeal}{\textbf{Strengths}}
+\begin{itemize}
+  \item Clear, testable result (crossed fragility)
+  \item Parsimonious --- 15 pages, clean proofs
+  \item Good numerical example
+  \item Welfare state extension is natural
+  \item Five-type regime typology
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textcolor{myAmber}{\textbf{The foundation was solid}}\\[6pt]
+The \emph{intuition} was right: trajectory determines which regime is fragile.\\[6pt]
+The \emph{formalization} needed work: too short a distance from assumptions to results.
+\end{column}
+\end{columns}
+
+# Part I-B: Problems
+
+## Problem 1: Behavioral Assumptions Imposed
+
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw=myRed, thick, rounded corners=3pt,
+              minimum width=3cm, minimum height=0.7cm,
+              font=\small, align=center},
+  arr/.style={->, thick, myRed!70}
+]
+\node[box, fill=myRed!10] (a3) at (0,0) {A3: compensation\\is reactive};
+\node[box, fill=myRed!10] (a4) at (6,0) {A4: repression depends\\on shock type};
+
+\node[font=\footnotesize, text=myRed, below=0.4cm of a3] {Why?};
+\node[font=\footnotesize, text=myRed, below=0.4cm of a4] {Why?};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.4cm}
+
+\begin{itemize}
+  \item A3 \emph{assumes} democracies only compensate when losses are observed
+  \item A4 \emph{assumes} repression degrades under rapid but not threshold
+  \item Both are \textbf{the result we want to derive}, stated as premises
+  \item A referee could say: ``the crossed fragility is \emph{assumed}, not proven''
+\end{itemize}
+
+## Problem 2: Binary $\omega$ --- No Microfoundation
+
+\begin{columns}[T]
+\begin{column}{0.55\textwidth}
+In v1, the fundamental state was binary:
+$$\ell_t \in \{0, L\}$$
+\begin{itemize}
+  \item No continuous signal space
+  \item Global games appendix was \emph{disconnected} from main propositions
+  \item Morris \& Shin (2003) requires continuous fundamentals for uniqueness
+  \item The appendix \emph{sketched} coordination but propositions didn't \emph{use} it
+\end{itemize}
+\end{column}
+\begin{column}{0.42\textwidth}
+\begin{center}
+\textbf{The gap:}\\[6pt]
+\begin{tikzpicture}[
+  box/.style={draw=myNavy, thick, rounded corners=2pt,
+              minimum width=2.2cm, minimum height=0.6cm,
+              font=\footnotesize, text=myNavy, align=center}
+]
+\node[box] (main) at (0,1.5) {Main text\\(A3, A4)};
+\node[box] (app)  at (0,0)   {Appendix B\\(global games)};
+\node[font=\footnotesize\itshape, text=myRed] at (1.8,0.75) {disconnected};
+\draw[dashed, myRed, thick] (main) -- (app);
+\end{tikzpicture}
+\end{center}
+\end{column}
+\end{columns}
+
+## Problems 3--4: Short Distance and Sparse Presentation
+
+\begin{columns}[T]
+\begin{column}{0.52\textwidth}
+\textbf{Short inferential distance}\\[4pt]
+\resizebox{0.95\columnwidth}{!}{%
+\begin{tikzpicture}[
+  box/.style={draw=myNavy, thick, rounded corners=2pt,
+              minimum width=2.2cm, minimum height=0.55cm,
+              font=\footnotesize, text=myNavy, align=center},
+  arr/.style={->, very thick, myRed!60}
+]
+\node[box] (prem)  at (0,0) {A3, A4};
+\node[box] (conc)  at (4,0) {Crossed fragility};
+\draw[arr] (prem) -- node[above, font=\scriptsize\itshape, text=myRed]
+  {too direct} (conc);
+\end{tikzpicture}%
+}\\[4pt]
+\small Results should \emph{emerge} from deeper primitives, not be \emph{restated} as assumptions.
+\end{column}
+\begin{column}{0.45\textwidth}
+\textbf{Sparse presentation}\\[4pt]
+\small v1 had:
+\begin{itemize}
+  \item No figures in main text
+  \item No mechanism diagram
+  \item No coordination plot
+  \item No income path visualization
+\end{itemize}
+\vspace{0.1cm}
+Reader must build mental model entirely unaided.
+\end{column}
+\end{columns}
+
+# Part II: The Revision
+
+## Revision Strategy
+
+\begin{center}
+\large\textbf{One primitive, everything derived.}
+\end{center}
+
+\vspace{0.4cm}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{Goal:} Replace behavioral A3/A4 with a \emph{single informational primitive} ($\sigma$) from which both compensation and repression emerge as equilibrium outcomes.\\[6pt]
+\textbf{Tool:} Global games (Morris \& Shin 2003) moved from appendix to core.
+\end{column}
+\begin{column}{0.48\textwidth}
+\textbf{Changes:}
+\begin{enumerate}
+  \item $\omega$ binary $\to$ continuous
+  \item A3/A4 $\to$ derived from $\pi^*(\sigma)$
+  \item Assumptions unbundled (5 $\to$ 7)
+  \item Income paths: absorbing state + $\beta$
+  \item Four new figures
+  \item Formal Lean 4 verification
+\end{enumerate}
+\end{column}
+\end{columns}
+
+## Solution 1: Continuous $\omega$ + Global Games
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{New information structure}\\[4pt]
+Worker $i$ observes:
+$$s_{it} = \omega_t + \sigma_j \varepsilon_{it}$$
+\begin{itemize}
+  \item $\omega_t \in \mathbb{R}$: latent severity
+  \item $\sigma_j$: trajectory-dependent noise
+  \item $\ell_t = L \cdot \mathbf{1}[\omega_t \geq \bar{\omega}]$
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Key:} $\sigma_r$ low (rapid is predictable), $\sigma_\tau$ high (threshold is surprising).
+\end{column}
+\begin{column}{0.48\textwidth}
+\textbf{Why this works}\\[4pt]
+\begin{itemize}
+  \item Continuous $\omega$ enables M-S Theorem 2.2 $\to$ unique equilibrium
+  \item Improper uniform prior $\to$ Laplacian property $\to$ closed-form statics
+  \item $\sigma$ is the \emph{single} trajectory-varying primitive
+  \item Everything else follows from $\pi^*(\sigma)$
+\end{itemize}
+\end{column}
+\end{columns}
+
+## Solution 1 (cont.): The Coordination Curve
+
+```{r fig-threshold, fig.width=5, fig.height=2.7}
+omega_0 <- 1.0; omega_star <- 0.4; pi_bar <- 0.6
+sigma_seq <- seq(0.1, 5, length.out = 500)
+pi_star <- 1 - pnorm((omega_star - omega_0) / sigma_seq)
+sigma_hat <- (omega_star - omega_0) / qnorm(1 - pi_bar)
+
+df_coord <- data.frame(sigma = sigma_seq, pi = pi_star)
+df_coord$zone <- ifelse(df_coord$sigma <= sigma_hat, "success", "failure")
+
+ggplot(df_coord, aes(x = sigma, y = pi)) +
+  annotate("rect", xmin = 0.1, xmax = sigma_hat,
+           ymin = 0.45, ymax = 1.0,
+           fill = col_teal, alpha = 0.08) +
+  annotate("rect", xmin = sigma_hat, xmax = 5,
+           ymin = 0.45, ymax = 1.0,
+           fill = col_red, alpha = 0.08) +
+  geom_hline(yintercept = pi_bar, linetype = "dashed",
+             colour = "grey40", linewidth = 0.4) +
+  geom_vline(xintercept = sigma_hat, linetype = "dotted",
+             colour = "grey40", linewidth = 0.4) +
+  geom_line(linewidth = 1.1, colour = col_navy) +
+  annotate("text", x = 0.7, y = 0.97,
+           label = "Coordination\nsucceeds",
+           size = 3, fontface = "italic", colour = col_teal) +
+  annotate("text", x = 3.8, y = 0.97,
+           label = "Coordination\nfails",
+           size = 3, fontface = "italic", colour = col_red) +
+  annotate("text", x = 0.5, y = 0.47,
+           label = expression(sigma[r]),
+           size = 3.5, colour = col_navy) +
+  annotate("text", x = 4.0, y = 0.47,
+           label = expression(sigma[tau]),
+           size = 3.5, colour = col_navy) +
+  annotate("text", x = 4.85, y = pi_bar + 0.025,
+           label = expression(bar(pi)),
+           size = 3.5, colour = "grey40") +
+  annotate("text", x = sigma_hat, y = 0.46,
+           label = expression(hat(sigma)),
+           size = 3.5, colour = "grey40") +
+  scale_y_continuous(breaks = seq(0.5, 1.0, 0.1)) +
+  coord_cartesian(ylim = c(0.45, 1.0), clip = "off") +
+  labs(x = expression("Signal noise (" * sigma * ")"),
+       y = expression("Equilibrium participation (" * pi * "*)"),
+       title = "Lemma 2: Participation decreasing in noise") +
+  theme_deck +
+  theme(plot.margin = margin(2, 14, 2, 4))
+```
+
+## Solution 2: Assumptions Unbundled
+
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+\small
+\begin{tabular}{p{0.7cm} p{3.5cm} p{0.4cm} p{0.7cm} p{4.8cm}}
+\toprule
+\multicolumn{2}{c}{\textbf{v1}} & & \multicolumn{2}{c}{\textbf{v2}} \\
+\cmidrule(r){1-2} \cmidrule(l){4-5}
+A3 & Compensation reactive & $\to$ & A3 & Information structure (M-S) \\
+   &                        &      & A4 & Majority-cost condition \\
+   &                        &      & A5 & Risk dominance \\
+\addlinespace
+A4 & $\eta$ by shock type   & $\to$ & A6 & Trajectory separation \\
+\addlinespace
+A5 & Capacity is a stock    & $\to$ & A7 & Institutional lead time \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{Key insight:} The old behavioral A3 \emph{bundled} three distinct conditions --- the information structure, the voting game, and the risk dominance selection. Unbundling makes each testable and transparent.
+
+## Solution 3: The New Architecture
+
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  box/.style={draw=myNavy, thick, rounded corners=3pt,
+              minimum width=2.2cm, minimum height=0.65cm,
+              font=\footnotesize, text=myNavy, align=center},
+  result/.style={draw=myTeal, thick, rounded corners=3pt,
+                 minimum width=2.2cm, minimum height=0.65cm,
+                 font=\footnotesize\bfseries, text=myTeal, align=center,
+                 fill=myTeal!8},
+  arr/.style={->, thick, myNavy!70}
+]
+\node[box] (traj) at (0,0) {Trajectory $j$};
+\node[box] (sigma) at (2.8,0) {Noise $\sigma_j$};
+\node[box] (pi) at (5.6,0) {$\pi^*(\sigma)$};
+\node[box] (dem) at (8.4,0.7) {$\varphi_t(\pi^*)$};
+\node[box] (aut) at (8.4,-0.7) {$\eta(\pi^*)$};
+\node[result] (cross) at (11.2,0) {Crossed fragility};
+
+\draw[arr] (traj) -- (sigma);
+\draw[arr] (sigma) -- node[above, font=\scriptsize\itshape] {L1--L2} (pi);
+\draw[arr] (pi) -- (dem);
+\draw[arr] (pi) -- (aut);
+\draw[arr] (dem) -- (cross);
+\draw[arr] (aut) -- (cross);
+
+\node[font=\scriptsize, text=myNavy!40, below=0.35cm of sigma] {single primitive};
+\node[font=\scriptsize, text=myNavy!40, below=0.35cm of pi] {single object};
+\end{tikzpicture}%
+}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+The \textbf{inferential chain} is now: trajectory $\to$ $\sigma$ $\to$ $\pi^*$ $\to$ institutional map $\to$ stability.\\
+\emph{One primitive, one equilibrium, two outcomes.}
+\end{center}
+
+## Solution 4: Income Paths Redesigned
+
+```{r fig-income-paths, fig.width=5.5, fig.height=2.5}
+df_rapid <- data.frame(t = 1:2, y = c(w_E - L, w_E - L), panel = "Rapid displacement")
+df_thresh <- data.frame(t = 1:2, y = c(w_E + beta, w_E - L), panel = "Threshold automation")
+df_paths <- rbind(df_rapid, df_thresh)
+df_paths$panel <- factor(df_paths$panel, levels = c("Rapid displacement", "Threshold automation"))
+
+# Shading rectangles
+df_shade <- data.frame(
+  xmin = c(0.7, 0.7, 1.5),
+  xmax = c(2.3, 1.5, 2.3),
+  ymin = c(0, w_E, 0),
+  ymax = c(w_E, w_E + beta, w_E),
+  fill = c("loss", "gain", "loss"),
+  panel = factor(c("Rapid displacement", "Threshold automation", "Threshold automation"),
+                 levels = c("Rapid displacement", "Threshold automation"))
+)
+
+ggplot(df_paths, aes(x = t, y = y)) +
+  geom_rect(data = df_shade, inherit.aes = FALSE,
+            aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax, fill=fill),
+            alpha = 0.12) +
+  geom_hline(yintercept = w_E, linetype = "dashed", colour = "grey40", linewidth = 0.4) +
+  geom_line(linewidth = 1.2, colour = col_navy) +
+  geom_point(size = 2.5, colour = col_navy) +
+  facet_wrap(~panel) +
+  scale_fill_manual(values = c(loss = col_red, gain = col_teal), guide = "none") +
+  scale_x_continuous(breaks = 1:2, labels = c("t=1", "t=2")) +
+  scale_y_continuous(limits = c(-0.05, 1.45), breaks = seq(0, 1.5, 0.5)) +
+  annotate("text", x = 2.2, y = w_E + 0.06,
+           label = expression(w[E]), size = 3, colour = "grey35") +
+  labs(x = "Period", y = expression(y[t])) +
+  theme_deck +
+  theme(strip.text = element_text(face = "bold", size = 10, colour = col_navy))
+```
+
+\footnotesize v1: $\ell_1\!=\!L, \ell_2\!=\!0$ vs.\ $\ell_1\!=\!0, \ell_2\!=\!L$. v2 adds $\beta$ and makes rapid an \textbf{absorbing state}.
+
+## Solution 5: The Four Scenarios
+
+```{r fig-four-scenarios, fig.width=5.5, fig.height=2.7}
+scenarios <- data.frame(
+  regime = factor(rep(c("Democracy", "Autocracy"), each = 2),
+                  levels = c("Democracy", "Autocracy")),
+  trajectory = factor(rep(c("Rapid", "Threshold"), 2),
+                      levels = c("Rapid", "Threshold")),
+  stable = c(TRUE, FALSE, FALSE, TRUE),
+  mechanism = c(
+    "Low sigma -> coordination\n-> compensation activates",
+    "No crisis in t=1\n-> no capacity built (A7)",
+    "Low sigma -> coordination\n-> repression degrades",
+    "High sigma -> no coordination\n-> repression holds"
+  )
+)
+
+scenarios$label <- ifelse(scenarios$stable, "STABLE", "UNSTABLE")
+scenarios$fill_col <- ifelse(scenarios$stable, col_teal, col_red)
+
+ggplot(scenarios, aes(x = trajectory, y = regime)) +
+  geom_tile(aes(fill = stable), colour = "white", linewidth = 2,
+            width = 0.92, height = 0.88) +
+  geom_text(aes(label = label), fontface = "bold",
+            colour = "white", size = 4.5, vjust = -0.3) +
+  geom_text(aes(label = mechanism),
+            colour = "white", size = 2.3, vjust = 1.3,
+            lineheight = 0.9) +
+  scale_fill_manual(values = c("TRUE" = col_teal, "FALSE" = col_red),
+                    guide = "none") +
+  labs(title = "Crossed fragility (Proposition 3)",
+       subtitle = expression("Moderate autocracy: " *
+         bar(kappa) <= kappa[0] ~ "<" ~ bar(kappa)/eta[R]),
+       x = NULL, y = NULL) +
+  theme_deck +
+  theme(
+    panel.grid = element_blank(),
+    axis.text  = element_text(size = 11, face = "bold", colour = col_navy)
+  )
+```
+
+# Part II-B: Before vs.\ After
+
+## Propositions: Before and After
+
+\renewcommand{\arraystretch}{1.15}
+\begin{center}
+\small
+\begin{tabular}{p{0.6cm} p{3.5cm} p{3.3cm} p{3.8cm}}
+\toprule
+ & \textbf{Content} & \textbf{v1} & \textbf{v2} \\
+\midrule
+P1 & Democratic fragility & Uses A3 directly & Uses L1--L2 + A7 \\
+P2 & Autocratic fragility & Uses A4 directly & Uses L1--L2 \\
+P3 & Crossed fragility & Combines A3+A4 & Single $\pi^*$ object \\
+P4 & Welfare cost & Same & Same \\
+\addlinespace
+R1 & Threshold of thresholds & Was P5 & Now a Remark \\
+R2 & Interval width & Was P6 & Now a Remark \\
+\addlinespace
+P5 & Welfare state insurance & Was P7 & Rewritten with $\varphi_0$ \\
+P6 & Functional equivalence & Was P8 & Tighter proof \\
+P7 & Fiscal fragility & Was P9 & Uses $\mathcal{F}$, $p^*$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+## The Parametric Space
+
+```{r fig-parametric, fig.width=5.5, fig.height=2.7}
+# --- Shared theme ---
+theme_strip <- theme_minimal(base_size = 10) +
+  theme(
+    panel.grid    = element_blank(),
+    axis.text.y   = element_blank(),
+    axis.ticks.y  = element_blank(),
+    axis.title.y  = element_blank(),
+    axis.ticks.x  = element_line(colour = "grey30", linewidth = 0.25),
+    axis.line.x   = element_line(colour = "grey30", linewidth = 0.25),
+    plot.title     = element_text(face = "bold", size = 10, colour = col_navy),
+    plot.margin    = margin(4, 8, 2, 8)
+  )
+sh <- 0.55
+
+# Panel A
+df_a <- data.frame(
+  xmin = c(0, kappa_bar, kappa_upper),
+  xmax = c(kappa_bar, kappa_upper, 2),
+  label = c("Weak\nautocracy", "Moderate\nautocracy", "Strong\nautocracy"),
+  fill = c("weak", "moderate", "strong")
+)
+pa <- ggplot(df_a) +
+  geom_rect(aes(xmin=xmin, xmax=xmax, ymin=-sh, ymax=sh, fill=fill)) +
+  geom_text(aes(x=(xmin+xmax)/2, y=0, label=label),
+            size=2.5, lineheight=0.85, colour="white", fontface="bold") +
+  annotate("segment", x=kappa_bar, xend=kappa_bar,
+           y=-sh-0.12, yend=sh+0.12, linetype="dashed",
+           linewidth=0.4, colour="grey20") +
+  annotate("segment", x=kappa_upper, xend=kappa_upper,
+           y=-sh-0.12, yend=sh+0.12, linetype="dashed",
+           linewidth=0.4, colour="grey20") +
+  annotate("text", x=kappa_bar, y=sh+0.28,
+           label=expression(bar(kappa)==0.6), size=2.8) +
+  annotate("text", x=kappa_upper, y=sh+0.28,
+           label=expression(bar(kappa)/eta[R]==1.2), size=2.8) +
+  scale_fill_manual(values=c(weak=col_red, moderate=col_amber,
+                             strong=col_teal), guide="none") +
+  scale_x_continuous(name=expression(kappa[0]),
+                     limits=c(0,2), expand=c(0,0)) +
+  scale_y_continuous(limits=c(-0.9, 0.9), expand=c(0,0)) +
+  labs(title="A. Autocracy stability") + theme_strip
+
+# Panel B
+df_b <- data.frame(
+  xmin = c(0, phi_bar), xmax = c(phi_bar, 1),
+  label = c("Weak\ndemocracy", "Strong\ndemocracy"),
+  fill = c("weak", "strong")
+)
+pb <- ggplot(df_b) +
+  geom_rect(aes(xmin=xmin, xmax=xmax, ymin=-sh, ymax=sh, fill=fill)) +
+  geom_text(aes(x=(xmin+xmax)/2, y=0, label=label),
+            size=2.5, lineheight=0.85, colour="white", fontface="bold") +
+  annotate("segment", x=phi_bar, xend=phi_bar,
+           y=-sh-0.12, yend=sh+0.12, linetype="dashed",
+           linewidth=0.4, colour="grey20") +
+  annotate("text", x=phi_bar, y=sh+0.28,
+           label=expression(bar(varphi)==0.6), size=2.8) +
+  scale_fill_manual(values=c(weak=col_red, strong=col_teal), guide="none") +
+  scale_x_continuous(name=expression(varphi[0]),
+                     limits=c(0,1), expand=c(0,0)) +
+  scale_y_continuous(limits=c(-0.9, 0.9), expand=c(0,0)) +
+  labs(title="B. Democracy stability") + theme_strip
+
+pa / pb + plot_layout(heights = c(1, 1))
+```
+
+## The Complete Typology
+
+```{r fig-typology, fig.width=5.5, fig.height=2.8}
+df_typ <- data.frame(
+  regime = factor(
+    rep(c("Strong\ndemocracy","Weak\ndemocracy",
+          "Moderate\nautocracy","Strong\nautocracy",
+          "Weak\nautocracy"), each=2),
+    levels = c("Strong\nautocracy","Moderate\nautocracy",
+               "Weak\nautocracy","Weak\ndemocracy",
+               "Strong\ndemocracy")),
+  trajectory = factor(rep(c("Rapid","Threshold"),5),
+                      levels=c("Rapid","Threshold")),
+  stable = c(TRUE,TRUE, TRUE,FALSE, FALSE,TRUE, TRUE,TRUE, FALSE,FALSE)
+)
+df_typ$label <- ifelse(df_typ$stable, "Stable", "Unstable")
+
+ggplot(df_typ, aes(x=trajectory, y=regime, fill=stable)) +
+  geom_tile(colour="white", linewidth=1.3) +
+  geom_text(aes(label=label), size=3.5, fontface="bold", colour="white") +
+  scale_fill_manual(values=c("TRUE"=col_teal, "FALSE"=col_red),
+                    guide="none") +
+  annotate("segment", x=2.6, xend=2.6, y=2.5, yend=4.5,
+           linewidth=0.6, colour="grey30") +
+  annotate("segment", x=2.55, xend=2.6, y=2.5, yend=2.5,
+           linewidth=0.6, colour="grey30") +
+  annotate("segment", x=2.55, xend=2.6, y=4.5, yend=4.5,
+           linewidth=0.6, colour="grey30") +
+  annotate("text", x=2.78, y=3.5, label="Crossed\nfragility\n(P3)",
+           size=2.5, colour="grey30", lineheight=0.8) +
+  coord_cartesian(clip="off", xlim=c(0.5, 3.1)) +
+  labs(title="Complete regime typology (Corollary 2)",
+       x=NULL, y=NULL) +
+  theme_deck +
+  theme(panel.grid=element_blank(),
+        axis.text.y=element_text(size=8, hjust=1),
+        axis.text.x=element_text(size=10, face="bold"),
+        plot.margin=margin(4, 50, 4, 4))
+```
+
+# Part III: The Welfare State
+
+## Insurance Against Delayed Shocks
+
+\begin{columns}[T]
+\begin{column}{0.55\textwidth}
+\textbf{P5:} Democracy stable under threshold iff $\varphi_0 \geq \bar{\varphi}$.\\[4pt]
+
+Welfare state \textbf{bypasses the coordination bottleneck}: standing capacity needs no crisis-triggered mobilization.\\[6pt]
+
+\textbf{P6:} Strong democracies and strong autocracies are both stable under both trajectories. But:
+\vspace{0.1cm}
+\centerline{$u_E^D - u_E^A \geq \bar{\kappa} > 0$}
+\end{column}
+\begin{column}{0.42\textwidth}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw=myNavy, thick, rounded corners=3pt,
+              minimum width=2.3cm, minimum height=0.6cm,
+              font=\footnotesize, text=myNavy, align=center}
+]
+\node[box, fill=myTeal!12] (dem) at (0,2) {$\varphi_0 \geq \bar{\varphi}$};
+\node[font=\scriptsize, text=myNavy] at (0,1.55) {compensates};
+\node[box, fill=myAmber!12] (aut) at (0,0) {$\kappa_0 \geq \bar{\kappa}/\eta_r$};
+\node[font=\scriptsize, text=myNavy] at (0,-0.45) {represses};
+\node[font=\scriptsize, text=myNavy!40] at (1.8,1) {functionally};
+\node[font=\scriptsize, text=myNavy!40] at (1.8,0.7) {equivalent};
+\node[font=\scriptsize\bfseries, text=myTeal] at (0,2.6)
+  {welfare gap $= \bar{\kappa}$};
+\draw[<->, thick, myNavy!50] (dem.south) -- (aut.north);
+\end{tikzpicture}
+\end{center}
+\end{column}
+\end{columns}
+
+## The Class Compromise Formalized
+
+\begin{center}
+\textbf{Social insurance protects both the regime and its citizens.}\\
+\textbf{Repression protects only the regime.}
+\end{center}
+
+\vspace{0.2cm}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\small
+\textbf{Numerical example:}\\[2pt]
+Strong democracy ($\varphi_0 = 0.6$): $u_E = w_E - 0.4$\\[3pt]
+Strong autocracy ($\kappa_0 = 0.8$): $u_E = w_E - 1.0$\\[3pt]
+Gap: $0.6 = \bar{\kappa}$ \checkmark
+\end{column}
+\begin{column}{0.48\textwidth}
+\small
+\textbf{Przeworski \& Wallerstein (1982):}\\[2pt]
+Workers consent to profit in exchange for protection.\\[3pt]
+\textbf{Our formalization:} When institutionalized, this compromise insures the \emph{regime itself} against technological disruption.
+\end{column}
+\end{columns}
+
+# Part IV: Verification \& Lessons
+
+## Lean 4 Formal Verification
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\small
+\textbf{What we verified:}
+\begin{itemize}
+  \item P1--P7: all propositions
+  \item R1--R2: remarks
+  \item Coordination conditions
+  \item Single-crossing, dominance regions
+\end{itemize}
+\vspace{0.1cm}
+\textbf{17/17 verified.} Including L1--L2 (SupermodularGames lib).
+\end{column}
+\begin{column}{0.48\textwidth}
+\small
+\textbf{Why it matters:}
+\begin{itemize}
+  \item Every algebraic step machine-checked
+  \item Caught two sign errors in drafts
+  \item Forces precision in assumptions
+  \item Builds reviewer confidence
+\end{itemize}
+\vspace{0.1cm}
+\texttt{cd formal\_proofs \&\& lake build}
+\end{column}
+\end{columns}
+
+## Comparative Statics Summary
+
+```{r fig-comp-statics, results='asis'}
+cs <- data.frame(
+  Parameter = c("$L \\uparrow$", "$\\eta_r \\downarrow$",
+                "$\\theta \\uparrow$", "$k \\uparrow$",
+                "$\\kappa_0 \\uparrow$", "$\\varphi_0 \\uparrow$"),
+  Effect = c("$\\bar{\\varphi} \\uparrow$, $\\bar{\\kappa} \\uparrow$",
+             "Crossed interval widens",
+             "$\\Delta \\uparrow$, thresholds rise",
+             "$\\Delta \\downarrow$, thresholds fall",
+             "Autocracy more stable",
+             "Democracy more stable (threshold)"),
+  Interpretation = c("Larger shocks destabilize both",
+                     "More autocracies exhibit crossed pattern",
+                     "Regime change more attractive",
+                     "Regime change costlier",
+                     "Weak $\\to$ moderate $\\to$ strong",
+                     "Welfare state as insurance")
+)
+kbl(cs, booktabs = TRUE, escape = FALSE, linesep = "",
+    col.names = c("Parameter", "Effect", "Interpretation")) |>
+  kable_styling(font_size = 9, latex_options = c("hold_position", "scale_down")) |>
+  row_spec(0, bold = TRUE, color = "#1B2A4A")
+```
+
+## Lessons from the Revision
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\small
+\textbf{On formal modeling}
+\begin{enumerate}
+  \item \textbf{Derive, don't assume.} Make behavioral patterns emerge from deeper primitives.
+  \item \textbf{Unbundle assumptions.} Each should do one job.
+  \item \textbf{Figures are arguments.} Mechanism diagrams are proof strategy, not decoration.
+\end{enumerate}
+\end{column}
+\begin{column}{0.48\textwidth}
+\small
+\textbf{On the process}
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item \textbf{Start with the example.} The numerical example was the anchor throughout.
+  \item \textbf{Verify formally.} Lean caught errors re-reading missed.
+  \item \textbf{The revision is the paper.} v1 found the result; v2 \emph{proved} it.
+\end{enumerate}
+\end{column}
+\end{columns}
+
+## Take-Away
+
+\begin{center}
+\Large
+\textbf{Crossed fragility is not assumed --- it emerges.}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+One informational primitive ($\sigma$)\\
+$\downarrow$\\
+One equilibrium object ($\pi^*$)\\
+$\downarrow$\\
+Two institutional maps (compensation \& repression)\\
+$\downarrow$\\
+\textbf{Opposite fragility patterns by regime type}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\small\textit{The welfare state is the democratic substitute for repression.}
+\end{center}
