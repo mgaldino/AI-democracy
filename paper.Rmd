@@ -42,7 +42,7 @@ This section develops the informal logic of the model before the formalization i
 
 The model imports two stylized trajectories from the O-Ring automation framework [@GansGoldfarb2026]. Under rapid displacement, AI substitutes workers' tasks immediately and permanently. Factories close, jobs disappear, and the affected population experiences a uniform, shared loss. The displaced form a recognizable group with a common condition.
 
-Threshold automation follows a different path. AI initially complements labor: workers become more productive, firms expand, and incomes rise. This complementary phase is not a disguise for future harm. It is genuinely beneficial. Workers, firms, and governments observe rising productivity and have no reason to expect disruption. At some point, however, AI capabilities cross a threshold and substitution begins. The key feature of this transition is its unevenness. The O-Ring structure means that some tasks are automated while others are not, some firms adopt faster than others, and some workers lose their jobs while others continue to benefit from complementarity. When displacement finally becomes widespread, the affected workers are not a homogeneous group experiencing a shared condition. They are scattered among firms still thriving and coworkers still gaining from AI-augmented productivity.
+Threshold automation follows a different path. AI initially complements labor: workers become more productive, firms expand, and incomes rise. Workers, firms, and governments observe rising productivity. At some point, however, AI capabilities cross a threshold and substitution begins. The key feature of this transition is its unevenness. The O-Ring structure means that some tasks are automated while others are not, some firms adopt faster than others, and some workers lose their jobs while others continue to benefit from complementarity. When displacement finally becomes widespread, the affected workers are not a homogeneous group experiencing a shared condition. They are scattered among firms still thriving and coworkers still gaining from AI-augmented productivity.
 
 The economic outcome is the same under both trajectories: the same magnitude of displacement, the same total loss. What differs is the *structure* of that displacement. Under rapid automation, displacement is uniform and shared. Under threshold automation, displacement is heterogeneous and dispersed among beneficiaries.
 
@@ -317,27 +317,7 @@ The crossed fragility pattern (Proposition 3) applies to the comparison between 
 
 A back-of-the-envelope exercise illustrates that the crossed fragility interval is empirically relevant. If $\eta_r = 0.5$ (repression loses half its effectiveness against organized opposition), the crossed interval $[\bar{\kappa}, \bar{\kappa}/\eta_r)$ spans a factor of 2 in $\kappa_0$: any autocracy whose repressive capacity is sufficient to contain dispersed dissent but insufficient to contain organized opposition at full force falls in the crossed range. By Remark 2, the interval width is $\bar{\kappa}/\eta_r$, which for $\eta_r = 0.5$ equals $\bar{\kappa}$ itself. This suggests that a substantial fraction of real-world autocracies --- those with moderate but not overwhelming coercive capacity --- should exhibit the crossed pattern. Systematic measurement of $\varphi_0$, $\kappa_0$, and $\eta_r$ remains a task for empirical work, but the theoretical prediction is that the crossed fragility region is wide, not a knife-edge.
 
-## Why democracies cannot recover in $t=2$: endogenous fiscal fragility
-
-A natural objection: under threshold automation, the crisis *is* observable in $t=2$ ($\ell_2 = L$). Why can't the democracy build emergency compensation then? Assumption A7 rules this out by fiat. We now relax A7 and show that the result survives under an endogenous fiscal constraint.
-
-**A7' (Emergency fiscal constraint).** In $t=2$, the democracy can attempt to build emergency compensatory capacity $\varphi_2^{em}$ at cost $p \cdot c(\varphi_2^{em})$, where $p \geq 1$ is the *crisis premium* (reflecting fiscal stress, political polarization, and borrowing costs under duress) and $c(\cdot)$ is the normal cost of building capacity, assumed continuous and strictly increasing with $c(0) = 0$. Emergency spending is subject to a fiscal constraint: $p \cdot c(\varphi_2^{em}) \leq F$, where $\mathcal{F} > 0$ is available fiscal capacity.
-
-**Proposition 7 (Endogenous fiscal fragility).** *Under A7' replacing A7, define $p^* \equiv \mathcal{F} / c(\bar{\varphi})$. Democracy is unstable under threshold automation whenever $p \geq p^*$.*
-
-*Proof.* Under threshold, $t=2$: $\ell_2 = L$, $\varphi_1 = 0$ (no shock in $t=1$, so no compensation built). Survival requires $\varphi_2^{em} \geq \bar{\varphi}$, costing $p \cdot c(\bar{\varphi})$. This is affordable iff $p \cdot c(\bar{\varphi}) \leq \mathcal{F}$, i.e., $p \leq p^*$. For $p \geq p^*$: emergency compensation is unaffordable. P1(b) holds. $\blacksquare$
-
-Three forces push $p$ above $p^*$ during a threshold crisis:
-
-1. *Fiscal erosion.* The automation shock shrinks the tax base: workers who lose income pay less tax. The fiscal capacity $\mathcal{F}$ itself declines with $\ell_2$.
-2. *Political paralysis.* Workers moving toward $P$ makes legislative bargaining over emergency spending harder. The non-exposed majority (who must approve taxation, per Appendix A) faces a more polarized environment.
-3. *Credibility collapse.* Emergency programs announced during crisis are less credible than established institutions: implementation lags, administrative capacity is absent, and beneficiaries cannot verify promises.
-
-The asymmetry with autocracy is structural: $\kappa_0$ is a pre-built stock, not a crisis-mobilized flow. The repressive apparatus does not require emergency fiscal authorization --- its cost was paid *ex ante* through continuous maintenance. Compensation, by contrast, must be fiscally mobilized *during* the crisis, precisely when mobilization is hardest.
-
-**Corollary 3 (Vicious cycle of democratic fragility).** *Under threshold automation with endogenous fiscal constraint, weak democracies ($\varphi_0 < \bar{\varphi}$) face a vicious cycle: (i) no preventive investment in $t=1$ (A3); (ii) crisis in $t=2$ erodes fiscal capacity ($\mathcal{F} \downarrow$) and raises political costs ($p \uparrow$); (iii) emergency response becomes unaffordable ($p > p^*$); (iv) instability. Preventive investment ($\varphi_0 \geq \bar{\varphi}$, P5) breaks this cycle by building capacity before fiscal conditions deteriorate.*
-
-This result strengthens the normative case for the welfare state. The choice is not merely between compensating workers (humane) and repressing them (effective). It is between investing *before* the crisis, when fiscal conditions permit, and attempting to invest *during* the crisis, when they may not. A7 is the limiting case ($p \to \infty$); the endogenous version preserves the result whenever crisis conditions are severe enough to make emergency response prohibitively expensive.
+A natural objection is that under threshold automation, the crisis *is* observable in $t=2$. Why can't the democracy build emergency compensation then? Appendix C relaxes A7 and shows that the result survives under an endogenous fiscal constraint: when crisis premia make emergency spending prohibitively expensive ($p \geq p^*$), democratic fragility persists even without the binary timing assumption.
 
 # Discussion
 
@@ -445,3 +425,25 @@ Since $\bar{\pi} < b_x/(b_x + m)$ (A5), we have $\omega_x^* < \omega_0$, so $(\o
 By strict monotonicity, continuity, and the intermediate value theorem, there exists a unique $\hat{\sigma}_x$ such that $\pi_x^*(\hat{\sigma}_x) = \bar{\pi}$, with $\pi_x^*(\sigma) \geq \bar{\pi}$ for $\sigma \leq \hat{\sigma}_x$ and $\pi_x^*(\sigma) < \bar{\pi}$ for $\sigma > \hat{\sigma}_x$. $\square$
 
 The mechanism operates through coordination capacity: $E$ desires revolt equally under both shock types ($u_E(P)$ is the same), but the dispersion of experiences determines whether collective action succeeds [@Chwe2001; @Kuran1991; @MorrisShin2003].^[@PrzeworskiLimongi1997 established the empirical precursor: economic development does not cause transitions to democracy, but existing democracies at higher income levels survive longer. Our model provides a mechanism for why economic disruptions differentially affect regime survival depending on both the trajectory of the disruption and the type of regime.]
+
+# Endogenous Fiscal Fragility
+
+This appendix relaxes A7 (no new compensatory capacity in $t=2$) and shows that democratic fragility under threshold automation survives under an endogenous fiscal constraint.
+
+**A7' (Emergency fiscal constraint).** In $t=2$, the democracy can attempt to build emergency compensatory capacity $\varphi_2^{em}$ at cost $p \cdot c(\varphi_2^{em})$, where $p \geq 1$ is the *crisis premium* (reflecting fiscal stress, political polarization, and borrowing costs under duress) and $c(\cdot)$ is the normal cost of building capacity, assumed continuous and strictly increasing with $c(0) = 0$. Emergency spending is subject to a fiscal constraint: $p \cdot c(\varphi_2^{em}) \leq \mathcal{F}$, where $\mathcal{F} > 0$ is available fiscal capacity.
+
+**Proposition 7 (Endogenous fiscal fragility).** *Under A7' replacing A7, define $p^* \equiv \mathcal{F} / c(\bar{\varphi})$. Democracy is unstable under threshold automation whenever $p \geq p^*$.*
+
+*Proof.* Under threshold, $t=2$: $\ell_2 = L$, $\varphi_1 = 0$ (no shock in $t=1$, so no compensation built). Survival requires $\varphi_2^{em} \geq \bar{\varphi}$, costing $p \cdot c(\bar{\varphi})$. This is affordable iff $p \cdot c(\bar{\varphi}) \leq \mathcal{F}$, i.e., $p \leq p^*$. For $p \geq p^*$: emergency compensation is unaffordable. P1(b) holds. $\blacksquare$
+
+Three forces push $p$ above $p^*$ during a threshold crisis:
+
+1. *Fiscal erosion.* The automation shock shrinks the tax base: workers who lose income pay less tax. The fiscal capacity $\mathcal{F}$ itself declines with $\ell_2$.
+2. *Political paralysis.* Workers moving toward $P$ makes legislative bargaining over emergency spending harder. The non-exposed majority (who must approve taxation, per Appendix A) faces a more polarized environment.
+3. *Credibility collapse.* Emergency programs announced during crisis are less credible than established institutions: implementation lags, administrative capacity is absent, and beneficiaries cannot verify promises.
+
+The asymmetry with autocracy is structural: $\kappa_0$ is a pre-built stock, not a crisis-mobilized flow. The repressive apparatus does not require emergency fiscal authorization --- its cost was paid *ex ante* through continuous maintenance. Compensation, by contrast, must be fiscally mobilized *during* the crisis, precisely when mobilization is hardest.
+
+**Corollary 3 (Vicious cycle of democratic fragility).** *Under threshold automation with endogenous fiscal constraint, weak democracies ($\varphi_0 < \bar{\varphi}$) face a vicious cycle: (i) no preventive investment in $t=1$; (ii) crisis in $t=2$ erodes fiscal capacity ($\mathcal{F} \downarrow$) and raises political costs ($p \uparrow$); (iii) emergency response becomes unaffordable ($p > p^*$); (iv) instability. Preventive investment ($\varphi_0 \geq \bar{\varphi}$, P5) breaks this cycle by building capacity before fiscal conditions deteriorate.*
+
+A7 is the limiting case ($p \to \infty$). The endogenous version preserves the result whenever crisis conditions are severe enough to make emergency response prohibitively expensive.
