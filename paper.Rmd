@@ -94,6 +94,8 @@ We consider a polity over two periods $t \in \{1, 2\}$ with a group of workers $
 
 ![Income paths under two automation trajectories. Left: rapid displacement ($y_1 = y_2 = w_E - L$). Right: threshold automation ($y_1 = w_E + \beta$, $y_2 = w_E - L$). Same total displacement, different timing. Parameters from the numerical example ($w_E = 1$, $L = 1$, $\beta = 0.3$).](figures/fig_income_paths.pdf){width=85%}
 
+**Timing.** Within each period: (1) nature draws $\omega_t$; displacement is $\ell_t = L \cdot \mathbf{1}[\omega_t \geq \bar{\omega}]$; (2) each member of $E$ observes a private signal $s_{it}$ and chooses whether to participate in collective action ($a_{it} \in \{0,1\}$); (3) aggregate participation $\pi_t$ becomes public; (4) the regime responds --- in democracy, the non-exposed majority $N$ decides whether to authorize compensation; in autocracy, effective repression updates; (5) each member of $E$ chooses $M$ (accept the status quo) or $P$ (protest). The coordination stage uses Bayesian Nash equilibrium in monotone threshold strategies; the final $M/P$ choice is by dominance given the realized continuation payoffs. The two periods should be read as two politically distinct moments, not as fixed calendar intervals. The intertemporal linkage is institutional (A7), not temporal discounting.
+
 **Preferences.** In each period, each member of $E$ chooses between $M$ (moderate --- accept the status quo) and $P$ (protest --- pursue regime change). Payoffs depend on the regime type. All members of $E$ are identical in the baseline; the representative worker notation $u_E$ applies to each individual.
 
 Under democracy:
@@ -142,8 +144,6 @@ where $\bar{\varphi} \equiv 1 - |\Delta|/L \in (0,1)$ is the *compensatory thres
 $$\eta(\pi_t) = 1 - (1-\eta_r) \cdot g(\pi_t)$$
 where $\eta_r \in (0,1)$. If participation crosses the visibility threshold ($g(\pi_t) = 1$), repression degrades to $\eta_r$. If it does not, repression remains fully effective ($\eta = 1$).
 
-**Timing.** Within each period: (1) nature draws $\omega_t$; displacement is $\ell_t = L \cdot \mathbf{1}[\omega_t \geq \bar{\omega}]$; (2) each member of $E$ observes $s_{it}$ and chooses $a_{it}$; (3) aggregate participation $\pi_t$ becomes public; (4) the regime responds --- in democracy, $N$ decides whether to authorize $\bar{\varphi}$; in autocracy, effective repression updates to $\kappa_0 \cdot \eta(\pi_t)$; (5) each member of $E$ chooses $M$ or $P$. The coordination stage uses Bayesian Nash equilibrium in monotone threshold strategies; the final $M/P$ choice is by dominance given the realized continuation payoffs. The two periods should be read as two politically distinct moments, not as fixed calendar intervals. The intertemporal linkage is institutional (A7), not temporal discounting.
-
 ## Assumptions
 
 **Definition.** Regime $x$ is *stable under trajectory $j$* if $u_E(M \mid x, t) \geq u_E(P \mid x, t)$ for all $t$.
@@ -170,7 +170,7 @@ Building social insurance infrastructure --- legislative frameworks, administrat
 
 Note that A7 binds only under threshold automation. Under rapid displacement, the shock arrives in $t=1$ and A3 activates compensation immediately --- A7 is irrelevant. A7 matters precisely when the shock is delayed: the polity cannot build capacity in response to a shock it has not yet observed. Combined with A3, this produces the democratic tragedy: reactive institutions require a signal to mobilize, but delayed shocks provide no signal until it is too late to act.
 
-**Example.** Let $w_E = 1$, $W = 2$, $L = 1$, $\theta = 0.5$, $k = 0.4$, $\kappa_0 = 0.8$, $\eta_r = 0.5$, $\beta = 0.3$. Then $\Delta = -0.4$, $\bar{\varphi} = 0.6$, $\bar{\kappa} = 0.6$, $\bar{\kappa}/\eta_r = 1.2$. Since $\kappa_0 = 0.8 \in [0.6, 1.2)$, this autocracy is in the *crossed fragility* range. Income paths: rapid $y_1 = y_2 = 0$; threshold $y_1 = 1.3$, $y_2 = 0$. Consider the four scenarios:
+**Example.** Let $w_E = 1$, $W = 2$, $L = 1$, $\theta = 0.5$, $k = 0.4$, $\kappa_0 = 0.8$, $\eta_r = 0.5$, $\beta = 0.3$. For the coordination game: $\bar{\pi} = 0.6$, $b_D = b_A = 1$, $m = 0.5$, $F = \Phi$ (standard normal). Then $b_x/(b_x + m) = 0.667 > 0.6 = \bar{\pi}$ (A5 satisfied). Using Lemma 2 with $\omega_0 = 1$ and $\omega^* = 0.4$: the noise threshold is $\hat{\sigma} \approx 2.37$. Set $\sigma_r = 0.5$ and $\sigma_\tau = 5$ (A6 satisfied: $\sigma_r < \hat{\sigma} < \sigma_\tau$). Then $\Delta = -0.4$, $\bar{\varphi} = 0.6$, $\bar{\kappa} = 0.6$, $\bar{\kappa}/\eta_r = 1.2$. Since $\kappa_0 = 0.8 \in [0.6, 1.2)$, this autocracy is in the *crossed fragility* range. Income paths: rapid $y_1 = y_2 = 0$; threshold $y_1 = 1.3$, $y_2 = 0$. Consider the four scenarios:
 
 - *Democracy, rapid*: $t=1$: $y_1 = 0$. Crisis uniform, shared. Compensation activates: $\varphi_1 = 0.6$. $u_E(M) = 0 + 0.6 \times 1 = 0.6 = u_E(P)$. Marginally **stable**. $t=2$: displacement persists ($y_2 = 0$), but compensation persists by A7 ($\varphi_2 = 0.6$). Still **stable**.
 - *Democracy, threshold*: $t=1$: $y_1 = 1.3$. Workers gaining from AI complementarity. $u_E(M) = 1.3 > 0.6 = u_E(P)$. **Stable** --- no crisis, no compensation built. $t=2$: threshold crossed, $y_2 = 0$. $\varphi_2 = 0$ by A7. $u_E(M) = 0 < 0.6 = u_E(P)$. **Unstable**.
@@ -195,7 +195,7 @@ These lemmas establish that $\sigma$ is the single trajectory-varying primitive 
 
 ## Stability conditions
 
-The *compensatory threshold* is $\bar{\varphi} = 1 - |\Delta|/L$. The *repressive threshold* is $\bar{\kappa} = L - |\Delta|$.
+**Definition (Stability thresholds).** The *compensatory threshold* is $\bar{\varphi} \equiv 1 - |\Delta|/L \in (0,1)$: the minimum compensatory capacity that makes a displaced worker indifferent between $M$ and $P$. The *repressive threshold* is $\bar{\kappa} \equiv L - |\Delta| > 0$: the minimum effective repression that deters revolt under displacement.
 
 **Democracy.** When $y_t \geq w_E$ (no loss): stable by A1 (since $u_E(M) = y_t \geq w_E > \theta W - k$). When $y_t = w_E - L$ and $\pi_t \geq \bar{\pi}$: $\varphi_t = \bar{\varphi}$ and $u_E(M) = w_E + \Delta = u_E(P)$, stable. When $y_t = w_E - L$ and $\pi_t < \bar{\pi}$: $\varphi_t = 0$ and stability requires $\Delta + L \leq 0$, contradicting A2. *Unstable.*
 
@@ -231,12 +231,14 @@ Proposition 3 follows from one equilibrium object, $\pi^*$: the trajectory-depen
 
 ![Regime stability under two automation trajectories. The crossed fragility pattern (Proposition 3) applies to the comparison between weak democracies and moderate autocracies: green cells are stable, red cells are unstable.](figures/fig_crossed_fragility.pdf){width=85%}
 
+Under the crossed fragility pattern, each regime survives under its favorable trajectory: democracy under rapid displacement, autocracy under threshold automation. Proposition 4 compares welfare across these two survival scenarios.
+
 **Proposition 4 (Welfare cost of autocratic stability).** *Conditional on regime survival, $E$'s welfare is strictly higher under democracy:*
 $$u_E(M \mid D, \text{stable}) - u_E(M \mid A, \text{stable}) = \bar{\kappa} > 0$$
 
 *Proof.* Democracy stable (rapid, $t=1$): $u_E = w_E + \Delta$. Autocracy stable (threshold, $t=2$): $u_E = w_E - L$. Difference: $\Delta + L = \bar{\kappa} > 0$. $\blacksquare$
 
-Autocratic stability is "stability without welfare." Note that Proposition 4 compares welfare across different scenarios: democracy surviving rapid displacement versus autocracy surviving threshold automation. This is the relevant comparison because, under the crossed fragility pattern, each regime survives under its favorable trajectory. The welfare gap is exactly the repressive threshold $\bar{\kappa}$: the cost that autocratic citizens pay for their regime's stability.
+Autocratic stability is "stability without welfare." The welfare gap is exactly the repressive threshold $\bar{\kappa}$: the cost that autocratic citizens pay for their regime's stability.
 
 **Remark 1 (Threshold of thresholds).** *Define $L^* \equiv \kappa_0 + |\Delta|$. For $L > L^*$, autocracy is unstable under threshold automation.*
 
