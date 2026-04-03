@@ -22,7 +22,7 @@ Imagine two scenarios in a near future where the United States and China adopt t
 
 No formal model specifies how the *shape* of economic disruption interacts with regime type to determine which regimes survive. The regime stability literature treats shocks as uniform events defined by magnitude [@AcemogluRobinson2006; @Przeworski2005]. The automation literature distinguishes trajectories --- rapid displacement versus threshold substitution [@GansGoldfarb2026; @AutorLevyMurnane2003] --- but has not explored their political implications.
 
-This paper fills that gap. We build a two-period model in the Open Economy Politics tradition [@Lake2009], taking the economics of automation as given and deriving the political-institutional implications. The key mechanism operates through worker coordination: trajectory-dependent signal noise ($\sigma$) determines whether affected workers can organize collectively, which in turn activates regime-specific institutional responses --- compensation in democracies, degraded repression in autocracies.
+We build a two-period model in the Open Economy Politics tradition [@Lake2009], taking the economics of automation as given and deriving the political-institutional implications. A group of exposed workers chooses between accepting the status quo and revolting. Each worker observes a private signal about the severity of the automation shock; signal noise depends on the trajectory, because rapid displacement affects everyone uniformly while threshold automation scatters losers among beneficiaries. Workers then decide whether to join collective action, which succeeds or fails depending on aggregate participation. The regime processes this coordination outcome through its institutional mechanism: in democracies, a visible coalition triggers compensation from the non-exposed majority; in autocracies, visible opposition degrades the effectiveness of standing repression.
 
 First, we establish a crossed fragility pattern (Proposition 3). For autocracies with moderate repressive capacity, democracies are stable under rapid displacement but unstable under threshold automation; autocracies exhibit the reverse. The mechanism is the coordination capacity of affected workers. Rapid displacement is uniform: workers share a common condition, generating common knowledge of grievance [@Chwe2001] that enables collective action. Democracies channel this into compensation; in autocracies, it degrades repression [@Kuran1991; @Edmond2013]. Threshold automation disperses the displaced among those still benefiting from AI, preventing the coordination that either mechanism requires.
 
@@ -341,13 +341,9 @@ This result strengthens the normative case for the welfare state. The choice is 
 
 # Discussion
 
-## Two symmetric tragedies
+## Structural irony
 
-The model reveals a structural irony in each regime type.
-
-*The tragedy of democratic responsiveness.* The same property that makes democracies good for citizens --- responsiveness to political demands, leading to compensatory policy --- makes them fragile to delayed shocks. Without observable distress, there is no political demand; without demand, there is no action. Responsiveness is both the source of democratic strength and the mechanism of democratic fragility.
-
-*The tragedy of autocratic repression.* The same property that makes autocracies resilient to delayed shocks --- standing repressive capacity maintained independently of economic conditions --- makes them (i) vulnerable to visible shocks, where organized opposition degrades repressive effectiveness, and (ii) unable to benefit citizens even when stability is preserved, since repression contains discontent without addressing its cause.
+Each regime's source of strength is also its source of fragility. Democratic responsiveness enables compensation but requires a visible crisis to act, leaving the regime exposed to delayed shocks. Autocratic repression operates independently of economic conditions but degrades against organized opposition, leaving the regime exposed to uniform shocks. The crossed fragility pattern is a direct consequence of this symmetry.
 
 ## Comparative statics
 
