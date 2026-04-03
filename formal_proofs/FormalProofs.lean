@@ -8,3 +8,4 @@ import FormalProofs.Prop5
 import FormalProofs.Prop6
 import FormalProofs.Prop7
 import FormalProofs.CoordinationConditions
+import FormalProofs.CoordinationLemmas

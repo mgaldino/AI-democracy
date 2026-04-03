@@ -14,5 +14,9 @@ name = "mathlib"
 scope = "leanprover-community"
 rev = "v4.29.0"
 
+[[require]]
+name = "SupermodularGames"
+path = "../../../SupermodularGames"
+
 [[lean_lib]]
 name = "FormalProofs"
