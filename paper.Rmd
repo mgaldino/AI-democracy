@@ -261,9 +261,9 @@ A back-of-the-envelope exercise illustrates that the crossed fragility interval 
 
 A natural objection: under threshold automation, the crisis *is* observable in $t=2$ ($\ell_2 = L$). Why can't the democracy build emergency compensation then? Assumption A5 rules this out by fiat. We now relax A5 and show that the result survives under an endogenous fiscal constraint.
 
-**A5' (Emergency fiscal constraint).** In $t=2$, the democracy can attempt to build emergency compensatory capacity $\varphi_2^{em}$ at cost $p \cdot c(\varphi_2^{em})$, where $p \geq 1$ is the *crisis premium* (reflecting fiscal stress, political polarization, and borrowing costs under duress) and $c(\cdot)$ is the normal cost of building capacity, assumed continuous and strictly increasing with $c(0) = 0$. Emergency spending is subject to a fiscal constraint: $p \cdot c(\varphi_2^{em}) \leq F$, where $\mathcal{F} > 0$ is available fiscal capacity.
+**A7' (Emergency fiscal constraint).** In $t=2$, the democracy can attempt to build emergency compensatory capacity $\varphi_2^{em}$ at cost $p \cdot c(\varphi_2^{em})$, where $p \geq 1$ is the *crisis premium* (reflecting fiscal stress, political polarization, and borrowing costs under duress) and $c(\cdot)$ is the normal cost of building capacity, assumed continuous and strictly increasing with $c(0) = 0$. Emergency spending is subject to a fiscal constraint: $p \cdot c(\varphi_2^{em}) \leq F$, where $\mathcal{F} > 0$ is available fiscal capacity.
 
-**Proposition 7 (Endogenous fiscal fragility).** *Under A5' replacing A5, define $p^* \equiv \mathcal{F} / c(\bar{\varphi})$. Democracy is unstable under threshold automation whenever $p \geq p^*$.*
+**Proposition 7 (Endogenous fiscal fragility).** *Under A7' replacing A5, define $p^* \equiv \mathcal{F} / c(\bar{\varphi})$. Democracy is unstable under threshold automation whenever $p \geq p^*$.*
 
 *Proof.* Under threshold, $t=2$: $\ell_2 = L$, $\varphi_1 = 0$ (by A3). Survival requires $\varphi_2^{em} \geq \bar{\varphi}$, costing $p \cdot c(\bar{\varphi})$. This is affordable iff $p \cdot c(\bar{\varphi}) \leq \mathcal{F}$, i.e., $p \leq p^*$. For $p \geq p^*$: emergency compensation is unaffordable. P1(b) holds. $\blacksquare$
 
