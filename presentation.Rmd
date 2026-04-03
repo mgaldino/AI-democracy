@@ -115,24 +115,67 @@ while \textcolor{myRed}{\textbf{destabilizing}} the other.
 \begin{column}{0.48\textwidth}
 \textbf{Part I --- The Original Paper}
 \begin{enumerate}
-  \item Model overview (v1)
-  \item What worked
-  \item What didn't
+  \item Model setup and v1 overview
+  \item What worked, what didn't
+\end{enumerate}
+\vspace{0.2cm}
+\textbf{Part II --- The Revision}
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item Strategy and key solutions
+  \item Before/after comparison
 \end{enumerate}
 \end{column}
 \begin{column}{0.48\textwidth}
-\textbf{Part II --- The Revision}
+\textbf{Part III --- The Welfare State}
 \begin{enumerate}
-  \setcounter{enumi}{3}
-  \item Strategy: what we changed
-  \item Key solutions
-  \item Before/after comparison
-  \item Lessons learned
+  \setcounter{enumi}{4}
+  \item Can democracies protect themselves?
+  \item Social insurance as institutional insurance
+\end{enumerate}
+\vspace{0.2cm}
+\textbf{Part IV --- Verification \& Lessons}
+\begin{enumerate}
+  \setcounter{enumi}{6}
+  \item Lean 4 formalization
+  \item What we learned
 \end{enumerate}
 \end{column}
 \end{columns}
 
 # Part I: The Original Paper
+
+## The Setup: What the Model Is About
+
+\small
+A polity has \textbf{exposed workers} ($E$) facing AI automation over \textbf{two periods}. Regime is \textbf{democracy} ($D$) or \textbf{autocracy} ($A$). Workers choose: accept status quo ($M$) or protest ($P$).
+
+\vspace{0.1cm}
+
+\renewcommand{\arraystretch}{1.1}
+\begin{center}
+\footnotesize
+\begin{tabular}{p{1.3cm} p{4.8cm} p{5cm}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Intuition} \\
+\midrule
+$\omega_t$ & Latent severity of automation & How bad the disruption really is \\
+$\ell_t$ & Displacement ($0$ or $L$) & Did workers lose jobs? \\
+$\varphi_t$ & Democratic compensation & How much democracy offsets loss \\
+$\kappa_0, \eta_r$ & Repressive capacity $\times$ effectiveness & How well autocracy contains dissent \\
+$\sigma$ & Signal noise (by trajectory) & How predictable is the shock? \\
+$\pi^*$ & Equilibrium protest participation & Can workers coordinate? \\
+$\beta$ & Complementarity gain ($\geq 0$) & AI temporarily boosts income \\
+$w_E$ & Exposed worker's baseline wage & Income before automation \\
+$\theta, W, k$ & Success share, total output, transition cost & Gains and costs of regime change \\
+$\Delta$ & $\theta W \!-\! k \!-\! w_E$ (net revolt payoff) & Negative $\to$ no revolt without AI \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.05cm}
+
+\textbf{Core asymmetry}: Democracy stabilizes by making $M$ \emph{attractive} (compensation). Autocracy by making $P$ \emph{costly} (repression).
 
 ## v1: Model Architecture
 
@@ -145,8 +188,8 @@ while \textcolor{myRed}{\textbf{destabilizing}} the other.
   arr/.style={->, thick, myNavy!70}
 ]
 \node[box] (traj) at (0,0) {Trajectory $j \in \{r, \tau\}$};
-\node[box] (a3)   at (3.8,0.7)  {A3: $\varphi_t$ reactive};
-\node[box] (a4)   at (3.8,-0.7) {A4: $\eta_j$ by type};
+\node[box] (a3)   at (3.8,0.7)  {A3: compensation reactive};
+\node[box] (a4)   at (3.8,-0.7) {A4: repression by shock};
 \node[box] (stab) at (7.4,0)    {Stability conditions};
 \node[box] (cross) at (10.8,0)  {Crossed fragility};
 
@@ -170,26 +213,26 @@ while \textcolor{myRed}{\textbf{destabilizing}} the other.
 
 ## v1: The Assumptions
 
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{1.25}
 \begin{center}
-\small
-\begin{tabular}{p{1.5cm} p{4.8cm} p{5.5cm}}
+\footnotesize
+\begin{tabular}{p{0.8cm} p{4.5cm} p{5.8cm}}
 \toprule
-\textbf{Label} & \textbf{Content} & \textbf{Nature} \\
+ & \textbf{Content} & \textbf{Plain language} \\
 \midrule
-A1 & $\Delta < 0$ (stable without shock) & Parametric \\
-A2 & $L > |\Delta|$ (shock can destabilize) & Parametric \\
-\rowcolor{myHighlight} A3 & $\varphi_t = \bar{\varphi}$ if $\ell_t > 0$, else 0 & \textbf{Behavioral (imposed)} \\
-\rowcolor{myHighlight} A4 & $\eta_R < 1$, $\eta_T = 1$ & \textbf{Behavioral (imposed)} \\
-A5 & Capacity is a stock & Structural \\
+A1 & $\Delta < 0$ & Without automation, no one revolts \\
+A2 & $L > |\Delta|$ & The shock is big enough to trigger revolt \\
+\rowcolor{myHighlight} A3 & $\varphi_t = \bar{\varphi}$ if displaced, else 0 & \textbf{Democracy only compensates during visible crises} \\
+\rowcolor{myHighlight} A4 & $\eta_r < 1$, $\eta_\tau = 1$ & \textbf{Repression degrades under rapid, holds under threshold} \\
+A5 & Capacity built in $t\!=\!1$ persists & Institutions are slow to build \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 \begin{center}
-A3 and A4 are the \textbf{load-bearing} assumptions --- and both are \emph{directly imposed}, not derived.
+\small A3 and A4 are the \textbf{load-bearing} assumptions --- and both are \emph{directly imposed}, not derived from any deeper mechanism.
 \end{center}
 
 ## v1: Results at a Glance
@@ -258,23 +301,22 @@ The \emph{formalization} needed work: too short a distance from assumptions to r
 \vspace{0.4cm}
 
 \begin{itemize}
-  \item A3 \emph{assumes} democracies only compensate when losses are observed
-  \item A4 \emph{assumes} repression degrades under rapid but not threshold
-  \item Both are \textbf{the result we want to derive}, stated as premises
+  \item A3 \emph{assumes} democracies only compensate when job losses are visible --- but \emph{why} do democracies behave this way? No mechanism given.
+  \item A4 \emph{assumes} repression works well against surprised workers but not organized ones --- but \emph{why}? Just postulated.
+  \item Both describe exactly \textbf{the pattern we want to explain}, stated as premises
   \item A referee could say: ``the crossed fragility is \emph{assumed}, not proven''
 \end{itemize}
 
-## Problem 2: Binary $\omega$ --- No Microfoundation
+## Problem 2: Binary Shock --- No Microfoundation
 
 \begin{columns}[T]
 \begin{column}{0.55\textwidth}
-In v1, the fundamental state was binary:
+In v1, the shock severity ($\omega$, ``how bad is automation?'') was binary --- workers are either displaced or not:
 $$\ell_t \in \{0, L\}$$
 \begin{itemize}
-  \item No continuous signal space
-  \item Global games appendix was \emph{disconnected} from main propositions
-  \item Morris \& Shin (2003) requires continuous fundamentals for uniqueness
-  \item The appendix \emph{sketched} coordination but propositions didn't \emph{use} it
+  \item No continuous \emph{signal space} for workers to form beliefs about others
+  \item Global games (Morris \& Shin 2003) need continuous $\omega$ for unique equilibrium
+  \item Appendix B \emph{sketched} coordination but main proofs didn't \emph{use} it
 \end{itemize}
 \end{column}
 \begin{column}{0.42\textwidth}
@@ -346,10 +388,10 @@ Reader must build mental model entirely unaided.
 \begin{column}{0.48\textwidth}
 \textbf{Changes:}
 \begin{enumerate}
-  \item $\omega$ binary $\to$ continuous
-  \item A3/A4 $\to$ derived from $\pi^*(\sigma)$
+  \item Shock severity $\omega$: binary $\to$ continuous
+  \item Compensation \& repression: assumed $\to$ derived from coordination equilibrium $\pi^*$
   \item Assumptions unbundled (5 $\to$ 7)
-  \item Income paths: absorbing state + $\beta$
+  \item Income paths: absorbing state + $\beta$ (AI temporarily boosts income before displacing)
   \item Four new figures
   \item Formal Lean 4 verification
 \end{enumerate}
@@ -358,35 +400,39 @@ Reader must build mental model entirely unaided.
 
 ## Solution 1: Continuous $\omega$ + Global Games
 
+\small\textit{How do we make compensation and repression \textbf{emerge} from a single mechanism?}
+
+\vspace{0.1cm}
+
 \begin{columns}[T]
-\begin{column}{0.48\textwidth}
-\textbf{New information structure}\\[4pt]
-Worker $i$ observes:
+\begin{column}{0.50\textwidth}
+\textbf{New information structure}\\[3pt]
+Each worker observes a \emph{private signal}:
 $$s_{it} = \omega_t + \sigma_j \varepsilon_{it}$$
+\vspace{-0.2cm}
 \begin{itemize}
-  \item $\omega_t \in \mathbb{R}$: latent severity
-  \item $\sigma_j$: trajectory-dependent noise
-  \item $\ell_t = L \cdot \mathbf{1}[\omega_t \geq \bar{\omega}]$
+  \item $\omega_t$: true severity (now continuous)
+  \item $\sigma_j$: noise, depends on trajectory
+  \item $\varepsilon_{it}$: individual perception error
 \end{itemize}
 
-\vspace{0.2cm}
-
-\textbf{Key:} $\sigma_r$ low (rapid is predictable), $\sigma_\tau$ high (threshold is surprising).
+\vspace{0.1cm}
+\footnotesize\textit{If $\omega\!=\!0.8$ and $\sigma$ is low (rapid), worker sees $s_i \!\approx\! 0.8$. If $\sigma$ is high (threshold), she might see $0.3$ or $1.5$ --- she can't tell how bad things are.}
 \end{column}
-\begin{column}{0.48\textwidth}
-\textbf{Why this works}\\[4pt]
+\begin{column}{0.46\textwidth}
+\textbf{Why this works}\\[3pt]
 \begin{itemize}
-  \item Continuous $\omega$ enables M-S Theorem 2.2 $\to$ unique equilibrium
-  \item Improper uniform prior $\to$ Laplacian property $\to$ closed-form statics
+  \item Continuous $\omega$ $\to$ Morris-Shin uniqueness theorem
+  \item Uniform prior $\to$ Laplacian property $\to$ closed-form statics
   \item $\sigma$ is the \emph{single} trajectory-varying primitive
-  \item Everything else follows from $\pi^*(\sigma)$
+  \item Everything follows from $\pi^*(\sigma)$
 \end{itemize}
 \end{column}
 \end{columns}
 
 ## Solution 1 (cont.): The Coordination Curve
 
-```{r fig-threshold, fig.width=5, fig.height=2.7}
+```{r fig-threshold, fig.width=5, fig.height=2.4}
 omega_0 <- 1.0; omega_star <- 0.4; pi_bar <- 0.6
 sigma_seq <- seq(0.1, 5, length.out = 500)
 pi_star <- 1 - pnorm((omega_star - omega_0) / sigma_seq)
@@ -434,6 +480,8 @@ ggplot(df_coord, aes(x = sigma, y = pi)) +
   theme(plot.margin = margin(2, 14, 2, 4))
 ```
 
+\footnotesize $\bar{\pi}$: minimum participation for collective action to succeed. $\hat{\sigma}$: critical noise at which coordination breaks down. Curve plotted at $\omega_0 = 1$ (realized shock severity when displacement occurs).
+
 ## Solution 2: Assumptions Unbundled
 
 \renewcommand{\arraystretch}{1.2}
@@ -447,7 +495,7 @@ A3 & Compensation reactive & $\to$ & A3 & Information structure (M-S) \\
    &                        &      & A4 & Majority-cost condition \\
    &                        &      & A5 & Risk dominance \\
 \addlinespace
-A4 & $\eta$ by shock type   & $\to$ & A6 & Trajectory separation \\
+A4 & $\eta_r$ by shock type  & $\to$ & A6 & Trajectory separation \\
 \addlinespace
 A5 & Capacity is a stock    & $\to$ & A7 & Institutional lead time \\
 \bottomrule
@@ -536,11 +584,15 @@ ggplot(df_paths, aes(x = t, y = y)) +
   theme(strip.text = element_text(face = "bold", size = 10, colour = col_navy))
 ```
 
-\footnotesize v1: $\ell_1\!=\!L, \ell_2\!=\!0$ vs.\ $\ell_1\!=\!0, \ell_2\!=\!L$. v2 adds $\beta$ and makes rapid an \textbf{absorbing state}.
+\footnotesize v1: $\ell_1\!=\!L, \ell_2\!=\!0$ vs.\ $\ell_1\!=\!0, \ell_2\!=\!L$. v2: rapid is an \textbf{absorbing state} (loss persists); threshold has a \textbf{complementarity gain} $\beta$ (AI boosts income before replacing workers).
 
 ## Solution 5: The Four Scenarios
 
-```{r fig-four-scenarios, fig.width=5.5, fig.height=2.7}
+\small\textit{Before I show you: which cell do you think is unstable? Democracy under rapid, or under threshold?}
+
+\vspace{0.1cm}
+
+```{r fig-four-scenarios, fig.width=5.5, fig.height=2.5}
 scenarios <- data.frame(
   regime = factor(rep(c("Democracy", "Autocracy"), each = 2),
                   levels = c("Democracy", "Autocracy")),
@@ -600,7 +652,7 @@ R2 & Interval width & Was P6 & Now a Remark \\
 \addlinespace
 P5 & Welfare state insurance & Was P7 & Rewritten with $\varphi_0$ \\
 P6 & Functional equivalence & Was P8 & Tighter proof \\
-P7 & Fiscal fragility & Was P9 & Uses $\mathcal{F}$, $p^*$ \\
+P7 & Fiscal fragility & Was P9 & Endogenous constraint \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -669,7 +721,9 @@ pb <- ggplot(df_b) +
   scale_x_continuous(name=expression(varphi[0]),
                      limits=c(0,1), expand=c(0,0)) +
   scale_y_continuous(limits=c(-0.9, 0.9), expand=c(0,0)) +
-  labs(title="B. Democracy stability") + theme_strip
+  labs(title=expression(bold("B. Democracy stability: ") *
+    scriptstyle(bar(varphi) == "min. compensation to prevent revolt"))) +
+  theme_strip
 
 pa / pb + plot_layout(heights = c(1, 1))
 ```
@@ -716,15 +770,33 @@ ggplot(df_typ, aes(x=trajectory, y=regime, fill=stable)) +
 
 # Part III: The Welfare State
 
+## Can Democracies Protect Themselves?
+
+The new architecture reveals a natural question: if the coordination bottleneck is what makes democracies fragile under threshold automation, can they \textbf{bypass} it?
+
+\vspace{0.3cm}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{The problem}\\[4pt]
+Weak democracies need a visible crisis to trigger compensation. Threshold shocks provide no visible crisis until too late (A7).
+\end{column}
+\begin{column}{0.48\textwidth}
+\textbf{The solution}\\[4pt]
+Build \emph{standing} compensation ($\varphi_0$) \emph{before} the shock --- a welfare state that does not require crisis activation.\\[4pt]
+$\varphi_0$ is the democratic analogue of $\kappa_0$ (standing repression).
+\end{column}
+\end{columns}
+
 ## Insurance Against Delayed Shocks
 
 \begin{columns}[T]
 \begin{column}{0.55\textwidth}
-\textbf{P5:} Democracy stable under threshold iff $\varphi_0 \geq \bar{\varphi}$.\\[4pt]
+\textbf{P5:} Democracy stable under threshold iff standing compensation $\varphi_0 \geq \bar{\varphi}$ (the compensatory threshold --- how much compensation is needed to keep workers from revolting).\\[4pt]
 
-Welfare state \textbf{bypasses the coordination bottleneck}: standing capacity needs no crisis-triggered mobilization.\\[6pt]
+The welfare state \textbf{bypasses the coordination bottleneck}: it works even when workers can't organize.\\[4pt]
 
-\textbf{P6:} Strong democracies and strong autocracies are both stable under both trajectories. But:
+\textbf{P6:} Both strong democracies and strong autocracies survive both trajectories. But the welfare gap is $\bar{\kappa} = L - |\Delta|$ (the repressive threshold):
 \vspace{0.1cm}
 \centerline{$u_E^D - u_E^A \geq \bar{\kappa} > 0$}
 \end{column}
@@ -736,9 +808,9 @@ Welfare state \textbf{bypasses the coordination bottleneck}: standing capacity n
               font=\footnotesize, text=myNavy, align=center}
 ]
 \node[box, fill=myTeal!12] (dem) at (0,2) {$\varphi_0 \geq \bar{\varphi}$};
-\node[font=\scriptsize, text=myNavy] at (0,1.55) {compensates};
+\node[font=\scriptsize, text=myNavy] at (0,1.5) {standing social insurance};
 \node[box, fill=myAmber!12] (aut) at (0,0) {$\kappa_0 \geq \bar{\kappa}/\eta_r$};
-\node[font=\scriptsize, text=myNavy] at (0,-0.45) {represses};
+\node[font=\scriptsize, text=myNavy] at (0,-0.5) {standing repression};
 \node[font=\scriptsize, text=myNavy!40] at (1.8,1) {functionally};
 \node[font=\scriptsize, text=myNavy!40] at (1.8,0.7) {equivalent};
 \node[font=\scriptsize\bfseries, text=myTeal] at (0,2.6)
