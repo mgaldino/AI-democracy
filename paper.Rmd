@@ -374,23 +374,23 @@ The policy implication is direct. Democracies facing AI automation with potentia
 
 # Democratic Continuation Map --- Voting Derivation
 
-This appendix provides a richer derivation of the democratic continuation map $\varphi_t(\ell_t, \pi_t)$ introduced in Section 3.
+This appendix provides a richer derivation of the democratic continuation map $\varphi_t(\pi_t)$ introduced in Section 3.
 
 ## Setup
 
-Two groups within the democracy: $E$ (exposed, mass $\mu_E$) and $N$ (non-exposed, mass $\mu_N > \mu_E$). Within each period, after $\ell_t$ is revealed and aggregate participation $\pi_t$ is observed: (1) $E$ announces political stance ($M$ or $P$); (2) $N$ votes on a tax rate $\tau_t$ financing compensation $\varphi_t$; (3) $E$ takes final action.
+Two groups within the democracy: $E$ (exposed, mass $\mu_E$) and $N$ (non-exposed, mass $\mu_N > \mu_E$). Under A4, $N$ does not observe $\omega_t$ or $\ell_t$ directly. $N$ observes aggregate mobilization $\pi_t$ and infers the severity of $E$'s situation. Within each period, after $\pi_t$ is observed: (1) $N$ votes on a tax rate $\tau_t$ financing compensation $\varphi_t$; (2) payoffs realize.
 
-$N$'s payoff: $U_N = w_N - \tau_t c_s - \gamma \cdot g(\pi_t) \cdot \mathbf{1}[\ell_t = L]$, where $c_s > 0$ is the per-unit cost of taxation, $\alpha \in (0,1)$ is the fraction of $N$'s income preserved under regime change, and $\gamma \equiv (1-\alpha)w_N > 0$ is the cost $N$ bears under regime change. The visibility function $g(\pi_t)$ enters because $N$ perceives the instability threat as credible only when both a material shock exists and the coalition is publicly visible.
+$N$'s payoff: $U_N = w_N - \tau_t c_s - \gamma \cdot \mathbf{1}[\text{regime change}]$, where $c_s > 0$ is the per-unit cost of taxation, $\alpha \in (0,1)$ is the fraction of $N$'s income preserved under regime change, and $\gamma \equiv (1-\alpha)w_N > 0$ is the cost $N$ bears under regime change. The visibility function $g(\pi_t)$ enters because $N$ perceives the instability threat as credible only when mobilization crosses the visibility threshold.
 
 ## Equilibrium
 
-**When $\ell_t = 0$:** By A1, $E$ cannot credibly threaten $P$. $N$'s optimal tax is $\tau^* = 0$.
+**When $\pi_t < \bar{\pi}$:** No visible coalition. $N$ has no basis to infer that $E$ faces a material crisis. Even if a shock exists, the dispersed nature of the crisis makes it invisible to $N$. $N$'s optimal tax is $\tau^* = 0$.
 
-**When $\ell_t = L$ and $g(\pi_t) = 0$:** No visible coalition. The threat from $E$ is not politically credible. $N$'s optimal tax is $\tau^* = 0$.
+**When $\pi_t \geq \bar{\pi}$:** Visible mobilization reveals a credible crisis. $N$ compares pacification ($\tau = \bar{\varphi}$, payoff $w_N - \bar{\varphi} c_s$) versus instability ($\tau = 0$, payoff $w_N - \gamma$). $N$ pacifies iff $\gamma \geq \bar{\varphi} c_s$.
 
-**When $\ell_t = L$ and $g(\pi_t) = 1$:** $E$'s threat is credible (visible coalition + material loss). $N$ compares pacification ($\tau = \bar{\varphi}$, payoff $w_N - \bar{\varphi} c_s$) versus instability ($\tau = 0$, payoff $w_N - \gamma$). $N$ pacifies iff $\gamma \geq \bar{\varphi} c_s$.
+**Parameter restriction (P-R):** $\gamma / c_s \geq \bar{\varphi}$. Under (P-R), the equilibrium yields $\varphi^*(\pi_t) = \bar{\varphi} \cdot g(\pi_t)$, recovering the democratic continuation map stated in Section 3.
 
-**Parameter restriction (P-R):** $\gamma / c_s \geq \bar{\varphi}$. Under (P-R), the unique subgame-perfect equilibrium yields $\varphi^*(\ell_t, \pi_t) = \bar{\varphi} \cdot \mathbf{1}[\ell_t = L] \cdot g(\pi_t)$, recovering the democratic continuation map stated in Section 3.
+**Off-path note.** If $\pi_t \geq \bar{\pi}$ when $\ell_t = 0$ (mobilization without a shock), $N$ would authorize unnecessary compensation. This cannot arise in equilibrium: under A1, absent a material shock, revolt is strictly dominated, so no worker mobilizes.
 
 # Coordination Equilibrium --- Proofs
 
