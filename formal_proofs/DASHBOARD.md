@@ -1,8 +1,8 @@
 # Lean Verification Dashboard
 
 **Project**: AI Automation, Regime Type, and Crossed Fragility
-**Last updated**: 2026-04-02
-**Paper file**: paper.Rmd (modified: 2026-04-02)
+**Last updated**: 2026-04-05
+**Paper file**: paper.Rmd (modified: 2026-04-05)
 **Build status**: PASSING
 
 ## Summary
@@ -21,20 +21,20 @@ All results verified end-to-end. Lemmas 1-2 (global games) are now formalized vi
 
 | # | Result | Paper line | Lean File | Status | Notes |
 |---|--------|:----------:|-----------|:------:|-------|
-| 1 | **Lemma 1 (Unique cutoff equilibrium)** | 136 | CoordinationLemmas.lean + SupermodularGames | **VERIFIED** | Via coordination_unique_cutoff (Laplacian uniqueness) |
-| 2 | **Lemma 2 (Noise comparative statics)** | 138 | CoordinationLemmas.lean + SupermodularGames | **VERIFIED** | Via participationRate_strictAntiOn + noise_threshold_exists_unique |
-| 3 | **Proposition 1 (Democratic fragility)** | 146 | Prop1.lean | **VERIFIED** | L2 as hypothesis. P1a: rapid stable. P1b: threshold unstable. |
-| 4 | **Proposition 2 (Autocratic fragility)** | 154 | Prop2.lean | **VERIFIED** | L2 as hypothesis. Iff conditions on κ₀. |
-| 5 | **Proposition 3 (Crossed fragility)** | 162 | Prop3.lean | **VERIFIED** | Interval [κ̄, κ̄/η_r) → crossed pattern. |
-| 6 | **Proposition 4 (Welfare cost)** | 172 | Prop4.lean | **VERIFIED** | gap = κ̄ > 0 |
-| 7 | **Remark 1 (Threshold of thresholds)** | 179 | Remarks.lean | **VERIFIED** | |
-| 8 | **Remark 2a (Width of crossed interval)** | 185 | Remarks.lean | **VERIFIED** | |
-| 9 | **Remark 2b (Increasing in κ̄)** | 185 | Remarks.lean | **VERIFIED** | |
-| 10 | **Remark 2c (Decreasing in η_r)** | 185 | Remarks.lean | **VERIFIED** | |
-| 11 | **Remark 2d (Zero when η_r = 1)** | 185 | Remarks.lean | **VERIFIED** | |
-| 12 | **Proposition 5 (Welfare state insurance)** | 207 | Prop5.lean | **VERIFIED** | P5a-c: standing capacity as insurance |
-| 13 | **Proposition 6 (Functional equivalence)** | 213 | Prop6.lean | **VERIFIED** | P6a: both strong stable. P6b: welfare gap ≥ κ̄ |
-| 14 | **Proposition 7 (Fiscal fragility)** | 262 | Prop7.lean | **VERIFIED** | Fiscal impossibility + instability |
+| 1 | **Lemma 1 (Unique cutoff equilibrium)** | 186 | CoordinationLemmas.lean + SupermodularGames | **VERIFIED** | Via coordination_unique_cutoff (Laplacian uniqueness) |
+| 2 | **Lemma 2 (Noise comparative statics)** | 188 | CoordinationLemmas.lean + SupermodularGames | **VERIFIED** | Via participationRate_strictAntiOn + noise_threshold_exists_unique |
+| 3 | **Proposition 1 (Democratic fragility)** | 206 | Prop1.lean | **VERIFIED** | L2 as hypothesis. P1a: rapid stable. P1b: threshold unstable. |
+| 4 | **Proposition 2 (Autocratic fragility)** | 214 | Prop2.lean | **VERIFIED** | L2 as hypothesis. Iff conditions on κ₀. |
+| 5 | **Proposition 3 (Crossed fragility)** | 222 | Prop3.lean | **VERIFIED** | Interval [κ̄, κ̄/η_r) → crossed pattern. |
+| 6 | **Proposition 4 (Welfare cost)** | 234 | Prop4.lean | **VERIFIED** | gap = κ̄ > 0 |
+| 7 | **Remark 1 (Threshold of thresholds)** | 241 | Remarks.lean | **VERIFIED** | |
+| 8 | **Remark 2a (Width of crossed interval)** | 247 | Remarks.lean | **VERIFIED** | |
+| 9 | **Remark 2b (Increasing in κ̄)** | 247 | Remarks.lean | **VERIFIED** | |
+| 10 | **Remark 2c (Decreasing in η_r)** | 247 | Remarks.lean | **VERIFIED** | |
+| 11 | **Remark 2d (Zero when η_r = 1)** | 247 | Remarks.lean | **VERIFIED** | |
+| 12 | **Proposition 5 (Welfare state insurance)** | 269 | Prop5.lean | **VERIFIED** | P5a-c: standing capacity as insurance |
+| 13 | **Proposition 6 (Functional equivalence)** | 275 | Prop6.lean | **VERIFIED** | P6a: both strong stable. P6b: welfare gap ≥ κ̄ |
+| 14 | **Proposition 7 (Fiscal fragility)** | 433 | Prop7.lean | **VERIFIED** | Fiscal impossibility + instability |
 
 | 15 | **Coordination Conditions (M-S prerequisites)** | App. B | CoordinationConditions.lean | **VERIFIED** | Dominance regions, q*∈(0,1), single-crossing |
 | 16 | **Bridge: rapid coordination succeeds** | A6 | CoordinationLemmas.lean | **VERIFIED** | σ_r ≤ σ̂ → π* ≥ π̄ |
