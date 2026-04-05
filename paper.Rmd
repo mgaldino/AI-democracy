@@ -264,7 +264,7 @@ The parameter $\eta_r$ governs everything. It captures how vulnerable autocratic
 The baseline model (Propositions 1-4) assumes that democracies have no standing compensatory capacity ($\varphi_0 = 0$). But some democracies maintain comprehensive social insurance that does not require crisis activation. We now ask: does standing compensatory capacity protect democracies against threshold automation, in the same way that standing repressive capacity protects autocracies? Standing compensatory capacity $\varphi_0$ bypasses the coordination bottleneck for threshold shocks: it insures democracy against the low-participation equilibrium induced by dispersed displacement.
 
 **Generalized continuation map.** Allow standing compensatory capacity $\varphi_0 \geq 0$:
-$$\varphi_t = \max\left(\varphi_0, \; \bar{\varphi} \cdot \mathbf{1}[\ell_t = L] \cdot g(\pi_t)\right)$$
+$$\varphi_t = \max\left(\varphi_0, \; \bar{\varphi} \cdot g(\pi_t)\right)$$
 
 **Proposition 5 (Welfare state as insurance against delayed shocks).** *(a) Democracy is stable under threshold automation iff $\varphi_0 \geq \bar{\varphi}$. (b) For $\varphi_0 < \bar{\varphi}$, Proposition 1 holds unchanged. (c) For $\varphi_0 \geq \bar{\varphi}$, democracy is stable under both trajectories.*
 
