@@ -170,7 +170,7 @@ Building social insurance infrastructure --- legislative frameworks, administrat
 
 Note that A7 binds only under threshold automation. Under rapid displacement, the shock arrives in $t=1$ and A3 activates compensation immediately --- A7 is irrelevant. A7 matters precisely when the shock is delayed: the polity cannot build capacity in response to a shock it has not yet observed. Combined with A3, this produces the democratic tragedy: reactive institutions require a signal to mobilize, but delayed shocks provide no signal until it is too late to act.
 
-**Example.** Let $w_E = 1$, $W = 2$, $L = 1$, $\theta = 0.5$, $k = 0.4$, $\kappa_0 = 0.8$, $\eta_r = 0.5$. For heterogeneous complementarity: $\beta_i \sim U[0, 0.6]$, so $\operatorname{E}[\beta] = 0.3$ and $\operatorname{Var}(\beta) = 0.03$. For the coordination game: $\bar{\pi} = 0.6$, $b_D = b_A = 1$, $m = 0.5$, $F = \Phi$ (standard normal). Signal noise microfoundation: $\sigma_0 = 0.5$, $\alpha = 15$, so $h(v) = \sqrt{\sigma_0^2 + \alpha^2 v}$, yielding $\sigma_r = h(0) = 0.5$ and $\sigma_\tau = h(0.03) = \sqrt{0.25 + 6.75} \approx 2.65$. Using Lemma 2 with $\omega_0 = 1$ and $\omega^* = 0.4$: the noise threshold is $\hat{\sigma} \approx 2.37$. Trajectory separation: $\sigma_r = 0.5 < 2.37 = \hat{\sigma} < 2.65 = \sigma_\tau$ (derived, not assumed). Then $b_x/(b_x + m) = 0.667 > 0.6 = \bar{\pi}$ (A5 satisfied). $\Delta = -0.4$, $\bar{\varphi} = 0.6$, $\bar{\kappa} = 0.6$, $\bar{\kappa}/\eta_r = 1.2$. Since $\kappa_0 = 0.8 \in [0.6, 1.2)$, this autocracy is in the *crossed fragility* range. Income paths: rapid $y_1 = y_2 = 0$; threshold $y_{1i} \sim U[1.0, 1.6]$ (mean $1.3$), $y_2 = 0$. Consider the four scenarios:
+**Example.** Let $w_E = 1$, $W = 2$, $L = 1$, $\theta = 0.5$, $k = 0.4$, $\kappa_0 = 0.8$, $\eta_r = 0.5$. For heterogeneous complementarity: $\beta_i \sim U[0, 0.6]$, so $\operatorname{E}[\beta] = 0.3$ and $\operatorname{Var}(\beta) = 0.03$. For the coordination game: $\bar{\pi} = 0.6$, $b_D = b_A = 1$, $m = 0.5$, $F = \Phi$ (standard normal). Signal noise microfoundation (perceptual bias specification, Appendix D): $\sigma_0 = 0.5$, $\alpha = 15$, so $h(v) = \sqrt{\sigma_0^2 + \alpha^2 v}$, yielding $\sigma_r = h(0) = 0.5$ and $\sigma_\tau = h(0.03) = \sqrt{0.25 + 6.75} \approx 2.65$. Using Lemma 2 with $\omega_0 = 1$ and $\omega^* = 0.4$: the noise threshold is $\hat{\sigma} \approx 2.37$. Trajectory separation: $\sigma_r = 0.5 < 2.37 = \hat{\sigma} < 2.65 = \sigma_\tau$ (derived, not assumed). Then $b_x/(b_x + m) = 0.667 > 0.6 = \bar{\pi}$ (A5 satisfied). $\Delta = -0.4$, $\bar{\varphi} = 0.6$, $\bar{\kappa} = 0.6$, $\bar{\kappa}/\eta_r = 1.2$. Since $\kappa_0 = 0.8 \in [0.6, 1.2)$, this autocracy is in the *crossed fragility* range. Income paths: rapid $y_1 = y_2 = 0$; threshold $y_{1i} \sim U[1.0, 1.6]$ (mean $1.3$), $y_2 = 0$. Consider the four scenarios:
 
 - *Democracy, rapid*: $t=1$: $y_1 = 0$. Crisis uniform, shared. Compensation activates: $\varphi_1 = 0.6$. $u_E(M) = 0 + 0.6 \times 1 = 0.6 = u_E(P)$. Marginally **stable**. $t=2$: displacement persists ($y_2 = 0$), but compensation persists by A7 ($\varphi_2 = 0.6$). Still **stable**.
 - *Democracy, threshold*: $t=1$: $y_{1i} \sim U[1.0, 1.6]$ (mean $1.3$). Workers gaining from AI complementarity. $u_E(M) = 1.3 > 0.6 = u_E(P)$. **Stable** --- no crisis, no compensation built. $t=2$: threshold crossed, $y_2 = 0$. $\varphi_2 = 0$ by A7. $u_E(M) = 0 < 0.6 = u_E(P)$. **Unstable**.
@@ -191,7 +191,7 @@ Before deriving stability, we establish that the coordination game generates the
 
 These lemmas establish that $\sigma$ is the single trajectory-varying primitive from which the institutional responses in both regimes are derived. Under rapid displacement ($\sigma_r$ low), equilibrium participation crosses the visibility threshold: compensation activates in democracy and repression degrades in autocracy. Under threshold automation ($\sigma_\tau$ high), participation falls below the threshold: no credible threat in democracy and fully effective repression in autocracy.
 
-**Proposition 8 (Trajectory separation).** *Under $\operatorname{Var}(\beta) > 0$ and $\alpha > 0$, $\sigma_\tau = h(\operatorname{Var}(\beta)) > h(0) = \sigma_r$. Combined with the parameter restriction $\sigma_r < \min\{\hat{\sigma}_x\}$ and $\sigma_\tau > \max\{\hat{\sigma}_x\}$, rapid displacement yields coordination above the visibility threshold and threshold automation yields coordination below it.* (Proof in Appendix D.)
+**Proposition 8 (Trajectory separation).** *Under $\operatorname{Var}(\beta) > 0$ and the regularity conditions on $h$ (Appendix D), $\sigma_\tau = h(\operatorname{Var}(\beta)) > h(0) = \sigma_r$. Combined with the parameter restriction $\sigma_r < \min\{\hat{\sigma}_x\}$ and $\sigma_\tau > \max\{\hat{\sigma}_x\}$, rapid displacement yields coordination above the visibility threshold and threshold automation yields coordination below it.* (Proof in Appendix D.)
 
 This converts the trajectory separation from an assumption (the former A6) into a derived consequence of heterogeneous complementarity. The primitive is empirical: different workers and sectors benefit differently from AI augmentation during the complementary phase.
 
@@ -244,19 +244,19 @@ $$u_E(M \mid D, \text{stable}) - u_E(M \mid A, \text{stable}) = \bar{\kappa} > 0
 
 Autocratic stability is "stability without welfare." The welfare gap is exactly the repressive threshold $\bar{\kappa}$: the cost that autocratic citizens pay for their regime's stability.
 
-**Remark 1 (Threshold of thresholds).** *Define $L^* \equiv \kappa_0 + |\Delta|$. For $L > L^*$, autocracy is unstable under threshold automation.*
+**Corollary 1 (Threshold of thresholds).** *Define $L^* \equiv \kappa_0 + |\Delta|$. For $L > L^*$, autocracy is unstable under threshold automation.*
 
 *Proof.* Stability requires $\kappa_0 \geq \bar{\kappa} = L - |\Delta|$. $L > \kappa_0 + |\Delta| \Rightarrow \bar{\kappa} > \kappa_0$. $\blacksquare$
 
 Sufficiently large shocks overwhelm even standing repressive capacity. The "threshold of thresholds" is the point where automation exceeds repression.
 
-**Remark 2 (Width of the crossed interval).** *The set of $\kappa_0$ values generating the crossed pattern has width $\bar{\kappa}(1-\eta_r)/\eta_r$, which is increasing in $\bar{\kappa}$, decreasing in $\eta_r$, and zero when $\eta_r = 1$.*
+**Corollary 2 (Width of the crossed interval).** *The set of $\kappa_0$ values generating the crossed pattern has width $\bar{\kappa}(1-\eta_r)/\eta_r$, which is increasing in $\bar{\kappa}$, decreasing in $\eta_r$, and zero when $\eta_r = 1$.*
 
 *Proof.* $|\bar{\kappa}/\eta_r - \bar{\kappa}| = \bar{\kappa}(1-\eta_r)/\eta_r$. Derivatives are immediate. $\blacksquare$
 
 The parameter $\eta_r$ governs everything. It captures how vulnerable autocratic repression is to organized opposition. When $\eta_r = 1$ (repression is equally effective regardless of coordination), the crossed pattern vanishes; the model collapses to one where trajectory does not matter for autocracies. The crossed fragility result is a consequence of $\eta_r < 1$ --- the empirically grounded assumption that repression degrades against organized, visible, legitimate opposition.
 
-**Corollary 1 (Autocratic typology).**
+**Corollary 3 (Autocratic typology).**
 
 | Type | Condition | Rapid | Threshold |
 |------|-----------|:-----:|:---------:|
@@ -293,7 +293,7 @@ Part (a) establishes that comprehensive social insurance and standing repressive
 
 This connects to the class compromise tradition. @PrzeworskiWallerstein1982 modeled the bargain sustaining democratic capitalism: workers consent to private profit in exchange for social protection [see also @MoeneWallerstein2001 on the demand for social insurance under inequality]. Our P5-P6 formalize a specific implication: when this compromise is institutionalized as a standing welfare state, it insures the regime itself against technological disruption. The authoritarian alternative, welfare spending as a substitute for (or complement to) repression to prevent insurrection [@DesaiOlofsgardYousef2009], achieves stabilization but at the cost of leaving citizens uncompensated.
 
-**Corollary 2 (Complete regime typology).**
+**Corollary 4 (Complete regime typology).**
 
 | Type | Condition | Rapid | Threshold |
 |------|-----------|:-----:|:---------:|
@@ -319,7 +319,7 @@ The crossed fragility pattern (Proposition 3) applies to the comparison between 
 
 **Empirical proxies and rough calibration.** The model's parameters can be approximated with available data. For democratic resilience, $\varphi_0$ maps to public social spending as a share of GDP (OECD SOCX database): Scandinavian countries spend 26-30% of GDP (Denmark 28%, Sweden 26%), Germany 26%, while the United States spends 19% and the United Kingdom 21%. For repressive capacity, $\kappa_0$ maps to combined military and internal security spending as a share of GDP, supplemented by indices of state coercive capacity (e.g., V-Dem's Physical Violence Index): Saudi Arabia allocates 6-7% of GDP to defense, Russia approximately 4%, China roughly 2% on defense alone (internal security spending is not reported). For repressive effectiveness, $\eta_r$ is harder to observe directly but should correlate with security force professionalization, ethnic cohesion of the military, degree of international isolation, and --- increasingly --- surveillance technology deployment.
 
-A back-of-the-envelope exercise illustrates that the crossed fragility interval is empirically relevant. If $\eta_r = 0.5$ (repression loses half its effectiveness against organized opposition), the crossed interval $[\bar{\kappa}, \bar{\kappa}/\eta_r)$ spans a factor of 2 in $\kappa_0$: any autocracy whose repressive capacity is sufficient to contain dispersed dissent but insufficient to contain organized opposition at full force falls in the crossed range. By Remark 2, the interval width is $\bar{\kappa}/\eta_r$, which for $\eta_r = 0.5$ equals $\bar{\kappa}$ itself. This suggests that a substantial fraction of real-world autocracies --- those with moderate but not overwhelming coercive capacity --- should exhibit the crossed pattern. Systematic measurement of $\varphi_0$, $\kappa_0$, and $\eta_r$ remains a task for empirical work, but the theoretical prediction is that the crossed fragility region is wide, not a knife-edge.
+A back-of-the-envelope exercise illustrates that the crossed fragility interval is empirically relevant. If $\eta_r = 0.5$ (repression loses half its effectiveness against organized opposition), the crossed interval $[\bar{\kappa}, \bar{\kappa}/\eta_r)$ spans a factor of 2 in $\kappa_0$: any autocracy whose repressive capacity is sufficient to contain dispersed dissent but insufficient to contain organized opposition at full force falls in the crossed range. By Corollary 2, the interval width is $\bar{\kappa}/\eta_r$, which for $\eta_r = 0.5$ equals $\bar{\kappa}$ itself. This suggests that a substantial fraction of real-world autocracies --- those with moderate but not overwhelming coercive capacity --- should exhibit the crossed pattern. Systematic measurement of $\varphi_0$, $\kappa_0$, and $\eta_r$ remains a task for empirical work, but the theoretical prediction is that the crossed fragility region is wide, not a knife-edge.
 
 A natural objection is that under threshold automation, the crisis *is* observable in $t=2$. Why can't the democracy build emergency compensation then? Appendix C relaxes A7 and shows that the result survives under an endogenous fiscal constraint: when crisis premia make emergency spending prohibitively expensive ($p \geq p^*$), democratic fragility persists even without the binary timing assumption.
 
@@ -347,6 +347,10 @@ The inferential chain runs: trajectory $\to$ signal dispersion $\sigma$ $\to$ eq
 The coordination mechanism has asymmetric causal weight across regimes. On the democratic side, the primary driver of fragility under threshold automation is institutional timing: $\ell_1 = 0$ means no shock is observed while the compensatory window (A7) is still open. The coordination result in $t=2$ reinforces this: even if the window were reopened, the heterogeneity of experiences would prevent credible mobilization. On the autocratic side, coordination plays a more directly constitutive role: visible opposition degrades repression, and the absence of visibility preserves it.
 
 The remaining reduced-form step --- the mapping from trajectory to signal dispersion --- is now microfounded: heterogeneous complementarity gains ($\operatorname{Var}(\beta) > 0$) generate heterogeneous lenses through which workers assess the aggregate shock (Proposition 8, Appendix D). The model treats participation incentives as purely informational. Adding reference-dependent motivation à la @PassarelliTabellini2017 would reinforce the result --- threshold workers, having lost more relative to their recent gains, are more aggrieved --- but the coordination failure is driven by informational dispersion, not insufficient motivation.
+
+## Parametric plausibility
+
+Proposition 8 guarantees $\sigma_\tau > \sigma_r$, but the crossed fragility results additionally require $\sigma_r < \min\{\hat{\sigma}_x\} \leq \max\{\hat{\sigma}_x\} < \sigma_\tau$ --- that is, baseline noise falls below both regime thresholds while threshold noise exceeds them. This is a parametric restriction, analogous to A2, whose plausibility depends on the sector-specific variance of complementarity gains $\operatorname{Var}(\beta)$. In sectors where AI augmentation generates highly heterogeneous returns --- professional services, creative industries, software development --- $\operatorname{Var}(\beta)$ is large, $h(\operatorname{Var}(\beta))$ is well above the coordination thresholds, and the restriction is easily satisfied. In standardized manufacturing, where tasks and returns are more uniform, $\operatorname{Var}(\beta)$ is smaller and the restriction more demanding. The numerical example ($\operatorname{Var}(\beta) = 0.03$, $\sigma_\tau \approx 2.65$ vs. $\hat{\sigma} \approx 2.37$) shows that even modest variance suffices under the perceptual bias specification. The microfoundation reduces the model's assumptions from seven to six, grounding the informational bridge between economic trajectories and political coordination in observable economic structure --- the variance of complementarity gains across workers and sectors.
 
 ## Limitations
 
@@ -448,7 +452,7 @@ Three forces push $p$ above $p^*$ during a threshold crisis:
 
 The asymmetry with autocracy is structural: $\kappa_0$ is a pre-built stock, not a crisis-mobilized flow. The repressive apparatus does not require emergency fiscal authorization --- its cost was paid *ex ante* through continuous maintenance. Compensation, by contrast, must be fiscally mobilized *during* the crisis, precisely when mobilization is hardest.
 
-**Corollary 3 (Vicious cycle of democratic fragility).** *Under threshold automation with endogenous fiscal constraint, weak democracies ($\varphi_0 < \bar{\varphi}$) face a vicious cycle: (i) no preventive investment in $t=1$; (ii) crisis in $t=2$ erodes fiscal capacity ($\mathcal{F} \downarrow$) and raises political costs ($p \uparrow$); (iii) emergency response becomes unaffordable ($p > p^*$); (iv) instability. Preventive investment ($\varphi_0 \geq \bar{\varphi}$, P5) breaks this cycle by building capacity before fiscal conditions deteriorate.*
+**Corollary 5 (Vicious cycle of democratic fragility).** *Under threshold automation with endogenous fiscal constraint, weak democracies ($\varphi_0 < \bar{\varphi}$) face a vicious cycle: (i) no preventive investment in $t=1$; (ii) crisis in $t=2$ erodes fiscal capacity ($\mathcal{F} \downarrow$) and raises political costs ($p \uparrow$); (iii) emergency response becomes unaffordable ($p > p^*$); (iv) instability. Preventive investment ($\varphi_0 \geq \bar{\varphi}$, P5) breaks this cycle by building capacity before fiscal conditions deteriorate.*
 
 A7 is the limiting case ($p \to \infty$). The endogenous version preserves the result whenever crisis conditions are severe enough to make emergency response prohibitively expensive.
 
@@ -456,22 +460,27 @@ A7 is the limiting case ($p \to \infty$). The endogenous version preserves the r
 
 This appendix provides formal foundations for the trajectory separation condition derived informally in Section 2.2: $\sigma_\tau > \sigma_r$.
 
-## Signal noise as a function of experiential variance
+## Axiomatic framework
 
-Workers assess the severity of the aggregate automation shock through lenses shaped by their recent local context. Formally, private signals are:
-$$s_i = \omega + \sigma_0 \varepsilon_i + \alpha (\beta_i - \operatorname{E}[\beta]), \qquad \varepsilon_i \sim F, \quad \beta_i \sim G(\beta)$$
-where $\sigma_0 > 0$ is baseline signal noise, $\alpha \geq 0$ captures how much past experience colors the reading of the present, and $\beta_i$ is worker $i$'s complementarity gain from the prior period. The term $\alpha(\beta_i - \operatorname{E}[\beta])$ is a perceptual bias: workers who gained more from complementarity interpret the same aggregate signal differently from those who gained less.
+Let $h \colon [0, \infty) \to \mathbb{R}_+$ map the variance of complementarity gains among exposed workers to effective signal noise. We require three properties:
 
-The effective signal noise is:
-$$\sigma_{\text{eff}}^2 = \sigma_0^2 + \alpha^2 \operatorname{Var}(\beta)$$
+- **(H1)** $h(0) = \sigma_0 > 0$ (baseline noise when complementarity gains are homogeneous);
+- **(H2)** $h$ is strictly increasing;
+- **(H3)** $h$ is continuous.
 
-Define $h(v) = \sqrt{\sigma_0^2 + \alpha^2 v}$, which is continuous, strictly increasing for $\alpha > 0$, and satisfies $h(0) = \sigma_0 > 0$.
+Under rapid displacement all workers share the same condition ($\operatorname{Var}(\beta) = 0$), so $\sigma_r = h(0) = \sigma_0$. Under threshold automation workers have heterogeneous complementarity gains ($\operatorname{Var}(\beta) > 0$), so $\sigma_\tau = h(\operatorname{Var}(\beta))$.
 
-**Proposition 8 (Trajectory separation).** *Under $\operatorname{Var}(\beta) > 0$ and $\alpha > 0$, signal noise under threshold automation strictly exceeds signal noise under rapid displacement:*
+**Proposition 8 (Trajectory separation).** *Under $\operatorname{Var}(\beta) > 0$ and (H1)--(H2), signal noise under threshold automation strictly exceeds signal noise under rapid displacement:*
 $$\sigma_\tau = h(\operatorname{Var}(\beta)) > h(0) = \sigma_0 = \sigma_r$$
 
-*Proof.* $h$ is strictly increasing (since $\partial h / \partial v = \alpha^2 / (2h(v)) > 0$) and $\operatorname{Var}(\beta) > 0$. $\square$
+*Proof.* Immediate from (H2) and $\operatorname{Var}(\beta) > 0$. $\square$
 
-The proposition converts the trajectory separation from an assumption into a derived result. What was previously assumed (threshold noise exceeds rapid noise) now follows from a primitive: heterogeneous complementarity gains generate heterogeneous lenses through which workers assess the aggregate shock.
+The proposition converts the trajectory separation from an assumption into a derived result. What was previously assumed (threshold noise exceeds rapid noise) now follows from a single primitive: heterogeneous complementarity gains generate heterogeneous lenses through which workers assess the aggregate shock. The only requirement on $h$ is that more dispersed experiences produce noisier signals --- a monotonicity condition, not a specific functional form.
+
+## An illustrative specification: perceptual bias
+
+One natural micro-model that satisfies (H1)--(H3) is the perceptual bias specification. Private signals are:
+$$s_i = \omega + \sigma_0 \varepsilon_i + \alpha (\beta_i - \operatorname{E}[\beta]), \qquad \varepsilon_i \sim F, \quad \beta_i \sim G(\beta)$$
+where $\alpha > 0$ captures how much past experience colors the reading of the present: workers who gained more from complementarity interpret the same aggregate signal differently from those who gained less. The effective signal noise is $\sigma_{\text{eff}}^2 = \sigma_0^2 + \alpha^2 \operatorname{Var}(\beta)$, yielding $h(v) = \sqrt{\sigma_0^2 + \alpha^2 v}$. This function is continuous, strictly increasing for $\alpha > 0$, and satisfies $h(0) = \sigma_0$, so (H1)--(H3) hold. The numerical example in Section 2.2 uses this specification with $\alpha = 15$.
 
 The participation payoff remains $q_i b_x - (1-q_i) m$ as in the baseline. Under rapid displacement, the coordination game is symmetric (all workers share the same condition). Under threshold automation, signal heterogeneity is the only source of asymmetry; since payoffs conditional on visibility are symmetric ($b_x$ and $m$ are common), the standard Morris-Shin uniqueness result applies to both trajectories.
