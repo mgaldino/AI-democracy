@@ -9,3 +9,4 @@ import FormalProofs.Prop6
 import FormalProofs.Prop7
 import FormalProofs.CoordinationConditions
 import FormalProofs.CoordinationLemmas
+import FormalProofs.Prop8

@@ -50,11 +50,24 @@ structure ModelParams where
   h_η_r : 0 < η_r ∧ η_r < 1
   h_β : β ≥ 0
   h_φ₀ : φ₀ ≥ 0
+  σ₀ : ℝ       -- baseline signal noise
+  α_exp : ℝ    -- experiential coloring parameter
+  var_β : ℝ    -- variance of beta_i distribution
+  h_σ₀ : σ₀ > 0
+  h_α : α_exp > 0
+  h_var_β : var_β > 0
 
 -- Derived quantities
 noncomputable def Δ (p : ModelParams) : ℝ := p.θ * p.W - p.k - p.w_E
 noncomputable def φ_bar (p : ModelParams) : ℝ := 1 - |Δ p| / p.L
 noncomputable def κ_bar (p : ModelParams) : ℝ := p.L - |Δ p|
+
+/-- Signal noise under rapid displacement: sigma_r = sigma_0. -/
+noncomputable def σ_r (p : ModelParams) : ℝ := p.σ₀
+
+/-- Signal noise under threshold automation: sigma_tau = h(Var(beta)). -/
+noncomputable def σ_τ (p : ModelParams) : ℝ :=
+  Real.sqrt (p.σ₀ ^ 2 + p.α_exp ^ 2 * p.var_β)
 
 -- Assumptions
 def A1 (p : ModelParams) : Prop := Δ p < 0
