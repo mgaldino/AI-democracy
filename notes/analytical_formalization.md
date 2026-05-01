@@ -106,13 +106,17 @@ A worker does not need GDP data to decide whether to protest — they need to es
 
 $$\tilde{\omega}_t = \omega_t + \sigma_x \cdot \zeta_t, \quad \zeta_t \sim N(0,1), \quad \sigma_D < \sigma_A$$
 
-This is a **sufficient statistic** for the incumbent's full information set — ministry of finance reports, unemployment data, GDP estimates, intelligence briefings, and yes, observed protest levels. All aggregated into an overall assessment of the economic state. The incumbent does not see each worker's signal; they see macro aggregates.
+This is a **sufficient statistic** for the incumbent's *non-protest* information: ministry of finance reports, unemployment claims, tax revenue, trade data, intelligence briefings. The incumbent does not see each worker's signal; they see macro aggregates from bureaucratic channels.
 
-The regime-specific noise $\sigma_x$ captures *total information quality*, which differs because autocracies systematically degrade the channels that make democratic assessment precise:
-- **Democracy**: free press reports accurately, independent statistical agencies (BLS, IBGE), open protest complements official data → $\sigma_D$ small
-- **Autocracy**: censored media, distorted statistics (the well-documented unreliability of Chinese GDP figures), suppressed protest, subordinates reporting optimistically up the hierarchy (Egorov, Guriev & Sonin 2009) → $\sigma_A$ large
+The regime-specific noise $\sigma_x$ captures the quality of these bureaucratic channels:
+- **Autocracy**: subordinates report optimistically up the hierarchy, statistical agencies are pressured to produce favorable numbers (the well-documented unreliability of Chinese GDP figures), intelligence services filter information to please the leader (Egorov, Guriev & Sonin 2009) → $\sigma_A$ large
+- **Democracy**: independent statistical agencies (BLS, IBGE), free press cross-checks official data, congressional oversight demands accurate reporting → $\sigma_D$ small
 
-> Workers observe their individual displacement status and a noisy local signal — sufficient for their binary protest decision. The incumbent observes an aggregate assessment of the economic state — sufficient for the binary compensation decision. The quality of this assessment ($\sigma_x$) differs across regimes because autocracies degrade the information channels (free press, independent statistics, open protest) that make democratic assessment precise.
+In democracy, open protest provides an *additional* channel that further reduces $\sigma_D$: visible demonstrations complement bureaucratic data with real-time information about popular grievance. In autocracy, this channel is suppressed ($C_A$ high), leaving the incumbent reliant on the distorted bureaucratic channels alone. This is the micro-logic behind $\sigma_D < \sigma_A$: same bureaucratic channels in both regimes, but democracy has protest as a bonus information source.
+
+> Workers observe their individual displacement status and a noisy local signal — sufficient for their binary protest decision. The incumbent observes an aggregate assessment from bureaucratic channels — sufficient for the binary compensation decision. Democracy's assessment is more precise ($\sigma_D < \sigma_A$) because open protest supplements bureaucratic information; autocracy lacks this supplement.
+
+**Remark on $\sigma$ vs $\sigma_x$.** The model has two noise parameters: $\sigma$ (workers' signal noise about $\omega$) and $\sigma_x$ (incumbent's assessment noise). These are conceptually distinct — one is about individual perception, the other about institutional information aggregation — and treated as independent. However, they are linked through $C_x$: higher $C_x$ suppresses protest, which degrades one of the incumbent's information channels, raising $\sigma_x$. A microfoundation would write $\sigma_x = \bar{\sigma} / (1 + \alpha \pi^{\text{eq}})$, where $\pi^{\text{eq}}$ is equilibrium protest and $\alpha$ captures the weight of the protest channel. Since $\pi^{\text{eq}}$ is decreasing in $C_x$ (Section 2), this yields $\sigma_x$ increasing in $C_x$: $\sigma_A > \sigma_D$. We do not formalize this linkage (it would reintroduce the circularity that $\tilde{\omega}$ was designed to avoid), but note it to clarify that $\sigma_D < \sigma_A$ is not an arbitrary assumption — it follows from the same primitive ($C_D < C_A$) that drives the protest cost differential.
 
 ### Why not a single shared signal?
 
@@ -206,9 +210,21 @@ With $\omega_R = 0.30$, $\omega_{T1} = 0.05$: bound $= 0.484$. With $\omega_{T2}
 
 **Lemma 0.** *With $h(\pi) = \pi$, $F = \Lambda$, $v \in (0, C_x)$, $\sigma > 0$, all $p_\theta > 0$:*
 
-*(a) At least one cutoff $s^*$ exists (IVT).*
+*(a) At least one cutoff $s^*$ exists.*
 
-*(b) Unique for $\sigma$ sufficiently small (IFT perturbation).*
+*(b) The cutoff is unique for $\sigma$ sufficiently small.*
+
+**Proof of (a).** Define $G(s) = \sum_\theta P(\theta \mid d=1, s) \cdot \Omega_t(\theta) \cdot \Lambda((\omega_t(\theta) - s)/\sigma) - \bar{h}$.
+
+*Behavior as $s \to +\infty$*: $\Lambda((\omega_t(\theta) - s)/\sigma) \to 0$ for all $\theta$, so $G(s) \to -\bar{h} < 0$.
+
+*Behavior as $s \to -\infty$*: $\Lambda((\omega_t(\theta) - s)/\sigma) \to 1$ for all $\theta$. The posterior $P(\theta \mid d=1, s)$ concentrates on the state $\theta^*$ with the highest $\omega_t$ (because the signal likelihood $\lambda((s - \omega)/\sigma) \propto e^{(s-\omega)/\sigma}$ decays slowest for the largest $\omega$). So $G(s) \to \Omega_t(\theta^*) - \bar{h}$. For generic parameters, $\Omega_t(\theta^*) > \bar{h}$ (the highest-displacement state has more displaced workers than the participation threshold), so $G(s) > 0$ for $s$ sufficiently negative.
+
+By continuity of $G$ and the Intermediate Value Theorem, there exists $s^*$ with $G(s^*) = 0$. $\square$
+
+**Proof of (b).** Consider $\sigma \to 0$. In this limit, a worker with signal $s$ becomes certain about $\omega_t$: if $s$ is close to $\omega_t(\theta)$ for some $\theta$, the posterior concentrates on $\theta$. The function $G(s)$ becomes a step function that jumps at each $\omega_t(\theta)$. Between jumps, $G$ is monotone (since within a neighborhood of a single $\omega$, only one state contributes, and $\Lambda((\omega - s)/\sigma)$ is strictly decreasing in $s$). Each zero-crossing is therefore unique within its neighborhood.
+
+For $\sigma$ small but positive, the step function is smoothed by an amount $O(\sigma)$. By the Implicit Function Theorem, each zero of the step function perturbs to a unique zero of $G$ for $\sigma$ small enough. If the step function has a single zero (which occurs when the $\bar{h}$ threshold is crossed at only one $\omega$ value — the generic case), the perturbed $G$ also has a single zero. $\square$
 
 ---
 
@@ -224,11 +240,25 @@ From the compensation rule: $\text{comp} \iff \Delta P(\tilde{\omega}) > \hat{\o
 
 **Lemma 1** (Dictator's Dilemma). *$\bar{\omega}_A > \bar{\omega}_D$. Democracy detects crises at lower displacement rates than autocracy.*
 
-**Proof.** $\sigma_A > \sigma_D$ implies the autocrat's posterior $\mathbb{E}[\omega \mid \tilde{\omega}]$ is more shrunk toward the prior mean. For any true $\omega$:
+**Proof.** The compensation rule triggers at $\bar{\omega}_x$, the smallest $\omega$ such that $\Delta P(\tilde{\omega}) > \hat{\omega} \cdot B$ holds with probability $> 1/2$ over the noise $\zeta$.
 
-$$\text{Var}(\omega \mid \tilde{\omega}) \text{ is increasing in } \sigma_x$$
+The incumbent's posterior mean is $\hat{\omega}(\tilde{\omega}) = \mathbb{E}[\omega \mid \tilde{\omega}]$. Under a normal signal with prior mean $\mu_0$ and prior variance $\sigma_0^2$:
 
-Greater posterior variance → $\Delta P$ attenuated (less confident about the state) → higher $\omega$ needed to trigger compensation. $\square$
+$$\hat{\omega}(\tilde{\omega}) = \frac{\sigma_0^2}{\sigma_0^2 + \sigma_x^2} \tilde{\omega} + \frac{\sigma_x^2}{\sigma_0^2 + \sigma_x^2} \mu_0$$
+
+The weight on the signal $\tilde{\omega}$ is $\sigma_0^2/(\sigma_0^2 + \sigma_x^2)$, which is **decreasing in $\sigma_x$**. As $\sigma_x$ increases:
+
+(i) The posterior mean $\hat{\omega}$ is shrunk more toward the prior mean $\mu_0$, reducing the perceived severity of the crisis for any true $\omega > \mu_0$.
+
+(ii) The posterior variance $\text{Var}(\omega \mid \tilde{\omega}) = \sigma_0^2 \sigma_x^2/(\sigma_0^2 + \sigma_x^2)$ increases, so $\Delta P$ — which depends on the incumbent's confidence about the state — is attenuated.
+
+Both effects reduce the LHS of the compensation condition for any given true $\omega$. Therefore, a higher $\omega$ is needed to trigger compensation under $\sigma_A$ than under $\sigma_D$:
+
+$$\sigma_A > \sigma_D \implies \bar{\omega}_A > \bar{\omega}_D$$
+
+Formally: define $f(\omega, \sigma_x) = P(\Delta P(\tilde{\omega}) > \hat{\omega} \cdot B \mid \omega)$. This probability is increasing in $\omega$ (larger shocks generate higher $\tilde{\omega}$ in expectation) and decreasing in $\sigma_x$ (more noise attenuates the signal). By the Implicit Function Theorem applied to $f(\bar{\omega}_x, \sigma_x) = 1/2$:
+
+$$\frac{d\bar{\omega}_x}{d\sigma_x} = -\frac{\partial f/\partial \sigma_x}{\partial f/\partial \omega} = -\frac{(\text{negative})}{(\text{positive})} > 0 \quad \square$$
 
 ### 6.3 The Critical Interval
 
