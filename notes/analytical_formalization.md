@@ -395,6 +395,105 @@ With $h(\pi) = \pi^\alpha$, $\alpha < 1$: Jensen's inequality raises cutoff → 
 
 ---
 
+## 11. Extension: $T > 2$ Periods
+
+### 11.1 The Problem
+
+With $T = 2$, democracy falls under threshold because the lag makes compensation arrive at $t=3$, which does not exist. **This is an artifact of the finite horizon.** With $T > 2$, does the result survive?
+
+### 11.2 Setup
+
+Generalize to $T \geq 2$ periods. Threshold crosses at $t^* = 2$ (can be generalized). Displacement rates:
+- R: $\omega_R$ every period.  T: $\omega_{T1}$ for $t < t^*$, $\omega_{T2}$ for $t \geq t^*$.  N: $\omega_N$ every period.
+
+Cumulative displacement (absorbing): $\Omega_t(\theta) = 1 - \prod_{s=1}^{t}(1 - \omega_s(\theta))$.
+
+Democratic lag: $L = 1$ (law passed in $t$, compensation from $t+1$). Autocratic: immediate.
+
+### 11.3 The Forward-Looking Channel Saves Democracy
+
+Under T×D with $T > 2$, $t^* = 2$:
+
+$t = 2$: massive displacement ($\omega_{T2}$). Democracy sees crisis, passes law. $\varphi_3 = 1$. Workers in $t=2$ are **forward-looking**: they know compensation arrives in $t=3$.
+
+$$v_{i2} = 1 + \delta \cdot \mathbb{E}[(1-y_{i3}) \mid d_{i2}=1] = 1 + \delta(1-B)$$
+
+This is **the same $v$** as under R×D $t=1$ with comp expected. With baseline parameters:
+
+$v_{i2} = 1 + 0.9 \times 0.4 = 1.36 < C_D = 1.5 \implies \bar{h} = 0.093$
+
+Protest $\approx 9\% < \bar{\pi}_D^{\text{fall}} = 0.20$. **Democracy survives $t=2$.**
+
+$t = 3$: compensation active. $v = 1-B = 0.4$. Protest negligible. Survives.
+
+$t \geq 4$: compensation continues. Survives.
+
+**Conclusion: With $T > 2$ and $L = 1$, crossed fragility breaks for T×D.** The forward-looking channel that saves democracy under rapid (credible commitment reduces $v$) also saves it under threshold, as long as there is a future period where compensation can arrive.
+
+### 11.4 What Drives the Result
+
+The root cause is that the democratic lag ($L = 1$ period) is **short relative to the horizon**. Workers discount the one-period wait by $\delta = 0.9$, losing only $\delta B = 0.36$ of anger reduction. For democracy to fall, workers must have **no expectation of future compensation**. This requires either:
+- (a) No future: $T = 2$ (baseline)
+- (b) Long lag: $L$ large enough that $\delta^L(1-B) \approx 0$
+- (c) Uncertainty about compensation: $P(\text{comp}) < 1$
+
+### 11.5 Resolution Candidates
+
+**Resolution A: Long and crisis-dependent lag.** The democratic lag $L$ is not fixed — it depends on the *scale* of the crisis. Moderate crises ($\omega_R$) require standard legislation ($L = 1$). Massive, unprecedented crises ($\omega_{T2}$) overwhelm legislative capacity: coalition-building is harder, fiscal implications larger, bureaucratic implementation slower.
+
+Formally: $L(\omega) = 1$ for $\omega \leq \omega^{\dagger}$, $L(\omega) = L_{\text{high}} > 1$ for $\omega > \omega^{\dagger}$, with $\omega_R \leq \omega^{\dagger} < \omega_{T2}$.
+
+If $L_{\text{high}}$ is large enough, $\delta^{L_{\text{high}}}(1-B)$ shrinks, and $v$ stays close to 1.
+
+**Calibration**: Is this empirically defensible? The US response to the 2008 financial crisis took ~6 months (TARP, Oct 2008). The response to COVID took ~2 weeks (CARES Act, March 2020). The New Deal took years. AI-driven mass displacement, if O-Ring-like and sudden, would be unprecedented in scale — plausibly closer to the New Deal timeline than TARP. If a "period" is 5 years, $L_{\text{high}} = 2$ means 10 years of legislative delay, which is extreme but not implausible for restructuring an entire sector.
+
+With $L = 2$: $v = 1 + \delta^2(1-B) = 1 + 0.81 \times 0.4 = 1.324$, $\bar{h} = 0.117$. Still below $\bar{\pi}_D^{\text{fall}} = 0.20$. Survives.
+
+With $L = 3$: $v = 1.292$, $\bar{h} = 0.139$. Still below 0.20. Survives.
+
+**Problem: needs $L \geq 8$ (40 years!) to get $\bar{h} > 0.20$.** Not plausible.
+
+**Resolution B: Institutional capacity degradation.** The crisis is so massive that it degrades the democratic institution's ability to compensate. Tax revenue collapses (displaced workers don't pay taxes), fiscal capacity shrinks, the bureaucratic machinery overloads. The compensation that eventually arrives is *partial*: $B' < B$ under massive crisis.
+
+Formally: $B(\omega) = B$ for $\omega \leq \omega^{\dagger}$, $B(\omega) = B' < B$ for $\omega > \omega^{\dagger}$.
+
+With $B' = 0.2$ (partial compensation): $v = 1 + \delta(1-B') = 1 + 0.9 \times 0.8 = 1.72 > C_D = 1.5$. **Protest is dominant!** $\pi = \Omega_2(T) = 0.62 > 0.20$. **Democracy falls.** ✓
+
+This works. The mechanism: under moderate crisis (rapid), full compensation ($B = 0.6$) is feasible → credible commitment defuses protest. Under massive crisis (threshold), only partial compensation ($B' = 0.2$) is feasible → commitment insufficient → protest remains high → democracy falls.
+
+**Calibration**: Is reduced $B$ under massive crisis plausible? Yes — the fiscal base erodes precisely when the demand for compensation is highest. Scandinavian welfare states handle moderate automation well (retraining, UI) but would struggle with 60% displacement in one sector. The US couldn't fully compensate the Rust Belt decline despite decades of effort.
+
+**Resolution C: Credibility problem under massive crisis.** Workers rationally doubt that democracy can deliver $B = 0.6$ when $\omega_{T2} = 0.60$. The implied fiscal cost is $\omega_{T2} \times B = 0.36$ (36% of national income). Workers discount the promise: $\hat{B} = B \times P(\text{implementable}) < B$.
+
+This is equivalent to Resolution B (partial compensation) with a microfoundation in fiscal credibility.
+
+**Resolution D: Accept T=2 as reduced form.** The 2-period model is not meant to represent calendar time — it represents the **window of vulnerability** between shock and institutional response. Period 1 = "shock arrives." Period 2 = "full impact." The model asks: if the regime cannot compensate before full impact, does it survive? The "no $t=3$" assumption captures the idea that the critical window is finite and that failing to act within it is irreversible (regime has already fallen, or the political damage is done even if compensation eventually arrives).
+
+### 11.6 Assessment and Recommendation
+
+| Resolution | Parsimony | Plausibility | Robustness |
+|------------|-----------|-------------|------------|
+| A (long lag) | Adds $\omega^{\dagger}$, $L_{\text{high}}$ | Moderate | **Fails** — needs implausible $L \geq 8$ |
+| B (capacity degradation, $B' < B$) | Adds $\omega^{\dagger}$, $B'$ | **Strong** — fiscal erosion under mass displacement | **Works** — $B'=0.2$ → protest dominant |
+| C (credibility, $\hat{B} < B$) | Same as B | **Strong** — microfounded in fiscal credibility | Same as B |
+| D (accept $T=2$ as reduced form) | **No parameters** | Moderate — requires interpretive argument | N/A |
+
+**Recommendation**: Lead with **D** (accept $T=2$ as reduced form) in the main text — it's honest and parsimonious. Present **B/C** (capacity degradation / credibility) as a robustness extension in the appendix, showing that with $B'(\omega_{T2}) < B$, crossed fragility survives for arbitrary $T$. This gives the referee both the clean baseline and the robustness check.
+
+### 11.7 Formal Statement (Resolution B)
+
+**Proposition** (Crossed Fragility with $T > 2$). *Suppose $B(\omega)$ is weakly decreasing for $\omega > \omega^{\dagger}$ (fiscal capacity erodes under massive shocks), with $B(\omega_R) = B$ and $B(\omega_{T2}) = B' < B$. If $1 + \delta(1-B') > C_D$ (partial compensation insufficient to prevent dominant-strategy protest), then crossed fragility holds for all $T \geq 2$.*
+
+*Proof sketch.* T×D: in $t^*$, workers anticipate $B'$ in $t^*+1$. $v = 1 + \delta(1-B') > C_D$ → protest dominant → $\pi = \Omega_{t^*}(T)$ → exceeds $\bar{\pi}_D^{\text{fall}}$. All other scenarios: unchanged (R×D uses full $B$, R×A and T×A do not involve $B(\omega_{T2})$ in the critical period). $\square$
+
+**Required condition**: $B' < 1 - (C_D - 1)/\delta = 1 - 0.5/0.9 = 0.444$.
+
+With $B = 0.6$ (moderate crisis) and $B' = 0.2$ (massive crisis): $0.2 < 0.444$. Satisfied. ✓
+
+**Interpretation**: The welfare state can handle moderate automation ($\omega_R$) with full compensation, but is overwhelmed by massive sudden automation ($\omega_{T2}$). Democracy's advantage — seeing and responding — breaks down not because it can't see, but because what it sees is too large to compensate fully. This echoes the climate change analogy: democracies respond well to incremental environmental degradation but may be overwhelmed by catastrophic tipping points.
+
+---
+
 ## Appendix A: Logistic Properties
 
 $\Lambda(z) = 1/(1+e^{-z})$, $\lambda(z) = \Lambda(z)(1-\Lambda(z))$, $\Lambda^{-1}(p) = \log(p/(1-p))$, $\Lambda(-z) = 1-\Lambda(z)$.
