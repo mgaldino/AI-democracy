@@ -92,13 +92,41 @@ $$\text{Protest iff } v_{it} > C_x \cdot (1 - \mathbb{E}[\pi_t \mid s_{it}]), \q
 
 ### 1.7 Incumbent's Information and Decision
 
-The incumbent forms an overall assessment of the displacement rate from all available sources — protest levels, economic statistics, media reports, bureaucratic intelligence:
+### Why two different signals?
+
+Workers and incumbents operate at **different informational scales** and face **different decision problems**.
+
+**Workers** make an *individual coordination decision*: protest or not. They observe:
+- $d_{it}$: whether they personally lost their job (direct experience)
+- $s_{it} = \omega_t + \sigma \varepsilon_{it}$: a noisy local signal about how widespread displacement is (conversations with neighbors, local news, job market perception)
+
+A worker does not need GDP data to decide whether to protest — they need to estimate whether enough *others like them* are angry enough to join. This is the global game: individual decision based on private signal about the coordination environment.
+
+**The incumbent** makes an *aggregate policy decision*: compensate or not. They observe:
 
 $$\tilde{\omega}_t = \omega_t + \sigma_x \cdot \zeta_t, \quad \zeta_t \sim N(0,1), \quad \sigma_D < \sigma_A$$
 
-This is a **sufficient statistic** for the incumbent's information set, not a separate signal from a distinct channel. The regime-specific noise $\sigma_x$ captures the *total information quality*, which differs across regimes because one key input — protest — is suppressed in autocracy. In democracy, open protest + free press + independent statistics yield a precise assessment ($\sigma_D$ small). In autocracy, suppressed protest + controlled media + distorted reporting yield a noisy assessment ($\sigma_A$ large).
+This is a **sufficient statistic** for the incumbent's full information set — ministry of finance reports, unemployment data, GDP estimates, intelligence briefings, and yes, observed protest levels. All aggregated into an overall assessment of the economic state. The incumbent does not see each worker's signal; they see macro aggregates.
 
-**Why not observe protest directly?** If the incumbent observed $\tilde{\pi}$ (protest with noise) instead of $\tilde{\omega}$ (the state with noise), a self-fulfilling problem arises under T×A: workers anticipate immediate compensation → $v$ drops → protest collapses to zero → incumbent has no signal → cannot compensate → contradicts expectations. Neither the comp nor the no-comp equilibrium is self-confirming. The $\tilde{\omega}$ formulation avoids this by giving the incumbent information that does not depend on the protest it induces — the fundamental economic shock is observable (partially, noisily) through non-protest channels.
+The regime-specific noise $\sigma_x$ captures *total information quality*, which differs because autocracies systematically degrade the channels that make democratic assessment precise:
+- **Democracy**: free press reports accurately, independent statistical agencies (BLS, IBGE), open protest complements official data → $\sigma_D$ small
+- **Autocracy**: censored media, distorted statistics (the well-documented unreliability of Chinese GDP figures), suppressed protest, subordinates reporting optimistically up the hierarchy (Egorov, Guriev & Sonin 2009) → $\sigma_A$ large
+
+> Workers observe their individual displacement status and a noisy local signal — sufficient for their binary protest decision. The incumbent observes an aggregate assessment of the economic state — sufficient for the binary compensation decision. The quality of this assessment ($\sigma_x$) differs across regimes because autocracies degrade the information channels (free press, independent statistics, open protest) that make democratic assessment precise.
+
+### Why not a single shared signal?
+
+**Option considered and rejected: incumbent observes protest $\tilde{\pi} = \pi + \tau_x \xi$ directly.**
+
+This creates a self-fulfilling problem specific to T×A. Under threshold $t=2$ in autocracy ($\omega_{T2}$ massive, compensation immediate):
+
+- **Comp equilibrium**: workers anticipate $\varphi_2 = 1$ → $v = 1-B = 0.4$ → $\bar{h} = 1 - 0.4/C_A = 0.80$. But $\Omega_2(T) = 0.62 < 0.80$ → no interior equilibrium → $\pi = 0$. Incumbent sees $\tilde{\pi} \approx 0$ → no evidence → does NOT compensate → **contradicts comp assumption**. ✗
+
+- **No-comp equilibrium**: workers anticipate $\varphi_2 = 0$ → $v = 1$ → $\bar{h} = 0.50 < \Omega_2(T) = 0.62$ → interior equilibrium exists → $\pi = 0.50$. Incumbent sees $\tilde{\pi} \approx 0.50$ → high protest → WOULD compensate → **contradicts no-comp assumption**. ✗
+
+Neither pure equilibrium is self-confirming. The root cause: autocratic *immediate* compensation collapses the very protest signal that justified it. This circularity is specific to autocracy (where compensation is contemporaneous with protest) and does not affect democracy (where the lag breaks the feedback loop — compensation arrives next period, after protest is already observed).
+
+The $\tilde{\omega}$ formulation resolves this by giving the incumbent information *independent of the protest it induces*. The economic shock ($\omega_t$) is partially observable through channels that do not depend on workers' protest decisions — factory closures, unemployment claims, tax revenue drops, import/export data. The quality of these channels is worse in autocracy ($\sigma_A > \sigma_D$), but their existence breaks the self-fulfilling cycle.
 
 **Compensation rule** (standard optimization):
 
