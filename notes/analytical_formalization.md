@@ -92,11 +92,13 @@ $$\text{Protest iff } v_{it} > C_x \cdot (1 - \mathbb{E}[\pi_t \mid s_{it}]), \q
 
 ### 1.7 Incumbent's Information and Decision
 
-The incumbent observes the state with regime-specific noise:
+The incumbent forms an overall assessment of the displacement rate from all available sources — protest levels, economic statistics, media reports, bureaucratic intelligence:
 
 $$\tilde{\omega}_t = \omega_t + \sigma_x \cdot \zeta_t, \quad \zeta_t \sim N(0,1), \quad \sigma_D < \sigma_A$$
 
-Democracy's signal is precise ($\sigma_D$ small); autocracy's is noisy ($\sigma_A$ large). This **single signal** collapses protest informativeness and direct economic observation into one channel: the incumbent's overall ability to assess the state of the economy. In democracy, open protest + free press + independent statistics yield a clear signal. In autocracy, suppressed protest + controlled media + distorted statistics yield a noisy signal.
+This is a **sufficient statistic** for the incumbent's information set, not a separate signal from a distinct channel. The regime-specific noise $\sigma_x$ captures the *total information quality*, which differs across regimes because one key input — protest — is suppressed in autocracy. In democracy, open protest + free press + independent statistics yield a precise assessment ($\sigma_D$ small). In autocracy, suppressed protest + controlled media + distorted reporting yield a noisy assessment ($\sigma_A$ large).
+
+**Why not observe protest directly?** If the incumbent observed $\tilde{\pi}$ (protest with noise) instead of $\tilde{\omega}$ (the state with noise), a self-fulfilling problem arises under T×A: workers anticipate immediate compensation → $v$ drops → protest collapses to zero → incumbent has no signal → cannot compensate → contradicts expectations. Neither the comp nor the no-comp equilibrium is self-confirming. The $\tilde{\omega}$ formulation avoids this by giving the incumbent information that does not depend on the protest it induces — the fundamental economic shock is observable (partially, noisily) through non-protest channels.
 
 **Compensation rule** (standard optimization):
 
@@ -363,9 +365,9 @@ $\Lambda(z) = 1/(1+e^{-z})$, $\lambda(z) = \Lambda(z)(1-\Lambda(z))$, $\Lambda^{
 - **Discarded**: Symmetric (ω_H,ω_H)/(ω_L,ω_H)/(ω_L,ω_L) — generated a trilema where π̄_D^fall couldn't simultaneously protect democracy under rapid and expose it under threshold.
 
 ### Incumbent's signal
-- **Choice**: Single signal ω̃ = ω + σ_x·ζ, with σ_D < σ_A. Collapses protest informativeness and economic observation into one channel.
-- **Discarded**: Dual signal (protest π̃ + macro ẽ) — patch to resolve self-fulfilling problem in T×A. The single signal achieves the same: massive ω_T2 pierces σ_A noise naturally.
-- **Discarded**: Protest-only signal — self-fulfilling problem: if workers anticipate comp → zero protest → autocrat has no signal.
+- **Choice**: Single sufficient statistic ω̃ = ω + σ_x·ζ, with σ_D < σ_A. Represents the incumbent's overall assessment of ω from ALL sources (protest, statistics, reports, media). σ_x captures total information quality — worse in autocracy because protest channel is suppressed.
+- **Discarded**: Dual signal (protest π̃ + macro ẽ) — unnecessarily complex; the single ω̃ already captures both channels as a sufficient statistic.
+- **Discarded**: Protest-only signal (π̃ = π + τ_x·ξ) — self-fulfilling problem under T×A. With comp anticipated (autocracy, immediate), v=1-B → h̄=0.80 > Ω₂(T)=0.62 → no interior equilibrium → π=0 → incumbent blind → no comp → contradicts comp anticipation. With no-comp anticipated, v=1 → π=0.50 → incumbent would comp → contradicts no-comp. NEITHER pure equilibrium is self-confirming. The ω̃ signal breaks this cycle by providing information independent of protest.
 
 ### Compensation rule
 - **Choice**: Standard Bayesian optimization: comp iff ΔP(ω̃) > ω̂·B. Properties emerge from σ_x difference.
