@@ -101,3 +101,7 @@ L1-L2 (global games) formalizados via biblioteca SupermodularGames (dependência
 - Um modelo unificado com regime como parâmetro, não dois modelos separados.
 - N passivo no baseline; N ativo é extensão pós-MVP.
 - Exemplo numérico ANTES de modelo geral (Varian).
+- **Separação implementação/revisão**: Quem implementa, NÃO revisa. Quem revisa, NÃO implementa. Agentes diferentes para cada papel.
+- **Código em disco**: Todo código (simulação, análise, figuras) DEVE ser salvo em arquivo (script) no projeto. NUNCA rodar código inline (via Bash) sem antes salvar o script. Reprodutibilidade exige script em disco.
+- **Validação obrigatória**: Todo código em R deve ser validado por agente com skill `review-r`. Todo código em Python deve ser validado por agente com skill `review-python`. Validação ANTES de rodar/commitar.
+- **Resultados SEMPRE em disco**: Todo resultado de simulação, calibração ou análise numérica DEVE ser salvo em arquivo `.md` (tipicamente `quality_reports/`). NUNCA deixar resultados apenas no output do terminal. Salvar ANTES de reportar ao usuário.

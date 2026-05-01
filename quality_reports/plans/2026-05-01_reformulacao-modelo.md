@@ -109,17 +109,32 @@ O que difere entre cenários NÃO é o mecanismo de queda — é o **tamanho de 
 └────────────┴──────────────────┴────────────────┴─────────────────┴────────────────────────────────────────────────────────────┘
 ```
 
-**Rapid t=2, autocracia**: v acumulado (2 períodos sem compensação) + degradação repressiva → π_A sobe → excede π̄_A^fall (baixo).
+**Por que π difere entre rapid e threshold em t=2?** Dois mecanismos simétricos (aplicam a ambos os regimes):
 
-**Threshold t=2, democracia**: v de perda presente sem compensação (promessa não crível, sem t=3) → π_D naturalmente alto (C_D baixo) → excede π̄_D^fall (alto, mas π_D é maior ainda).
+1. **Deslocamento é absorvente.** Uma vez deslocado, permanece deslocado. Fração total de deslocados em t=2:
+   - Rapid: ω_H + (1-ω_H)·ω_H = ω_H(2-ω_H) — acumulou de t=1
+   - Threshold: ω_L + (1-ω_L)·ω_H — t=1 teve poucos
+   - Rapid > threshold (porque ω_H > ω_L). Mais gente na rua sob rapid.
 
-**Rapid t=2, democracia**: compensação ativa (φ_2=1) → v reduzido → π_D cai → abaixo de π̄_D^fall.
+2. **v backward-looking.** Raiva inclui sofrimento passado:
+   - v_i = (1 - y_{it}) + γ·(1 - y_{i,t-1}) [+ δ·E[perda futura]]
+   - Deslocado em t=1 E t=2 (rapid): v = 1 + γ (raiva acumulada)
+   - Deslocado só em t=2 (threshold): v = 1
+   - Sob rapid, fração ω_H dos deslocados em t=2 tem v = 1+γ. Sob threshold, apenas ω_L.
 
-**Threshold t=2, autocracia**: v de 1 período apenas + C_A alto → π_A baixo → abaixo de π̄_A^fall (capacidade repressiva intacta).
+**Resultado em cada cenário:**
 
-**π̄_x^fall como primitiva**: democracias são desenhadas para absorver protesto (liberdade de expressão, accountability, canais institucionais, eleições). Autocracias são frágeis quando não conseguem reprimir (Geddes 1999: colapso súbito). O parâmetro é defensável como propriedade institucional do regime.
+**Rapid t=2, autocracia**: mais deslocados (absorção) + mais raivosos (backward-looking) → π_A sobe → excede π̄_A^fall (baixo). Sem degradação repressiva necessária — é composição + intensidade.
 
-**Por que democracia sobrevive rapid t=1?** Embora a compensação só chegue em t=2 (lag), a PROMESSA crível de compensação (governo visível respondendo) defusa parcialmente o protesto em t=1. Trabalhadores toleram 1 período de hardship se sabem que ajuda vem.
+**Threshold t=2, autocracia**: menos deslocados + v = 1 (sem passado) + C_A alto → π_A baixo → abaixo de π̄_A^fall.
+
+**Rapid t=2, democracia**: compensação ativa (φ_2=1) → v reduzido (renda B em vez de 0) → π_D cai → abaixo de π̄_D^fall.
+
+**Threshold t=2, democracia**: sem compensação (lei aprovada em t=2 mas lag, sem t=3) → v = 1 + deslocados acumulam de ω_L (poucos, mas novos ω_H são muitos) + C_D baixo → π_D grande → excede π̄_D^fall.
+
+**π̄_x^fall como primitiva**: democracias absorvem mais protesto (liberdade de expressão, accountability, canais institucionais). Autocracias são frágeis quando não conseguem reprimir (Geddes 1999). Defensável como propriedade institucional.
+
+**Por que democracia sobrevive rapid t=1?** Democracia PASSA LEI de compensação em t=1 (compromisso legal, não mero anúncio). Lei entra em vigor em t=2 (lag institucional: regulamentação, orçamento, agências). Compromisso legal é crível → trabalhadores antecipam φ_2=1 → v_{i1} cai (expectativa de perda futura reduzida) → π_D em t=1 é tolerável. Artificial em modelo de 2 períodos; em T>2 seria mais natural.
 
 ### Payoffs do trabalhador
 
@@ -133,16 +148,24 @@ y_{it} = (1 - d_{it}) + B · d_{it} · φ_t
 | Deslocado, compensado (d=1, φ=1) | B |
 | Deslocado, não compensado (d=1, φ=0) | 0 |
 
-**Valor expressivo — função da perda esperada:**
+**Valor expressivo — função da perda presente e futura (sem γ no baseline):**
 
 v_i = (1 - y_{it}) + δ · E[(1 - y_{i,t+1}) | d_{it}, s_{it}]
 
-- Deslocado sem comp (y=0): v = 1 + δ·E[perda futura]
-- Empregado (y=1): v = 0 + δ·E[perda futura] = δ·P(deslocado em t+1)·(1-Bφ)
-- Sob rápido t=1 (deslocado, E[ω₂] ≈ ω_H): v ≈ 1 + δ (alta raiva + medo do futuro)
-- Sob threshold t=2 (deslocado, sem futuro): v = 1 (raiva sem medo — game ends)
+Dois componentes: raiva presente + medo do futuro.
+
+- Deslocado sem comp em t=1: v = 1 + δ·E[perda futura]
+- Deslocado com comp em t=2: v = 1-B (compensado, sem futuro no modelo de 2 períodos)
+- Deslocado sem comp em t=2: v = 1 (sem futuro)
+- Empregado em t=1: v = 0 + δ·E[ω₂]·(1-B·E[φ₂])
 
 v incorpora δ operacionalmente: trabalhador que espera mais deslocamento futuro tem mais raiva HOJE.
+
+**Diferença entre rapid e threshold em t=2 SEM γ:** vem de dois canais:
+1. **Composição** (deslocamento absorvente): Ω₂(rapid) = ω_H(2-ω_H) > Ω₂(threshold) = ω_L+(1-ω_L)·ω_H
+2. **Compensação**: φ₂=1 sob rapid/democracia → v=1-B (menor) vs φ₂=0 sob threshold → v=1
+
+γ (backward-looking) é extensão opcional no appendix que fortalece o resultado.
 
 **Protesto:**
 
@@ -156,17 +179,40 @@ Sem free-rider: v é privado (raiva expressiva), compensação é consequência 
 
 U_i = [y_{i1} + a_{i1}·Π_{i1}] + δ · E[y_{i2} + a_{i2}·Π_{i2} | d_{i1}, s_{i1}]
 
-### Payoffs do incumbente
+### Payoffs do incumbente (V=1 normalizado, sem γ)
 
-Após observar π_t:
+Após observar π_t, incumbente resolve:
 
-max_{comp_t} V · P(sobrevive | comp_t) - comp_t · ω̂_t · B
+**comp_t = 1 iff ΔP(π_t) > ω̂(π_t) · B**
 
-- V = valor de permanecer no poder
-- ω̂_t = estimativa de ω baseada em π_t
-- Compensar reduz protesto futuro (ou presente, se autocracia) → aumenta P(sobrevive)
+Onde:
 
-O dictator's dilemma: I(C_x) = |∂π*/∂ω| é decrescente em C_x. Com C_A alto, π é pouco informativo sobre ω → ω̂_A é impreciso → incumbente não consegue calibrar resposta.
+**Custo**: κ(π_t) = ω̂(π_t) · B
+- ω̂(π_t) = (π*)⁻¹(π_t): incumbente inverte o mapping de equilíbrio π*(ω) para inferir ω
+- π*(ω) = Ω · F((ω-s*)/σ) é crescente e invertível (∂π/∂ω > 0)
+
+**Benefício**: ΔP(π_t) = P(π₂^comp < π̄_x^fall) - P(π₂^no < π̄_x^fall)
+- π₂^comp: protesto em t=2 com v = 1-B (compensado)
+- π₂^no: protesto em t=2 com v = 1 (não compensado)
+- Probabilidade sobre incerteza residual de ω₂ via posterior sobre θ
+
+**Inferência bayesiana do incumbente (Bayes puro, sem viés behavioral):**
+
+P(θ | π_t) ∝ P(π_t | θ) · P(θ)
+
+Com 3 estados e P(N) > 0:
+- Autocracia: π_A é baixo SEMPRE (C_A alto). Observar π baixo não diferencia N de T de R. P(N | π_A) ≈ P(N) → quase não atualiza → alta prob de "sem crise" → não compensa.
+- Democracia: π_D é informativo. π_D alto ↔ ω alto ↔ θ=R. P(R | π_D alto) sobe → ω̂ alto → compensa.
+
+**Threshold de compensação (no espaço de ω):**
+
+ω̄_x^comp: ΔP(ω̄_x^comp) = ω̄_x^comp · B
+
+**Resultado**: ω̄_A^comp > ω̄_D^comp porque:
+1. π_A é flat em ω (I(C_A) baixo) → ω̂ impreciso → P(N|π_A) alto → ΔP percebido baixo → threshold sobe
+2. π_D é steep em ω (I(C_D) alto) → ω̂ preciso → P(R|π_D alto) alto → ΔP percebido alto → threshold baixo
+
+Dictator's dilemma não é irracionalidade — é consequência racional de sinal suprimido + prior com P(N)>0.
 
 ### Fragilidade cruzada — mecanismo completo
 
@@ -186,23 +232,27 @@ O dictator's dilemma: I(C_x) = |∂π*/∂ω| é decrescente em C_x. Com C_A alt
 
 ### Condições paramétricas para fragilidade cruzada
 
-Em linguagem de parâmetros:
+**(i)** Democracia sobrevive rapid t=1: π_D(Ω₁=ω_H, v=1+δ(1-B)) ≤ π̄_D^fall — lei aprovada reduz v (promessa crível), protesto tolerável.
 
-**(i)** π_D(ω_H, v=1+δ) ≤ π̄_D^fall — democracia absorve protesto em t=1 (rapid) quando promessa de compensação defusa. MAS π_D(ω_H, v=1) > π̄_D^fall — sem promessa (threshold t=2), protesto excede.
+**(ii)** Democracia cai threshold t=2: π_D(Ω₂=ω_L+(1-ω_L)·ω_H, v=1) > π̄_D^fall — sem compensação, protesto excede.
 
-**(ii)** π_A(ω_H, v=1+δ) > π̄_A^fall (com degradação) — autocracia não sobrevive 2 períodos de crise sem compensação. MAS π_A(ω_H, v=1) ≤ π̄_A^fall — autocracia sobrevive 1 período (threshold t=2, repressão intacta).
+**(iii)** Autocracia cai rapid t=2: π_A(Ω₂=ω_H(2-ω_H), v=1) > π̄_A^fall — composição (mais deslocados acumulados) empurra π acima do limiar baixo.
 
-**(iii)** ω_L gera protesto pequeno → ambos sobrevivem t=1 sob threshold.
+**(iv)** Autocracia sobrevive threshold t=2: π_A(Ω₂=ω_L+(1-ω_L)·ω_H, v=1) ≤ π̄_A^fall — menos deslocados + C_A alto → protesto contido.
+
+**(v)** ω_L gera protesto pequeno → ambos sobrevivem t=1 sob threshold.
+
+Nota: (iii) e (iv) usam o MESMO v=1 e o MESMO C_A. A diferença é APENAS Ω₂ (composição). Como ω_H(2-ω_H) > ω_L+(1-ω_L)·ω_H, existe faixa de π̄_A^fall que separa os dois → não knife-edge.
 
 ### Lemas e proposições planejados
 
-**Lema 1 (Dictator's dilemma):** I(C_x) = |∂π*/∂ω| é decrescente em C_x. Protesto é sinal mais informativo de ω em democracia.
+**Lema 1 (Dictator's dilemma):** I(C_x) = |∂π*/∂ω| é decrescente em C_x. Protesto é sinal mais informativo de ω em democracia. Consequência: ω̄_A^comp > ω̄_D^comp.
 
-**Lema 2 (Degradação repressiva):** Capacidade repressiva efetiva em t=2 é decrescente no esforço repressivo em t=1. Sob rápido (2 períodos de crise), π̄_A^fall(t=2) < π̄_A^fall(t=1).
+**Lema 2 (Composição absorvente):** Com deslocamento absorvente, Ω₂(rapid) = ω_H(2-ω_H) > Ω₂(threshold) = ω_L+(1-ω_L)·ω_H. Dado mesmo v e mesmo C_x: π(rapid t=2) > π(threshold t=2). Simétrico entre regimes.
 
-**Proposição (Zona de compensação):** Largura da zona de compensação do incumbente é decrescente em C_x (informacional) e crescente na velocidade de resposta. Zona estreita/inexistente para autocracia.
+**Proposição (Zona de compensação):** ω̄_x^comp é crescente em C_x (Lema 1). Zona de compensação do incumbente depende da interação informação × velocidade. Autocracia: zona estreita (informação ruim) OU velocidade desperdiçada por cegueira.
 
-**Proposição (Fragilidade cruzada):** Sob condições (i)-(iii), democracia é estável sob rápido e instável sob threshold; autocracia exibe o padrão inverso.
+**Proposição (Fragilidade cruzada):** Sob (i)-(v), democracia é estável sob rápido e instável sob threshold; autocracia exibe o padrão inverso.
 
 ### Robustez
 
@@ -223,7 +273,9 @@ Em linguagem de parâmetros:
 | σ | Ruído do sinal |
 | a_{it} ∈ {0,1} | Ação: protestar ou não |
 | π_t | Protesto agregado: ∫ a_{it} di |
-| v_i | Valor expressivo: perda presente + δ·E[perda futura] |
+| v_i | Valor expressivo: (1-y_{it}) + δ·E[(1-y_{i,t+1})] |
+| Ω_t | Fração total de deslocados em t (absorvente: Ω₂ = ω₁ + (1-ω₁)·ω₂) |
+| ω̄_x^comp | Threshold informacional de compensação (derivado) |
 | C_x | Custo de repressão (C_A > C_D) |
 | h(π) = π | Safety in numbers (linear, baseline) |
 | B ∈ (0,1) | Benefit: compensação universal para deslocados |
@@ -234,7 +286,7 @@ Em linguagem de parâmetros:
 | π̄_x^fall | Resiliência institucional a protesto (π̄_D^fall > π̄_A^fall) |
 | I(C_x) | Informativeness do protesto: |∂π*/∂ω| |
 
-**Removidos da versão anterior**: f_x (capacidade fiscal), ω̄_x^fall = f_x/B (threshold fiscal). Substituídos por velocidade de resposta + π̄_x^fall institucional.
+**Removidos**: f_x (capacidade fiscal), ω̄_x^fall = f_x/B (threshold fiscal), γ (backward-looking, movido para appendix), V (normalizado a 1).
 
 ## Itens resolvidos
 
@@ -249,29 +301,87 @@ Em linguagem de parâmetros:
 - [x] h(π) → linear (baseline, pode mudar depois)
 - [x] Diferença entre regimes → C_x (informação) + velocidade de resposta (lag regime-específico)
 - [x] Mecanismo de queda → protesto não-respondido > π̄_x^fall (institucional, não fiscal)
-- [x] Autocracia cai sob rápido → degradação repressiva em 2 períodos
+- [x] Autocracia cai sob rápido → composição (deslocamento absorvente). Simétrico. Sem degradação.
 - [x] Democracia cai sob threshold → lag impede resposta em t=2
+- [x] Promessa crível → lei aprovada em t=1, não anúncio
+- [x] F(ε) → logística (closed-form)
+- [x] γ eliminado do baseline → extensão (appendix). Composição + compensação suficientes.
+- [x] V normalizado a 1. Threshold em termos de B.
+- [x] Regra do incumbente → comp iff ΔP > ω̂·B. Derivada da otimização. ω̄_A^comp > ω̄_D^comp.
+- [x] Inferência Bayes pura (sem viés behavioral). P(N)>0 + sinal suprimido faz o trabalho.
+- [x] Persistência: φ uma vez ativado, permanece.
+
+## Resumo para simulação (modelo completo, sem γ)
+
+Parâmetros: ω_H, ω_L, σ, C_D, C_A, B, δ, π̄_D^fall, π̄_A^fall, p_R, p_T, p_N
+
+**t=1:**
+- Displaced: Ω₁ = ω₁
+- v₁ = 1 + δ·(1 - B·E[φ₂|info]) [forward-looking]
+- Solve s*₁ → π₁*(ω₁) = Ω₁ · F((ω₁-s*₁)/σ)
+- Incumbent updates P(θ|π₁), decides comp₁
+
+**t=2:**
+- Displaced: Ω₂ = ω₁ + (1-ω₁)·ω₂ [absorvente]
+- v₂ = 1 - B·φ₂ [φ₂ = comp₁ para democracia, comp₁ para autocracia]
+- Solve s*₂ → π₂*(ω₂) = Ω₂ · F((ω₂-s*₂)/σ)
+- Fall: π₂ > π̄_x^fall?
+
+### Parâmetros baseline (simulação numérica)
+
+```
+omega_H = 0.40    # Deslocamento severo (40% por período de crise)
+omega_L = 0.05    # Churn normal
+sigma   = 0.15    # Ruído do sinal (SNR ≈ 2.3)
+C_D     = 1.5     # Custo protesto democracia
+C_A     = 2.0     # Custo protesto autocracia (ratio 1.33)
+B       = 0.6     # Compensação (60% da renda)
+delta   = 0.9     # Desconto (~5 anos/período)
+pi_fall_D = 0.40  # Tolerância democracia (alta)
+pi_fall_A = 0.05  # Tolerância autocracia (baixa, Chenoweth)
+p_R     = 0.30    # Prior rapid
+p_T     = 0.30    # Prior threshold
+p_N     = 0.40    # Prior sem choque
+tau_D   = 0.01    # Ruído observação incumbente (democracia ≈ 0)
+tau_A   = 0.10    # Ruído observação incumbente (autocracia — dictator's dilemma)
+```
+
+**Quantidades derivadas:**
+- Ω₂^rapid = 0.40×1.60 = 0.64
+- Ω₂^threshold = 0.05 + 0.95×0.40 = 0.43
+- h̄_A(t=2, v=1) = 0.50 ∈ (0.43, 0.64) ← condição-chave satisfeita
+- h̄_D(t=2, comp) = 0.733 > 0.64 ← democracia estabilizada
+- h̄_D(t=2, no comp) = 0.333 < 0.43 ← democracia vulnerável
+
+**Verificação fragilidade cruzada (t=2):**
+- Rapid + democracia (comp): h̄=0.733 > Ω₂=0.64 → sem protesto → ESTÁVEL ✓
+- Rapid + autocracia (no comp): h̄=0.50 < Ω₂=0.64 → protesto > π̄_A=0.05 → CAI ✓
+- Threshold + democracia (no comp): h̄=0.333 < Ω₂=0.43 → protesto > π̄_D=0.40 → CAI ✓
+- Threshold + autocracia (no comp): h̄=0.50 > Ω₂=0.43 → sem protesto → ESTÁVEL ✓
+
+**Nota**: Unicidade do equilíbrio a verificar numericamente (e provar analiticamente depois).
 
 ## Próximos passos (implementação)
 
+- [ ] Escolher parâmetros numéricos e rodar simulação (exemplo Varian: antes do modelo geral)
 - [ ] Escrever o modelo formal no paper.Rmd (reescrever Sections 3-4)
-- [ ] Formalizar degradação repressiva (K_t ou η_t)
-- [ ] Derivar cutoff do global game com h(π) = π e v_i como função de perda
+- [ ] Derivar cutoff do global game com h(π) = π, F logística — verificar se tem closed-form
 - [ ] Derivar proposições (fragilidade cruzada, zona de compensação, estática comparativa)
-- [ ] Exemplo numérico (Varian: antes do modelo geral)
 - [ ] Verificação Lean (após formalização estável)
-- [ ] Appendix: inferência bayesiana do incumbente (Camada 3)
+- [ ] Appendix: sinal mais preciso para deslocado de 2 períodos (relaxar premissa de σ igual)
+- [ ] Appendix: inferência bayesiana do incumbente (Camada 3 detalhada)
 - [ ] Appendix: extensão T > 2 períodos
-- [ ] Formalizar "promessa crível" que defusa protesto em rapid t=1
+- [ ] Extensão/Discussion: grupo exposto E ⊂ [0,1] com |E|=e<1. ω_H dentro de E → Ω₂ = e·ω_H(2-ω_H). Descola π̄_D^fall de ω_H. Baseline: leitura 1 (democracia robusta). Extensão: leitura 2 (bite empírico com e<1). Discutir implicações de policy sob cada pressuposto.
 
 ## Questões abertas
 
 - Especificidade IA: mecanismo é genérico. Defender via framing (incerteza sobre tipo de automação).
 - h(π) linear: pode precisar de forma côncava. Testar.
-- Não-deslocado protesta? Via v_i = δ·E[perda futura]. Efeito de segunda ordem.
-- π̄_x^fall: parâmetro institucional. Derivar de algo? Ou aceitar como primitiva do regime?
-- "Promessa crível" de compensação em rapid t=1: precisa formalizar como reduz protesto. Opções: v_i cai quando governo anuncia comp; ou π̄_D^fall efetivo sobe quando governo está respondendo.
-- Degradação repressiva: formalizar como K_2 = K_1 - g(π_1), onde g é custo da repressão.
+- Não-deslocado protesta? Via v_i = δ·E[ω₂]. Efeito de segunda ordem.
+- π̄_x^fall: aceitar como primitiva institucional do regime.
+- Unicidade do equilíbrio no global game com ω discreto: verificar numericamente.
+- Prior conjugada? Se ω ~ Beta(a,b), d_i atualiza para Beta(a+d, b+1-d). Sinal contínuo s_i quebra conjugacy, mas pseudo-counts podem aproximar. Se funcionar, updating sequencial é analítico (sem root-finding) — posterior de t=1 vira prior de t=2, mesmo formato. Explorar na próxima sessão.
+- **Bite empírico**: com só deslocados protestando, π ≤ Ω₂. Para democracia cair, π̄_D^fall < Ω₂, o que requer ω_H alto (possivelmente implausível: >50%). Duas leituras: (a) resultado — democracia é robusta, IA só ameaça sob hecatombe + surpresa; (b) limitação — sem bite empírico. Fix natural: reintroduzir grupo exposto E com |E| = e < 1, ω_H dentro de E. Ω₂ = e·ω_H(2-ω_H). Com e=0.3, ω_H=0.5: Ω₂=0.225. Mais plausível. Decisão pendente.
 
 ## Decisões de design (alternativas descartadas)
 
@@ -309,9 +419,37 @@ Em linguagem de parâmetros:
 - **Insight**: Velocidade sem informação é inútil. Informação sem velocidade é insuficiente sob surpresa.
 
 ### Decisão: Mecanismo de queda
-- **Escolha**: Protesto não-respondido excede resiliência institucional (π > π̄_x^fall). Autocracia cai sob rápido por degradação repressiva (2 períodos). Democracia cai sob threshold por lag (sem t=3).
-- **Descartado**: Queda puramente fiscal (ω·B > f_x) — autocracia cai mecanicamente em t=1 (step 4 dispara antes do incumbente decidir); democracia não cai nunca sob threshold (fiscal não dispara). Inconsistente.
+- **Escolha**: Único mecanismo: π > π̄_x^fall (protesto excede resiliência institucional). O que varia é o TAMANHO de π, determinado por composição (Ω₂) + compensação (v) + custo de protesto (C_x). Simétrico entre regimes.
+- **Descartado**: Degradação repressiva — assimétrica sem justificativa.
+- **Descartado**: Queda puramente fiscal — inconsistente no timing.
 - **Descartado**: Defecção militar — adiciona jogador.
+
+### Decisão: Por que autocracia cai sob rapid mas não threshold
+- **Escolha**: Composição (deslocamento absorvente). Ω₂(rapid) = ω_H(2-ω_H) > Ω₂(threshold) = ω_L+(1-ω_L)·ω_H. Mesmo v, mesmo C_A → mais gente deslocada → mais protesto → excede π̄_A^fall sob rapid mas não threshold.
+- **Descartado**: γ (backward-looking) — desnecessário no baseline; composição sozinha é suficiente. γ é extensão que fortalece.
+- **Descartado**: Degradação repressiva — assimétrica sem justificativa.
+
+### Decisão: Regra do incumbente
+- **Escolha**: comp iff ΔP(π_t) > ω̂(π_t)·B. Bayes puro: incumbente atualiza P(θ|π_t). P(N)>0 + sinal suprimido (autocracia) → quase não atualiza → não compensa. Democracia: sinal informativo → atualiza → compensa. V normalizado a 1.
+- **Descartado**: Regra mecânica (threshold exógeno) — não deriva o dictator's dilemma.
+- **Descartado**: Viés behavioral — desnecessário, Bayes puro faz o trabalho.
+
+### Decisão: γ (backward-looking)
+- **Escolha**: Eliminado do modelo (baseline E appendix). Desnecessário.
+- **Razão**: Composição (absorvente) + compensação (φ) suficientes. Um tipo, um cutoff, uma equação.
+
+### Decisão: Sinal igual para deslocado de 1 ou 2 períodos
+- **Escolha (baseline)**: Simplificação forte — sinal privado s_i = ω_t + σε_i é o mesmo independente da duração do deslocamento. Trabalhador de 2 períodos não tem sinal mais preciso que o de 1.
+- **Extensão (appendix)**: Relaxar. Deslocado por 2 períodos acumula experiência → sinal mais preciso (σ menor) ou v com componente informacional backward-looking. Fortalece o resultado.
+
+### Decisão: "Promessa crível" de democracia em rapid t=1
+- **Escolha**: Democracia PASSA LEI em t=1 (compromisso legal). Lei entra em vigor em t=2 (lag institucional). Crível porque é lei, não anúncio. Trabalhadores antecipam φ_2=1 → v cai → π tolerável.
+- **Descartado**: Mero anúncio — não crível em modelo de 2 períodos.
+- **Nota**: Artificial em 2 períodos; em T>2 seria mais natural. Aceitar por agora.
+
+### Decisão: F(ε) para o global game
+- **Escolha**: Logística. Dá closed-form no global game (standard na literatura).
+- **Alternativa**: Normal (mais comum em estatística, mas sem closed-form). Uniforme (simples, mas cauda leve).
 
 ### Decisão: Lag de compensação — regime-específico
 - **Escolha**: Democracia: lag de 1 período (legislação, debate, coalizão). Autocracia: sem lag (decreto).
@@ -341,6 +479,7 @@ Em linguagem de parâmetros:
 - [x] Free-rider resolvido — protesto expressivo
 - [x] Incerteza sobre θ genuína — 3 estados (R, T, N)
 - [x] δ operacional — v_i inclui expectativa futura
-- [ ] Degradação repressiva — precisa formalizar
-- [ ] Promessa crível em rapid t=1 — precisa formalizar
+- [x] Autocracia sob rapid → resolvido via composição + v backward-looking (sem degradação)
+- [x] Promessa crível → lei aprovada em t=1 (compromisso legal)
+- [x] F(ε) → logística
 - [ ] π̄_x^fall — parâmetro ou derivado?
