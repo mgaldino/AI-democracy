@@ -4,6 +4,8 @@
 
 Paper teórico-formal na tradição OEP sobre como trajetórias de automação por IA afetam a estabilidade de democracias vs. autocracias. **Autor**: cientista político (não economista). A economia é premissa importada; a contribuição é a camada política.
 
+**Benchmark de exposição**: Hirsch & Shotts (2025) AJPS; Myerson (2008) APSR. Ver `Papers/references/benchmark_library.md` Gênero 1.
+
 ## Pergunta central
 
 > Dadas duas trajetórias de automação — deslocamento rápido vs. threshold (O-Ring) — qual tipo de regime é mais frágil sob cada cenário, e por quê?
@@ -31,7 +33,9 @@ Paper teórico-formal na tradição OEP sobre como trajetórias de automação p
 
 **17/17 verificados em Lean 4.** L1-L2 via biblioteca SupermodularGames (dependência local). Dashboard: `formal_proofs/DASHBOARD.md`
 
-## Review status (v4, 2026-04-02)
+## Review status
+
+### Formal Model Review (v4, 2026-04-02)
 
 | Dimensão | Score |
 |----------|-------|
@@ -40,20 +44,31 @@ Paper teórico-formal na tradição OEP sobre como trajetórias de automação p
 | Exposição | 7.5/10 |
 | **Global** | **7.7/10** |
 
-**Decisão**: R&R minor. Parecer completo: `quality_reports/2026-04-02_review-formal-model-v4.md`
+Parecer completo: `quality_reports/2026-04-02_review-formal-model-v4.md`
 
-**Resolvidos nesta sessão**: ω binário→contínuo, unicidade verificada, Lemma 2 reescrito (Laplacian), 3 figuras de mecanismo, colisões de notação (i/x, F/𝓕, s/τ, c/c_s), intro reescrita.
+### Edmans Review (v8, 2026-04-06)
 
-**Pendentes de polish**: Todos resolvidos (2026-04-06). Unbundle A3/A4 já feito (A5 = risk dominance separado, A6 eliminado → Prop 8). P7/Corollary já no apêndice. Remarks 1-2 promovidos a Corollaries 1-2 (renumeração: C1-C5). Calibração paramétrica adicionada na Discussion ("Parametric plausibility"). α eliminado do Appendix D (h axiomática, forma funcional como exemplo ilustrativo).
+| Dimensão | Score | Evolução vs v6 |
+|----------|-------|-----------------|
+| Contribution | 7.0/10 | +0.5 |
+| Execution | 8.0/10 | +0.5 |
+| Exposition | 8.0/10 | +0.5 |
+| **Global** | **7.5/10** | **+0.3** |
+
+**Decisão editorial**: R&R minor. Recomendação: JOP/BJPS.
+**Prioridades Edmans**: (1) expandir bib 35-40 refs; (2) remark sobre δ; (3) condensar — FEITO (Section 2, Limitations); (4) clarificar link verbal heterogeneidade→ruído; (5) quantificação no abstract.
+
+**Resolvidos (2026-04-06)**: polish completo (h axiomática, calibração paramétrica, C1-C5), Section 2.3-2.4 condensada (~2pp economizadas), Limitations movidas para Conclusion.
 
 ## Plano de trabalho
 
 ~~1-9~~: FEITOS (exemplos numéricos, modelo formal, microfundações, paper formatado).
 
-10. **(PRIORITÁRIO)** Desconto temporal δ ∈ (0,1]. Verificar se P4/P6 mudam com δ<1.
-11. **(Futuro)** Instrumentos mistos — especialização endógena.
-12. **(Futuro)** Incerteza sobre trajetória — P10 + Corolário 4. Plano: `~/.claude/plans/compressed-noodling-penguin.md`.
-13. **(Em progresso)** Populismo P9 — plataforma endógena. Sketch: `model/07_populism_platform_choice_sketch.md`. Decisão pendente: texto principal vs appendix.
+10. **(PRIORITÁRIO — REFORMULAÇÃO)** Reformulação do modelo. Primitivas: C_A > C_D (custo de protesto → informação) + velocidade de resposta (autocracia rápida, democracia lenta). Dictator's dilemma (informacional) + lag regime-específico. 3 estados: θ ∈ {R, T, N}. Protesto expressivo v_i = perda presente + δ·E[perda futura]. B = benefit (compensação universal). Título-semente: "AI and Regime Stability: Responsiveness and Speed to Economic Shocks". Plano: `quality_reports/plans/2026-05-01_reformulacao-modelo.md`. Status: conceitual COMPLETO, implementação pendente.
+11. **(Suspenso)** Desconto temporal δ ∈ (0,1]. Depende da reformulação — δ já entra na nova estrutura via utilidade intertemporal.
+12. **(Futuro)** Instrumentos mistos — especialização endógena.
+13. **(Futuro)** Incerteza sobre trajetória — agora parte do modelo base (θ ∈ {rápido, threshold} não observado).
+14. **(Suspenso)** Populismo P9 — plataforma endógena. Sketch: `model/07_populism_platform_choice_sketch.md`. Decisão pendente: texto principal vs appendix. Aguarda reformulação.
 
 ## Verificação Formal (Lean 4)
 
