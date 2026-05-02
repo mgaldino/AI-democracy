@@ -317,8 +317,8 @@ print("=" * 80)
 
 # We also need π̄_A^fall (autocratic fall threshold)
 # and π̄_D^fall (democratic fall threshold)
-# From the reformulation plan: π̄_D^fall = 0.40, π̄_A^fall = 0.05
-pi_bar_D_fall = 0.40
+# From simulation v7 (confirmed): π̄_D^fall = 0.20, π̄_A^fall = 0.05
+pi_bar_D_fall = 0.20
 pi_bar_A_fall = 0.05
 
 results_check4 = []
