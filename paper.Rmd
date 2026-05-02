@@ -62,7 +62,148 @@ The interaction between automation trajectories and regime characteristics produ
 
 # The Model
 
-[PLACEHOLDER — Sec 3: complete rewrite. Environment, information, protest, regime differences, incumbent's problem, fall condition, timing, assumptions, numerical example. Source: quality_reports/plans/2026-05-01_reformulacao-modelo.md]
+## Environment
+
+We consider a polity over two periods $t \in \{1, 2\}$ with a continuum of workers $i \in [0,1]$. The polity operates under one of two regime types $x \in \{D, A\}$: democracy or autocracy. An incumbent (the government) is a strategic player who decides whether to compensate displaced workers after observing aggregate protest.
+
+**Automation trajectories.** Nature draws an automation type $\theta \in \{R, T, N\}$ --- rapid, threshold, or no shock --- which is not observed by any player. The prior is $(p_R, p_T, p_N)$ with $p_R, p_T > 0$ and $p_N = 1 - p_R - p_T > 0$. The type determines displacement probabilities in each period:
+
+| Type $\theta$ | $\omega_1$ | $\omega_2$ | Interpretation |
+|:---:|:---:|:---:|:---|
+| $R$ (rapid) | $\omega_H$ | $\omega_H$ | Persistent crisis |
+| $T$ (threshold) | $\omega_L$ | $\omega_H$ | Delayed crisis |
+| $N$ (no shock) | $\omega_L$ | $\omega_L$ | Permanent calm |
+
+where $\omega_H > \omega_L > 0$. Each worker is displaced independently: $d_{it} \sim \text{Bernoulli}(\omega_t)$, i.i.d. conditional on $\omega_t$. Displacement is an absorbing state: once displaced, a worker remains displaced.^[Three states are necessary. With only $\theta \in \{R, T\}$, both types yield $\omega_2 = \omega_H$, so the expected future is identical regardless of the current state --- uncertainty over $\theta$ does not differentiate expectations. The third state $N$ makes the ambiguity genuine: low displacement in $t = 1$ could be "all is well" ($N$) or "a time bomb" ($T$).]
+
+**Income.** Employment income is normalized to 1. Compensation, when available, pays $B \in (0, 1)$ to each displaced worker. Per-period income is:
+$$y_{it} = (1 - d_{it}) + B \cdot d_{it} \cdot \varphi_t$$
+where $\varphi_t \in \{0, 1\}$ indicates whether compensation is available in period $t$. An employed worker earns 1; a displaced, compensated worker earns $B$; a displaced, uncompensated worker earns 0. The baseline normalizes employed income to 1 regardless of trajectory; the productivity gains from AI complementarity during the threshold phase are not modeled (see Discussion).
+
+**Automation trajectories as economic premise.** Following @GansGoldfarb2026, we distinguish two stylized trajectories. Under *rapid displacement* ($\theta = R$), automation causes displacement from the start: $\omega_1 = \omega_2 = \omega_H$. Workers are displaced at a high rate in both periods, and the crisis is visible from the outset. Under *threshold automation* ($\theta = T$), AI initially complements labor --- most workers become more productive, incomes rise --- while only a small fraction is displaced ($\omega_1 = \omega_L$). When AI capabilities cross a threshold, displacement becomes massive ($\omega_2 = \omega_H$). These income paths are exogenous to the political model; they represent the economic premise imported from the automation literature. The political model takes the displacement probabilities $(\omega_1, \omega_2)$ as given and derives their institutional consequences.
+
+## Information
+
+Each worker $i$ observes two pieces of information: her own displacement status $d_{it}$ and a continuous private signal about the aggregate state:
+$$s_{it} = \omega_t + \sigma \varepsilon_{it}, \qquad \varepsilon_{it} \sim F$$
+where $F$ is continuous, symmetric around zero, with full support and the monotone likelihood ratio property (MLRP). We use the logistic distribution in the baseline, which yields closed-form results in the coordination game.^[The displacement indicator $d_{it}$ is itself informative: a displaced worker knows $d_{it} = 1$, which shifts the Bernoulli likelihood toward higher $\omega_t$. The worker combines $d_{it}$ and $s_{it}$ via Bayesian updating to form beliefs about $\theta$ and, consequently, about future displacement $\omega_2$.]
+
+After observing $(d_{i1}, s_{i1})$, the worker updates beliefs about $\theta$:
+$$P(\theta \mid d, s) \propto P(d, s \mid \theta) \cdot P(\theta)$$
+where $P(d, s \mid \theta) = [\omega_t(\theta)]^d [1 - \omega_t(\theta)]^{1-d} \cdot \frac{1}{\sigma} f\!\left(\frac{s - \omega_t(\theta)}{\sigma}\right)$.
+
+The expected future displacement conditional on period-1 information is:
+$$E[\omega_2 \mid d_{i1}, s_{i1}] = [P(R \mid d, s) + P(T \mid d, s)] \cdot \omega_H + P(N \mid d, s) \cdot \omega_L$$
+If current displacement appears high, the posterior shifts toward $R$, raising expected future displacement. If current displacement appears low, the posterior shifts toward $N$, lowering it. The ambiguity is genuine: low displacement in $t = 1$ could reflect either permanent calm ($N$) or a time bomb ($T$). The worker's expectation is a weighted average that underestimates future risk under threshold automation.
+
+The incumbent does not observe $\theta$ or $\omega_t$. The incumbent observes only aggregate protest $\pi_t$ after workers act, and must infer the state from this signal.
+
+## Protest
+
+**Expressive value.** Each worker's motivation to protest is captured by an expressive value $v_i$ that reflects both current suffering and fear of the future:
+$$v_i = (1 - y_{it}) + \delta \cdot E\!\left[(1 - y_{i,t+1}) \mid d_{it}, s_{it}\right]$$
+where $\delta \in (0, 1]$ is the intertemporal discount factor. A displaced, uncompensated worker in $t = 1$ has $v_i = 1 + \delta \cdot E[\text{future loss}]$; an employed worker has $v_i = \delta \cdot E[\omega_2] \cdot (1 - B \cdot E[\varphi_2])$. The expressive value is a private benefit of protesting --- it captures the anger and fear that motivate individual participation regardless of whether protest succeeds in changing policy.^[Protest is not a public good problem in this model. The expressive value $v_i$ is private: it is the utility a worker derives from the act of protesting itself, not from its aggregate consequences. Compensation, if it arrives, is a consequence of the incumbent's strategic response to observed protest, not a direct payoff to protesters. This eliminates the free-rider problem that plagues instrumental models of collective action.]
+
+**Safety in numbers.** The effective cost of protesting depends on how many others are protesting. Worker $i$ protests if:
+$$v_i > C_x \cdot (1 - h(\pi_t))$$
+where $C_x > 0$ is the regime-specific cost of protest, $h(\pi) = \pi$ in the baseline (linear safety in numbers), and $\pi_t = \int a_{it} \, di$ is aggregate protest. Higher participation reduces the effective cost of protesting for each individual --- a standard coordination motive.
+
+## Regime differences
+
+The model captures regime differences through three channels, all derived from the size of the selectorate (Section 2.2).
+
+**Cost of protest.** In autocracies, protesting is more costly than in democracies: $C_A > C_D$. This reflects repression, surveillance, and the absence of legal protections for collective action. The higher cost has a direct informational consequence: fewer workers protest in autocracies, generating a weaker aggregate signal $\pi_t$ from which the incumbent must infer the state.
+
+**Institutional speed.** When the incumbent decides to compensate ($\text{comp}_t = 1$):
+
+- In an autocracy, compensation takes effect immediately: $\varphi_t = 1$ (decree, no legislative process).
+- In a democracy, compensation takes effect in the next period: $\varphi_{t+1} = 1$ (legislation, debate, regulatory implementation).
+
+In $t = 2$, democratic compensation enacted in that period has no effect within the model (there is no $t = 3$). This institutional lag is a structural feature of large-coalition governance, not a pathology: the same deliberative process that makes democracies responsive also makes them slow.
+
+**Fiscal authorization.** In both regimes, the incumbent needs a visible justification --- observable protest --- to authorize compensation. In a democracy, the selectorate (voters) must perceive the crisis as real and worth paying for; absent visible protest, there is no political mandate to raise taxes for compensation. In an autocracy, the elite that sustains the ruler must perceive the crisis; a ruler who spends without the elite's approval risks removal. The fiscal base is the economy as a whole, but the political authorization to spend comes from the selectorate.
+
+## The incumbent's problem
+
+The incumbent values remaining in power ($V = 1$, normalized) and must decide, after observing $\pi_t$, whether to compensate displaced workers ($\text{comp}_t \in \{0, 1\}$). Compensation costs $\hat{\omega}(\pi_t) \cdot B$, where $\hat{\omega}(\pi_t)$ is the incumbent's estimate of the displacement rate, obtained by inverting the equilibrium mapping $\pi^*(\omega)$:
+$$\hat{\omega}(\pi_t) = (\pi^*)^{-1}(\pi_t)$$
+
+The incumbent compensates if the expected gain in survival probability exceeds the cost:
+$$\text{comp}_t = 1 \quad \text{iff} \quad \Delta P(\pi_t) > \hat{\omega}(\pi_t) \cdot B$$
+where $\Delta P(\pi_t) = P(\pi_2 < \bar{\pi}_x^{\text{fall}} \mid \text{comp}) - P(\pi_2 < \bar{\pi}_x^{\text{fall}} \mid \text{no comp})$ is the increase in survival probability from compensating.
+
+**Bayesian inference.** The incumbent updates beliefs about $\theta$ from observed protest:
+$$P(\theta \mid \pi_t) \propto P(\pi_t \mid \theta) \cdot P(\theta)$$
+
+This updating generates the dictator's dilemma endogenously:
+
+- In a democracy ($C_D$ low), protest $\pi_D$ is responsive to $\omega$: the mapping $\pi^*(\omega)$ is steep, and variations in $\omega$ produce large variations in observed protest. The democratic incumbent can distinguish high-displacement states from low-displacement states and updates beliefs substantially. When protest is high, the posterior shifts toward $\theta = R$, the estimated crisis is severe, and the expected benefit of compensation is large. The incumbent compensates.
+
+- In an autocracy ($C_A$ high), protest $\pi_A$ is uniformly low regardless of $\omega$: the mapping $\pi^*(\omega)$ is flat, and even large changes in $\omega$ produce small changes in observed protest. The autocratic incumbent cannot distinguish states. With $P(N) > 0$, the prior probability of "no crisis" remains high, and the posterior barely updates. The perceived benefit of compensation is small, and the incumbent does not compensate. This is not irrationality --- it is the rational consequence of a suppressed signal and a prior that includes the possibility of calm.
+
+**Compensation threshold.** Define $\bar{\omega}_x^{\text{comp}}$ as the displacement rate at which the incumbent is indifferent between compensating and not:
+$$\Delta P(\bar{\omega}_x^{\text{comp}}) = \bar{\omega}_x^{\text{comp}} \cdot B$$
+The dictator's dilemma implies $\bar{\omega}_A^{\text{comp}} > \bar{\omega}_D^{\text{comp}}$: autocracies require a higher displacement rate to trigger compensation, because the signal is noisier and the posterior updates less.
+
+## Regime stability
+
+**Fall condition.** A single mechanism governs regime change in both regime types: the regime falls if and only if aggregate protest exceeds institutional resilience and the crisis has not been resolved:
+$$\text{Regime falls in period } t \quad \text{iff} \quad \pi_t > \bar{\pi}_x^{\text{fall}} \;\text{ and }\; \varphi_t = 0$$
+where $\bar{\pi}_x^{\text{fall}}$ is the regime's institutional resilience to protest, with $\bar{\pi}_D^{\text{fall}} > \bar{\pi}_A^{\text{fall}}$. Democracies absorb more protest before destabilizing (freedom of expression, institutional channels for dissent, accountability mechanisms). Autocracies are more fragile when protest exceeds their capacity to contain it [@Geddes1999].
+
+What varies across scenarios is not the fall mechanism but the *size* of $\pi_t$, which depends on: the fraction of displaced workers ($\Omega_t$), their expressive value ($v_i$), the cost of protest ($C_x$), and the safety-in-numbers function ($h(\pi)$).
+
+## Timing
+
+Within each period $t$:
+
+1. Nature realizes $d_{it}$ for each worker $i$ (displacement).
+2. Each worker observes $(d_{it}, s_{it})$ and forms beliefs about $\theta$.
+3. Each worker chooses $a_{it} \in \{0, 1\}$ (protest or not). Aggregate protest: $\pi_t = \int a_{it} \, di$.
+4. The incumbent observes $\pi_t$ and decides $\text{comp}_t \in \{0, 1\}$.
+5. If $\text{comp}_t = 1$: in autocracy, $\varphi_t = 1$ (immediate); in democracy, $\varphi_{t+1} = 1$ (lag).
+6. If $\pi_t > \bar{\pi}_x^{\text{fall}}$ and $\varphi_t = 0$: regime falls.
+7. Payoffs are realized.
+
+The two periods should be read as two politically distinct moments, not as fixed calendar intervals. Period 1 captures the initial response to automation; period 2 captures the accumulated consequences.
+
+[FIGURE PLACEHOLDER: Game timeline showing the 7 steps within each period under both trajectories. Two columns (rapid vs threshold), rows for each step.]
+
+## Assumptions
+
+**A1 (Displacement rates).** $\omega_H > \omega_L > 0$, and both are interior: $\omega_H < 1$, $\omega_L > 0$.
+
+**A2 (Prior includes calm).** $p_N > 0$: there is positive prior probability that no crisis occurs. This is necessary for the dictator's dilemma: without $N$, low protest would unambiguously signal $T$, and the autocratic incumbent would update correctly.
+
+**A3 (Information structure).** The signal family $F$ is continuous, symmetric, with full support and MLRP. The logistic distribution satisfies these conditions and yields closed-form cutoffs.
+
+**A4 (Regime-specific protest cost).** $C_A > C_D > 0$: protesting is costlier in autocracies.
+
+**A5 (Institutional resilience).** $\bar{\pi}_D^{\text{fall}} > \bar{\pi}_A^{\text{fall}} > 0$: democracies tolerate more protest before destabilizing.
+
+**A6 (Compensation is partial).** $B \in (0, 1)$: compensation replaces some but not all lost income.
+
+**A7 (Persistence).** Once compensation is activated ($\varphi_t = 1$), it persists: $\varphi_{t'} = 1$ for all $t' \geq t$. Social insurance infrastructure, once legislated, is not easily dismantled.
+
+## Numerical example
+
+Let $\omega_H = 0.40$, $\omega_L = 0.05$, $\sigma = 0.15$, $C_D = 1.5$, $C_A = 2.0$, $B = 0.6$, $\delta = 0.9$, $\bar{\pi}_D^{\text{fall}} = 0.40$, $\bar{\pi}_A^{\text{fall}} = 0.05$, $p_R = 0.30$, $p_T = 0.30$, $p_N = 0.40$.
+
+Derived quantities: $\Omega_2^{\text{rapid}} = 0.40 \times 1.60 = 0.64$; $\Omega_2^{\text{threshold}} = 0.05 + 0.95 \times 0.40 = 0.43$.
+
+Consider the four scenarios:
+
+- *Democracy, rapid displacement.* $t = 1$: $\omega_1 = 0.40$. Many workers displaced. Low cost of protest ($C_D = 1.5$) generates visible protest. The democratic incumbent sees the crisis and passes a compensation law ($\text{comp}_1 = 1$). The law does not take effect until $t = 2$ (institutional lag), but the credible legislative commitment reduces workers' expected future loss, lowering $v_i$ in $t = 1$. Protest remains below $\bar{\pi}_D^{\text{fall}}$. **Stable.** $t = 2$: compensation takes effect ($\varphi_2 = 1$). Displaced workers earn $B = 0.6$ instead of 0. Expressive value drops to $v = 1 - B = 0.4$. Protest is contained. **Stable.**
+
+- *Autocracy, rapid displacement.* $t = 1$: $\omega_1 = 0.40$. High cost of protest ($C_A = 2.0$) suppresses protest. The autocratic elite does not perceive a crisis ($\pi_A$ too low to update the posterior away from $N$). No compensation. $t = 2$: displacement accumulates: $\Omega_2 = 0.64$. The large stock of displaced workers, even at high protest cost, generates protest exceeding $\bar{\pi}_A^{\text{fall}} = 0.05$. The elite still does not see the crisis clearly enough to authorize compensation (the crisis is *moderate and accumulated*, not massive and sudden). **Falls.**
+
+- *Democracy, threshold automation.* $t = 1$: $\omega_1 = 0.05$. Almost no one is displaced. Most workers are prospering from AI complementarity. No protest, no signal, no legislation. Voters who are earning more do not want to pay taxes to compensate the few who are losing. No compensation infrastructure is built. $t = 2$: $\omega_2 = 0.40$, massive displacement. Protest rises immediately ($C_D$ low). The incumbent sees the crisis and passes a law ($\text{comp}_2 = 1$) --- but the lag means $\varphi_3 = 1$, which has no effect in the two-period model. No compensation is available ($\varphi_2 = 0$). Protest exceeds $\bar{\pi}_D^{\text{fall}} = 0.40$. **Falls.**
+
+- *Autocracy, threshold automation.* $t = 1$: $\omega_1 = 0.05$. Calm. No displacement, no protest, no action. $t = 2$: $\omega_2 = 0.40$. Massive and sudden displacement. The crisis is so large that it is visible even to the autocratic elite --- GDP collapses, the shock is undeniable. Unlike the moderate accumulated crisis under rapid displacement, this shock is *self-revealing*: its magnitude overwhelms the informational filters. The elite authorizes spending. The autocrat compensates by decree ($\text{comp}_2 = 1$, $\varphi_2 = 1$, no lag). Displaced workers receive $B$, expressive value drops, protest falls below $\bar{\pi}_A^{\text{fall}}$. **Stable.**
+
+Same displacement probability ($\omega_H = 0.40$), opposite outcomes by regime and trajectory. The crossed fragility pattern emerges from the interaction of three regime characteristics --- informational quality, institutional speed, and fiscal authorization --- with two temporal profiles of displacement.
+
+[FIGURE PLACEHOLDER: Four-scenario summary. 2x2 table or diagram: regime (D, A) x trajectory (rapid, threshold), showing key quantities (Omega_2, v, phi, pi, outcome) for each cell.]
 
 # Results
 
