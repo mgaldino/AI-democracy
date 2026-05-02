@@ -207,7 +207,98 @@ Same displacement probability ($\omega_H = 0.40$), opposite outcomes by regime a
 
 # Results
 
-[PLACEHOLDER — Sec 4: new propositions. Dictator's dilemma (Lemma 1), absorptive composition (Lemma 2), compensation zone, crossed fragility, welfare cost, comparative statics.]
+## Informational asymmetry
+
+Before deriving the main results, we establish two structural lemmas that drive the crossed fragility pattern.
+
+**Lemma 1 (Dictator's dilemma).** *The informativeness of aggregate protest about the underlying displacement rate is decreasing in the cost of protest:*
+$$I(C_x) \equiv \left|\frac{\partial \pi^*}{\partial \omega}\right| \text{ is decreasing in } C_x$$
+*Consequently, the autocratic incumbent requires a higher displacement rate to trigger compensation: $\bar{\omega}_A^{\text{comp}} > \bar{\omega}_D^{\text{comp}}$.*
+
+*Proof sketch.* When $C_x$ is high, few workers protest regardless of $\omega$: the equilibrium mapping $\pi^*(\omega)$ is flat. Small changes in the true displacement rate produce negligible changes in observed protest. The incumbent, who infers $\omega$ from $\pi$ via Bayes' rule, cannot distinguish high-displacement states from low-displacement ones. The posterior $P(\theta \mid \pi)$ barely departs from the prior, and $P(N \mid \pi_A) \approx p_N$ remains high. The perceived benefit of compensation $\Delta P$ is small relative to the cost $\hat{\omega} \cdot B$, and the compensation threshold $\bar{\omega}_x^{\text{comp}}$ is high. Conversely, when $C_x$ is low (democracy), the mapping is steep, variations in $\omega$ produce large variations in $\pi$, and the incumbent updates substantially. $\blacksquare$
+
+Lemma 1 formalizes the dictator's dilemma as an informational consequence, not a behavioral one. The autocratic incumbent is fully rational --- the problem is not irrationality but signal suppression. The same Bayesian rule that leads the democratic incumbent to compensate leads the autocratic incumbent not to, because the data (observed protest) are less informative.
+
+## Absorptive composition
+
+**Remark 1 (Absorptive composition).** *Since displacement is absorbing, the total fraction of displaced workers in $t = 2$ is strictly higher under rapid displacement than under threshold automation:*
+$$\Omega_2^{\text{rapid}} = \omega_H(2 - \omega_H) > \omega_L + (1 - \omega_L)\omega_H = \Omega_2^{\text{threshold}}$$
+*For the same expressive value $v$ and the same protest cost $C_x$: $\pi^{\text{rapid}}_{t=2} > \pi^{\text{threshold}}_{t=2}$.*
+
+*Proof.* Under rapid displacement, a fraction $\omega_H$ is displaced in $t = 1$ and remains displaced; of the remaining $1 - \omega_H$, a fraction $\omega_H$ is newly displaced in $t = 2$. Total: $\omega_H + (1 - \omega_H)\omega_H = \omega_H(2 - \omega_H)$. Under threshold, only $\omega_L$ is displaced in $t = 1$; in $t = 2$, $\omega_H$ of the remaining $1 - \omega_L$ are displaced. Total: $\omega_L + (1 - \omega_L)\omega_H$. Since $\omega_H > \omega_L$: $\omega_H(2 - \omega_H) - [\omega_L + (1 - \omega_L)\omega_H] = (\omega_H - \omega_L)(1 - \omega_H) > 0$. Aggregate protest is increasing in the fraction of displaced workers (each displaced worker has $v > 0$, each employed worker has $v \approx 0$), so $\pi$ is higher under rapid. $\blacksquare$
+
+Remark 1 is symmetric: it applies identically in both regimes. The difference in accumulated displacement is a purely mechanical consequence of absorptive job loss and the timing of shocks. It does not depend on regime type.
+
+## Crossed fragility
+
+**Proposition 1 (Democratic fragility pattern).** *Under A1--A7:*
+
+*(a) Democracy is stable under rapid displacement.*
+
+*(b) Democracy is unstable under threshold automation.*
+
+*Proof.* (a) *Rapid.* In $t = 1$, $\omega_1 = \omega_H$ generates substantial displacement. With $C_D$ low, protest is large and informative (Lemma 1). The democratic incumbent infers the crisis and enacts compensation ($\text{comp}_1 = 1$). Due to the institutional lag, $\varphi_2 = 1$ but $\varphi_1 = 0$. However, the credible legislative commitment (law passed, not merely announced) reduces workers' expected future loss: $E[1 - y_{i2}] = 1 - B$ instead of 1. This lowers $v_i$ in $t = 1$, and protest remains below $\bar{\pi}_D^{\text{fall}}$. In $t = 2$, compensation is active: $v = 1 - B < 1$, and protest is contained.
+
+(b) *Threshold.* In $t = 1$, $\omega_1 = \omega_L$. Few workers are displaced. Employed workers are prospering from AI complementarity. No protest, no signal, no legislative action. The selectorate (voters) does not authorize spending: the majority is not suffering and does not want to pay. No compensation infrastructure is built. In $t = 2$, $\omega_2 = \omega_H$: massive displacement. Protest rises ($C_D$ low), and the incumbent sees the crisis. But $\text{comp}_2 = 1$ yields $\varphi_3 = 1$ (lag), which has no effect in the two-period model. With $\varphi_2 = 0$ and $v = 1$, protest exceeds $\bar{\pi}_D^{\text{fall}}$. $\blacksquare$
+
+Democratic failure under threshold automation is primarily a timing mechanism reinforced by fiscal politics: the crisis arrives after the compensatory window has closed, and the prosperity of the complementary phase actively blocked preventive investment.
+
+**Proposition 2 (Autocratic fragility pattern).** *Under A1--A7:*
+
+*(a) Autocracy is unstable under rapid displacement.*
+
+*(b) Autocracy is stable under threshold automation.*
+
+*Proof.* (a) *Rapid.* In $t = 1$, $\omega_1 = \omega_H$. High protest cost ($C_A$) suppresses protest; $\pi_A$ is low and uninformative (Lemma 1). The elite does not perceive a crisis. No compensation. Displaced workers accumulate. In $t = 2$, $\Omega_2 = \omega_H(2 - \omega_H)$ (Remark 1). The accumulated stock of displaced workers generates protest that, even at high $C_A$, exceeds the low institutional resilience $\bar{\pi}_A^{\text{fall}}$. The crisis is *moderate and accumulated* --- not massive enough to penetrate the elite's informational bubble (the elite could still attribute it to normal economic fluctuation). Without compensation, the regime falls.
+
+(b) *Threshold.* In $t = 1$, $\omega_1 = \omega_L$: calm. No crisis, no protest, no action needed. In $t = 2$, $\omega_2 = \omega_H$: massive, sudden displacement. Unlike the accumulated crisis under rapid displacement, this shock is *self-revealing* --- its magnitude overwhelms the informational filters that normally insulate the autocratic selectorate. The elite sees the crisis and authorizes spending. The autocrat compensates by decree ($\text{comp}_2 = 1$, $\varphi_2 = 1$, no lag). Displaced workers receive $B$; $v$ drops to $1 - B$; protest falls below $\bar{\pi}_A^{\text{fall}}$. $\blacksquare$
+
+The asymmetry between P2(a) and P2(b) is not about the total amount of displacement --- it is about *visibility to the elite*. Rapid displacement accumulates invisibly (moderate protest each period, never large enough to alarm the elite). Threshold displacement arrives all at once, too large to ignore.
+
+**Definition.** The model exhibits *crossed fragility* when democracy is stable under one trajectory and unstable under the other, while autocracy exhibits the reverse pattern.
+
+**Proposition 3 (Crossed fragility).** *Under A1--A7, there exist parameter ranges for $(C_A, C_D, \bar{\pi}_D^{\text{fall}}, \bar{\pi}_A^{\text{fall}}, \omega_H, \omega_L, B)$ such that: (a) under rapid displacement, democracy is stable and autocracy is unstable; (b) under threshold automation, democracy is unstable and autocracy is stable.*
+
+*Proof.* Combines P1 and P2. The crossed pattern requires five conditions to hold simultaneously:
+
+(i) Democracy survives rapid $t = 1$: the credible legislative commitment reduces $v$, keeping protest below $\bar{\pi}_D^{\text{fall}}$.
+
+(ii) Democracy falls under threshold $t = 2$: without compensation ($\varphi_2 = 0$), protest exceeds $\bar{\pi}_D^{\text{fall}}$.
+
+(iii) Autocracy falls under rapid $t = 2$: accumulated displacement ($\Omega_2^{\text{rapid}}$) generates protest exceeding $\bar{\pi}_A^{\text{fall}}$, and the crisis is too moderate to trigger elite authorization.
+
+(iv) Autocracy survives threshold $t = 2$: the crisis is massive enough to penetrate the elite's informational bubble, triggering compensation by decree.
+
+(v) Both regimes survive $t = 1$ under threshold: $\omega_L$ generates negligible displacement.
+
+These conditions are jointly satisfiable for a non-degenerate set of parameters. The numerical example in Section 3.8 provides one such parameterization. The result is not knife-edge: it holds for an open set in parameter space, because conditions (iii) and (iv) separate via the nature of the shock (gradual/invisible vs. massive/self-revealing), not merely via the displacement level. $\blacksquare$
+
+[FIGURE PLACEHOLDER: Crossed fragility pattern. 2x2 table: regime (Democracy, Autocracy) x trajectory (Rapid, Threshold). Green = stable, red = unstable. Annotations showing which lemma/mechanism drives each cell.]
+
+## Welfare comparison
+
+**Proposition 4 (Welfare cost of autocratic stability).** *Conditional on regime survival under their respective favorable trajectories, workers' welfare is strictly higher in democracy than in autocracy:*
+$$u_E^D(\text{rapid, stable}) - u_E^A(\text{threshold, stable}) = (1 - B)(1 - \omega_H) \cdot [\Omega_2^R - \Omega_2^T] \geq 0$$
+*with strict inequality whenever $\omega_H > \omega_L$.*
+
+*Proof.* When democracy survives rapid displacement ($t = 2$): all displaced workers receive $B$; average income is $(1 - \Omega_2^R) + B \cdot \Omega_2^R = 1 - (1 - B)\Omega_2^R$. When autocracy survives threshold ($t = 2$): displaced workers also receive $B$ (elite authorized); average income is $1 - (1 - B)\Omega_2^T$. The difference is $(1 - B)(\Omega_2^R - \Omega_2^T) > 0$ by Remark 1. Democratic citizens bear a larger displacement burden (higher $\Omega_2$) but receive the same compensation rate. $\blacksquare$
+
+Note: In the reformulated model, both surviving regimes compensate workers in their favorable scenario. The welfare gap comes from *composition* (more workers are displaced under rapid than under threshold in $t = 2$), not from the absence of compensation. This contrasts with the original model, where the welfare gap came from autocracies not compensating at all.
+
+## Comparative statics
+
+| Parameter | Effect | Interpretation |
+|-----------|--------|---------------|
+| $C_A \uparrow$ | $I(C_A) \downarrow$, $\bar{\omega}_A^{\text{comp}} \uparrow$ | Dictator's dilemma deepens; autocracy more vulnerable to gradual shocks |
+| $C_A / C_D \uparrow$ | Crossed pattern widens | Informational gap between regimes grows |
+| $\bar{\pi}_D^{\text{fall}} \uparrow$ | Democracy more resilient | Absorbs more protest before destabilizing |
+| $\bar{\pi}_A^{\text{fall}} \downarrow$ | Autocracy more fragile | Less protest needed to topple regime |
+| $\omega_H \uparrow$ | Both regimes more stressed | Higher displacement in crisis periods |
+| $\omega_L \downarrow$ | Prosperity trap deepens | More prosperity in complementary phase, stronger political blocking |
+| $B \uparrow$ | Both regimes more stable when compensating | Higher compensation reduces $v$ more |
+| $\delta \uparrow$ | Credible commitment more valuable | Workers who value the future respond more to legislative promises |
+
+[FIGURE PLACEHOLDER: Comparative statics plots. Panel A: pi*(omega) curves for democracy vs autocracy, showing informational asymmetry. Panel B: Stability regions as function of C_A/C_D and omega_H.]
 
 # Extension: Policy Implications
 
