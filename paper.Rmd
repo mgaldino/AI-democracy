@@ -271,11 +271,9 @@ Remark 1 is symmetric: it applies identically in both regimes. The difference in
 
 *(b) Democracy is unstable under threshold automation.*
 
-*Proof.* (a) *Rapid.* In $t = 1$, $\omega_1 = \omega_R$ generates substantial displacement. With $C_D$ low, protest exceeds $\bar{\pi}_D^{\text{comp}}$ (voice trigger): the legislature passes a compensation law ($\text{comp}_1 = 1$). Due to the institutional lag, $\varphi_2 = 1$ but $\varphi_1 = 0$. However, the credible legislative commitment (law passed, not merely announced) reduces workers' expected future loss: $E[1 - y_{i2}] = 1 - B$ instead of 1. This lowers $v_i$ in $t = 1$, and protest remains below $\bar{\pi}_D^{\text{fall}}$. In $t = 2$, compensation is active: $v = 1 - B < 1$, and protest is contained.
+*Proof.* (a) *Rapid.* $\omega_R > \bar{\omega}_D$ triggers compensation via voice (Lemma 1). Institutional lag: $\varphi_1 = 0$, $\varphi_2 = 1$. Credible commitment reduces $v_{i1}$, keeping $\pi_1 < \bar{\pi}_D^{\text{fall}}$. In $t = 2$, $v = 1 - B$, protest contained.
 
-(b) *Threshold.* In $t = 1$, $\omega_1 = \omega_{T1}$. Few workers are displaced. Non-displaced workers earn $Y^+ = 1 + \gamma$ from AI complementarity. Protest is negligible ($\pi_1 < \bar{\pi}_D^{\text{comp}}$): no voice trigger. Moreover, the prospering majority opposes taxation --- workers earning $Y^+$ face a higher tax burden and vote against compensation. No law is passed, no infrastructure is built. In $t = 2$, $\omega_2 = \omega_{T2}$: massive displacement. Protest rises ($C_D$ low), and $\pi_2 > \bar{\pi}_D^{\text{comp}}$: the legislature passes a law. But $\text{comp}_2 = 1$ yields $\varphi_3 = 1$ (lag), with no effect in the two-period model. With $\varphi_2 = 0$ and $v = 1$, protest exceeds $\bar{\pi}_D^{\text{fall}}$. $\blacksquare$
-
-Democratic failure under threshold automation is primarily a timing mechanism reinforced by fiscal politics: the crisis arrives after the compensatory window has closed, and the prosperity of the complementary phase actively blocked preventive investment.
+(b) *Threshold.* In $t = 1$, $\omega_{T1}$ small, $Y^+ = 1 + \gamma$: no voice trigger ($\pi_1 < \bar{\pi}_D^{\text{comp}}$), majority opposes taxation (A9). In $t = 2$, $\omega_{T2}$ triggers voice but lag nullifies ($\varphi_2 = 0$). With $v = 1$, $\pi_2 > \bar{\pi}_D^{\text{fall}}$. $\blacksquare$
 
 **Proposition 2 (Autocratic fragility pattern).** *Under A1--A7:*
 
@@ -283,11 +281,11 @@ Democratic failure under threshold automation is primarily a timing mechanism re
 
 *(b) Autocracy is stable under threshold automation.*
 
-*Proof.* (a) *Rapid.* In $t = 1$, $\omega_1 = \omega_R$. The elite's economic assessment $\tilde{\omega}_S = \omega_R + \sigma_A \zeta$ does not exceed $\bar{\omega}_A$ with high probability (Lemma 1: $\omega_R < \bar{\omega}_A$). The elite does not perceive a crisis sufficient to justify fiscal spending. No compensation. Displaced workers accumulate. In $t = 2$, $\Omega_2 = \omega_R(2 - \omega_R)$ (Remark 1). The elite's assessment of $\omega_R$ again falls below $\bar{\omega}_A$ --- the crisis is *moderate*, not massive, and the noisy signal cannot distinguish it from normal fluctuation. But the accumulated stock of displaced workers generates protest that, even at high $C_A$, exceeds the low institutional resilience $\bar{\pi}_A^{\text{fall}}$. Without compensation, the regime falls.
+*Proof.* (a) *Rapid.* $\omega_R < \bar{\omega}_A(\sigma_A)$ (Lemma 1(a)): elite does not authorize. No compensation. Displacement accumulates: $\Omega_2 = \omega_R(2 - \omega_R)$ (Remark 1). Protest exceeds $\bar{\pi}_A^{\text{fall}}$ (Corollary 1: $C_A$ in sweet spot). Regime falls.
 
-(b) *Threshold.* In $t = 1$, $\omega_1 = \omega_{T1}$: calm. No crisis. In $t = 2$, $\omega_2 = \omega_{T2}$: massive, sudden displacement. The elite's assessment $\tilde{\omega}_S = \omega_{T2} + \sigma_A \zeta$ exceeds $\bar{\omega}_A$ with high probability (Lemma 1: $\omega_{T2} > \bar{\omega}_A$). The crisis is so large that it overwhelms the noise in the elite's channels. The elite authorizes spending. The autocrat compensates by decree ($\text{comp}_2 = 1$, $\varphi_2 = 1$, no lag). Displaced workers receive $B$; $v$ drops to $1 - B$; protest falls below $\bar{\pi}_A^{\text{fall}}$. $\blacksquare$
+(b) *Threshold.* In $t = 1$, calm. In $t = 2$, $\omega_{T2} > \bar{\omega}_A(\sigma_A)$ (Lemma 1(b)): elite authorizes. Decree: $\varphi_2 = 1$. $v = 1 - B$, $\pi < \bar{\pi}_A^{\text{fall}}$. $\blacksquare$
 
-The asymmetry between P2(a) and P2(b) is not about the total amount of displacement --- it is about *visibility to the elite*. Rapid displacement accumulates invisibly (moderate protest each period, never large enough to alarm the elite). Threshold displacement arrives all at once, too large to ignore.
+The asymmetry is about *visibility to the elite*: moderate crises accumulate invisibly; massive crises are self-revealing (see Section 2.3 for the verbal walkthrough and Table 2 for the numerical verification).
 
 **Definition.** The model exhibits *crossed fragility* when democracy is stable under one trajectory and unstable under the other, while autocracy exhibits the reverse pattern.
 
