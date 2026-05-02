@@ -241,9 +241,19 @@ Opposite outcomes by regime and trajectory, despite both trajectories eventually
 
 # Results
 
+## Equilibrium existence
+
+**Lemma 0 (Existence and uniqueness).** *Under A1--A3 with $h(\pi) = \pi$ and $F$ logistic, for each regime $x$ and period $t$:*
+
+*(a) At least one cutoff equilibrium $s_x^*$ exists.*
+
+*(b) For $\sigma$ sufficiently small relative to the state separation $\min_{\theta \neq \theta'} |\omega_t(\theta) - \omega_t(\theta')|$, the equilibrium is unique.*
+
+*Proof sketch.* Define $G(s) = \sum_\theta P(\theta \mid d = 1, s) \cdot \Omega_t(\theta) \cdot \Lambda((\omega_t(\theta) - s)/\sigma) - \bar{h}$. As $s \to +\infty$: $\Lambda \to 0$, so $G \to -\bar{h} < 0$. As $s \to -\infty$: $G \to \Omega_t(\theta^*) - \bar{h}$ where $\theta^*$ has the largest $\omega_t$; generically positive. By the IVT, a zero exists. Uniqueness for small $\sigma$: the states are well-separated, $G$ becomes a smoothed step function with a single zero-crossing in each inter-state interval [@MorrisShin2003]. $\blacksquare$
+
 ## Informational asymmetry
 
-Before deriving the main results, we establish two structural lemmas that drive the crossed fragility pattern.
+We now establish the structural results that drive the crossed fragility pattern.
 
 **Lemma 1 (Dictator's dilemma).** *Under A8, the autocratic evidence threshold $\bar{\omega}_A(\sigma_A)$ is increasing in $\sigma_A$. For $\sigma_A > \underline{\sigma}$:*
 
@@ -321,13 +331,12 @@ These conditions are jointly satisfiable for a non-degenerate set of parameters.
 
 ## Welfare comparison
 
-**Proposition 4 (Welfare cost of autocratic stability).** *Conditional on regime survival under their respective favorable trajectories, workers' welfare is strictly higher in democracy than in autocracy:*
-$$u_E^D(\text{rapid, stable}) - u_E^A(\text{threshold, stable}) = (1 - B)(1 - \omega_H) \cdot [\Omega_2^R - \Omega_2^T] \geq 0$$
-*with strict inequality whenever $\omega_H > \omega_L$.*
+**Proposition 4 (Welfare advantage of democratic stability).** *Conditional on regime survival under their respective favorable trajectories, workers' welfare is strictly higher in democracy than in autocracy:*
+$$u_E^D(\text{rapid, stable}) - u_E^A(\text{threshold, stable}) = (1 - B)(\Omega_2^T - \Omega_2^R) > 0$$
 
-*Proof.* When democracy survives rapid displacement ($t = 2$): all displaced workers receive $B$; average income is $(1 - \Omega_2^R) + B \cdot \Omega_2^R = 1 - (1 - B)\Omega_2^R$. When autocracy survives threshold ($t = 2$): displaced workers also receive $B$ (elite authorized); average income is $1 - (1 - B)\Omega_2^T$. The difference is $(1 - B)(\Omega_2^R - \Omega_2^T) > 0$ by Remark 1. Democratic citizens bear a larger displacement burden (higher $\Omega_2$) but receive the same compensation rate. $\blacksquare$
+*Proof.* When democracy survives rapid displacement ($t = 2$): all displaced workers receive $B$; average income is $1 - (1 - B)\Omega_2^R$. When autocracy survives threshold ($t = 2$): displaced workers also receive $B$ (elite authorized); average income is $1 - (1 - B)\Omega_2^T$. Since $\Omega_2^T > \Omega_2^R$ (with v5 parameters: $0.62 > 0.51$, because the massive threshold shock $\omega_{T2}$ more than compensates for lower accumulation from $t = 1$): more workers are displaced in the autocratic survival scenario. The difference is $(1 - B)(\Omega_2^T - \Omega_2^R) = 0.4 \times 0.11 = 0.044 > 0$. $\blacksquare$
 
-Both surviving regimes compensate workers in their favorable scenario. The welfare gap comes from *composition* --- more workers are displaced under rapid than under threshold in $t = 2$ (Remark 1) --- not from the absence of compensation.
+Both surviving regimes compensate workers. The welfare gap comes from *composition*: the autocratic survival scenario (threshold) involves more total displacement than the democratic one (rapid), because $\omega_{T2} \gg \omega_R$.
 
 ## Comparative statics
 
