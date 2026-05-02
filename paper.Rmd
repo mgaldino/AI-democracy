@@ -170,7 +170,17 @@ Within each period $t$:
 
 The two periods should be read as two politically distinct moments, not as fixed calendar intervals. Period 1 captures the initial response to automation; period 2 captures the accumulated consequences.
 
-[FIGURE PLACEHOLDER: Game timeline showing the 7 steps within each period under both trajectories. Two columns (rapid vs threshold), rows for each step.]
+**Table 1: Game timeline within each period.**
+
+| Step | Action | Democracy | Autocracy |
+|:----:|--------|-----------|-----------|
+| 1 | Displacement realized | $d_{it} \sim \text{Bern}(\omega_t)$ | $d_{it} \sim \text{Bern}(\omega_t)$ |
+| 2 | Signals observed | $(d_{it}, s_{it})$ | $(d_{it}, s_{it})$ |
+| 3 | Protest | $\pi_t = \int a_{it}\,di$ | $\pi_t = \int a_{it}\,di$ |
+| 4 | Comp. trigger | Voice: $\pi_t > \bar{\pi}_D^{\text{comp}}$? | Assessment: $\tilde{\omega}_S > \bar{\omega}_A$? |
+| 5 | If triggered | $\varphi_{t+1} = 1$ (lag) | $\varphi_t = 1$ (immediate) |
+| 6 | Fall check | $\pi_t > \bar{\pi}_D^{\text{fall}}$ and $\varphi_t = 0$? | $\pi_t > \bar{\pi}_A^{\text{fall}}$ and $\varphi_t = 0$? |
+| 7 | Payoffs | $y_{it}$ realized | $y_{it}$ realized |
 
 ## Assumptions
 
@@ -210,7 +220,12 @@ Consider the four scenarios:
 
 Opposite outcomes by regime and trajectory, despite both trajectories eventually reaching high displacement. The crossed fragility pattern emerges from the interaction of three regime characteristics --- informational quality, institutional speed, and fiscal authorization --- with two temporal profiles of displacement.
 
-[FIGURE PLACEHOLDER: Four-scenario summary. 2x2 table or diagram: regime (D, A) x trajectory (rapid, threshold), showing key quantities (Omega_2, v, phi, pi, outcome) for each cell.]
+**Table 2: Four-scenario summary (numerical example).**
+
+| | Rapid ($\omega_R = 0.30$) | Threshold ($\omega_{T1} = 0.05$, $\omega_{T2} = 0.60$) |
+|:---:|:---:|:---:|
+| **Democracy** | $\Omega_2 = 0.51$, comp $t=1$ (lag), $\varphi_2 = 1$, $v = 0.4$ $\to$ **STABLE** | $\Omega_2 = 0.62$, no comp $t=1$ ($Y^+ = 1.3$), lag $t=2$, $\varphi_2 = 0$, $v = 1$ $\to$ **FALLS** |
+| **Autocracy** | $\Omega_2 = 0.51$, $\tilde{\omega}_S < \bar{\omega}_A$, no comp, $\pi > 0.05$ $\to$ **FALLS** | $\Omega_2 = 0.62$, $\tilde{\omega}_S > \bar{\omega}_A$, comp by decree, $v = 0.4$ $\to$ **STABLE** |
 
 # Results
 
@@ -282,7 +297,14 @@ The asymmetry between P2(a) and P2(b) is not about the total amount of displacem
 
 These conditions are jointly satisfiable for a non-degenerate set of parameters. The numerical example in Section 3.8 provides one such parameterization. The result is not knife-edge: it holds for an open set in parameter space, because conditions (iii) and (iv) separate via the nature of the shock (gradual/invisible vs. massive/self-revealing), not merely via the displacement level. $\blacksquare$
 
-[FIGURE PLACEHOLDER: Crossed fragility pattern. 2x2 table: regime (Democracy, Autocracy) x trajectory (Rapid, Threshold). Green = stable, red = unstable. Annotations showing which lemma/mechanism drives each cell.]
+**Table 3: Crossed fragility pattern (Proposition 3).**
+
+| | Rapid | Threshold |
+|:---:|:---:|:---:|
+| **Democracy** | **Stable** (voice $\to$ comp $\to$ lag OK) | **Unstable** (prosperity trap + lag fatal) |
+| **Autocracy** | **Unstable** (elite blind $\to$ no comp $\to$ accumulates) | **Stable** (self-revealing $\to$ decree $\to$ immediate) |
+
+*Mechanism per cell:* D$\times$R: Lemma 1 ($\bar{\omega}_D < \omega_R$) + speed lag tolerable. A$\times$R: Lemma 1 ($\omega_R < \bar{\omega}_A$) + Remark 1 (accumulation). D$\times$T: A9 ($Y^+$ blocks) + lag fatal. A$\times$T: A8 ($\omega_{T2} > \bar{\omega}_A$) + decree.
 
 ## Welfare comparison
 
@@ -309,7 +331,7 @@ Both surviving regimes compensate workers in their favorable scenario. The welfa
 | $B \uparrow$ | Both regimes more stable when compensating | Higher compensation reduces $v$ more |
 | $\delta \uparrow$ | Credible commitment more valuable | Workers who value the future respond more to legislative promises |
 
-[FIGURE PLACEHOLDER: Comparative statics plots. Panel A: Stability regions as function of C_A and sigma_A. Panel B: Effect of gamma on democratic compensation trigger under threshold t=1.]
+![Equilibrium protest under rapid $t=2$ as a function of $C_A$ (single-state approximation). The sweet spot $(C_D, C_A^{\text{dom}})$ is shaded: protest exceeds $\bar{\pi}_A^{\text{fall}}$ inside the interval and drops to zero outside. Parameters: $\omega_R = 0.30$, $\Omega_2^R = 0.51$, $v = 1$, $\bar{\pi}_A^{\text{fall}} = 0.05$.](figures/fig_CA_sweet_spot.pdf){width=85%}
 
 ## The sweet spot of autocratic repression
 
@@ -349,7 +371,7 @@ But when the crisis is catastrophic ($\omega_{T2}$), it pierces even the deepest
 
 Reducing selectorate size deepens both the blindness and the speed, amplifying the crossed fragility pattern. This is the formal content of the claim that one meta-primitive --- selectorate size --- generates the entire result. Remove the selectorate difference ($\sigma_A \to \sigma_D$, $C_A \to C_D$, lag eliminated) and the regimes become identical. Crossed fragility vanishes.
 
-[FIGURE PLACEHOLDER: sigma_A amplification. Panel A: p_R and p_T as functions of sigma_A, showing gap widening. Panel B: Crossed fragility interval expanding with sigma_A.]
+![Selectorate size amplification (Proposition 5). Panel A: elite approval probability under rapid ($p_R$, red) and threshold ($p_T$, blue) as functions of $\sigma_A$. As $\sigma_A$ increases, $p_R$ falls (elite misses moderate crises) while $p_T$ remains high (massive crises pierce the bubble). Panel B: the evidence threshold $\bar{\omega}_A$ rises with $\sigma_A$, expanding the crossed fragility interval (shaded).](figures/fig_sigma_amplification.pdf){width=85%}
 
 # Extension: Policy Implications
 
