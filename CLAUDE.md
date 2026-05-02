@@ -6,6 +6,13 @@ Paper teórico-formal na tradição OEP sobre como trajetórias de automação p
 
 **Benchmark de exposição**: Hirsch & Shotts (2025) AJPS; Myerson (2008) APSR. Ver `Papers/references/benchmark_library.md` Gênero 1.
 
+**Materiais de referência**:
+- `notes/lit-review-tech-shocks-politics.md` — lit review sistemática: 5 eixos (regimes, eleições, redistribuição, protesto, captura), ~30 papers
+- `notes/calibration_literature.md` — valores empíricos para parâmetros do modelo (ω_R, ω_T2, C_A/C_D, σ_A/σ_D, B, δ), já na notação do modelo reformulado
+- `notes/dasgupta-ramirez-2025-relevance.md` — evidência empírica do mecanismo threshold
+- `notes/finseraas-nyhus-2025-relevance.md` — evidência da armadilha da prosperidade
+- `notes/policy-implications-draft.md` — notas de policy implications (draft, precisa rechecar contra modelo final)
+
 ## Pergunta central
 
 > Dadas duas trajetórias de automação — deslocamento rápido vs. threshold (O-Ring) — qual tipo de regime é mais frágil sob cada cenário, e por quê?
