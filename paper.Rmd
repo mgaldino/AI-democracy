@@ -383,7 +383,17 @@ Reducing selectorate size deepens both the blindness and the speed, amplifying t
 
 # Extension: Policy Implications
 
-[PLACEHOLDER — deferred. Notes in notes/policy-implications-draft.md.]
+The crossed fragility pattern generates distinct policy implications depending on the expected scale of AI displacement.
+
+**Remark 2 (Standing compensatory capacity).** *A democracy with pre-committed social insurance ($\varphi_0 \geq 1$, standing compensation that activates automatically based on displacement indicators rather than protest) is stable under both trajectories.* This follows immediately: if compensation does not require the voice trigger, the prosperity trap is bypassed. Pre-committed insurance is the democratic analogue of autocratic speed --- it removes the institutional lag from the response.
+
+**If AI displacement is moderate** (comparable to historical technological transitions, $\omega_R \approx 0.03$/year), the model implies that only democracies face a specific vulnerability: threshold automation in sectors with high task complementarity (O-Ring structure). The policy recommendation is to build automatic compensation triggers tied to sector-level displacement indicators --- unemployment insurance that activates when displacement in a sector exceeds a predetermined threshold, without requiring legislative action. The point is to bypass the voice mechanism: democracy fails under threshold precisely because protest arrives late. Automatic triggers pre-commit the response.
+
+**If AI displacement is unprecedented** (general-purpose, faster than historical precedent, $\omega_R \gg 0.03$/year), both regimes are vulnerable, each to the opposite trajectory. Two additional implications emerge:
+
+- *For democracies:* the same recommendation (automatic triggers) becomes more urgent. Policymakers should monitor sectors with high task complementarity --- healthcare, law, engineering, software development --- where AI is currently complementing labor and raising productivity. These are the sectors where the threshold shock will arrive, and the prosperity of the complementary phase is precisely what makes preventive investment politically difficult [@FinseraasNyhus2025].
+
+- *For those monitoring autocracies:* if displacement rates under gradual automation reach levels that overwhelm repressive capacity ($\Omega_2 > \bar{\pi}_A^{\text{fall}} / P(\text{protest} \mid \text{displaced})$), windows of opportunity open for democratic transition. The mechanism is accumulated displacement that the elite cannot see. External actors (international organizations, civil society, diplomatic pressure) may find their interventions more effective during periods of high accumulated displacement under gradual automation --- precisely because the autocratic elite underestimates the crisis.
 
 # Discussion
 
