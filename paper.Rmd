@@ -18,7 +18,7 @@ abstract: |
 
 The economic consequences of AI are the subject of intense debate. Leading AI executives predict rapid, large-scale displacement: Dario Amodei, CEO of Anthropic, warns that AI could eliminate half of all entry-level white-collar jobs within five years [@Amodei2026]; Sam Altman, CEO of OpenAI, told the United States Senate that AI will cause "significant change in labor markets," including substantial job displacement [@Altman2023]. Industry reports project that up to 300 million jobs worldwide are exposed to automation by generative AI [@BriggsKodnani2023]. On the other side, economists point out that automation has historically complemented labor before displacing it, creating new tasks that absorb displaced workers [@Autor2015; @AcemogluRestrepo2019]. Recent estimates suggest that AI's aggregate productivity gains may be far more modest than industry projections imply [@Acemoglu2025]. Both sides focus on the economic outcome --- how many jobs, how fast, at what wage. We ask a different question: what are the *political* consequences of these two economic scenarios? We show that the answer depends not on the magnitude of displacement but on its trajectory, and that the same trajectory stabilizes one type of political regime while destabilizing the other.
 
-Imagine two scenarios. In one, AI displaces workers gradually across sectors: displacement is moderate, persistent, and visible from the start. In the other, AI first makes workers more productive --- incomes rise, firms expand --- until capabilities cross a threshold and entire job categories vanish overnight. The first shock is a steady rain; the second is a dam that breaks. The critical difference is not the magnitude of eventual displacement --- it is the same. The difference is that the second scenario is preceded by *prosperity*. And prosperity, we show, is a trap: it eliminates the political demand for the social insurance that would have protected the regime when the dam breaks. We call this the *prosperity trap*, and it is the central mechanism through which threshold automation destabilizes democracies.
+Imagine that AI has raised the productivity of labor. However, in one scenario, the impact on the labor market is smooth --- a few percent displaced per year, steadily, across sectors. Not obviously a crisis, but a slow accumulation of joblessness that does not stop. In the other, AI first complements nearly everyone --- incomes rise, firms expand --- until capabilities cross a threshold and entire job categories vanish overnight. The first shock is a slow leak; the second is a dam that breaks. The critical difference is not the magnitude of eventual displacement --- it is the same. The difference is that the second scenario is preceded by *prosperity*. And prosperity, we show, is a trap: it eliminates the political demand for the social insurance that would have protected the regime when the dam breaks. We call this the *prosperity trap*, and it is the central mechanism through which threshold automation destabilizes democracies.
 
 The political consequences depend on a single institutional difference: the size of the group that keeps the ruler in power --- the selectorate [@BuenoDeMesquita2003]. A large selectorate (democracy) generates good information but slow response; a small selectorate (autocracy) generates poor information but fast response. Each type of crisis exploits the weakness of the opposite regime.
 
@@ -84,11 +84,11 @@ We consider a polity over two periods $t \in \{1, 2\}$ with a continuum of worke
 
 | Type $\theta$ | $\omega_1$ | $\omega_2$ | Interpretation |
 |:---:|:---:|:---:|:---|
-| $R$ (rapid) | $\omega_H$ | $\omega_H$ | Persistent crisis |
-| $T$ (threshold) | $\omega_L$ | $\omega_H$ | Delayed crisis |
-| $N$ (no shock) | $\omega_L$ | $\omega_L$ | Permanent calm |
+| $R$ (rapid) | $\omega_R$ | $\omega_R$ | Persistent moderate crisis |
+| $T$ (threshold) | $\omega_{T1}$ | $\omega_{T2}$ | Calm then massive crisis |
+| $N$ (no shock) | $\omega_N$ | $\omega_N$ | Permanent calm |
 
-where $\omega_H > \omega_L > 0$. Each worker is displaced independently: $d_{it} \sim \text{Bernoulli}(\omega_t)$, i.i.d. conditional on $\omega_t$. Displacement is an absorbing state: once displaced, a worker remains displaced.^[Three states are necessary. With only $\theta \in \{R, T\}$, both types yield $\omega_2 = \omega_H$, so the expected future is identical regardless of the current state --- uncertainty over $\theta$ does not differentiate expectations. The third state $N$ makes the ambiguity genuine: low displacement in $t = 1$ could be "all is well" ($N$) or "a time bomb" ($T$).]
+where $\omega_N < \omega_{T1} < \omega_R < \omega_{T2}$, all in $(0, 1)$. Each worker is displaced independently: $d_{it} \sim \text{Bernoulli}(\omega_t)$, i.i.d. conditional on $\omega_t$. Displacement is an absorbing state: once displaced, a worker remains displaced. The key separation is $\omega_R \ll \omega_{T2}$: rapid displacement is moderate and persistent; threshold displacement is massive and sudden.^[Three states are necessary. With only $\theta \in \{R, T\}$ and $\omega_2 = \omega_{T2}$ under both, the expected future would not differentiate the states. The third state $N$ makes the ambiguity genuine: low displacement in $t = 1$ could be "all is well" ($N$) or "a time bomb" ($T$).]
 
 **Income.** Employment income is normalized to 1. Compensation, when available, pays $B \in (0, 1)$ to each displaced worker. Per-period income is:
 $$y_{it} = (1 - d_{it}) + B \cdot d_{it} \cdot \varphi_t$$
@@ -121,6 +121,8 @@ where $\delta \in (0, 1]$ is the intertemporal discount factor. A displaced, unc
 **Safety in numbers.** The effective cost of protesting depends on how many others are protesting. Worker $i$ protests if:
 $$v_i > C_x \cdot (1 - h(\pi_t))$$
 where $C_x > 0$ is the regime-specific cost of protest, $h(\pi) = \pi$ in the baseline (linear safety in numbers), and $\pi_t = \int a_{it} \, di$ is aggregate protest. Higher participation reduces the effective cost of protesting for each individual --- a standard coordination motive.
+
+**Equilibrium.** The protest game is a global game with strategic complementarities [@MorrisShin2003]. Each worker's best response is a cutoff strategy: protest iff $s_{it} > s_x^*$. We focus on the unique monotone Bayesian Nash equilibrium in cutoff strategies, which exists under A3 (MLRP, full support) and sufficiently precise signals. In this equilibrium, aggregate protest at state $\omega$ is $\pi^*(\omega) = \Omega(\omega) \cdot [1 - F((s_x^* - \omega)/\sigma)]$, where $\Omega(\omega)$ is the fraction of displaced workers and $s_x^*$ is the equilibrium cutoff. The cutoff is determined by the indifference condition of the marginal displaced worker: $v = C_x \cdot (1 - E[\pi \mid s_i = s_x^*])$.
 
 ## Regime differences
 
@@ -194,7 +196,7 @@ The two periods should be read as two politically distinct moments, not as fixed
 
 ## Assumptions
 
-**A1 (Displacement rates).** $\omega_H > \omega_L > 0$, and both are interior: $\omega_H < 1$, $\omega_L > 0$.
+**A1 (Displacement rates).** $\omega_N < \omega_{T1} < \omega_R < \omega_{T2}$, all in $(0, 1)$.
 
 **A2 (Prior includes calm).** $p_N > 0$: there is positive prior probability that no crisis occurs. This is necessary for the dictator's dilemma: without $N$, low protest would unambiguously signal $T$, and the autocratic incumbent would update correctly.
 
@@ -257,17 +259,20 @@ The dictator's dilemma is now a *derived* consequence of informational noise, no
 
 ## Absorptive composition
 
-**Remark 1 (Absorptive composition).** *Since displacement is absorbing, the total fraction of displaced workers in $t = 2$ is strictly higher under rapid displacement than under threshold automation:*
-$$\Omega_2^{\text{rapid}} = \omega_H(2 - \omega_H) > \omega_L + (1 - \omega_L)\omega_H = \Omega_2^{\text{threshold}}$$
-*For the same expressive value $v$ and the same protest cost $C_x$: $\pi^{\text{rapid}}_{t=2} > \pi^{\text{threshold}}_{t=2}$.*
+**Remark 1 (Absorptive composition).** *Since displacement is absorbing, the total fraction of displaced workers in $t = 2$ is:*
+$$\Omega_2^{\text{rapid}} = \omega_R(2 - \omega_R), \qquad \Omega_2^{\text{threshold}} = \omega_{T1} + (1 - \omega_{T1})\omega_{T2}$$
 
-*Proof.* Under rapid displacement, a fraction $\omega_H$ is displaced in $t = 1$ and remains displaced; of the remaining $1 - \omega_H$, a fraction $\omega_H$ is newly displaced in $t = 2$. Total: $\omega_H + (1 - \omega_H)\omega_H = \omega_H(2 - \omega_H)$. Under threshold, only $\omega_L$ is displaced in $t = 1$; in $t = 2$, $\omega_H$ of the remaining $1 - \omega_L$ are displaced. Total: $\omega_L + (1 - \omega_L)\omega_H$. Since $\omega_H > \omega_L$: $\omega_H(2 - \omega_H) - [\omega_L + (1 - \omega_L)\omega_H] = (\omega_H - \omega_L)(1 - \omega_H) > 0$. Aggregate protest is increasing in the fraction of displaced workers (each displaced worker has $v > 0$, each employed worker has $v \approx 0$), so $\pi$ is higher under rapid. $\blacksquare$
+*Proof.* Under rapid, $\omega_R$ displaced in $t = 1$ remain displaced; of the $1 - \omega_R$ remaining, $\omega_R$ are newly displaced in $t = 2$. Under threshold, $\omega_{T1}$ displaced in $t = 1$; in $t = 2$, $\omega_{T2}$ of the remaining $1 - \omega_{T1}$ are displaced. $\blacksquare$
+
+Note: with v5 parameters ($\omega_R = 0.30$, $\omega_{T1} = 0.05$, $\omega_{T2} = 0.60$), $\Omega_2^R = 0.51 < 0.62 = \Omega_2^T$: more workers are displaced under threshold in $t = 2$, because the massive shock ($\omega_{T2} = 0.60$) more than compensates for the lower accumulation from $t = 1$.
 
 Remark 1 is symmetric: it applies identically in both regimes. The difference in accumulated displacement is a purely mechanical consequence of absorptive job loss and the timing of shocks. It does not depend on regime type.
 
 ## Crossed fragility
 
-**Proposition 1 (Democratic fragility pattern).** *Under A1--A7:*
+**Definition.** The model exhibits *crossed fragility* when democracy is stable under one trajectory and unstable under the other, while autocracy exhibits the reverse pattern.
+
+**Proposition 1 (Democratic fragility pattern).** *Under A1--A9:*
 
 *(a) Democracy is stable under rapid displacement.*
 
@@ -277,7 +282,7 @@ Remark 1 is symmetric: it applies identically in both regimes. The difference in
 
 (b) *Threshold.* In $t = 1$, $\omega_{T1}$ small, $Y^+ = 1 + \gamma$: no voice trigger ($\pi_1 < \bar{\pi}_D^{\text{comp}}$), majority opposes taxation (A9). In $t = 2$, $\omega_{T2}$ triggers voice but lag nullifies ($\varphi_2 = 0$). With $v = 1$, $\pi_2 > \bar{\pi}_D^{\text{fall}}$. $\blacksquare$
 
-**Proposition 2 (Autocratic fragility pattern).** *Under A1--A7:*
+**Proposition 2 (Autocratic fragility pattern).** *Under A1--A9:*
 
 *(a) Autocracy is unstable under rapid displacement.*
 
@@ -289,9 +294,7 @@ Remark 1 is symmetric: it applies identically in both regimes. The difference in
 
 The asymmetry is about *visibility to the elite*: moderate crises accumulate invisibly; massive crises are self-revealing (see Section 2.3 for the verbal walkthrough and Table 2 for the numerical verification).
 
-**Definition.** The model exhibits *crossed fragility* when democracy is stable under one trajectory and unstable under the other, while autocracy exhibits the reverse pattern.
-
-**Proposition 3 (Crossed fragility).** *Under A1--A7, there exist parameter ranges for $(C_A, C_D, \bar{\pi}_D^{\text{fall}}, \bar{\pi}_A^{\text{fall}}, \omega_H, \omega_L, B)$ such that: (a) under rapid displacement, democracy is stable and autocracy is unstable; (b) under threshold automation, democracy is unstable and autocracy is stable.*
+**Proposition 3 (Crossed fragility).** *Under A1--A9, there exist parameter ranges for $(C_A, C_D, \bar{\pi}_D^{\text{fall}}, \bar{\pi}_A^{\text{fall}}, \omega_H, \omega_L, B)$ such that: (a) under rapid displacement, democracy is stable and autocracy is unstable; (b) under threshold automation, democracy is unstable and autocracy is stable.*
 
 *Proof.* Combines P1 and P2. The crossed pattern requires five conditions to hold simultaneously:
 
