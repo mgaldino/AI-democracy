@@ -10,13 +10,32 @@ Reformular o modelo do paper IA-dem para resolver fragilidades de microfundament
 
 ## Intuição central (linguagem natural)
 
-Democracias e autocracias diferem em DUAS dimensões:
-- **Responsiveness (informação)**: democracia vê a crise com clareza (protesto aberto = sinal bom). Autocracia é cega (repressão suprime o sinal que o ditador precisaria — dictator's dilemma).
-- **Speed (velocidade de resposta)**: autocracia age rápido quando decide agir (decreto, sem legislatura). Democracia age devagar (debate, legislação, coalizão).
+Democracias e autocracias diferem numa coisa fundamental: o tamanho do grupo que sustenta o governante no poder. Em democracias, o governante precisa de muita gente — eleitores, legisladores, mídia. Em autocracias, precisa de pouca gente — generais, oligarcas, líderes do partido.
 
-A ironia: velocidade sem informação é inútil (autocracia não sabe no que responder). Informação sem velocidade é insuficiente sob surpresa (democracia vê mas não consegue agir a tempo).
+Dessa diferença ÚNICA saem três consequências:
 
-**Fragilidade cruzada**: sob choque rápido (visível), democracia vê e responde (devagar, mas a tempo). Autocracia não vê e desperdiça sua velocidade. Sob choque threshold (surpresa), democracia vê tarde demais e não consegue agir a tempo. Autocracia reprime o protesto (menor, por causa do custo alto de protestar) e sobrevive.
+1. **Informação**: Um governante que depende de milhões de pessoas recebe informação de milhões de fontes — imprensa livre, protestos abertos, estatísticas independentes, debates parlamentares. Um governante que depende de vinte generais recebe informação de vinte generais — que têm incentivo para dizer que está tudo bem. A democracia enxerga crises com clareza; a autocracia opera numa bolha.
+
+2. **Velocidade**: Convencer vinte generais é uma reunião. Convencer uma legislatura é um processo — debate, comissões, votação, regulamentação. A autocracia age por decreto; a democracia age por lei. A lei chega, mas chega atrasada.
+
+3. **Política fiscal**: Compensar trabalhadores deslocados custa dinheiro — dinheiro que sai do selectorate. Em democracia, o selectorate inclui os eleitores (elites + trabalhadores) — a tributação de todos é que importa. Se a maioria não está sofrendo, ela não quer pagar. Em autocracia, o selectorate é um grupo pequeno (generais, oligarcas, líderes do partido) — a tributação deles é que importa. Se a elite não vê crise, ela não libera verba — e se o ditador gastar sem justificativa visível, a elite o remove.
+
+**Dois tipos de automação geram dois tipos de crise:**
+
+- **Gradual (rapid)**: A IA substitui funções uma por vez, desde o começo. Como chuva persistente. Deslocamento moderado e visível desde o início.
+- **Por limiar (threshold)**: A IA primeiro complementa o trabalhador — produtividade sobe, renda sobe, prosperidade. Quando cruza o limiar e consegue fazer todas as tarefas, deslocamento massivo e repentino. Represa que rompe.
+
+**Quatro cenários:**
+
+*Gradual + democracia → ESTÁVEL.* A chuva persistente é visível. Trabalhadores protestam. O protesto é a voz que move a legislatura. A democracia vê (informação boa), passa lei de compensação (deslocados + empregados com medo formam maioria). A lei demora (legislação é lenta), mas como a crise é gradual, a compensação chega a tempo.
+
+*Gradual + autocracia → CAI.* Crise moderada. Protesto suprimido (custo alto). A elite não vê — relatórios dizem "tudo bem", mídia controlada não reporta, protesto pequeno demais para alarmar. O ditador não pode gastar dinheiro da elite numa crise que a elite não enxerga — se gastar, a elite o remove por "incompetência." Reprime. Funciona no curto prazo. Mas deslocamento acumula período após período. Volume acumulado gera protesto que supera repressão. Sem compensação preparada, sem instituição montada. Regime cai.
+
+*Limiar + democracia → CAI.* Fase de complementaridade: maioria dos trabalhadores prosperando (renda subindo com IA). Ninguém protesta. Sem protesto, não há voz. Sem voz, a legislatura não age. Os trabalhadores que estão ganhando mais não querem pagar impostos para compensar os poucos que estão perdendo. Ninguém monta infraestrutura de compensação durante a prosperidade. Quando o limiar é cruzado e o deslocamento é massivo, a democracia finalmente vê e age — mas a lei demora. Compensação chega tarde demais. Regime cai.
+
+*Limiar + autocracia → ESTÁVEL.* Fase de complementaridade: calma total. Quando limiar é cruzado, deslocamento é TÃO massivo que é impossível ignorar — PIB despenca, fábricas fecham, crise visível até na bolha da elite. A elite vê e autoriza o gasto. O ditador age imediatamente — por decreto, sem legislatura, sem debate. Compensação chega no mesmo instante. Crise resolvida.
+
+**A ironia**: Cada tipo de automação gera o tipo de crise que explora a fraqueza do regime oposto. Crises moderadas e persistentes favorecem informação — quem vê primeiro pode agir a tempo. Crises massivas e repentinas favorecem velocidade — quando todos finalmente veem, só quem age rápido sobrevive. E a prosperidade da fase complementar é a armadilha da democracia: ela elimina a voz política que ativaria a resposta preventiva.
 
 ## Modelo Formal
 
@@ -65,16 +84,21 @@ Se ω₁ parece baixo → P(N) sobe → E[ω₂] cai (mais perto de ω_L)
 
 **A ambiguidade é genuína**: ω₁ baixo pode ser T (bomba-relógio) ou N (tudo bem). Trabalhador faz média ponderada e subestima o risco futuro sob threshold.
 
-### Diferença entre regimes — duas primitivas
+### Diferença entre regimes — uma primitiva, três consequências
 
-| Primitiva | Democracia | Autocracia |
-|-----------|-----------|------------|
-| Custo de protesto C_x | C_D (baixo) | C_A (alto) |
-| Velocidade de resposta | **Lenta** (comp_t → φ_{t+1}) | **Rápida** (comp_t → φ_t) |
+**Primitiva única**: tamanho da coalizão de apoio (selectorate). Democracia = coalizão grande. Autocracia = coalizão pequena. Os parâmetros formais (C_x, lag, política fiscal) são DERIVADOS dessa primitiva, não independentes.
 
-**Custo de protesto** gera: protesto maior em democracia → melhor sinal para incumbente (responsiveness) → dictator's dilemma na autocracia.
+| Consequência | Democracia (coalizão grande) | Autocracia (coalizão pequena) | Formalização |
+|-------------|------------------------------|-------------------------------|-------------|
+| Informação | Muitas fontes → vê crises com clareza | Poucas fontes com incentivo a distorcer → bolha | C_D < C_A → I(C_D) > I(C_A) |
+| Velocidade | Legislação, debate, coalizão → lenta | Decreto, reunião pequena → rápida | comp_t → φ_{t+1} (dem) vs φ_t (aut) |
+| Política fiscal | Selectorate inclui eleitores (elites + trabalhadores) — tributação afeta a todos; se maioria não sofre, bloqueia compensação | Selectorate é elite pequena — tributação do selectorate é que importa; se elite não vê crise, não autoriza gasto; ditador que gastar sem justificativa é removido | Incumbente precisa de justificativa visível (π observado) para compensar; quem paga é o selectorate |
 
-**Velocidade** gera: autocracia pode compensar no MESMO período; democracia só no PRÓXIMO. O lag democrático é micro-fundado como propriedade do processo institucional (legislação, debate, coalizão), não da tecnologia de compensação. Autocracias decidem por decreto.
+**Informação** gera: protesto maior em democracia → melhor sinal para incumbente (responsiveness) → dictator's dilemma na autocracia (elite não vê → não autoriza → ditador não compensa).
+
+**Velocidade** gera: autocracia pode compensar no MESMO período; democracia só no PRÓXIMO. Micro-fundado como propriedade institucional (legislação vs decreto), não da tecnologia.
+
+**Política fiscal** gera: compensação é financiada pelo selectorate. Em democracia, o selectorate é amplo (inclui trabalhadores + elites), e a tributação de todos é que importa. Sob prosperidade (threshold t=1), a maioria do selectorate está ganhando com a IA e não quer pagar impostos para compensar poucos deslocados → nenhuma infraestrutura de compensação é montada. Em autocracia, o selectorate é um grupo pequeno (elite), e a tributação do selectorate é que importa. Sob crise moderada e invisível (rapid), a elite não vê e não autoriza. Sob crise massiva e inegável (threshold t=2), a elite VÊ e autoriza porque a crise afeta diretamente os indicadores que ela monitora.
 
 ### Timing dentro de cada período
 
@@ -97,16 +121,16 @@ Um mecanismo, dois parâmetros:
 - π̄_x^fall = resiliência institucional (parâmetro primitivo do regime, π̄_D^fall > π̄_A^fall)
 - π_t = protesto agregado (determinado por v_i, C_x, ω_t, h(π) — tudo endógeno)
 
-O que difere entre cenários NÃO é o mecanismo de queda — é o **tamanho de π**, que resulta da interação informação × velocidade × trajetória:
+O que difere entre cenários NÃO é o mecanismo de queda — é o **tamanho de π**, que resulta da interação informação × velocidade × política fiscal × trajetória:
 
 ```
-┌────────────┬──────────────────┬────────────────┬─────────────────┬────────────────────────────────────────────────────────────┐
-│   Regime   │    Informação    │   Velocidade   │    Vantagem     │                      Vulnerabilidade                       │
-├────────────┼──────────────────┼────────────────┼─────────────────┼────────────────────────────────────────────────────────────┤
-│ Democracia │ Alta (C_D baixo) │ Baixa (lag)    │ Crises visíveis │ Crises surpresa                                            │
-├────────────┼──────────────────┼────────────────┼─────────────────┼────────────────────────────────────────────────────────────┤
-│ Autocracia │ Baixa (C_A alto) │ Alta (decreto) │ —               │ Crises persistentes (velocidade desperdiçada por cegueira) │
-└────────────┴──────────────────┴────────────────┴─────────────────┴────────────────────────────────────────────────────────────┘
+┌────────────┬──────────────────┬────────────────┬───────────────────┬─────────────────────────────┬──────────────────────────────────────────────────────────────┐
+│   Regime   │    Informação    │   Velocidade   │ Política fiscal   │         Vantagem             │                      Vulnerabilidade                         │
+├────────────┼──────────────────┼────────────────┼───────────────────┼─────────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ Democracia │ Alta (C_D baixo) │ Baixa (lag)    │ Maioria decide    │ Crises graduais e visíveis  │ Prosperidade bloqueia voz → lei chega tarde sob surpresa     │
+├────────────┼──────────────────┼────────────────┼───────────────────┼─────────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ Autocracia │ Baixa (C_A alto) │ Alta (decreto) │ Elite autoriza    │ Crises massivas e visíveis  │ Crises moderadas invisíveis (cegueira → acumula deslocados)  │
+└────────────┴──────────────────┴────────────────┴───────────────────┴─────────────────────────────┴──────────────────────────────────────────────────────────────┘
 ```
 
 **Por que π difere entre rapid e threshold em t=2?** Dois mecanismos simétricos (aplicam a ambos os regimes):
@@ -124,15 +148,15 @@ O que difere entre cenários NÃO é o mecanismo de queda — é o **tamanho de 
 
 **Resultado em cada cenário:**
 
-**Rapid t=2, autocracia**: mais deslocados (absorção) + mais raivosos (backward-looking) → π_A sobe → excede π̄_A^fall (baixo). Sem degradação repressiva necessária — é composição + intensidade.
+**Rapid t=2, autocracia**: mais deslocados acumulados (absorção) + elite continua cega (crise moderada, não massiva o suficiente para furar a bolha) → sem compensação → volume acumulado de deslocados empurra π_A acima de π̄_A^fall (baixo) → **CAI**.
 
-**Threshold t=2, autocracia**: menos deslocados + v = 1 (sem passado) + C_A alto → π_A baixo → abaixo de π̄_A^fall.
+**Threshold t=2, autocracia**: crise massiva e repentina — TÃO grande que é visível até para a elite (PIB despenca, impossível ignorar) → elite autoriza gasto → ditador compensa por decreto (sem lag) → v reduzido → π_A cai → abaixo de π̄_A^fall → **ESTÁVEL**.
 
 **Rapid t=2, democracia**: compensação ativa (φ_2=1) → v reduzido (renda B em vez de 0) → π_D cai → abaixo de π̄_D^fall.
 
-**Threshold t=2, democracia**: sem compensação (lei aprovada em t=2 mas lag, sem t=3) → v = 1 + deslocados acumulam de ω_L (poucos, mas novos ω_H são muitos) + C_D baixo → π_D grande → excede π̄_D^fall.
+**Threshold t=2, democracia**: sem compensação prévia (ninguém montou infraestrutura durante a prosperidade — eleitores prósperos não quiseram pagar) → lei aprovada em t=2 mas LAG → sem efeito → v = 1 + C_D baixo → π_D grande → excede π̄_D^fall → **CAI**. A prosperidade da fase complementar é a armadilha: eliminou a voz política que teria ativado resposta preventiva.
 
-**π̄_x^fall como primitiva**: democracias absorvem mais protesto (liberdade de expressão, accountability, canais institucionais). Autocracias são frágeis quando não conseguem reprimir (Geddes 1999). Defensável como propriedade institucional.
+**π̄_x^fall como primitiva**: democracias absorvem mais protesto (liberdade de expressão, accountability, canais institucionais). Autocracias são frágeis quando não conseguem reprimir (Geddes 1999). Derivável do tamanho da coalizão: coalizão grande tolera mais dissidência.
 
 **Por que democracia sobrevive rapid t=1?** Democracia PASSA LEI de compensação em t=1 (compromisso legal, não mero anúncio). Lei entra em vigor em t=2 (lag institucional: regulamentação, orçamento, agências). Compromisso legal é crível → trabalhadores antecipam φ_2=1 → v_{i1} cai (expectativa de perda futura reduzida) → π_D em t=1 é tolerável. Artificial em modelo de 2 períodos; em T>2 seria mais natural.
 
@@ -217,18 +241,18 @@ Dictator's dilemma não é irracionalidade — é consequência racional de sina
 ### Fragilidade cruzada — mecanismo completo
 
 **Rápido (ω_H, ω_H):**
-- t=1: ω_H → muitos deslocados
-  - Democracia: π_D grande (C_D baixo) → incumbente VÊ crise → comp_1=1 → φ_2=1 (lag) → promessa crível defusa protesto em t=1 → sobrevive t=1
-  - Autocracia: π_A pequeno (C_A alto) → incumbente NÃO VÊ → comp_1=0 → reprime → sobrevive t=1 mas gasta capacidade repressiva
-- t=2: ω_H
-  - Democracia: φ_2=1 → compensados → v baixo → protesto reduzido → **ESTÁVEL**
-  - Autocracia: sem compensação + capacidade repressiva degradada → π_A excede π̄_A^fall → **CAI**
+- t=1: ω_H → muitos deslocados, crise moderada e visível
+  - Democracia: π_D grande (C_D baixo) → incumbente VÊ crise → comp_1=1 → φ_2=1 (lag) → lei aprovada, promessa crível reduz v em t=1 → sobrevive t=1
+  - Autocracia: π_A pequeno (C_A alto) → elite NÃO VÊ crise → não autoriza gasto → comp_1=0 → reprime → sobrevive t=1 mas sem compensação preparada, deslocados acumulam
+- t=2: ω_H, deslocados acumulados: Ω₂ = ω_H(2-ω_H)
+  - Democracia: φ_2=1 (lei de t=1 entra em vigor) → compensados → v=1-B (baixo) → protesto reduzido → **ESTÁVEL**
+  - Autocracia: sem compensação + volume acumulado de deslocados + elite continua não vendo (protesto moderado, mas acumulado, supera repressão) → π_A excede π̄_A^fall → **CAI**
 
 **Threshold (ω_L, ω_H):**
-- t=1: ω_L → poucos deslocados → ambos sem crise → ninguém compensa
-- t=2: ω_H, sem compensação prévia
-  - Democracia: π_D grande → incumbente vê → comp_2=1 → mas LAG → sem efeito em t=2 → protesto descontido → π_D > π̄_D^fall → **CAI**
-  - Autocracia: π_A pequeno (C_A alto) → abaixo π̄_A^fall → capacidade repressiva intacta (não usou em t=1) → **ESTÁVEL**
+- t=1: ω_L → pouquíssimos deslocados. Complementaridade: maioria PROSPERANDO (IA aumenta produtividade). Ninguém protesta. Em democracia: eleitores prósperos não querem pagar impostos para compensar poucos deslocados → nenhuma lei de compensação proposta, nenhuma infraestrutura montada. Ambos sem crise.
+- t=2: ω_H → deslocamento massivo e repentino (limiar cruzado)
+  - Democracia: π_D grande → incumbente VÊ a crise → comp_2=1 → mas LAG (lei demora) → sem efeito em t=2 → sem infraestrutura prévia (ninguém montou durante a prosperidade) → protesto descontido → π_D > π̄_D^fall → **CAI**
+  - Autocracia: crise TÃO massiva que é visível até para a elite na bolha (PIB despenca, fábricas fecham) → elite VÊ e AUTORIZA gasto → comp_2=1 → decreto (sem lag) → compensação IMEDIATA → v reduzido → π_A cai → **ESTÁVEL**
 
 ### Condições paramétricas para fragilidade cruzada
 
@@ -238,11 +262,11 @@ Dictator's dilemma não é irracionalidade — é consequência racional de sina
 
 **(iii)** Autocracia cai rapid t=2: π_A(Ω₂=ω_H(2-ω_H), v=1) > π̄_A^fall — composição (mais deslocados acumulados) empurra π acima do limiar baixo.
 
-**(iv)** Autocracia sobrevive threshold t=2: π_A(Ω₂=ω_L+(1-ω_L)·ω_H, v=1) ≤ π̄_A^fall — menos deslocados + C_A alto → protesto contido.
+**(iv)** Autocracia sobrevive threshold t=2: crise massiva (ω_H grande) → sinal forte o suficiente para furar a bolha informacional da elite → incumbente compensa por decreto (sem lag) → v=1-B → π_A(Ω₂, v=1-B) ≤ π̄_A^fall. A diferença com (iii) é que sob rapid a crise é MODERADA e PERSISTENTE (não fura a bolha), enquanto sob threshold é MASSIVA e REPENTINA (fura a bolha).
 
-**(v)** ω_L gera protesto pequeno → ambos sobrevivem t=1 sob threshold.
+**(v)** ω_L gera protesto pequeno + fase de complementaridade (prosperidade) → ambos sobrevivem t=1 sob threshold. Em democracia: eleitores prósperos bloqueiam compensação preventiva.
 
-Nota: (iii) e (iv) usam o MESMO v=1 e o MESMO C_A. A diferença é APENAS Ω₂ (composição). Como ω_H(2-ω_H) > ω_L+(1-ω_L)·ω_H, existe faixa de π̄_A^fall que separa os dois → não knife-edge.
+Nota: (iii) e (iv) operam por mecanismos DIFERENTES. Em (iii), autocracia cai porque a crise moderada acumulada é invisível à elite → sem compensação → volume ultrapassa capacidade repressiva. Em (iv), autocracia sobrevive porque a crise massiva é VISÍVEL até para a elite → autoriza compensação → decreto imediato. A assimetria vem da natureza do choque (gradual/invisível vs repentino/impossível de ignorar), não apenas da composição.
 
 ### Lemas e proposições planejados
 
@@ -385,6 +409,19 @@ tau_A   = 0.10    # Ruído observação incumbente (autocracia — dictator's di
 
 ## Decisões de design (alternativas descartadas)
 
+### Decisão: Primitiva de regime — selectorate (uma) vs dois parâmetros independentes
+- **Escolha**: Primitiva ÚNICA = tamanho da coalizão de apoio (selectorate). C_x, velocidade (lag) e política fiscal são DERIVADOS. Mais parcimonioso, mais grounded em political science (Bueno de Mesquita et al.), e gera a terceira consequência (política fiscal) que duas primitivas separadas não geravam.
+- **Descartado**: Duas primitivas independentes (C_x + velocidade) — tratava informação e velocidade como desconectadas, não gerava a dimensão fiscal (quem paga e quem autoriza), e perdia o mecanismo de autocracia sobreviver threshold via compensação (elite vê crise massiva → autoriza). Com duas primitivas, o mecanismo default era repressão (π baixo), não compensação.
+
+### Decisão: Mecanismo de sobrevivência da autocracia sob threshold
+- **Escolha**: Elite vê crise massiva (impossível ignorar) → autoriza gasto → ditador compensa por decreto (sem lag) → crise resolvida. A crise threshold é self-revealing: tão grande que supera o filtro informacional da autocracia.
+- **Descartado**: Repressão pura (π baixo por C_A alto, capacidade intacta) — mecanicamente plausível mas perde a dimensão fiscal e o insight de que crises massivas e repentinas FAVORECEM autocracias justamente por serem visíveis até para elites na bolha.
+- **Insight**: A assimetria rapid/threshold na autocracia não é sobre composição (Ω₂) — é sobre VISIBILIDADE para a elite. Crise gradual acumula invisível. Crise massiva fura a bolha.
+
+### Decisão: Armadilha da prosperidade (threshold t=1 em democracia)
+- **Escolha**: Fase de complementaridade cria PROSPERIDADE (maioria ganha mais com IA). Prosperidade elimina voz política: eleitores prósperos não querem pagar impostos para compensar poucos deslocados → nenhuma infraestrutura de compensação montada → democracia vulnerável quando limiar é cruzado.
+- **Descartado**: Tratar threshold t=1 como mera "calma" (poucos deslocados) — perde o mecanismo político pelo qual a democracia se auto-sabota: não é apenas que não vê crise, é que os eleitores ativamente BLOQUEIAM ação preventiva por estarem melhor.
+
 ### Decisão: Estrutura do sinal
 - **Escolha**: Sinal composto bayesiano. d_i + s_i via updating.
 - **Descartado**: Sinal separado do estado — contradiz intuição.
@@ -411,12 +448,12 @@ tau_A   = 0.10    # Ruído observação incumbente (autocracia — dictator's di
 - **Escolha**: Expressivo (v_i privado) + safety in numbers.
 - **Descartado**: Club good, protesto estratégico — free-rider problem.
 
-### Decisão: Diferença entre regimes — velocidade + informação
-- **Escolha**: DUAS primitivas: (1) C_A > C_D (custo de protesto → qualidade da informação). (2) Velocidade de resposta (autocracia = mesmo período, democracia = próximo período).
-- **Descartado**: Capacidade fiscal (f_D > f_A) como diferenciador — empiricamente questionável, gera inconsistência no timing da queda (autocracia cai mecanicamente em t=1, democracia não cai nunca). Substituída por velocidade.
+### Decisão: Diferença entre regimes — selectorate como primitiva única
+- **Escolha**: Primitiva ÚNICA = tamanho do selectorate (Bueno de Mesquita et al.). Três consequências derivadas: (1) informação (selectorate grande → mais fontes → C_D < C_A), (2) velocidade (selectorate pequeno → decreto; grande → legislação), (3) política fiscal (compensação sai do selectorate; em democracia selectorate inclui eleitores — se não sofrem, bloqueiam; em autocracia selectorate é elite pequena — se não vê crise, não autoriza).
+- **Descartado**: Duas primitivas independentes (C_x + velocidade) — não gerava a dimensão fiscal, perdia o mecanismo de "elite autoriza/bloqueia" e a armadilha da prosperidade.
+- **Descartado**: Capacidade fiscal (f_D > f_A) como diferenciador — empiricamente questionável, gera inconsistência no timing da queda.
 - **Descartado**: Mecanismos opostos como primitiva (modelo original) — assumido, não derivado.
-- **Descartado**: Custo relativo dos instrumentos — menos parcimonioso.
-- **Insight**: Velocidade sem informação é inútil. Informação sem velocidade é insuficiente sob surpresa.
+- **Insight**: Velocidade sem informação é inútil. Informação sem velocidade é insuficiente sob surpresa. Mas o terceiro canal (política fiscal) é o que gera a armadilha da prosperidade em democracia e a cegueira fiscal em autocracia.
 
 ### Decisão: Mecanismo de queda
 - **Escolha**: Único mecanismo: π > π̄_x^fall (protesto excede resiliência institucional). O que varia é o TAMANHO de π, determinado por composição (Ω₂) + compensação (v) + custo de protesto (C_x). Simétrico entre regimes.

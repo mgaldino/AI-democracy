@@ -10,14 +10,22 @@ Paper teórico-formal na tradição OEP sobre como trajetórias de automação p
 
 > Dadas duas trajetórias de automação — deslocamento rápido vs. threshold (O-Ring) — qual tipo de regime é mais frágil sob cada cenário, e por quê?
 
-## Modelo
+## Modelo (reformulado — v2)
 
 - Premissa econômica: Gans & Goldfarb (2026), O-Ring Automation
-- 2 períodos, 2 trajetórias, 2 regimes, 1 grupo exposto (E)
-- ω_t contínuo (fundamental do jogo de coordenação), ℓ_t = L·1[ω_t ≥ ω̄] (perda binária nos payoffs)
-- Coordenação via global games (Morris & Shin 2003). Mecanismo central: sob rapid, E é homogêneo (todos deslocados) → sinais clustered → coordenação fácil. Sob threshold, E é fragmentado (ganhadores + perdedores, β_i heterogêneo) → sinais dispersos via h(Var(β)) → coordenação falha. σ_τ > σ_r DERIVADO de Var(β) > 0 (Prop 8), não assumido (antigo A6). Aggrievement (P&T 2017) removido do modelo — mencionado como extensão futura na Discussion.
-- Prior uniforme impróprio (A3). Restrição π̄ < b_x/(b_x + m) (A5). Laplacian property para estática comparativa.
-- Notação: x ∈ {D,A} para regime, i para worker, F para CDF de ruído, 𝓕 para capacidade fiscal, τ_t para taxa de subsídio, c_s para custo de taxação
+- 2 períodos, 3 estados θ ∈ {R, T, N} (rápido, threshold, sem choque), não observado
+- Choque individual: d_{it} ~ Bernoulli(ω_t), absorvente. Sinal composto bayesiano (d_i + s_i)
+- **Primitiva única**: tamanho do selectorate (coalizão de apoio, Bueno de Mesquita et al.). Dela derivam três consequências:
+  - (1) Informação: selectorate grande → protesto como sinal claro (C_D < C_A)
+  - (2) Velocidade: selectorate pequeno → decreto; grande → legislação (lag)
+  - (3) Política fiscal: compensação sai do selectorate. Em democracia, selectorate inclui eleitores (elites + trabalhadores) — se não sofrem, não querem pagar. Em autocracia, selectorate é elite pequena — se não vê crise, não autoriza gasto; ditador que gastar sem justificativa visível é removido pela elite.
+- Protesto expressivo + safety in numbers h(π). Incumbente estratégico com Bayesian updating
+- Mecanismo de queda único: π > π̄_x^fall (protesto excede resiliência institucional)
+- **Fragilidade cruzada**: gradual → democracia estável (vê crise e compensa a tempo), autocracia cai (crise moderada invisível para elite, acumula deslocados sem compensação). Threshold → democracia cai (prosperidade da complementaridade elimina voz política, nenhuma infraestrutura de compensação montada, lei chega tarde), autocracia estável (crise massiva impossível de ignorar, elite vê e autoriza, decreto imediato)
+- **Armadilha da prosperidade**: sob threshold t=1, complementaridade faz maioria prosperar → eleitores bloqueiam compensação preventiva → democracia vulnerável quando limiar é cruzado
+- Formal: global games (Morris & Shin 2003), F logística, h(π)=π linear (baseline)
+- Notação: x ∈ {D,A} para regime, i para worker, F para CDF de ruído
+- Plano completo: `quality_reports/plans/2026-05-01_reformulacao-modelo.md`
 
 ## Resultados (paper.Rmd)
 
