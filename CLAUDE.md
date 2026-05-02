@@ -89,6 +89,21 @@ Imports em `FormalProofs.lean`. Dashboard e proof index com hashes de conteúdo.
 
 L1-L2 (global games) formalizados via biblioteca SupermodularGames (dependência local em `../../../SupermodularGames`). CoordinationLemmas.lean faz a ponte: importa `participationRate_strictAntiOn` (L2) e `coordination_unique_cutoff` (L1), e deriva `rapid_coordination_succeeds` e `threshold_coordination_fails`. CoordinationConditions.lean verifica as condições algébricas (dominance regions, q*, single-crossing).
 
+## Versionamento
+
+Versões do paper são gerenciadas via **git tags** (não arquivos separados).
+
+- Arquivo ativo: `paper.Rmd` (sempre a versão em desenvolvimento)
+- Para ver uma versão anterior: `git show v1.0:paper.Rmd`
+- Para comparar versões: `git diff v1.0 v2.0 -- paper.Rmd`
+- Para listar todas as tags: `git tag -l 'v*' --sort=-v:refname`
+- Para criar nova tag: `git tag -a v2.0 -m "descrição da versão"`
+- Para ver detalhes de uma tag: `git show v1.0` (mostra mensagem + commit)
+
+| Tag | Data | Descrição |
+|-----|------|-----------|
+| v1.0 | 2026-05-02 | Modelo original: global games, heterogeneidade beta, capacidade fiscal. 17/17 Lean. Edmans 7.5/10. Pré-reformulação selectorate. |
+
 ## Agenda de pesquisa (papers futuros)
 
 **Paper 2: AI Surveillance and Repressive Capacity**
