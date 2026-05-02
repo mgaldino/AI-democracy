@@ -280,22 +280,64 @@ $$u_E^D(\text{rapid, stable}) - u_E^A(\text{threshold, stable}) = (1 - B)(1 - \o
 
 *Proof.* When democracy survives rapid displacement ($t = 2$): all displaced workers receive $B$; average income is $(1 - \Omega_2^R) + B \cdot \Omega_2^R = 1 - (1 - B)\Omega_2^R$. When autocracy survives threshold ($t = 2$): displaced workers also receive $B$ (elite authorized); average income is $1 - (1 - B)\Omega_2^T$. The difference is $(1 - B)(\Omega_2^R - \Omega_2^T) > 0$ by Remark 1. Democratic citizens bear a larger displacement burden (higher $\Omega_2$) but receive the same compensation rate. $\blacksquare$
 
-Note: In the reformulated model, both surviving regimes compensate workers in their favorable scenario. The welfare gap comes from *composition* (more workers are displaced under rapid than under threshold in $t = 2$), not from the absence of compensation. This contrasts with the original model, where the welfare gap came from autocracies not compensating at all.
+Both surviving regimes compensate workers in their favorable scenario. The welfare gap comes from *composition* --- more workers are displaced under rapid than under threshold in $t = 2$ (Remark 1) --- not from the absence of compensation.
 
 ## Comparative statics
 
 | Parameter | Effect | Interpretation |
 |-----------|--------|---------------|
-| $C_A \uparrow$ | $I(C_A) \downarrow$, $\bar{\omega}_A^{\text{comp}} \uparrow$ | Dictator's dilemma deepens; autocracy more vulnerable to gradual shocks |
-| $C_A / C_D \uparrow$ | Crossed pattern widens | Informational gap between regimes grows |
+| $C_A \uparrow$ | $\pi_A \downarrow$ | Protest more suppressed; autocracy more resilient to protest but unchanged in elite visibility |
+| $\sigma_A \uparrow$ | $\bar{\omega}_A \uparrow$ | Elite's assessment noisier; dictator's dilemma deepens; autocracy more vulnerable to gradual shocks |
+| $\gamma \uparrow$ | Prosperity trap deepens | Higher complementarity income $\to$ stronger opposition to compensation in democracy |
 | $\bar{\pi}_D^{\text{fall}} \uparrow$ | Democracy more resilient | Absorbs more protest before destabilizing |
 | $\bar{\pi}_A^{\text{fall}} \downarrow$ | Autocracy more fragile | Less protest needed to topple regime |
-| $\omega_H \uparrow$ | Both regimes more stressed | Higher displacement in crisis periods |
-| $\omega_L \downarrow$ | Prosperity trap deepens | More prosperity in complementary phase, stronger political blocking |
+| $\omega_R \uparrow$ | Autocracy more stressed under rapid | More displacement accumulates |
+| $\omega_{T2} \uparrow$ | Both regimes more stressed under threshold | Larger surprise shock |
+| $\omega_{T1} \downarrow$ | Prosperity trap deepens | More prosperity in complementary phase, stronger political blocking |
 | $B \uparrow$ | Both regimes more stable when compensating | Higher compensation reduces $v$ more |
 | $\delta \uparrow$ | Credible commitment more valuable | Workers who value the future respond more to legislative promises |
 
-[FIGURE PLACEHOLDER: Comparative statics plots. Panel A: pi*(omega) curves for democracy vs autocracy, showing informational asymmetry. Panel B: Stability regions as function of C_A/C_D and omega_H.]
+[FIGURE PLACEHOLDER: Comparative statics plots. Panel A: Stability regions as function of C_A and sigma_A. Panel B: Effect of gamma on democratic compensation trigger under threshold t=1.]
+
+## The sweet spot of autocratic repression
+
+The crossed fragility pattern requires the cost of protest in autocracies to be in an intermediate range.
+
+**Corollary 1 (Sweet spot of $C_A$).** *Under A1--A9, define $C_A^{\min} := C_D$ and let $C_A^{\max}$ be the unique value at which $\pi^*(C_A^{\max}, \Omega_2^R, v = 1) = \bar{\pi}_A^{\text{fall}}$. Crossed fragility requires $C_A \in (C_A^{\min}, C_A^{\max})$. The interval is non-empty whenever $\pi^*(C_D, \Omega_2^R, 1) > \bar{\pi}_A^{\text{fall}}$.* (Proof in Appendix [TODO].)
+
+The lower bound is definitional: a regime with $C_A \leq C_D$ is not meaningfully autocratic. The upper bound is the point where protest is fully suppressed --- even with more than half the workforce displaced and uncompensated, repression is so effective that no one takes to the streets. In the v5 model, $C_A$ serves a single function: it determines whether accumulated displaced workers can coordinate enough protest to overwhelm the autocracy's low institutional resilience. The dictator's failure to compensate under rapid is driven by a separate mechanism --- the elite's noisy economic assessment ($\omega_R < \bar{\omega}_A$) --- which depends on $\sigma_A$, not on $C_A$.
+
+This generates a typology of autocracies:
+
+| Type | Condition | Rapid | Threshold |
+|------|-----------|:-----:|:---------:|
+| "Open" autocracy | $C_A \leq C_D$ | Stable | Stable |
+| Intermediate autocracy | $C_A \in (C_D, C_A^{\max})$ | **Unstable** | Stable |
+| Totalitarian autocracy | $C_A > C_A^{\max}$ | Stable | Stable |
+
+The crossed fragility pattern operates in the intermediate range --- autocracies with repression sufficient to blind the elite to moderate crises but insufficient to prevent accumulated displacement from eventually erupting. This maps to the empirically prevalent category of autocracies with moderate repressive capacity: military regimes, single-party states, personalist regimes with intermediate coercive apparatus [@Geddes1999].
+
+## Selectorate size and amplification
+
+The size of the autocratic selectorate, parameterized by $\sigma_A$ (the noise in the elite's economic assessment), amplifies both sides of the crossed fragility pattern simultaneously.
+
+**Proposition 5 ($\sigma_A$ amplification).** *As $\sigma_A$ increases (selectorate shrinks):*
+
+*(a) The probability of elite-authorized compensation under rapid displacement decreases: the autocracy is more likely to fail to compensate under gradual shocks.*
+
+*(b) The probability of elite-authorized compensation under threshold automation also decreases, but remains above $1/2$ provided $\omega_{T2}$ is sufficiently above $\bar{\omega}_A(\sigma_A)$: the massive crisis continues to pierce the elite's bubble.*
+
+*(c) The crossed fragility interval --- the set of displacement rates $\omega_R$ for which the autocracy fails to compensate under rapid but compensates under threshold --- expands as $\bar{\omega}_A(\sigma_A)$ rises.*
+
+(Proof in Appendix [TODO].)
+
+The intuition is that the two effects are two faces of the same selectorate coin. A smaller selectorate means a deeper information bubble: fewer eyes and ears, more groupthink, more optimistic reporting by subordinates. Moderate crises ($\omega_R$) that would be visible to a large selectorate are invisible to a small one. The evidence threshold $\bar{\omega}_A$ rises, and the elite refuses to authorize spending for crises they do not perceive. The dictator, trapped between the invisible crisis and the visible elite, defaults to repression. Displacement accumulates unremedied --- the autocracy is more vulnerable to gradual shocks.
+
+But when the crisis is catastrophic ($\omega_{T2}$), it pierces even the deepest bubble. GDP collapses, trade halts, factories close --- indicators that even a bubble-dwelling elite cannot ignore. And once the elite authorizes action, the small selectorate's advantage kicks in: the dictator acts by decree, without the deliberation and coalition-building that a large selectorate requires. Speed compensates for blindness --- the autocracy is more resilient to massive shocks.
+
+Reducing selectorate size deepens both the blindness and the speed, amplifying the crossed fragility pattern. This is the formal content of the claim that one meta-primitive --- selectorate size --- generates the entire result. Remove the selectorate difference ($\sigma_A \to \sigma_D$, $C_A \to C_D$, lag eliminated) and the regimes become identical. Crossed fragility vanishes.
+
+[FIGURE PLACEHOLDER: sigma_A amplification. Panel A: p_R and p_T as functions of sigma_A, showing gap widening. Panel B: Crossed fragility interval expanding with sigma_A.]
 
 # Extension: Policy Implications
 
@@ -303,11 +345,31 @@ Note: In the reformulated model, both surviving regimes compensate workers in th
 
 # Discussion
 
-[PLACEHOLDER — structural irony (selectorate version), comparative statics table, model structure, limitations.]
+## Structural irony
+
+Each regime's source of strength is also its source of fragility, and both derive from selectorate size. Democratic responsiveness (large selectorate $\to$ good information $\to$ voice trigger) enables compensation but requires a visible crisis and political demand to act, leaving the regime exposed to delayed shocks where prosperity blocks demand. Autocratic speed (small selectorate $\to$ decree) enables rapid response but operates within an information bubble (large $\sigma_A$) that blinds the elite to moderate crises, leaving the regime exposed to gradual, accumulated displacement. The crossed fragility pattern is a direct consequence of this symmetry: each regime is most vulnerable to the type of crisis that neutralizes its institutional advantage.
+
+## Model structure
+
+The inferential chain runs: automation trajectory $\to$ displacement profile $(\omega_1, \omega_2)$ $\to$ protest dynamics $\pi_t$ (via $C_x$, $v_i$, $h(\pi)$) $\to$ compensation trigger (voice in democracy, technocratic assessment in autocracy) $\to$ fall condition ($\pi_t > \bar{\pi}_x^{\text{fall}}$ with $\varphi_t = 0$).
+
+The asymmetric triggers are the institutional content of the model. Democracy processes disruption through *voice* [@Hirschman1970]: protest is the signal that activates the legislative response. Autocracy processes disruption through *technocratic assessment*: the elite evaluates economic indicators ($\tilde{\omega}_S$) and authorizes spending when the threat is self-evident. The two channels interact with the temporal profile of displacement in opposite ways: moderate, persistent crises generate the voice that democracies need but fail the elite's evidence threshold; massive, sudden crises overwhelm the elite's noise but arrive too late for democratic legislation.
+
+## Limitations and extensions
+
+Several limitations point to extensions. First, the complementarity income $Y^+ = 1 + \gamma$ applies only under threshold automation; a richer treatment would allow AI complementarity under both trajectories at different rates, generating sectoral heterogeneity in the prosperity trap (Appendix [TODO]). Second, the two-period structure captures the essential timing asymmetry but not richer dynamics; a multi-period extension (Appendix [TODO]) could allow for adaptive institutional responses and gradual welfare state construction. Third, the institutional triggers are regime-specific by assumption: democracies respond to voice, autocracies to technocratic assessment. A stronger result would derive trigger specialization endogenously from selectorate size --- showing that a regime with a large selectorate *optimally* uses protest as its primary signal (because it is the most informative channel available), while a regime with a small selectorate *optimally* relies on economic indicators (because suppressed protest is uninformative). Fourth, the model does not capture structural power: under threshold automation, the AI-augmented sector accumulates economic and political influence, which may actively lobby against compensation beyond the tax-burden effect captured by $Y^+$ [@DasguptaRamirez2025]. This channel, documented empirically by @DasguptaRamirez2025 and @FinseraasNyhus2025, would reinforce the prosperity trap but is left for future work.
+
+[PLACEHOLDER — additional results from C_A sweet spot and sigma_A formalization will be incorporated here once verified.]
 
 # Conclusion
 
-[PLACEHOLDER — three results, crossed fragility as consequence of selectorate x trajectory, policy implication.]
+We have shown that the trajectory of AI automation --- rapid displacement versus threshold substitution --- produces systematically different fragility patterns across regime types. The mechanism derives from a single primitive: the size of the selectorate. Large selectorate (democracy) generates good information, slow response, and majoritarian fiscal politics. Small selectorate (autocracy) generates poor information, fast response, and elite fiscal control.
+
+Three results stand out. First, the crossed fragility pattern: democracies are stable under gradual displacement (the voice mechanism activates compensation in time) but fragile under threshold automation (the prosperity trap blocks preventive investment, and the institutional lag prevents reactive compensation). Autocracies exhibit the reverse: fragile under gradual displacement (the elite's noisy assessment misses the accumulated crisis) but stable under threshold automation (the massive shock is self-revealing, and decree enables immediate response). Second, the welfare cost of the pattern: when both regimes survive their favorable trajectory, democratic citizens are strictly better off, because more workers are displaced under rapid accumulation than under threshold. Third, the prosperity trap: the complementary phase of threshold automation does not merely delay the crisis --- it actively blocks the political demand for compensation by raising the majority's income and opposition to taxation.
+
+The crossed fragility logic is not specific to AI: it applies whenever economic shocks differ in their temporal profile --- gradual and visible versus sudden and preceded by prosperity. Financial crises (slow credit deterioration versus sudden crashes), climate change (gradual agricultural loss versus catastrophic tipping points), and pandemic response (endemic disease versus novel outbreak) all exhibit the temporal asymmetry that interacts with selectorate size.
+
+The policy implication is direct. Democracies facing AI automation with potential threshold dynamics --- sectors where AI initially complements and later substitutes --- should invest in standing social insurance *before* the complementary phase makes such investment politically impossible. The welfare state is the democratic substitute for the autocratic speed advantage: pre-committed compensation that does not require crisis-triggered activation. Building it requires acting precisely when the majority sees no reason to pay --- which is why it is so difficult and so important.
 
 # References {-}
 
