@@ -78,7 +78,7 @@ where $\omega_H > \omega_L > 0$. Each worker is displaced independently: $d_{it}
 
 **Income.** Employment income is normalized to 1. Compensation, when available, pays $B \in (0, 1)$ to each displaced worker. Per-period income is:
 $$y_{it} = (1 - d_{it}) + B \cdot d_{it} \cdot \varphi_t$$
-where $\varphi_t \in \{0, 1\}$ indicates whether compensation is available in period $t$. An employed worker earns 1; a displaced, compensated worker earns $B$; a displaced, uncompensated worker earns 0. The baseline normalizes employed income to 1 regardless of trajectory; the productivity gains from AI complementarity during the threshold phase are not modeled (see Discussion).
+where $\varphi_t \in \{0, 1\}$ indicates whether compensation is available in period $t$. An employed worker earns 1 under normal conditions; a displaced, compensated worker earns $B$; a displaced, uncompensated worker earns 0. Under threshold automation in $t = 1$, non-displaced workers earn $Y^+ = 1 + \gamma > 1$, where $\gamma > 0$ captures productivity gains from AI complementarity. This higher income enters the model through the democratic compensation trigger (Section 3.4): workers earning $Y^+$ face a higher tax burden and oppose compensation.
 
 **Automation trajectories as economic premise.** Following @GansGoldfarb2026, we distinguish two stylized trajectories. Under *rapid displacement* ($\theta = R$), automation causes displacement from the start: $\omega_1 = \omega_2 = \omega_H$. Workers are displaced at a high rate in both periods, and the crisis is visible from the outset. Under *threshold automation* ($\theta = T$), AI initially complements labor --- most workers become more productive, incomes rise --- while only a small fraction is displaced ($\omega_1 = \omega_L$). When AI capabilities cross a threshold, displacement becomes massive ($\omega_2 = \omega_H$). These income paths are exogenous to the political model; they represent the economic premise imported from the automation literature. The political model takes the displacement probabilities $(\omega_1, \omega_2)$ as given and derives their institutional consequences.
 
@@ -96,7 +96,7 @@ The expected future displacement conditional on period-1 information is:
 $$E[\omega_2 \mid d_{i1}, s_{i1}] = [P(R \mid d, s) + P(T \mid d, s)] \cdot \omega_H + P(N \mid d, s) \cdot \omega_L$$
 If current displacement appears high, the posterior shifts toward $R$, raising expected future displacement. If current displacement appears low, the posterior shifts toward $N$, lowering it. The ambiguity is genuine: low displacement in $t = 1$ could reflect either permanent calm ($N$) or a time bomb ($T$). The worker's expectation is a weighted average that underestimates future risk under threshold automation.
 
-The incumbent does not observe $\theta$ or $\omega_t$. The incumbent observes only aggregate protest $\pi_t$ after workers act, and must infer the state from this signal.
+The incumbent does not observe $\theta$ or $\omega_t$ directly. In a democracy, the incumbent observes aggregate protest $\pi_t$ after workers act, which serves as the political signal that triggers compensation. In an autocracy, the elite observes a noisy economic assessment $\tilde{\omega}_S = \omega_t + \sigma_A \zeta$ (see Section 3.4).
 
 ## Protest
 
@@ -112,38 +112,29 @@ where $C_x > 0$ is the regime-specific cost of protest, $h(\pi) = \pi$ in the ba
 
 The model captures regime differences through three channels, all derived from the size of the selectorate (Section 2.2).
 
-**Cost of protest.** In autocracies, protesting is more costly than in democracies: $C_A > C_D$. This reflects repression, surveillance, and the absence of legal protections for collective action. The higher cost has a direct informational consequence: fewer workers protest in autocracies, generating a weaker aggregate signal $\pi_t$ from which the incumbent must infer the state.
+**Cost of protest.** In autocracies, protesting is more costly than in democracies: $C_A > C_D$. This reflects repression, surveillance, and the absence of legal protections for collective action.
 
-**Institutional speed.** When the incumbent decides to compensate ($\text{comp}_t = 1$):
+**Institutional speed.** When compensation is triggered ($\text{comp}_t = 1$):
 
 - In an autocracy, compensation takes effect immediately: $\varphi_t = 1$ (decree, no legislative process).
 - In a democracy, compensation takes effect in the next period: $\varphi_{t+1} = 1$ (legislation, debate, regulatory implementation).
 
 In $t = 2$, democratic compensation enacted in that period has no effect within the model (there is no $t = 3$). This institutional lag is a structural feature of large-coalition governance, not a pathology: the same deliberative process that makes democracies responsive also makes them slow.
 
-**Fiscal authorization.** In both regimes, the incumbent needs a visible justification --- observable protest --- to authorize compensation. In a democracy, the selectorate (voters) must perceive the crisis as real and worth paying for; absent visible protest, there is no political mandate to raise taxes for compensation. In an autocracy, the elite that sustains the ruler must perceive the crisis; a ruler who spends without the elite's approval risks removal. The fiscal base is the economy as a whole, but the political authorization to spend comes from the selectorate.
+**Compensation trigger --- asymmetric by regime.** Compensation requires selectorate approval, because it is financed by taxing the selectorate. But the *mechanism* through which the selectorate perceives the crisis differs by regime type, reflecting different institutional logics [@Hirschman1970]:
 
-## The incumbent's problem
+- *Democracy (voice).* Compensation is triggered when aggregate protest exceeds a threshold: $\text{comp}_t = 1$ iff $\pi_t > \bar{\pi}_D^{\text{comp}}$. Protest is the political demand that moves the legislature. Without visible protest, no bill is introduced. With sufficient protest, the political cost of inaction exceeds the fiscal cost of compensation. We require $\bar{\pi}_D^{\text{comp}} < \bar{\pi}_D^{\text{fall}}$: there exists a range of protest that triggers compensation without toppling the regime.
 
-The incumbent values remaining in power ($V = 1$, normalized) and must decide, after observing $\pi_t$, whether to compensate displaced workers ($\text{comp}_t \in \{0, 1\}$). Compensation costs $\hat{\omega}(\pi_t) \cdot B$, where $\hat{\omega}(\pi_t)$ is the incumbent's estimate of the displacement rate, obtained by inverting the equilibrium mapping $\pi^*(\omega)$:
-$$\hat{\omega}(\pi_t) = (\pi^*)^{-1}(\pi_t)$$
+- *Autocracy (technocratic assessment).* The elite observes a noisy signal of the true displacement rate: $\tilde{\omega}_S = \omega_t + \sigma_A \zeta$, where $\zeta$ is a noise term and $\sigma_A > 0$ reflects the informational quality of the autocratic selectorate (subordinates who report optimistically, censored media, absence of independent statistics). Compensation is triggered when the elite's assessment exceeds its evidence threshold: $\text{comp}_t = 1$ iff $\tilde{\omega}_S > \bar{\omega}_A$. This trigger is independent of $\pi$ --- it operates through economic indicators, not through protest.
 
-The incumbent compensates if the expected gain in survival probability exceeds the cost:
-$$\text{comp}_t = 1 \quad \text{iff} \quad \Delta P(\pi_t) > \hat{\omega}(\pi_t) \cdot B$$
-where $\Delta P(\pi_t) = P(\pi_2 < \bar{\pi}_x^{\text{fall}} \mid \text{comp}) - P(\pi_2 < \bar{\pi}_x^{\text{fall}} \mid \text{no comp})$ is the increase in survival probability from compensating.
+The asymmetry is not a modeling convenience but the institutional content of the model. A democracy that ignores protest is not functioning as a democracy. An autocracy that responds to protest is admitting weakness. The democratic trigger captures Hirschman's *voice*; the autocratic trigger captures *technocratic assessment* filtered through an information bubble.
 
-**Bayesian inference.** The incumbent updates beliefs about $\theta$ from observed protest:
-$$P(\theta \mid \pi_t) \propto P(\pi_t \mid \theta) \cdot P(\theta)$$
+**The dictator's dilemma.** The key ordering is:
+$$\bar{\omega}_D < \omega_R < \bar{\omega}_A < \omega_{T2}$$
 
-This updating generates the dictator's dilemma endogenously:
+The democratic selectorate approves compensation under rapid displacement ($\omega_R > \bar{\omega}_D$): enough workers are displaced and fearful to generate sufficient protest. The autocratic elite does *not* approve under rapid ($\omega_R < \bar{\omega}_A$): the moderate crisis is invisible through the elite's noisy channels. The elite *does* approve under threshold $t = 2$ ($\omega_{T2} > \bar{\omega}_A$): the massive crisis overwhelms the noise. This ordering is derived from $\sigma_A > \sigma_D$ (small selectorate $\to$ noisy assessment) and produces the crossed fragility pattern.
 
-- In a democracy ($C_D$ low), protest $\pi_D$ is responsive to $\omega$: the mapping $\pi^*(\omega)$ is steep, and variations in $\omega$ produce large variations in observed protest. The democratic incumbent can distinguish high-displacement states from low-displacement states and updates beliefs substantially. When protest is high, the posterior shifts toward $\theta = R$, the estimated crisis is severe, and the expected benefit of compensation is large. The incumbent compensates.
-
-- In an autocracy ($C_A$ high), protest $\pi_A$ is uniformly low regardless of $\omega$: the mapping $\pi^*(\omega)$ is flat, and even large changes in $\omega$ produce small changes in observed protest. The autocratic incumbent cannot distinguish states. With $P(N) > 0$, the prior probability of "no crisis" remains high, and the posterior barely updates. The perceived benefit of compensation is small, and the incumbent does not compensate. This is not irrationality --- it is the rational consequence of a suppressed signal and a prior that includes the possibility of calm.
-
-**Compensation threshold.** Define $\bar{\omega}_x^{\text{comp}}$ as the displacement rate at which the incumbent is indifferent between compensating and not:
-$$\Delta P(\bar{\omega}_x^{\text{comp}}) = \bar{\omega}_x^{\text{comp}} \cdot B$$
-The dictator's dilemma implies $\bar{\omega}_A^{\text{comp}} > \bar{\omega}_D^{\text{comp}}$: autocracies require a higher displacement rate to trigger compensation, because the signal is noisier and the posterior updates less.
+**Complementarity income.** Under threshold automation in $t = 1$, non-displaced workers earn $Y^+ = 1 + \gamma > 1$, where $\gamma > 0$ captures the productivity gains from AI complementarity. This enters the model through the democratic trigger: workers earning $Y^+$ face a higher tax burden from compensation ($\tau \cdot Y^+$ vs. $\tau \cdot 1$) and are less likely to support it. The prosperity of the complementary phase directly reduces the political demand for compensation, formalizing the prosperity trap described in Section 2.
 
 ## Regime stability
 
@@ -160,7 +151,7 @@ Within each period $t$:
 1. Nature realizes $d_{it}$ for each worker $i$ (displacement).
 2. Each worker observes $(d_{it}, s_{it})$ and forms beliefs about $\theta$.
 3. Each worker chooses $a_{it} \in \{0, 1\}$ (protest or not). Aggregate protest: $\pi_t = \int a_{it} \, di$.
-4. The incumbent observes $\pi_t$ and decides $\text{comp}_t \in \{0, 1\}$.
+4. Compensation trigger: in democracy, $\text{comp}_t = 1$ iff $\pi_t > \bar{\pi}_D^{\text{comp}}$ (voice); in autocracy, $\text{comp}_t = 1$ iff $\tilde{\omega}_S > \bar{\omega}_A$ (elite assessment).
 5. If $\text{comp}_t = 1$: in autocracy, $\varphi_t = 1$ (immediate); in democracy, $\varphi_{t+1} = 1$ (lag).
 6. If $\pi_t > \bar{\pi}_x^{\text{fall}}$ and $\varphi_t = 0$: regime falls.
 7. Payoffs are realized.
@@ -184,6 +175,10 @@ The two periods should be read as two politically distinct moments, not as fixed
 **A6 (Compensation is partial).** $B \in (0, 1)$: compensation replaces some but not all lost income.
 
 **A7 (Persistence).** Once compensation is activated ($\varphi_t = 1$), it persists: $\varphi_{t'} = 1$ for all $t' \geq t$. Social insurance infrastructure, once legislated, is not easily dismantled.
+
+**A8 (Elite information noise).** The autocratic elite observes $\tilde{\omega}_S = \omega_t + \sigma_A \zeta$, $\zeta \sim F$, with $\sigma_A > 0$. The evidence threshold satisfies $\bar{\omega}_D < \omega_R < \bar{\omega}_A < \omega_{T2}$: the democratic selectorate approves compensation under rapid ($\omega_R > \bar{\omega}_D$); the autocratic elite does not ($\omega_R < \bar{\omega}_A$); the autocratic elite approves under threshold $t = 2$ ($\omega_{T2} > \bar{\omega}_A$).
+
+**A9 (Complementarity income).** Under threshold automation in $t = 1$, non-displaced workers earn $Y^+ = 1 + \gamma$, $\gamma > 0$. The higher income raises the tax cost of compensation for the democratic majority, reducing support for compensatory legislation.
 
 ## Numerical example
 
@@ -211,13 +206,15 @@ Same displacement probability ($\omega_H = 0.40$), opposite outcomes by regime a
 
 Before deriving the main results, we establish two structural lemmas that drive the crossed fragility pattern.
 
-**Lemma 1 (Dictator's dilemma).** *The informativeness of aggregate protest about the underlying displacement rate is decreasing in the cost of protest:*
-$$I(C_x) \equiv \left|\frac{\partial \pi^*}{\partial \omega}\right| \text{ is decreasing in } C_x$$
-*Consequently, the autocratic incumbent requires a higher displacement rate to trigger compensation: $\bar{\omega}_A^{\text{comp}} > \bar{\omega}_D^{\text{comp}}$.*
+**Lemma 1 (Dictator's dilemma).** *The autocratic elite's compensation threshold is strictly higher than the democratic one: $\bar{\omega}_A > \bar{\omega}_D$. This follows from the informational asymmetry: the autocratic selectorate observes $\omega$ with noise $\sigma_A > \sigma_D$, so moderate crises that are visible to the democratic selectorate remain invisible to the autocratic elite.*
 
-*Proof sketch.* When $C_x$ is high, few workers protest regardless of $\omega$: the equilibrium mapping $\pi^*(\omega)$ is flat. Small changes in the true displacement rate produce negligible changes in observed protest. The incumbent, who infers $\omega$ from $\pi$ via Bayes' rule, cannot distinguish high-displacement states from low-displacement ones. The posterior $P(\theta \mid \pi)$ barely departs from the prior, and $P(N \mid \pi_A) \approx p_N$ remains high. The perceived benefit of compensation $\Delta P$ is small relative to the cost $\hat{\omega} \cdot B$, and the compensation threshold $\bar{\omega}_x^{\text{comp}}$ is high. Conversely, when $C_x$ is low (democracy), the mapping is steep, variations in $\omega$ produce large variations in $\pi$, and the incumbent updates substantially. $\blacksquare$
+*Proof sketch.* In a democracy, compensation is triggered by protest: $\text{comp}_t = 1$ iff $\pi_t > \bar{\pi}_D^{\text{comp}}$. Under rapid displacement ($\omega_R$ moderate), $C_D$ low generates substantial protest, which crosses $\bar{\pi}_D^{\text{comp}}$: the democratic selectorate sees the crisis through political demand.
 
-Lemma 1 formalizes the dictator's dilemma as an informational consequence, not a behavioral one. The autocratic incumbent is fully rational --- the problem is not irrationality but signal suppression. The same Bayesian rule that leads the democratic incumbent to compensate leads the autocratic incumbent not to, because the data (observed protest) are less informative.
+In an autocracy, compensation is triggered by the elite's economic assessment: $\text{comp}_t = 1$ iff $\tilde{\omega}_S > \bar{\omega}_A$, where $\tilde{\omega}_S = \omega_t + \sigma_A \zeta$. With $\sigma_A$ large (few observers in an information bubble), the elite's assessment is noisy. Under rapid displacement ($\omega_R$ moderate), $\tilde{\omega}_S$ fluctuates around $\omega_R$ with high variance, and $P(\tilde{\omega}_S > \bar{\omega}_A)$ is low when $\bar{\omega}_A > \omega_R$. The elite does not perceive the crisis with sufficient confidence to authorize spending.
+
+The ordering $\bar{\omega}_D < \omega_R < \bar{\omega}_A$ is derived from $\sigma_A > \sigma_D$: the same displacement rate that triggers the democratic voice mechanism fails to penetrate the autocratic information bubble. $\blacksquare$
+
+Lemma 1 formalizes the dictator's dilemma as an informational consequence of selectorate size, not a behavioral bias. The autocratic incumbent is fully rational --- the problem is not irrationality but that the elite's noisy assessment cannot distinguish moderate crises from normal economic fluctuation. An autocrat who compensated without elite approval would be removed for incompetence.
 
 ## Absorptive composition
 
@@ -237,9 +234,9 @@ Remark 1 is symmetric: it applies identically in both regimes. The difference in
 
 *(b) Democracy is unstable under threshold automation.*
 
-*Proof.* (a) *Rapid.* In $t = 1$, $\omega_1 = \omega_H$ generates substantial displacement. With $C_D$ low, protest is large and informative (Lemma 1). The democratic incumbent infers the crisis and enacts compensation ($\text{comp}_1 = 1$). Due to the institutional lag, $\varphi_2 = 1$ but $\varphi_1 = 0$. However, the credible legislative commitment (law passed, not merely announced) reduces workers' expected future loss: $E[1 - y_{i2}] = 1 - B$ instead of 1. This lowers $v_i$ in $t = 1$, and protest remains below $\bar{\pi}_D^{\text{fall}}$. In $t = 2$, compensation is active: $v = 1 - B < 1$, and protest is contained.
+*Proof.* (a) *Rapid.* In $t = 1$, $\omega_1 = \omega_R$ generates substantial displacement. With $C_D$ low, protest exceeds $\bar{\pi}_D^{\text{comp}}$ (voice trigger): the legislature passes a compensation law ($\text{comp}_1 = 1$). Due to the institutional lag, $\varphi_2 = 1$ but $\varphi_1 = 0$. However, the credible legislative commitment (law passed, not merely announced) reduces workers' expected future loss: $E[1 - y_{i2}] = 1 - B$ instead of 1. This lowers $v_i$ in $t = 1$, and protest remains below $\bar{\pi}_D^{\text{fall}}$. In $t = 2$, compensation is active: $v = 1 - B < 1$, and protest is contained.
 
-(b) *Threshold.* In $t = 1$, $\omega_1 = \omega_L$. Few workers are displaced. Employed workers are prospering from AI complementarity. No protest, no signal, no legislative action. The selectorate (voters) does not authorize spending: the majority is not suffering and does not want to pay. No compensation infrastructure is built. In $t = 2$, $\omega_2 = \omega_H$: massive displacement. Protest rises ($C_D$ low), and the incumbent sees the crisis. But $\text{comp}_2 = 1$ yields $\varphi_3 = 1$ (lag), which has no effect in the two-period model. With $\varphi_2 = 0$ and $v = 1$, protest exceeds $\bar{\pi}_D^{\text{fall}}$. $\blacksquare$
+(b) *Threshold.* In $t = 1$, $\omega_1 = \omega_{T1}$. Few workers are displaced. Non-displaced workers earn $Y^+ = 1 + \gamma$ from AI complementarity. Protest is negligible ($\pi_1 < \bar{\pi}_D^{\text{comp}}$): no voice trigger. Moreover, the prospering majority opposes taxation --- workers earning $Y^+$ face a higher tax burden and vote against compensation. No law is passed, no infrastructure is built. In $t = 2$, $\omega_2 = \omega_{T2}$: massive displacement. Protest rises ($C_D$ low), and $\pi_2 > \bar{\pi}_D^{\text{comp}}$: the legislature passes a law. But $\text{comp}_2 = 1$ yields $\varphi_3 = 1$ (lag), with no effect in the two-period model. With $\varphi_2 = 0$ and $v = 1$, protest exceeds $\bar{\pi}_D^{\text{fall}}$. $\blacksquare$
 
 Democratic failure under threshold automation is primarily a timing mechanism reinforced by fiscal politics: the crisis arrives after the compensatory window has closed, and the prosperity of the complementary phase actively blocked preventive investment.
 
@@ -249,9 +246,9 @@ Democratic failure under threshold automation is primarily a timing mechanism re
 
 *(b) Autocracy is stable under threshold automation.*
 
-*Proof.* (a) *Rapid.* In $t = 1$, $\omega_1 = \omega_H$. High protest cost ($C_A$) suppresses protest; $\pi_A$ is low and uninformative (Lemma 1). The elite does not perceive a crisis. No compensation. Displaced workers accumulate. In $t = 2$, $\Omega_2 = \omega_H(2 - \omega_H)$ (Remark 1). The accumulated stock of displaced workers generates protest that, even at high $C_A$, exceeds the low institutional resilience $\bar{\pi}_A^{\text{fall}}$. The crisis is *moderate and accumulated* --- not massive enough to penetrate the elite's informational bubble (the elite could still attribute it to normal economic fluctuation). Without compensation, the regime falls.
+*Proof.* (a) *Rapid.* In $t = 1$, $\omega_1 = \omega_R$. The elite's economic assessment $\tilde{\omega}_S = \omega_R + \sigma_A \zeta$ does not exceed $\bar{\omega}_A$ with high probability (Lemma 1: $\omega_R < \bar{\omega}_A$). The elite does not perceive a crisis sufficient to justify fiscal spending. No compensation. Displaced workers accumulate. In $t = 2$, $\Omega_2 = \omega_R(2 - \omega_R)$ (Remark 1). The elite's assessment of $\omega_R$ again falls below $\bar{\omega}_A$ --- the crisis is *moderate*, not massive, and the noisy signal cannot distinguish it from normal fluctuation. But the accumulated stock of displaced workers generates protest that, even at high $C_A$, exceeds the low institutional resilience $\bar{\pi}_A^{\text{fall}}$. Without compensation, the regime falls.
 
-(b) *Threshold.* In $t = 1$, $\omega_1 = \omega_L$: calm. No crisis, no protest, no action needed. In $t = 2$, $\omega_2 = \omega_H$: massive, sudden displacement. Unlike the accumulated crisis under rapid displacement, this shock is *self-revealing* --- its magnitude overwhelms the informational filters that normally insulate the autocratic selectorate. The elite sees the crisis and authorizes spending. The autocrat compensates by decree ($\text{comp}_2 = 1$, $\varphi_2 = 1$, no lag). Displaced workers receive $B$; $v$ drops to $1 - B$; protest falls below $\bar{\pi}_A^{\text{fall}}$. $\blacksquare$
+(b) *Threshold.* In $t = 1$, $\omega_1 = \omega_{T1}$: calm. No crisis. In $t = 2$, $\omega_2 = \omega_{T2}$: massive, sudden displacement. The elite's assessment $\tilde{\omega}_S = \omega_{T2} + \sigma_A \zeta$ exceeds $\bar{\omega}_A$ with high probability (Lemma 1: $\omega_{T2} > \bar{\omega}_A$). The crisis is so large that it overwhelms the noise in the elite's channels. The elite authorizes spending. The autocrat compensates by decree ($\text{comp}_2 = 1$, $\varphi_2 = 1$, no lag). Displaced workers receive $B$; $v$ drops to $1 - B$; protest falls below $\bar{\pi}_A^{\text{fall}}$. $\blacksquare$
 
 The asymmetry between P2(a) and P2(b) is not about the total amount of displacement --- it is about *visibility to the elite*. Rapid displacement accumulates invisibly (moderate protest each period, never large enough to alarm the elite). Threshold displacement arrives all at once, too large to ignore.
 
