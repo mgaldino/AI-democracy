@@ -152,7 +152,11 @@ In practice, (b) constrains the incumbent's CHOICE of compensation. The dictator
 
 ### 1.9 Timing
 
-1. $d_{it}$ realized → 2. Signals → 3. Protest ($\pi_t$) → 4. Incumbent proposes comp → 5. **Selectorate votes/approves** → 6. If approved: autocracy $\varphi_t=1$ / democracy $\varphi_{t+1}=1$ → 7. Fall check → 8. Payoffs
+1. $d_{it}$ realized → 2. Signals → 3. Protest ($\pi_t$) → 4. Compensation trigger check → 5. If triggered: autocracy $\varphi_t=1$ / democracy $\varphi_{t+1}=1$ → 6. Fall check: $\pi_t > \bar{\pi}_x^{\text{fall}}$ and $\varphi_t = 0$ → 7. Payoffs
+
+**Step 4 differs by regime:**
+- Democracy: comp triggered iff $\pi_t > \bar{\pi}_D^{\text{comp}}$ (protest = political demand = voice)
+- Autocracy: comp triggered iff $\tilde{\omega}_S > \bar{\omega}_A$ (elite's economic assessment, independent of $\pi$)
 
 ---
 
@@ -160,23 +164,28 @@ In practice, (b) constrains the incumbent's CHOICE of compensation. The dictator
 
 An equilibrium of the game in period $t$ is a tuple $(s^*, \text{comp}_t, \varphi_t)$ such that:
 
-**(i) Workers optimize.** $s^*$ solves the indifference condition: displaced worker with signal $s^*$ is indifferent between protesting and not, given $\varphi_t$ (which determines $v$):
+**(i) Workers optimize.** $s^*$ solves the indifference condition given expected $\varphi$:
 
-$$G(s^*) = \sum_\theta P(\theta \mid d=1, s^*) \cdot \Omega_t(\theta) \cdot \Lambda\left(\frac{\omega_t(\theta) - s^*}{\sigma}\right) - \bar{h}(\varphi_t) = 0$$
+$$G(s^*) = \sum_\theta P(\theta \mid d=1, s^*) \cdot \Omega_t(\theta) \cdot \Lambda\left(\frac{\omega_t(\theta) - s^*}{\sigma}\right) - \bar{h}(\varphi) = 0$$
 
-where $\bar{h}(\varphi_t) = 1 - v(\varphi_t)/C_x$ and $v$ depends on whether compensation is active.
+where $\bar{h}(\varphi) = 1 - v(\varphi)/C_x$.
 
-**(ii) Selectorate approves.** $\text{comp}_t = 1$ iff the selectorate approves:
-- Democracy: majority of workers votes YES (Section 6.3 below)
-- Autocracy: elite approves given $\tilde{\omega}_S = \omega_t + \sigma_A \zeta$ (Section 6.4 below)
+**(ii) Compensation triggered.** Asymmetric by regime:
 
-**(iii) Compensation follows from approval + regime speed.**
+- **Democracy (voice):** $\text{comp}_t = 1$ iff $\pi_t > \bar{\pi}_D^{\text{comp}}$. Protest is the political demand that moves the legislature. Without visible protest, no bill is introduced. With sufficient protest, the political cost of inaction exceeds the fiscal cost of compensation. $\bar{\pi}_D^{\text{comp}}$ is the minimum protest that generates legislative action.
+
+- **Autocracy (technocratic):** $\text{comp}_t = 1$ iff $\tilde{\omega}_S > \bar{\omega}_A$, where $\tilde{\omega}_S = \omega_t + \sigma_A \zeta$ is the elite's economic assessment. The autocrat compensates when the selectorate (elite) sees the crisis as justifying fiscal spending. Independent of $\pi$ — breaks the self-fulfilling cycle (see Appendix C).
+
+**(iii) Regime speed.**
 - If $\text{comp}_t = 1$: autocracy $\varphi_t = 1$ (immediate); democracy $\varphi_{t+1} = 1$ (lag)
 - If $\text{comp}_t = 0$: $\varphi_t = 0$
 
-**(iv) Consistency.** Workers' expectation of $\varphi$ (which enters $v$, which determines $s^*$) is consistent with the selectorate's actual decision. The equilibrium is a fixed point: workers anticipate comp $\iff$ selectorate approves given the resulting $\pi$.
+**(iv) Consistency.** Workers' expectation of $\varphi$ (entering $v$) is consistent with the trigger outcome.
 
-**Remark.** The global game (workers choosing $s^*$) and the selectorate decision (comp) interact through $v$: expected compensation reduces anger, which reduces protest, which affects regime survival. But the selectorate's decision is based on $\tilde{\omega}_S$ (economic assessment), not on $\pi$ (protest). This breaks the circularity that would arise if the selectorate observed protest directly (see Appendix C, "Self-fulfilling problem").
+- *Democracy:* $\pi$ (from $s^*$) determines comp (via trigger). Since compensation is binary, workers' beliefs are restricted to $\{\text{comp}, \text{no-comp}\}$. We check both candidates and select the unique self-confirming one (Section 9). Under R×D: only comp is self-confirming (no-comp generates protest that triggers comp, contradicting the assumption). Under T×D $t=1$: only no-comp is self-confirming (protest is too low to trigger comp).
+- *Autocracy:* comp depends on $\tilde{\omega}_S$, not $\pi$. Workers take comp as given (determined by the elite's assessment of $\omega$, which they can estimate from their own signals). No circularity.
+
+**Remark (Hirschman).** The asymmetric trigger reflects different institutional logics. Democracy responds to *voice*: popular protest signals political demand, and the legislative process converts demand into policy. Autocracy responds to *technocratic assessment*: the elite evaluates economic indicators and authorizes spending when the threat to regime survival is evident. The asymmetry is not a modeling convenience — it is the institutional content of the model. A democracy that ignores protest is not functioning as a democracy. An autocracy that responds to protest is admitting weakness.
 
 ---
 
@@ -236,111 +245,76 @@ By continuity and the IVT, $\exists \, s^*$ with $G(s^*) = 0$. $\square$
 
 ---
 
-## 7. Lemma 1: The Dictator's Dilemma as Selectorate Visibility Gap
+## 7. Lemma 1: Asymmetric Triggers
 
-### 7.1 Definition
+### 7.1 Democratic Trigger: Protest as Political Demand
 
-The *selectorate approval threshold* $\bar{\omega}_x$ is the smallest displacement rate at which the selectorate approves compensation spending.
+In democracy, compensation requires **political demand**, which is generated by protest. Define:
 
-- Democracy: $\bar{\omega}_D$ = the $\omega$ at which the majority votes for compensation.
-- Autocracy: $\bar{\omega}_A$ = the $\omega$ at which the elite's assessment $\tilde{\omega}_S$ generates sufficient evidence.
+$$\bar{\pi}_D^{\text{comp}} = \text{minimum protest that triggers legislative action}$$
 
-### 7.2 Statement
+This threshold captures: below $\bar{\pi}_D^{\text{comp}}$, displacement is politically invisible — too few affected, no organized demand, no bill introduced. Above it, the issue is salient, legislators respond, law passes.
 
-**Lemma 1** (Dictator's Dilemma). *$\bar{\omega}_A > \bar{\omega}_D$.*
+$\bar{\pi}_D^{\text{comp}} < \bar{\pi}_D^{\text{fall}}$: the "sweet spot" where protest demands compensation without toppling the regime.
 
-### 7.3 Proof
+**Under rapid $t=1$:** $\omega_R = 0.30$ → many displaced → protest $\pi$ significant (from global game) → $\pi > \bar{\pi}_D^{\text{comp}}$ → bill introduced → law passes. Democracy compensates.
 
-**Channel (i): Information quality.** The autocratic elite observes $\tilde{\omega}_S = \omega + \sigma_A \zeta$, $\zeta \sim N(0,1)$. Their posterior mean is:
+**Under threshold $t=1$:** $\omega_{T1} = 0.05$ → few displaced → protest $\pi = \omega_{T1} = 0.05$ (displaced protest, but very few). For $\bar{\pi}_D^{\text{comp}} \geq 0.05$: $\pi \leq \bar{\pi}_D^{\text{comp}}$ → insufficient political demand → no bill. The non-displaced majority is prospering ($Y^+ > 1$), reinforcing political indifference to the few displaced. Compensation is not blocked by a VOTE AGAINST — it is blocked by **absence of demand**. Nobody proposes it because nobody with political weight is asking.
 
-$$\hat{\omega}_S = \frac{\sigma_0^2}{\sigma_0^2 + \sigma_A^2}\tilde{\omega}_S + \frac{\sigma_A^2}{\sigma_0^2 + \sigma_A^2}\mu_0$$
+This connects directly to the empirical evidence:
+- Finseraas & Nyhus (2025): technological prosperity shifts the entire community AWAY from redistribution preferences — not via a formal vote, but via the disappearance of political demand for social protection.
+- Dasgupta & Ramirez (2025): displaced farmers in the Great Plains didn't organize; the beneficiaries of agricultural technology set the political agenda.
 
-The weight on the signal is $\sigma_0^2/(\sigma_0^2 + \sigma_A^2)$, decreasing in $\sigma_A$. For any true $\omega > \mu_0$, $\hat{\omega}_S$ is shrunk more toward $\mu_0$ under autocracy ($\sigma_A$ large) than democracy ($\sigma_D$ small). The elite requires a larger true $\omega$ to perceive a crisis of a given severity.
+### 7.2 Autocratic Trigger: Elite's Economic Assessment
 
-**Channel (ii): Selectorate composition.** In democracy, displaced workers (fraction $\omega_t$) always vote YES — they receive $B$ and pay no tax. This built-in constituency lowers $\bar{\omega}_D$: even moderate $\omega$ generates a voting bloc that, combined with forward-looking employed, can form a majority.
+In autocracy, the dictator values power at $V \to \infty$ and would always compensate. But compensation requires the **selectorate's (elite) fiscal approval** (Section 1.6). The elite approves iff they perceive the crisis through their noisy channel:
 
-In autocracy, the elite is NOT displaced (they own capital, not labor). They have no direct stake in compensation — only an indirect stake via regime survival. They approve only when $P(\text{falls} \mid \text{no comp}, \tilde{\omega}_S)$ is high enough to justify the fiscal cost. This is a HIGHER bar than "do I personally benefit?"
+$$\text{Elite approves iff } \tilde{\omega}_S > \bar{\omega}_A, \quad \tilde{\omega}_S = \omega + \sigma_A \zeta$$
 
-**Formally:** Define $f_x(\omega) = P(\text{selectorate approves} \mid \omega)$. Both $f_D$ and $f_A$ are increasing in $\omega$. Channels (i) and (ii) imply $f_D(\omega) > f_A(\omega)$ for all $\omega \in (\mu_0, \omega_{T2})$. By the IFT applied to $f_x(\bar{\omega}_x) = 1/2$:
+$\bar{\omega}_A$ is the elite's evidence threshold: the minimum economic signal that justifies spending the selectorate's money. With $\sigma_A$ large (information bubble), $\bar{\omega}_A$ is high — only massive crises pierce the noise.
 
-$$\bar{\omega}_A > \bar{\omega}_D \quad \square$$
+**Under rapid:** $\omega_R < \bar{\omega}_A$ → elite doesn't see crisis → doesn't approve → dictator represses instead (off-budget, no approval needed).
 
-### 7.4 Democratic Majority Condition (Formal)
+**Under threshold $t=2$:** $\omega_{T2} > \bar{\omega}_A$ → elite sees GDP collapse → approves → dictator compensates immediately.
 
-Worker $i$ votes YES for compensation iff expected benefit exceeds expected tax cost:
+**No self-fulfilling problem:** The elite's assessment $\tilde{\omega}_S$ depends on $\omega$ (the economic fundamental), not on $\pi$ (protest). Workers can anticipate compensation without affecting the trigger. The elite sees GDP crashing regardless of whether workers protest.
 
-$$\underbrace{d_{it} \cdot B + (1-d_{it}) \cdot \delta \cdot P(d_{i,t+1}=1 \mid s_{it}) \cdot B}_{\text{benefit: direct (if displaced) or insurance (if employed)}} > \underbrace{\hat{\omega}_t \cdot B \cdot Y_{it}}_{\text{tax cost (proportional to income)}}$$
+### 7.3 Statement
 
-Simplifying (divide by $B > 0$):
+**Lemma 1.** *The democratic protest trigger $\bar{\pi}_D^{\text{comp}}$ is exceeded under rapid but not under threshold $t=1$. The autocratic elite trigger $\bar{\omega}_A$ is exceeded under threshold $t=2$ but not under rapid. Formally:*
 
-$$d_{it} + (1-d_{it}) \cdot \delta \cdot \hat{P}_{it} > \hat{\omega}_t \cdot Y_{it}$$
+*(a) $\pi(R, t=1) > \bar{\pi}_D^{\text{comp}} > \pi(T, t=1) \approx 0$*
 
-where $\hat{P}_{it} = P(d_{i,t+1}=1 \mid s_{it})$ is worker $i$'s perceived probability of future displacement.
+*(b) $\omega_{T2} > \bar{\omega}_A > \omega_R$*
 
-**Case 1: Displaced** ($d_{it}=1$, $Y_{it}=0$). LHS $= 1 > 0 =$ RHS. **Always votes YES.**
+**Proof of (a).** Under rapid $t=1$ (comp-expected equilibrium): $v = 1 + \delta(1-B) = 1.36 < C_D = 1.5$. The single-state approximation (valid for $\sigma$ small relative to state separation: $\sigma = 0.10$ vs gap $\omega_R - \omega_{T1} = 0.25 = 2.5\sigma$) gives $\pi \approx \bar{h} = 1 - 1.36/1.5 = 0.093$. For $\bar{\pi}_D^{\text{comp}} < 0.093$: comp triggered. Chenoweth & Stephan (2011) document that 3.5% mobilization triggers major political response; $\bar{\pi}_D^{\text{comp}} \approx 0.05$ is conservative.
 
-**Case 2: Employed under rapid** ($d_{it}=0$, $Y_{it}=1$). Votes YES iff:
+Under threshold $t=1$ (no-comp equilibrium): $v = 1 + \delta = 1.9 > C_D = 1.5$ → dominant strategy for the few displaced → $\pi = \omega_{T1} = 0.05$. For $\bar{\pi}_D^{\text{comp}} \geq 0.05$: comp NOT triggered. $\square$
 
-$$\delta \cdot \hat{P}_{it} > \hat{\omega}_t$$
+**Parametric condition:** $\bar{\pi}_D^{\text{comp}} \in [0.05, \, 0.093)$ — a narrow but non-empty interval. The lower bound ensures threshold protest doesn't trigger; the upper ensures rapid protest does. Width $= 0.043$, driven by $\bar{h}(R) - \omega_{T1} = 0.093 - 0.05$.
 
-Under rapid $t=1$: $\hat{P}_{it} = P(d_{i2}=1 \mid s_{i1}, d_{i1}=0, \theta=R) = \omega_R$ (worker knows rapid displacement continues). $\hat{\omega}_t \approx \omega_R$ (since rapid is detectable). So condition is $\delta \cdot \omega_R > \omega_R$, i.e., $\delta > 1$. **Fails** (δ < 1).
+**Proof of (b).** $\bar{\omega}_A$ is the elite's evidence threshold: a parameter of the autocratic institution. We require $\bar{\omega}_A \in (\omega_R, \omega_{T2})$. This is feasible because $\omega_R < \omega_{T2}$ (by assumption). For any such $\bar{\omega}_A$, the elite's probability of approving compensation is $P(\tilde{\omega}_S > \bar{\omega}_A \mid \omega) = \Phi((\omega - \bar{\omega}_A)/\sigma_A)$, which is increasing in $\omega$. At $\omega = \omega_R$: $\Phi((\omega_R - \bar{\omega}_A)/\sigma_A) < \Phi(0) = 1/2$ (since $\omega_R < \bar{\omega}_A$). At $\omega = \omega_{T2}$: $\Phi((\omega_{T2} - \bar{\omega}_A)/\sigma_A) > 1/2$. Example: $\bar{\omega}_A = 0.40$, $\sigma_A = 0.15$: $P(\text{comp} \mid \omega_R = 0.30) = \Phi(-0.67) = 0.25$; $P(\text{comp} \mid \omega_{T2} = 0.60) = \Phi(1.33) = 0.91$. $\square$
 
-BUT: the worker does NOT know $\theta = R$ with certainty. Under uncertainty, $\hat{P}_{it}$ is a posterior-weighted average. And the tax rate $\hat{\omega}_t$ uses the SAME posterior. The condition becomes:
+### 7.4 Why Two Different Triggers (Hirschman 1970)
 
-$$\delta \cdot \mathbb{E}[\omega_2(\theta) \mid s_{i1}, d_{i1}=0] > \mathbb{E}[\omega_1(\theta) \mid s_{i1}, d_{i1}=0]$$
+The asymmetry is not a modeling convenience — it reflects the institutional logic of each regime type:
 
-For a worker with high signal (suggestive of $\theta = R$): both expectations are $\approx \omega_R$, condition is $\delta > 1$ — fails. For a worker with LOW signal (suggestive of $\theta = T$ or $N$): LHS involves $\omega_2(T) = \omega_{T2}$ (high) and $\omega_2(N) = \omega_N$ (low), while RHS involves $\omega_1 \approx \omega_{T1}$ or $\omega_N$ (both low). Condition: $\delta \cdot [p_T' \cdot \omega_{T2} + p_N' \cdot \omega_N] > [p_T' \cdot \omega_{T1} + p_N' \cdot \omega_N]$. With $\omega_{T2} \gg \omega_{T1}$: **may pass** if $p_T'$ is non-trivial.
+**Democracy = voice.** The legislature responds to popular demand expressed through protest, petitions, media attention, and electoral pressure. Without voice, the democratic machinery does not activate. This is the defining feature of democratic responsiveness: the government acts BECAUSE citizens demand it.
 
-**The employed under rapid who vote YES are those with LOW signals** (who think θ might be T, and fear massive future displacement). This is the INSURANCE motive: "I might be in a threshold trajectory heading for catastrophe."
+**Autocracy = technocratic assessment.** The autocrat does not wait for (suppressed) protest to act — that would be admitting the regime has a legitimacy problem. Instead, the autocrat's advisors assess economic conditions, and the selectorate (elite) evaluates whether fiscal intervention is warranted. The decision channel is top-down (economic intelligence → elite consensus → decree), not bottom-up (protest → legislation).
 
-**Majority condition under rapid $t=1$:**
-
-$$\underbrace{\omega_R}_{\text{displaced (vote YES)}} + \underbrace{(1-\omega_R) \cdot \Phi_R}_{\text{employed who vote YES}} > \frac{1}{2}$$
-
-where $\Phi_R$ = fraction of employed workers whose insurance motive exceeds tax cost. With $\omega_R = 0.30$: need $\Phi_R > 0.20/0.70 = 0.286$, i.e., $\geq 29\%$ of employed workers vote YES. Plausible with $\delta = 0.9$ and non-trivial $p_T$.
-
-**Case 3: Employed under threshold $t=1$** ($d_{it}=0$, $Y_{it} = 1+\gamma$). Votes YES iff:
-
-$$\delta \cdot \hat{P}_{it} > \hat{\omega}_t \cdot (1+\gamma)$$
-
-The SAME insurance motive, but tax cost is multiplied by $(1+\gamma)$. The threshold for voting YES is **higher by factor $(1+\gamma)$**:
-
-$$\hat{P}_{it} > \frac{\hat{\omega}_t \cdot (1+\gamma)}{\delta}$$
-
-Moreover, under threshold $t=1$, $\hat{P}_{it}$ is LOW (few displaced, signals suggest $\theta \in \{T, N\}$ both with low $\omega_1$, and the worker's posterior on future displacement is attenuated by the possibility of $\theta = N$).
-
-**Majority condition under threshold $t=1$:**
-
-$$\underbrace{\omega_{T1}}_{\text{displaced}} + \underbrace{(1-\omega_{T1}) \cdot \Phi_T}_{\text{employed who vote YES}} > \frac{1}{2}$$
-
-where $\Phi_T$ = fraction of employed under $Y^+$ whose insurance motive exceeds elevated tax cost. With $\omega_{T1} = 0.05$: need $\Phi_T > 0.45/0.95 = 0.474$, i.e., $\geq 47\%$ of employed must vote YES. With $(1+\gamma)$ raising the bar AND $\hat{P}_{it}$ being low: **fails** for $\gamma$ sufficiently large.
-
-**Proposition** (Majority Reversal). *There exists $\gamma^* > 0$ such that for all $\gamma > \gamma^*$: the majority approves compensation under rapid $t=1$ ($\Phi_R > 0.286$) but blocks compensation under threshold $t=1$ ($\Phi_T < 0.474$).*
-
-*Proof.* $\Phi_R$ does not depend on $\gamma$ (employed under rapid earn $Y = 1$). $\Phi_T$ is strictly decreasing in $\gamma$ (higher $Y^+$ raises tax cost). As $\gamma \to \infty$, $\Phi_T \to 0$. As $\gamma \to 0$, $\Phi_T = \Phi_R$ (no income difference). Since $\Phi_R > 0.286$ by assumption (majority passes under rapid), and $\Phi_T \to 0 < 0.474$ for large $\gamma$: by continuity, $\exists \, \gamma^*$ such that $\Phi_T < 0.474$ for $\gamma > \gamma^*$ while $\Phi_R > 0.286$ unchanged. $\square$
-
-### 7.5 Under Threshold $t=1$: $Y^+$ Blocks Democratic Compensation
-
-Even if $\omega_{T1} > \bar{\omega}_D$ (democracy would normally compensate at this displacement level), the threshold $t=1$ case is special: non-displaced workers earn $Y^+ > 1$. Their tax cost of compensation is $\tau \cdot Y^+$, which exceeds $\tau \cdot 1$. With $\gamma$ large enough, even the insurance motive is insufficient to overcome the higher tax burden:
-
-$$\text{Worker with } Y^+ \text{ votes NO iff: } \tau \cdot (1+\gamma) > \delta \cdot P(d_{i,t+1}=1) \cdot B$$
-
-Since $P(d_{i,t+1}=1)$ is low under threshold $t=1$ (workers are in the complementarity phase, few displaced, future looks bright from their signal), the insurance motive is weak. Combined with $Y^+$ raising the tax cost, the majority votes NO.
-
-**Key result**: Under threshold $t=1$, democratic compensation is blocked not by the incumbent's inability to see the crisis, but by the **selectorate's rational refusal to pay for insurance they don't think they need** — they're prospering.
-
-This is exactly the Finseraas & Nyhus (2025) and Dasgupta & Ramirez (2025) mechanism: technological prosperity shifts preferences against redistribution.
+A democracy that compensates without popular demand is paternalistic. An autocracy that compensates in response to protest is showing weakness. Each regime has its natural trigger.
 
 ---
 
-## 7. Compensation Decisions by Scenario
+## 8. Compensation Decisions by Scenario
 
-| Scenario | $t$ | True $\omega$ | Democracy | Autocracy |
-|----------|-----|---------------|-----------|-----------|
-| R | 1 | $\omega_R$ | Majority votes YES (displaced + fearful employed) → **comp** | Elite doesn't see ($\omega_R < \bar{\omega}_A$) → **no comp** → repress |
-| T | 1 | $\omega_{T1}$ | Majority votes NO ($Y^+ > 1$, few displaced) → **no comp** | Elite doesn't see ($\omega_{T1} < \bar{\omega}_A$) → **no comp** |
+| Scenario | $t$ | True $\omega$ | Democracy (voice trigger) | Autocracy (elite trigger) |
+|----------|-----|---------------|---------------------------|---------------------------|
+| R | 1 | $\omega_R$ | $\pi > \bar{\pi}_D^{\text{comp}}$ → **comp** (law, lag) | $\omega_R < \bar{\omega}_A$ → **no comp** → repress |
+| T | 1 | $\omega_{T1}$ | $\pi \approx 0 < \bar{\pi}_D^{\text{comp}}$ → **no comp** | $\omega_{T1} < \bar{\omega}_A$ → **no comp** |
 | R | 2 | $\omega_R$ | $\varphi_2 = 1$ (law from $t=1$) | Still $\omega_R < \bar{\omega}_A$ → **no comp** → repress |
-| T | 2 | $\omega_{T2}$ | Majority votes YES → **comp** but LAG → $\varphi_2 = 0$ | Elite sees ($\omega_{T2} > \bar{\omega}_A$) → **comp, immediate** |
+| T | 2 | $\omega_{T2}$ | $\pi > \bar{\pi}_D^{\text{comp}}$ → **comp** but LAG → $\varphi_2 = 0$ | $\omega_{T2} > \bar{\omega}_A$ → **comp, immediate** |
 
 ---
 
