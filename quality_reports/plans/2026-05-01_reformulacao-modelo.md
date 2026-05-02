@@ -496,6 +496,11 @@ tau_A   = 0.10    # Ruído observação incumbente (autocracia — dictator's di
 - **Escolha**: B (benefit).
 - **Descartado**: c (cost), T (time), τ (tax rate).
 
+### Decisão: C_A = 2.0 (custo de protesto autocrático)
+- **Escolha**: C_A = 2.0. Evita estratégia dominante para todo δ ≤ 1 (boundary: δ_crit = C_A - 1 = 1.0). Single-state π* = 1 - 1/2 = 0.5 >> π̄_A^fall = 0.05 sob rapid. Equilíbrio interior opera em todos os cenários.
+- **Descartado**: C_A = 1.65 — dentro do sweet spot multi-state (1.50, 1.74) mas gera estratégia dominante em R×A t=1 (v = 1 + δ = 1.9 > 1.65). Autocracy cai em t=1, não por acumulação. Narrativa confusa.
+- **Razão**: C_A = 2.0 preserva equilíbrio interior, permite narrativa de acumulação gradual, e o resultado é mais forte (autocracy cai MESMO com equilíbrio interior — coordenação matters, não apenas dominant strategy).
+
 ## Referências-chave
 
 - Kuran (1991) — preference falsification, surprise revolutions
