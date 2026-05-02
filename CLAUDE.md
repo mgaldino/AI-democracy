@@ -34,19 +34,20 @@ Paper teórico-formal na tradição OEP sobre como trajetórias de automação p
 - Notação: x ∈ {D,A} para regime, i para worker, F para CDF de ruído
 - Plano completo: `quality_reports/plans/2026-05-01_reformulacao-modelo.md`
 
-## Resultados (paper.Rmd)
+## Resultados (paper.Rmd — v2, modelo reformulado)
 
-| Resultado | Conteúdo | Lean |
-|-----------|----------|------|
-| L1-L2 | Equilíbrio de coordenação (global games) | Verificado (SupermodularGames lib) |
-| P1-P3 | Crossed fragility | Verificado |
-| P4 | Welfare cost = κ̄ | Verificado |
-| C1-C2 | Comparative statics (threshold of thresholds, crossed interval width) | Verificado |
-| P5-P6 | Welfare state como seguro institucional | Verificado |
-| P7 | Fiscal fragility endógena | Verificado |
-| Coord. Conditions | Dominance regions, q*, single-crossing | Verificado |
+| Resultado | Conteúdo | Status |
+|-----------|----------|--------|
+| L1 | Dictator's dilemma (ω̄_A derivado de σ_A) | Escrito, prova em Appendix A |
+| R1 | Composição absorvente (Ω₂^R > Ω₂^T) | Escrito |
+| P1-P2 | Democratic/Autocratic fragility patterns | Escrito |
+| P3 | Crossed fragility | Escrito |
+| P4 | Welfare cost (composição) | Escrito |
+| C1 | Sweet spot de C_A | Escrito, prova em Appendix A, verificado numericamente |
+| P5 | σ_A amplification | Escrito, prova em Appendix A, verificado numericamente |
+| Rk2 | Standing compensatory capacity | Escrito (Sec 5) |
 
-**17/17 verificados em Lean 4.** L1-L2 via biblioteca SupermodularGames (dependência local). Dashboard: `formal_proofs/DASHBOARD.md`
+**Lean verification**: pendente para modelo reformulado (v1 tinha 17/17, mas modelo mudou)
 
 ## Review status
 
@@ -61,19 +62,24 @@ Paper teórico-formal na tradição OEP sobre como trajetórias de automação p
 
 Parecer completo: `quality_reports/2026-04-02_review-formal-model-v4.md`
 
-### Edmans Review (v8, 2026-04-06)
+### Edmans Review (v2 reformulado, 2026-05-02)
 
-| Dimensão | Score | Evolução vs v6 |
+| Dimensão | Score | Evolução vs v1 |
 |----------|-------|-----------------|
-| Contribution | 7.0/10 | +0.5 |
-| Execution | 8.0/10 | +0.5 |
-| Exposition | 8.0/10 | +0.5 |
-| **Global** | **7.5/10** | **+0.3** |
+| Contribution | 7.5/10 | +0.5 |
+| Execution | 7.5/10 | -0.5 |
+| Exposition | 7.5/10 | -0.5 |
+| **Global** | **7.5/10** | **+0.0** |
 
-**Decisão editorial**: R&R minor. Recomendação: JOP/BJPS.
-**Prioridades Edmans**: (1) expandir bib 35-40 refs; (2) remark sobre δ; (3) condensar — FEITO (Section 2, Limitations); (4) clarificar link verbal heterogeneidade→ruído; (5) quantificação no abstract.
+**Decisão editorial**: R&R major. Recomendação: JOP/BJPS após resolver prioridades.
+**Prioridades Edmans (todas resolvidas 2026-05-02)**:
+1. ~~Endogeneizar ω̄_A~~ — FEITO (derivado de σ_A, A8 transformado)
+2. ~~Expandir bib 35-40 refs~~ — FEITO (44 refs)
+3. ~~Eliminar redundância 4 cenários~~ — FEITO (proofs condensadas)
+4. ~~Completar Sec 5 (Policy)~~ — FEITO (Rk2 + two scenarios)
+5. ~~Números no abstract~~ — FEITO (25% vs 91% approval)
 
-**Resolvidos (2026-04-06)**: polish completo (h axiomática, calibração paramétrica, C1-C5), Section 2.3-2.4 condensada (~2pp economizadas), Limitations movidas para Conclusion.
+Parecer completo: `quality_reports/2026-05-02_edmans-review-v2.md`
 
 ## Plano de trabalho
 
