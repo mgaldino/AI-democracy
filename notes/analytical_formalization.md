@@ -569,12 +569,12 @@ Three alternatives under consideration:
 ```
 ω_R=0.30, ω_T1=0.05, ω_T2=0.60, ω_N=0.02
 σ=0.10, C_D=1.5, C_A=2.0, B=0.6, δ=0.9
-π̄_D=0.20, π̄_A=0.05, σ_D=0.03, σ_A=0.15
+π̄_D=0.20, π̄_A=0.06, σ_D=0.03, σ_A=0.15
 ```
 
 | Scenario | π₂ | π̄ | Outcome |
 |----------|----|----|---------|
 | R×D | 0.000 (comp) | 0.20 | STABLE |
-| R×A | 0.500 (accumulated) | 0.05 | FALLS |
+| R×A | 0.500 (accumulated) | 0.06 | FALLS |
 | T×D | 0.333 (massive, no comp) | 0.20 | FALLS |
-| T×A | 0.000 (immediate decree) | 0.05 | STABLE |
+| T×A | 0.000 (immediate decree) | 0.06 | STABLE |

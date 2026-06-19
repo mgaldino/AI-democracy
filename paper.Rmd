@@ -216,7 +216,7 @@ The two periods should be read as two politically distinct moments, not as fixed
 
 ## Numerical example
 
-Let $\omega_R = 0.30$, $\omega_{T1} = 0.05$, $\omega_{T2} = 0.60$, $\omega_N = 0.02$, $\sigma = 0.10$, $C_D = 1.5$, $C_A = 2.0$, $B = 0.6$, $\delta = 0.9$, $\gamma = 0.3$, $\bar{\pi}_D^{\text{fall}} = 0.20$, $\bar{\pi}_A^{\text{fall}} = 0.05$, $\bar{\omega}_A = 0.40$, $\sigma_A = 0.15$, $p_R = 0.30$, $p_T = 0.30$, $p_N = 0.40$.
+Let $\omega_R = 0.30$, $\omega_{T1} = 0.05$, $\omega_{T2} = 0.60$, $\omega_N = 0.02$, $\sigma = 0.10$, $C_D = 1.5$, $C_A = 2.0$, $B = 0.6$, $\delta = 0.9$, $\gamma = 0.3$, $\bar{\pi}_D^{\text{fall}} = 0.20$, $\bar{\pi}_A^{\text{fall}} = 0.06$, $\bar{\omega}_A = 0.40$, $\sigma_A = 0.15$, $p_R = 0.30$, $p_T = 0.30$, $p_N = 0.40$.
 
 Derived quantities: $\Omega_2^{\text{rapid}} = 0.30 \times 1.70 = 0.51$; $\Omega_2^{\text{threshold}} = 0.05 + 0.95 \times 0.60 = 0.62$. Non-displaced income under threshold $t = 1$: $Y^+ = 1 + 0.3 = 1.3$.
 
@@ -224,11 +224,11 @@ Consider the four scenarios:
 
 - *Democracy, rapid displacement.* $t = 1$: $\omega_1 = \omega_R = 0.30$. Workers displaced at a moderate rate. Low cost of protest ($C_D = 1.5$) generates protest exceeding $\bar{\pi}_D^{\text{comp}}$: the voice trigger activates. The legislature passes a compensation law ($\text{comp}_1 = 1$). The law does not take effect until $t = 2$ (institutional lag), but the credible legislative commitment reduces workers' expected future loss, lowering $v_i$ in $t = 1$. Protest remains below $\bar{\pi}_D^{\text{fall}} = 0.20$. **Stable.** $t = 2$: compensation takes effect ($\varphi_2 = 1$). Displaced workers earn $B = 0.6$ instead of 0. Expressive value drops to $v = 1 - B = 0.4$. Protest is contained. **Stable.**
 
-- *Autocracy, rapid displacement.* $t = 1$: $\omega_1 = \omega_R = 0.30$. High cost of protest ($C_A = 2.0$) suppresses protest. The elite's noisy economic assessment $\tilde{\omega}_S = 0.30 + 0.15\zeta$ does not exceed $\bar{\omega}_A = 0.40$ with high probability: the moderate crisis is invisible through the elite's channels. No compensation. $t = 2$: displacement accumulates: $\Omega_2 = 0.51$. The stock of displaced workers generates protest exceeding $\bar{\pi}_A^{\text{fall}} = 0.05$ despite high $C_A$. The elite's assessment again fails to exceed $\bar{\omega}_A$ (the crisis is moderate, not massive). **Falls.**
+- *Autocracy, rapid displacement.* $t = 1$: $\omega_1 = \omega_R = 0.30$. High cost of protest ($C_A = 2.0$) suppresses protest. The elite's noisy economic assessment $\tilde{\omega}_S = 0.30 + 0.15\zeta$ does not exceed $\bar{\omega}_A = 0.40$ with high probability: the moderate crisis is invisible through the elite's channels. No compensation. $t = 2$: displacement accumulates: $\Omega_2 = 0.51$. The stock of displaced workers generates protest exceeding $\bar{\pi}_A^{\text{fall}} = 0.06$ despite high $C_A$. The elite's assessment again fails to exceed $\bar{\omega}_A$ (the crisis is moderate, not massive). **Falls.**
 
 - *Democracy, threshold automation.* $t = 1$: $\omega_1 = \omega_{T1} = 0.05$. Almost no one is displaced. Non-displaced workers earn $Y^+ = 1.3$ from AI complementarity. No protest, no voice trigger. Workers earning $Y^+ = 1.3$ face higher tax costs and oppose compensation. No law is passed, no infrastructure is built. $t = 2$: $\omega_2 = \omega_{T2} = 0.60$, massive displacement. Protest rises ($C_D$ low), crossing $\bar{\pi}_D^{\text{comp}}$. The legislature passes a law --- but the lag means $\varphi_3 = 1$, with no effect in the two-period model. No compensation available ($\varphi_2 = 0$). Protest exceeds $\bar{\pi}_D^{\text{fall}} = 0.20$. **Falls.**
 
-- *Autocracy, threshold automation.* $t = 1$: $\omega_1 = \omega_{T1} = 0.05$. Calm. $t = 2$: $\omega_2 = \omega_{T2} = 0.60$. Massive and sudden displacement. The elite's assessment $\tilde{\omega}_S = 0.60 + 0.15\zeta$ exceeds $\bar{\omega}_A = 0.40$ with high probability: the crisis is self-revealing, its magnitude overwhelms the noise. The elite authorizes spending. The autocrat compensates by decree ($\text{comp}_2 = 1$, $\varphi_2 = 1$, no lag). Displaced workers receive $B = 0.6$, expressive value drops to $v = 0.4$, protest falls below $\bar{\pi}_A^{\text{fall}} = 0.05$. **Stable.**
+- *Autocracy, threshold automation.* $t = 1$: $\omega_1 = \omega_{T1} = 0.05$. Calm. $t = 2$: $\omega_2 = \omega_{T2} = 0.60$. Massive and sudden displacement. The elite's assessment $\tilde{\omega}_S = 0.60 + 0.15\zeta$ exceeds $\bar{\omega}_A = 0.40$ with high probability: the crisis is self-revealing, its magnitude overwhelms the noise. The elite authorizes spending. The autocrat compensates by decree ($\text{comp}_2 = 1$, $\varphi_2 = 1$, no lag). Displaced workers receive $B = 0.6$, expressive value drops to $v = 0.4$, protest falls below $\bar{\pi}_A^{\text{fall}} = 0.06$. **Stable.**
 
 Opposite outcomes by regime and trajectory, despite both trajectories eventually reaching high displacement. The crossed fragility pattern emerges from the interaction of three regime characteristics --- informational quality, institutional speed, and fiscal authorization --- with two temporal profiles of displacement.
 
@@ -353,7 +353,7 @@ Both surviving regimes compensate workers. The welfare gap comes from *compositi
 | $B \uparrow$ | Both regimes more stable when compensating | Higher compensation reduces $v$ more |
 | $\delta \uparrow$ | Credible commitment more valuable | Workers who value the future respond more to legislative promises |
 
-![Equilibrium protest under rapid $t=2$ as a function of $C_A$ (single-state approximation). The sweet spot $(C_D, C_A^{\text{dom}})$ is shaded: protest exceeds $\bar{\pi}_A^{\text{fall}}$ inside the interval and drops to zero outside. Parameters: $\omega_R = 0.30$, $\Omega_2^R = 0.51$, $v = 1$, $\bar{\pi}_A^{\text{fall}} = 0.05$.](figures/fig_CA_sweet_spot.pdf){width=85%}
+![Equilibrium protest under rapid $t=2$ as a function of $C_A$ (single-state approximation). The sweet spot $(C_D, C_A^{\text{dom}})$ is shaded: protest exceeds $\bar{\pi}_A^{\text{fall}}$ inside the interval and drops to zero outside. Parameters: $\omega_R = 0.30$, $\Omega_2^R = 0.51$, $v = 1$, $\bar{\pi}_A^{\text{fall}} = 0.06$.](figures/fig_CA_sweet_spot.pdf){width=85%}
 
 ## The sweet spot of autocratic repression
 
@@ -453,7 +453,7 @@ The policy implication is direct. Democracies facing AI automation with potentia
 
 An analytical upper bound is $C_A^{\text{dom}} = v/(1 - \Omega_2^R)$: for $C_A > C_A^{\text{dom}}$, not protesting is a dominant strategy regardless of coordination. With baseline parameters: $C_A^{\text{dom}} = 1/0.49 \approx 2.04$.
 
-**Non-emptiness.** $(C_D, C_A^{\max})$ is non-empty iff $\pi^*(C_D, \Omega_2^R, 1) > \bar{\pi}_A^{\text{fall}}$. With baseline parameters, the single-state approximation gives $\pi^* \approx 1 - 1/C_D = 1/3 \gg 0.05$. Numerical verification confirms: the sweet spot is $C_A \in (1.50, 1.74)$.
+**Non-emptiness.** $(C_D, C_A^{\max})$ is non-empty iff $\pi^*(C_D, \Omega_2^R, 1) > \bar{\pi}_A^{\text{fall}}$. With baseline parameters, the single-state approximation gives $\pi^* \approx 1 - 1/C_D = 1/3 \gg 0.06$. Since $\pi^*$ is bounded below by $1/3$ for all $C_A \leq C_D$ and the dominant strategy boundary is $C_A^{\text{dom}} \approx 2.04$, the sweet spot spans $C_A \in (1.50, 2.04)$, with $C_A = 2.0$ well inside.
 
 **Independence of conditions (i), (ii), (iv), (v).** Conditions (i), (ii), (v) depend on $C_D$, $\bar{\pi}_D^{\text{fall}}$, $\delta$, $B$, $\gamma$ --- not on $C_A$. Condition (iv) depends on the elite's trigger $\tilde{\omega}_S > \bar{\omega}_A$, which is independent of $C_A$. Moreover, compensated protest $\pi^*(C_A, \Omega_2^T, 1-B)$ is decreasing in $C_A$ (M1), so condition (iv) is *easier* to satisfy as $C_A$ increases. $\blacksquare$
 
@@ -467,6 +467,24 @@ $$p_R(\sigma_A) = \Phi\!\left(\frac{\omega_R - \bar{\omega}_A(\sigma_A)}{\sigma_
 **(b)** For $\omega_{T2} > \bar{\omega}_A(\sigma_A)$, $z_T = (\omega_{T2} - \bar{\omega}_A)/\sigma_A > 0$ and $p_T = \Phi(z_T) > 1/2$. As $\sigma_A$ increases, both effects (threshold rises, noise spreads) push $z_T$ downward, so $p_T$ decreases. However, $p_T$ remains above $1/2$ as long as $\omega_{T2} > \bar{\omega}_A(\sigma_A)$, which holds provided $\sigma_A < (\omega_{T2} - \alpha_0)/\alpha_1$ for linear $\bar{\omega}_A = \alpha_0 + \alpha_1 \sigma_A$. With baseline parameters, this is satisfied throughout the empirically relevant range. $\blacksquare$
 
 **(c)** The crossed fragility interval $\mathcal{I}(\sigma_A) = \{\omega_R : \omega_R < \bar{\omega}_A(\sigma_A) < \omega_{T2}\}$ expands as $\sigma_A$ increases, because $\bar{\omega}_A(\sigma_A)$ is increasing. More moderate crises (lower $\omega_R$) now qualify for the dictator's dilemma, while massive crises ($\omega_{T2}$) continue to exceed the elite's rising threshold. $\blacksquare$
+
+# Multi-state equilibrium and single-state approximation
+
+The main text uses the single-state approximation $\pi^* \approx \bar{h} = 1 - v/C_x$ for the numerical example. This appendix establishes when this approximation is valid in the three-state model.
+
+**Lemma (State-specific protest).** *In the multi-state global game with cutoff equilibrium $s^*$, the realized protest under true state $\theta$ is:*
+$$\pi_\theta(t) = \Omega_t(\theta) \cdot \Lambda\!\left(\frac{\omega_t(\theta) - s^*}{\sigma}\right)$$
+*The equilibrium condition $\sum_\theta P(\theta \mid d=1, s^*) \cdot \pi_\theta = \bar{h}$ implies that state-specific protest is a posterior-weighted decomposition of $\bar{h}$. When $\omega_t(\theta) - s^* \gg \sigma$, nearly all displaced workers in state $\theta$ protest ($\pi_\theta \approx \Omega_t(\theta)$); when $\omega_t(\theta) - s^* \ll -\sigma$, almost none do ($\pi_\theta \approx 0$).*
+
+*Proof.* Displaced worker $i$ protests iff $s_i > s^*$. By the law of large numbers, $\pi_\theta = \Omega_t(\theta) \cdot P(s_i > s^* \mid \theta) = \Omega_t(\theta) \cdot \Lambda((\omega_t(\theta) - s^*)/\sigma)$, using logistic symmetry. The indifference condition at $s^*$ gives $E[\pi \mid d=1, s=s^*] = \bar{h}$, which expands to the posterior-weighted sum. $\blacksquare$
+
+**Proposition (Prior concentration).** *After $t = 1$, workers observe aggregate protest $\pi_1$, which is a deterministic function of $\theta$ (law of large numbers). Since $\pi_R(1) \neq \pi_T(1) \neq \pi_N(1)$ (strict ordering from the monotonicity of $\Omega_1$ and $\Lambda$ in $\omega$), observation of $\pi_1$ perfectly identifies $\theta$. In $t = 2$ with concentrated prior, the game degenerates to a single-state game, and $\pi_\theta(2) = \bar{h}_2$ when $0 < \bar{h}_2 < \Omega_2(\theta)$.*
+
+This proposition bridges the multi-state $t = 1$ analysis with the single-state approximation used in the main text. At $t = 1$, the cutoff $s^*$ is determined by the multi-state indifference condition, and state-specific protest $\pi_\theta$ can differ from $\bar{h}$. At $t = 2$, prior concentration restores the clean single-state result $\pi^* = \bar{h}$.
+
+**Application.** With baseline parameters, the multi-state equilibrium at $t = 1$ has cutoff $s^* \approx 0.46$, with posterior heavily concentrated on R ($P(R \mid d=1, s^*) = 0.97$). The single-state approximation $\pi_R(1) \approx \bar{h} = 0.05$ is therefore accurate (exact value: $\pi_R(1) = 0.051$). The margin between $\pi_R(1)$ and $\bar{\pi}_A^{\text{fall}} = 0.06$ is $0.009$, confirming that the autocracy survives $t = 1$ and the accumulation mechanism operates through $t = 2$.
+
+**Remark (Credible commitment in $D \times R$).** Under rapid displacement in democracy, the raw expressive value $v = 1 + \delta = 1.9 > C_D = 1.5$ makes protesting a dominant strategy for all displaced workers. The equilibrium requires a credible commitment mechanism: workers anticipate that their protest will trigger compensation (via the voice mechanism), reducing their expected future loss to $1 - B$ and their expressive value to $v_{\text{cred}} = 1 + \delta(1-B) = 1.36 < C_D$. This restores the coordination game with $\bar{h} = 0.093$, yielding $\pi_R(1) = 0.097 < \bar{\pi}_D^{\text{fall}} = 0.20$. The equilibrium is self-confirming: $\pi_R(1) = 0.097 > \bar{\pi}_D^{\text{comp}}$, so compensation is indeed triggered.
 
 # Complementarity extensions [TODO]
 

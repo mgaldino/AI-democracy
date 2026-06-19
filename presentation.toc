@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Motivation}{2}{0}{1}
+\beamer@sectionintoc {2}{Part I: The Original Paper}{6}{0}{2}
+\beamer@sectionintoc {3}{Part I-B: Problems}{12}{0}{3}
+\beamer@sectionintoc {4}{Part II: The Revision}{16}{0}{4}
+\beamer@sectionintoc {5}{Part II-B: Before vs.~After}{24}{0}{5}
+\beamer@sectionintoc {6}{Part III: The Welfare State}{28}{0}{6}
+\beamer@sectionintoc {7}{Part IV: Verification \& Lessons}{32}{0}{7}
