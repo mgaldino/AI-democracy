@@ -1,0 +1,23 @@
+io,setor_original,peso_cex,peso_gasto,gamma_menos_um
+11,"Agriculture (nurseries, floriculture)",0.001,0.001,0.812
+21,Mining,0.002,0.000,0.041
+22,Utilities,0.054,0.030,-0.299
+23,Construction,0.037,0.000,0.667
+31,Manufacturing I,0.112,0.098,-0.559
+32,Manufacturing II,0.031,0.049,-0.210
+33,Manufacturing III,0.123,0.058,0.170
+42,Wholesale trade,0.053,0.036,-0.353
+48,Transportation,0.024,0.025,0.391
+49,"Warehousing, couriers, postal service",0.000,0.001,-0.466
+4A,Retail trade,0.114,0.108,-0.265
+51,Information,0.046,0.034,-0.098
+52,Finance and insurance,0.054,0.059,0.659
+53,Rental and leasing,0.010,0.008,0.486
+54,Professional and technical services,0.010,0.016,0.341
+56,Administrative and waste services,0.006,0.005,0.577
+61,Educational services,0.021,0.026,0.429
+62,Health care and social assistance,0.032,0.172,0.349
+71,"Arts, entertainment, and recreation",0.007,0.011,0.965
+72,Accommodation and food services,0.065,0.060,0.680
+81,Other services,0.059,0.051,0.560
+oo,Housing,0.138,0.150,-0.541

@@ -1,0 +1,148 @@
+% A partir da raiz, após gerar os resultados e a figura com os scripts R:
+% latexmk -pdf -outdir=output/pdf model/plausibilidade_empirica_crossing_servicos.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern,amsmath,amssymb,booktabs,graphicx,xcolor}
+\usepackage[margin=2.45cm,top=2.2cm,bottom=2.2cm]{geometry}
+\usepackage{caption,fancyhdr,hyperref}
+\definecolor{tinta}{HTML}{172E3B}
+\definecolor{azul}{HTML}{22576C}
+\hypersetup{colorlinks=true,linkcolor=azul,urlcolor=azul,
+ pdftitle={Quais serviços ganham com a renda e quem consegue se organizar?},
+ pdfsubject={Teste de plausibilidade do modelo de mudança estrutural e democracia}}
+\captionsetup{font=small,labelfont=bf,labelsep=period,skip=4pt,hypcap=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 0.6pt minus 0.4pt}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{azul}Mudança estrutural, organização do trabalho e democracia}
+\fancyfoot[R]{\small\sffamily\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{primeira}{\fancyhf{}\fancyfoot[R]{\small\sffamily\thepage}}
+\newcommand{\titulo}[1]{\section*{\color{tinta}#1}}
+\newcommand{\subtitulo}[1]{\par\smallskip{\large\bfseries\color{azul}#1\par}\nobreak}
+\newcommand{\hubmer}{\href{https://www.econometricsociety.org/publications/econometrica/browse/2023/01/01/The-Race-Between-Preferences-and-Technology/supp/ecta200523-sup-0001-onlineappendix.pdf}{Hubmer (2023), suplemento, tabela B.I}}
+\newcommand{\unionstats}{\href{https://unionstats.com/main.htm}{Hirsch, Macpherson e Even, Unionstats}}
+\newcommand{\clm}{\href{https://dcomin.host.dartmouth.edu/Publications_files/ECTA16317.pdf}{Comin, Lashkari e Mestieri (2021)}}
+\newcommand{\blsdoze}{\href{https://www.bls.gov/news.release/archives/union2_01232013.htm}{Bureau of Labor Statistics, 2012, tabela 3}}
+\newcommand{\cornell}{\href{https://www.ilr.cornell.edu/faculty-and-research/labor-action-tracker-2025}{Cornell e University of Illinois, Labor Action Tracker 2025}}
+\begin{document}
+\thispagestyle{primeira}
+{\small\sffamily\color{azul}Nota de pesquisa\hfill 23 de novembro de 2026\par}
+\vspace{5pt}
+{\LARGE\bfseries\color{tinta}Quais serviços ganham com a renda\\[2pt]e quem consegue se organizar?\par}
+\vspace{5pt}
+
+Nos Estados Unidos, educação e transportes combinam demanda sensível à renda e trabalhadores muito mais sindicalizados que os da manufatura. Finanças, alojamento e alimentação também ganham parcela do orçamento quando as famílias enriquecem, mas têm poucos filiados. Entre os 14 ramos, a correlação de postos entre elasticidade de gasto e filiação é \(-0{,}34\) em 2012. No modelo, a passagem da manufatura para a educação pode inverter a decisão sobre restringir eleições. O resultado depende de como o gasto educacional se converte em empregos e de quanto a cobertura sindical aumenta o poder desses trabalhadores.
+
+\begin{center}
+\includegraphics[width=\linewidth]{figures/elasticidade_sindical_servicos.pdf}
+\captionof{figure}{Elasticidade de gasto e filiação sindical em 14 serviços dos Estados Unidos. Cada ponto é um ramo. À direita de 1, seu gasto cresce mais que o orçamento familiar. Acima da linha horizontal, a filiação em 2012 supera a da manufatura.}
+\end{center}
+
+\subtitulo{O que foi comparado}
+Hubmer estima elasticidades de gasto das famílias americanas usando a \emph{Consumer Expenditure Survey}. A tabela publicada agrega os resultados por ramo e apresenta médias de 1982--2012. Uma elasticidade de \(1{,}68\), por exemplo, indica que 1\% a mais de gasto total está associado, localmente e a preços constantes, a cerca de 1,68\% a mais no ramo. O artigo investiga a participação do trabalho na renda. A associação com organização sindical é calculada aqui. \hubmer.
+
+A \emph{Current Population Survey} identifica separadamente assalariados que são filiados a um sindicato e assalariados cobertos por representação sindical. As taxas incluem empregadores públicos e privados. O ano principal, 2012, coincide com o fim do período das estimativas de gasto. Repetimos o pareamento com filiação, cobertura e emprego de 2015 e 2025. As elasticidades de gasto são as mesmas nas três comparações. Para as tabelas desta nota, recuperamos os pesos e as elasticidades antes do arredondamento a partir dos dados do autor. \unionstats{} e \href{https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA18580}{material de replicação de Hubmer.}
+
+\newpage
+\titulo{1\quad Onde a associação aparece}
+\begin{center}
+\captionof{table}{Associação entre a elasticidade de gasto e a fração dos assalariados filiados, nos mesmos 14 ramos dos EUA.}
+\small\renewcommand{\arraystretch}{1.16}
+\begin{tabular}{@{}lrrr@{}}\toprule
+Como cada ramo entra na comparação & 2012 & 2015 & 2025 \\\midrule
+Um voto por ramo, correlação de postos & \(-0{,}336\) & \(-0{,}393\) & \(-0{,}429\) \\
+Peso no emprego, correlação de Pearson & \(-0{,}048\) & \(-0{,}027\) & \(-0{,}042\) \\
+Peso no gasto de consumo, correlação de Pearson & \(-0{,}016\) & \(+0{,}019\) & \(-0{,}002\) \\\bottomrule
+\end{tabular}
+\end{center}
+Retirando um ramo por vez, a correlação de postos de 2012 vai de \(-0{,}49\) a \(-0{,}17\). Usar cobertura por acordo no lugar de filiação também dá uma correlação negativa (\(-0{,}35\)). Quando damos mais peso aos ramos que empregam mais gente ou recebem mais gasto, a associação fica próxima de zero. Os coeficientes descrevem os ramos pareados e suas estimativas pontuais. A tabela não atribui a eles a precisão de uma amostra aleatória de indústrias.
+
+Há uma leitura direta do resultado ponderado por gasto. Para cada dólar de consumo adicional, os ramos ganham parcelas proporcionais a \(w_j\gamma_j\), onde \(w_j\) é seu peso no consumo e \(\gamma_j\) sua elasticidade. Usando os pesos médios de gasto de 1982--2012 e a filiação de 2012, a taxa de filiação associada aos destinos desse dólar ficou apenas \textbf{0,03 ponto percentual abaixo} da taxa associada ao dólar médio. O cálculo é restrito aos serviços pareados e mantém preços e taxas sindicais fixos. Para saber quem ganha um \emph{emprego}, seria preciso ainda saber quantas horas de trabalho cada dólar de demanda requer.
+
+\subtitulo{O emprego público muda a interpretação da educação}
+Em 2012, 31,7\% dos assalariados em educação eram sindicalizados. Nos estabelecimentos privados, a taxa cai para 12,4\%. Na saúde e assistência, as respectivas taxas eram 9,1\% e 7,0\%. Na manufatura privada, a taxa era 9,6\%. Uma hipótese em que mais renda cria postos nas escolas públicas requer um mecanismo fiscal ou orçamentário. Na saúde, o desembolso das famílias tem peso de 3,2\% na pesquisa de gasto, diante de 17,2\% nas contas de consumo pessoal, que incluem financiamento por terceiros. \blsdoze{} e \hubmer.
+
+Essa distinção se liga ao argumento de Iversen e Wren. Em democracias avançadas, a expansão do emprego em serviços pode se dar por provisão pública financiada com impostos ou por contratação privada, sob diferentes restrições distributivas e salariais. No nosso problema, esses caminhos também mudam quais trabalhadores adquirem capacidade de organização. \href{https://doi.org/10.1017/S0043887100007358}{Iversen e Wren (1998).}
+
+\subtitulo{O que a sindicalização deixa de captar}
+Em 2025, alojamento e alimentação liderou em \emph{número de paralisações} no levantamento de Cornell e Illinois. Foram em geral ações curtas, com poucos participantes. Saúde e assistência liderou em trabalhadores envolvidos e em dias de greve. São contagens que também dependem do tamanho de cada ramo. Elas mostram por que duas medidas de organização podem ordenar os mesmos ramos de modos diferentes. \cornell.
+
+Existe evidência política para a direção de um dos elos. Frymer, Grumbach e Hill estimam queda na qualidade da democracia eleitoral nos estados americanos que adotaram leis de \emph{right to work}, que restringem o financiamento sindical. A unidade é o estado e o tratamento é uma mudança legal. O estudo sustenta a relevância política dos sindicatos, mas não fornece a magnitude do poder de um professor, caixa de supermercado ou enfermeira em uma disputa sobre regras eleitorais. \href{https://doi.org/10.1017/S1537592724001427}{Frymer, Grumbach e Hill, \emph{Perspectives on Politics}.}
+
+\newpage
+\titulo{2\quad O que precisa cruzar no modelo}
+Partimos de uma democracia. Um governante ganha \(G>0\) ao restringir as eleições. Uma federação atribui valor \(V>0\) a preservá-las. Cada trabalhador do setor \(j\) pode produzir \(d_j\) unidades de oposição por unidade de esforço, que custa \(c_je^2/2\). A capacidade de oposição por trabalhador é \(b_j=d_j^2/c_j\). Somada sobre o emprego setorial, ela determina o custo mínimo de dissuadir o governante. Para uma parcela \(s\) dos trabalhadores no serviço \(S\), a federação consegue dissuadi-lo se
+\[
+ M=(1-s)b_A+s b_S > \tau,\qquad \tau=G^2/(2V).
+\]
+O mesmo choque de IA reduz o trabalho necessário por unidade no setor \(A\) pela fração \(a\). Supomos que ele também reduza a dependência do governante em relação aos trabalhadores que ali permanecem, de modo que \(b_A(a)=(1-\rho a)^2\), normalizado \(b_A(0)=1\). Em \(H\), com demanda homotética, a renda adicional é gasta nas mesmas proporções a preços constantes. Em \(N\), com demanda não homotética, as elasticidades variam entre os setores. As duas economias começam com o mesmo emprego e enfrentam os mesmos preços e instituições. A \textbf{inversão institucional direta} exige, estritamente,
+\[
+ M_H(a)<\tau<\min\{M_0,M_N(a)\}.
+\]
+Assim, as eleições se sustentam inicialmente, o governante as restringe em \(H\) e preserva em \(N\). A \textbf{inversão local de sinal} exige \(M'_H(0)<0<M'_N(0)\). É possível preservar as eleições mesmo perdendo alguma capacidade, desde que ela permaneça acima de \(\tau\). A inversão local pode também ocorrer longe do limiar, sem mudar a decisão sobre as eleições.
+
+\subtitulo{O que entra da evidência}
+Tomamos a filiação ou a cobertura do setor, \(u_j\), como indicador observável de organização. Testamos \(b_S/b_A(0)=(u_S/u_A)^k\), com \(k=1\) e \(k=2\). O primeiro caso torna a capacidade proporcional à taxa. O segundo corresponde a eficácia \(d_j\) proporcional à taxa e custos de coordenação iguais. Essas são duas hipóteses sobre como converter organização em poder. Os dados de filiação, por si, admitem outras conversões. Mantemos \(\rho=0{,}50\) e \(\tau=20/9\) do esboço.
+
+Para comparar dois ramos concretos, sejam \(\gamma_A\) e \(\gamma_S\) as elasticidades publicadas para a cesta inteira. Se \(s_0\) é a parcela inicial de \(S\) no par, o gasto do par cresce com elasticidade \((1-s_0)\gamma_A+s_0\gamma_S\). Logo a elasticidade de \(S\) em relação ao \emph{suborçamento do par}, ao longo da mesma variação de renda, é
+\[
+ \xi_{S\mid A,S}=\frac{\gamma_S}{(1-s_0)\gamma_A+s_0\gamma_S}.
+\]
+Trata-se de uma aproximação local para a economia de dois setores. Usamos tanto a parcela dos assalariados do par, sob a premissa do esboço de que gasto e emprego coincidem, quanto a parcela de gasto das contas de consumo pessoal. Assim, educação (\(1{,}429\)) ganha peso em relação à manufatura (\(0{,}731\)), mas perde peso em relação a finanças (\(1{,}659\)) quando a renda cresce a preços fixos. A escolha do setor exposto à IA altera a direção do canal.
+
+Na demanda com elasticidade de substituição constante entre os dois setores, fixamos \(\eta=1\) em \(H\). Em \(N\), escolhemos \(\eta>0\) tal que \(\xi_{S\mid A,S}=\sigma+(1-\sigma)\eta/(1-s_0+s_0\eta)\). Após o choque, o equilíbrio entre produção e gasto determina \(s\) como a solução de
+\[
+ 1-s=(1-s_0)(1-a)^{1-\sigma}(s/s_0)^{1/\eta}.
+\]
+
+A elasticidade de substituição entre os setores, \(\sigma\), vale 0,60 ou 0,20. Comin, Lashkari e Mestieri estimam 0,57 para três setores na amostra mundial e de 0,17 a 0,23 com habitação separada na amostra dos EUA. Testamos reduções do trabalho por unidade de 36\% e 13,04\%. O segundo valor equivale a produzir 15\% mais por hora, como no estudo de assistência por IA em atendimento ao cliente. Ele fornece uma referência de escala para uma atividade específica. \clm, tabelas III e XI, e \href{https://doi.org/10.1093/qje/qjae044}{Brynjolfsson, Li e Raymond (2025).}
+
+\newpage
+\titulo{3\quad O teste da inversão institucional}
+Usando só as elasticidades observadas e mantendo do esboço \(s_0=0{,}25\) e uma capacidade de oposição por trabalhador seis vezes maior no serviço do que na origem (\(b_S/b_A(0)=6\)), a decisão institucional se inverte em 10 dos 13 ramos compatíveis com essa especificação. O 14º, correios e armazenagem, tem elasticidade abaixo do domínio desse exercício. Ao usar também os contrastes sindicais, as elasticidades dos dois ramos e as parcelas observadas, o resultado muda.
+
+\subtitulo{Manufatura e educação em 2015}
+Com o limiar original \(\tau=2{,}2222\), esse é o único par e ano que produz a inversão direta entre as origens (manufatura ou finanças), os destinos e as conversões sindicais testadas. Na educação, 34,94\% dos assalariados eram cobertos por representação sindical. Na manufatura, 10,11\%. O caso positivo eleva essa razão ao quadrado, o que atribui à educação \(b_S=11{,}95\), e usa a parcela do \emph{gasto} do par, \(s_0=11{,}30\%\). A elasticidade educacional relativa ao orçamento do par é \(1{,}764\). Repetir o cálculo com os valores arredondados para publicação preserva a inversão.
+
+\begin{center}
+\captionof{table}{Capacidade de defesa da competição eleitoral no par manufatura--educação. O governante mantém as regras quando a capacidade supera \(2{,}2222\).}
+\small\renewcommand{\arraystretch}{1.16}\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrl@{}}\toprule
+Choque e hipótese & Antes & Após, \(H\) & Após, \(N\) & Decisão após o choque\\\midrule
+13,04\%, parcela no gasto & 2,238 & 2,189 & 2,314 & Só \(N\) preserva\\
+36\%, parcela no gasto & 2,238 & 2,163 & 2,614 & Só \(N\) preserva\\
+13,04\%, parcela no emprego & 6,228 & 6,317 & 6,444 & Ambos preservam\\
+13,04\%, gasto e novos postos privados & 2,238 & 2,135 & 2,153 & Ambos restringem\\\bottomrule
+\end{tabular}
+\end{center}
+{\small Cobertura de 2015, conversão quadrática, \(\rho=0{,}50\) e \(\sigma=0{,}60\). As duas elasticidades de gasto são comuns a todas as linhas.}
+
+Com a parcela no \emph{emprego} de 47,74\%, já há trabalhadores organizados em número suficiente para dissuadir o governante nos dois cenários. Com \(\sigma=0{,}20\) e o peso de gasto, o efeito de preços já preserva a competição em ambos. Com filiação ao quadrado ou cobertura linear e o peso de gasto, a dissuasão inicial já falha. Na especificação que cruza, a capacidade inicial supera o limiar por apenas 0,69\% de seu valor. Os pontos estimados de gasto e organização não incorporam incerteza amostral neste exercício.
+
+\subtitulo{Quantos dos recém-contratados precisam de cobertura sindical?}
+Mantivemos os trabalhadores que já estavam na educação com sua cobertura de 34,94\%. Só aos postos adicionais atribuímos a taxa de 15,8\% observada na educação privada em 2015. A última linha da Tabela 2 mostra que ambos os cenários passam a restringir as eleições. Com o choque menor, a inversão ocorre se a cobertura dos \emph{novos} postos ficar entre 25,84\% e 42,54\%. Abaixo do piso, a mobilização é insuficiente mesmo em \(N\). Acima do teto, já basta em \(H\). Com o choque maior, os limites são 23,32\% e 39,17\%. São exigências do modelo que dados sobre as contratações induzidas pela renda poderiam confrontar. \href{https://www.bls.gov/news.release/archives/union2_01282016.htm}{Bureau of Labor Statistics, 2015, tabela 3.}
+
+\newpage
+\titulo{4\quad Que hipótese política sobrevive ao teste?}
+\subtitulo{Uma segunda forma de obter o resultado}
+Tomemos manufatura e transportes com filiação de 2012, conversão quadrática, peso no emprego e \(a=0{,}36,\ \sigma=0{,}60\). A capacidade parte de 1,973, cai para 1,870 em \(H\) e sobe para 2,094 em \(N\). Qualquer limiar entre 1,870 e 1,973 produz a inversão institucional. A faixa tem amplitude de 5,25\% da capacidade inicial e inclui \(\tau=1{,}949\), que conserva a mesma distância proporcional até o limiar que no esboço. Com o limiar original de 2,222, o par já começa sem capacidade de dissuasão.
+
+Também podemos manter o limiar original e perguntar qual poder político seria necessário \emph{com o emprego observado}. Para manufatura e educação em 2012, usando filiação, \(\sigma=0{,}60\) e o choque menor, há inversão para \(1{,}074<k<1{,}088\), com limites arredondados. O intervalo situa-se entre as duas conversões que testamos. A literatura consultada não fornece uma estimativa independente de \(k\) com que decidir se o par está nessa faixa.
+
+O modelo admite também a direção inversa. Em 2015, com origem na manufatura e destino em correios, entregas e armazenagem, a filiação é alta no destino, mas sua demanda cresce menos com a renda que a da origem. Com a parcela no emprego, filiação ao quadrado, \(\sigma=0{,}60\) e \(a=0{,}36\), a capacidade é 2,34 em \(H\) e 2,19 em \(N\), para o mesmo limiar de 2,22. Aqui, o efeito-renda reduz a realocação para os trabalhadores mais organizados e facilita a restrição eleitoral.
+
+\subtitulo{O que a literatura já sustenta}
+Comin, Lashkari e Mestieri atribuem aos efeitos de renda mais de 73\% da realocação do emprego \emph{prevista por seu modelo} dentro dos países. Na extensão de dez setores, o maior parâmetro de não homoteticidade aparece em finanças, seguros e imóveis. Esse parâmetro expressa uma ordenação da demanda e difere da elasticidade observável de gasto. Comin, Danieli e Mestieri também mostram que a demanda induzida pela renda favorece tanto ocupações de alta qualificação quanto de baixa qualificação. O destino social dos trabalhadores varia mesmo entre os serviços que ganham peso. \clm, pp.~314 e 372, e \href{https://cepr.org/publications/dp21573}{Comin, Danieli e Mestieri (2026).}
+
+No Brasil, em 2024, a associação sindical atingia 15,5\% dos ocupados no grupamento de administração pública, defesa, seguridade, educação, saúde e serviços sociais, e 4,2\% em alojamento e alimentação. A PNAD Contínua inclui ocupados por conta própria. Repetir o teste no país requer elasticidades brasileiras em categorias comparáveis. \href{https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/855a3629fa899131c4a14da82bbda8b0.pdf}{IBGE, PNAD Contínua.}
+
+\subtitulo{A previsão que se pode confrontar com dados}
+A demanda induzida pela renda protege a competição quando cria empregos em que os trabalhadores ganham influência suficiente para compensar as perdas políticas da automação. O emprego adicional pode ser estimado a partir da demanda por produto, dos insumos intermediários e das horas por unidade produzida. Nos serviços públicos entra também o orçamento do governo. Para a etapa política faltam estimativas independentes das concessões que os trabalhadores conseguem obter por meio da mobilização e de quanto a IA reduz a dependência do governante em relação a eles. Os dados localizam casos plausíveis e quantificam essas exigências. \href{https://doi.org/10.1353/wp.2024.a933069}{Van Noort (2024)} e \href{https://doi.org/10.1017/S1537592724001427}{Frymer, Grumbach e Hill.}
+
+\vfill
+{\footnotesize Fontes consultadas em 23/11/2026. Os dados originais, as tabelas de cálculo e a revisão independente acompanham esta nota no repositório do projeto.}
+\end{document}
